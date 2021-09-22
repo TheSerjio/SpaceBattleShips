@@ -276,32 +276,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.12278774
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.12278774
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.6963643
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.6963643
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3453765ceb6e05e4cae77cfaaeaf3228, type: 2}
     - target: {fileID: 919132149155446097, guid: 0af71bb88917438419c532a91e42bf60, type: 3}
       propertyPath: m_Name
       value: Terra
