@@ -10,6 +10,7 @@ public abstract class Ship : BaseEntity
     public float lentghOfTrails;
     public float MaxHealth;
     public float Health { get; private set; }
+    private ShipWeapon[] weapons;
 
     [ContextMenu("Add trails")]
     public void AddTrails()
@@ -42,6 +43,14 @@ public abstract class Ship : BaseEntity
                 break;
             }
         }
+    }
+
+    public void Fire()
+    {
+        if (weapons == null)
+            weapons = GetComponentsInChildren<ShipWeapon>();
+        foreach (var q in weapons)
+            q.Fire();
     }
 
     public void Update()

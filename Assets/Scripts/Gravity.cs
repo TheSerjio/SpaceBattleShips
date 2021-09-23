@@ -22,7 +22,6 @@ public class Gravity : MonoBehaviour
             {
                 var dir = pos - rb.position;
                 rb.velocity += Time.deltaTime * Mass * dir.normalized / dir.sqrMagnitude;
-                Debug.Log(dir);
             }
             else
             {

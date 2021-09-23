@@ -18,8 +18,10 @@ public abstract class ShipWeapon : MonoBehaviour
 
     public void Fire()
     {
-        if (CoolDown <= 0) {
+        if (CoolDown <= 0)
+        {
             CoolDown = ReloadTime;
+            DoFire();
         }
     }
 

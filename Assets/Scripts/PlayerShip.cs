@@ -11,28 +11,27 @@ public sealed class PlayerShip : Ship
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    private float GetAxis(string name)
-    {
-        var q = Input.GetAxis(name) * MouseSensitivity;
-        return Time.deltaTime * q / (Mathf.Abs(q) + 1);
-    }
-
     public override void OnUpdate()
     {
-        transform.Rotate(-GetAxis("Mouse Y") * rotationSpeed, GetAxis("Mouse X") * rotationSpeed, -Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, Space.Self);
+        float z = 0;
+        if (Input.GetKey(KeyCode.Q))
+            z++;
+        if (Input.GetKey(KeyCode.E))
+            z--;
 
-        var vert = Input.GetAxis("Vertical");
-
-        RB.velocity += vert * speed * Time.deltaTime * transform.forward;
-
-        ConfigureTrails(vert != 0);
+        transform.Rotate(-Input.GetAxis("Vertical") * Time.deltaTime * rotationSpeed, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, z * Time.deltaTime * rotationSpeed, Space.Self);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            RB.velocity += speed * Time.deltaTime * transform.forward;
+            ConfigureTrails(true);
+        }
+        else
+            ConfigureTrails(false);
 
         if (Input.GetKey(KeyCode.Z))
             RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.Q))
-            LookAt(RB.position + RB.velocity);
-        if (Input.GetKey(KeyCode.E))
-            LookAt(RB.position - RB.velocity);
+        if (Input.GetKey(KeyCode.Space))
+            Fire();
     }
 
     public override void OnDestroy() { }
