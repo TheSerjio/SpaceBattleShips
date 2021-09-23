@@ -2665,6 +2665,8 @@
         "m_GuidSerialized": "2f40749d-b5e8-4f0a-9409-18e0b4514578"
     },
     "m_Name": "Frequency",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_030f7a32afc54bee9c24bcfed95d31be",
     "m_OverrideReferenceName": "_Frequency",
     "m_GeneratePropertyBlock": true,
@@ -3337,6 +3339,8 @@
         "m_GuidSerialized": "ec20a5ec-687d-4201-89f6-802c7c3f1e0c"
     },
     "m_Name": "Start Frequency",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_131aab174c304aaba88cbc40f00f1540",
     "m_OverrideReferenceName": "_StartFrequency",
     "m_GeneratePropertyBlock": true,
@@ -4036,6 +4040,8 @@
         "m_GuidSerialized": "03655ff1-f0fe-4c4b-8e28-0b6fa4344d80"
     },
     "m_Name": "Opacity",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_27fbc941ca5946a893236729824c4f84",
     "m_OverrideReferenceName": "_Opacity",
     "m_GeneratePropertyBlock": true,
@@ -6007,6 +6013,8 @@
         "m_GuidSerialized": "388ddd17-b3c3-48fb-b39f-7dddd59afb41"
     },
     "m_Name": "Use black",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Boolean_4e61a7b7c0df4651b40f7ad76f76b36f",
     "m_OverrideReferenceName": "_Useblack",
     "m_GeneratePropertyBlock": true,
@@ -10455,6 +10463,8 @@
         "m_GuidSerialized": "440f2e5b-149c-484c-9043-b81b1105a06a"
     },
     "m_Name": "Emission",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_9612d4eb4c2d40738c47f8f452a626c4",
     "m_OverrideReferenceName": "_Emission",
     "m_GeneratePropertyBlock": true,
@@ -10705,6 +10715,8 @@
         "m_GuidSerialized": "7f5b0fbd-ff18-4aff-972e-8933bf353a40"
     },
     "m_Name": "Amplitude",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Vector1_9b8282b856ac49f68ade8b4d6cc11693",
     "m_OverrideReferenceName": "_Amplitude",
     "m_GeneratePropertyBlock": true,
@@ -11991,6 +12003,8 @@
         "m_GuidSerialized": "caa6dcce-8c21-4c85-bbf8-3b1336fb4779"
     },
     "m_Name": "Depth power",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "",
     "m_OverrideReferenceName": "_Depthpower",
     "m_GeneratePropertyBlock": true,
@@ -12466,6 +12480,8 @@
         "m_GuidSerialized": "d83869ff-5dca-48b0-936d-de5b3aaa5404"
     },
     "m_Name": "Color",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Color_b632fb2d2cbf416fa3952ddd88d220ec",
     "m_OverrideReferenceName": "_Color",
     "m_GeneratePropertyBlock": true,
@@ -13561,6 +13577,8 @@
         "m_GuidSerialized": "ed55e03a-7fe5-4825-8970-b21e189bc796"
     },
     "m_Name": "MainTex",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Texture2D_c50f46c4f68d43ed9d3c08f0a02d52ee",
     "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
@@ -15111,6 +15129,8 @@
         "m_GuidSerialized": "469e7d97-fe7a-44e8-bf89-d8fa74c45828"
     },
     "m_Name": "Use depth?",
+    "m_DefaultRefNameVersion": 0,
+    "m_RefNameGeneratedByDisplayName": "",
     "m_DefaultReferenceName": "Boolean_de854b79899a4963b9a1226a3a9e6b3b",
     "m_OverrideReferenceName": "_Usedepth",
     "m_GeneratePropertyBlock": true,

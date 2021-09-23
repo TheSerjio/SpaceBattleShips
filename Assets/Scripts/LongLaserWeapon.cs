@@ -5,15 +5,18 @@ public class LongLaserWeapon : ShipWeapon
 {
     private LineRenderer lr;
 
+    private float q;
+
     public void Start()
     {
         lr = GetComponent<LineRenderer>();
         lr.useWorldSpace = true;
+        q = lr.widthMultiplier;
     }
 
     protected override void DoFire()
     {
-        lr.widthMultiplier = 1;
+        lr.widthMultiplier = q;
         lr.positionCount = 2;
         if (Physics.Raycast(transform.position, transform.forward, out var hit))
         {
