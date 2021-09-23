@@ -1,24 +1,23 @@
 using UnityEngine;
 
-public class PlayerShip : Ship
+public sealed class PlayerShip : Ship
 {
     public override bool IsPlayerControlled => true;
 
-    public void Start()
+    public override void OnStart()
     {
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    private float getAxis(string name)
+    private float GetAxis(string name)
     {
         var q = Input.GetAxis(name);
         return Time.deltaTime * q / (Mathf.Abs(q) + 1);
     }
 
-    public void Update()
+    public override void OnUpdate()
     {
-        //Input.GetAxis is already multiplied by delta
-        transform.Rotate(-getAxis("Mouse Y") * rotationSpeed, getAxis("Mouse X") * rotationSpeed, -getAxis("Horizontal") * rotationSpeed, Space.Self);
+        transform.Rotate(-GetAxis("Mouse Y") * rotationSpeed, GetAxis("Mouse X") * rotationSpeed, -Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, Space.Self);
         RB.velocity += Input.GetAxis("Vertical") * speed * Time.deltaTime * transform.forward;
 
         if (Input.GetKey(KeyCode.Z))
