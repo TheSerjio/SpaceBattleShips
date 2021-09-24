@@ -35,10 +35,11 @@ Material:
     m_Floats:
     - Power: 1
     - Power2: 1
-    - Scale: 1
+    - Scale: 2000
     - Scalle: 100
-    - Speed: 0.01
+    - Speed: 0.005
+    - tau: 12.566371
     m_Colors:
-    - Color1: {r: 1, g: 1, b: 0, a: 0}
-    - Color2: {r: 1, g: 0.49803922, b: 0, a: 0}
+    - Color1: {r: 1, g: 0.49803922, b: 0, a: 0}
+    - Color2: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

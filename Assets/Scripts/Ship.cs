@@ -25,6 +25,11 @@ public abstract class Ship : BaseEntity
             Destroy(gameObject);
     }
 
+    protected void Brake()
+    {
+        RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
+    }
+
     public void ConfigureTrails(bool emit)
     {
 

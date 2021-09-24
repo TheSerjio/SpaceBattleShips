@@ -15,4 +15,5 @@ public class Projectile : BaseEntity
     {
         var q = other.GetComponentInParent<BaseEntity>();
     }
+    public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);
 }

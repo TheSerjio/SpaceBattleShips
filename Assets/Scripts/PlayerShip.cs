@@ -6,6 +6,8 @@ public sealed class PlayerShip : Ship
 
     public float MouseSensitivity;
 
+    private bool autoBrake;
+
     public override void OnStart()
     {
         Cursor.lockState = CursorLockMode.Confined;
@@ -26,10 +28,26 @@ public sealed class PlayerShip : Ship
             ConfigureTrails(true);
         }
         else
+        {
+            if (autoBrake)
+                Brake();
             ConfigureTrails(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+            autoBrake = !autoBrake;
 
         if (Input.GetKey(KeyCode.Z))
-            RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
+            Brake();
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (Input.GetKey(KeyCode.Alpha1))
+                LookAt(RB.position + RB.velocity);
+            if (Input.GetKey(KeyCode.Alpha2))
+                LookAt(RB.position - RB.velocity);
+            if (Input.GetKey(KeyCode.Alpha1))
+                LookAt(RB.position + RB.velocity);
+        }
         if (Input.GetKey(KeyCode.Space))
             Fire();
     }
