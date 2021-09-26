@@ -23,6 +23,7 @@ public abstract class Ship : BaseEntity
 
     public override void OnDamaged(float dmg)
     {
+        Debug.Log($"{name} got {dmg} damage");
         Health -= dmg;
         if (Health <= 0)
             Destroy(gameObject);
@@ -60,6 +61,7 @@ public abstract class Ship : BaseEntity
     public void Start()
     {
         OnStart();
+        Health = MaxHealth;
     }
 
     public abstract void OnStart();
@@ -92,5 +94,4 @@ public abstract class Ship : BaseEntity
         e.z = z;
         transform.eulerAngles = e;
     }
-
 }
