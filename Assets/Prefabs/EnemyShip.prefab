@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ReloadTime: 0.01
   Projectile: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
-  bulletLifeTime: 30
+  bulletLifeTime: 10
   bulletSpeed: 10
 --- !u!1 &2058199985271724009
 GameObject:
@@ -357,9 +357,12 @@ MonoBehaviour:
   rotationSpeed: 90
   speed: 5
   MaxHealth: 10
+  weapons:
+  - {fileID: 2058199984457396272}
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
+  mainWeapon: {fileID: 0}
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

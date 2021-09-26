@@ -8,8 +8,8 @@ public abstract class Ship : BaseEntity
     private Transform Eye;
     public float MaxHealth;
     public float Health { get; private set; }
-    private ShipWeapon[] weapons;
-    public ShipTrail[] trails;
+    [SerializeField] private ShipWeapon[] weapons;
+    [SerializeField] private ShipTrail[] trails;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -27,6 +27,14 @@ public abstract class Ship : BaseEntity
         Health -= dmg;
         if (Health <= 0)
             Destroy(gameObject);
+    }
+
+    protected T GetWeapon<T>() where T : ShipWeapon
+    {
+        foreach (var q in weapons)
+            if (q is T t)
+                return t;
+        return null;
     }
 
     protected void Brake()
