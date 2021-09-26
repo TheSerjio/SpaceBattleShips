@@ -23,12 +23,16 @@ public sealed class PlayerShip : Ship
 
         transform.Rotate(-Input.GetAxis("Vertical") * Time.deltaTime * rotationSpeed, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, z * Time.deltaTime * rotationSpeed, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))
-
+        {
+            ConfigTrails(1);
             RB.velocity += speed * Time.deltaTime * transform.forward;
-
-        else if (autoBrake)
-            Brake();
-
+        }
+        else
+        {
+            ConfigTrails(0);
+            if (autoBrake)
+                Brake();
+        }
         if (Input.GetKeyDown(KeyCode.Tab))
             autoBrake = !autoBrake;
 

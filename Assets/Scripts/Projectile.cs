@@ -14,6 +14,7 @@ public class Projectile : BaseEntity
     public void OnTriggerEnter(Collider other)
     {
         var q = other.GetComponentInParent<BaseEntity>();
+        Destroy(gameObject);
     }
     public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);
 }

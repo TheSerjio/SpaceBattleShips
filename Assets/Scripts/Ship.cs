@@ -41,14 +41,17 @@ public abstract class Ship : BaseEntity
             q.Fire();
     }
 
-    public void Update()
+    protected void ConfigTrails(float power)
     {
         float q = 2.125f;
         float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
-        var mag = RB.velocity.magnitude;
+        float mag = RB.velocity.magnitude;
         for (int i = 0; i < trails.Length; i++)
-            trails[i].SetTrailLent(L, mag);
+            trails[i].SetTrailLent(L, mag * power);
+    }
 
+    public void Update()
+    {
         OnUpdate();
     }
 
