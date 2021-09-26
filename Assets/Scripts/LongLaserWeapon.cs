@@ -21,12 +21,10 @@ public class LongLaserWeapon : ShipWeapon
         if (Physics.Raycast(transform.position, transform.forward, out var hit))
         {
             lr.SetPositions(new Vector3[] { transform.position, hit.point });
-            Debug.Log("yep");
         }
         else
         {
             lr.SetPositions(new Vector3[] { transform.position, transform.position + (transform.forward * ushort.MaxValue) });
-            Debug.Log("fail");
         }
     }
 

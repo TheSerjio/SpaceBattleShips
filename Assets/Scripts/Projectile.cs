@@ -9,7 +9,7 @@ public class Projectile : BaseEntity
         Destroy();
     }
 
-    public override void OnDestroy() { }
+    public override void WhenDestroy() { }
 
     public void OnTriggerEnter(Collider other)
     {

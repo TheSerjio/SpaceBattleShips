@@ -48,5 +48,5 @@ public sealed class PlayerShip : Ship
             Fire();
     }
 
-    public override void OnDestroy() { }
+    public override void WhenDestroy() { }
 }

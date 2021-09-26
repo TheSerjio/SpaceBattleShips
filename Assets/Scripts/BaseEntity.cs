@@ -19,9 +19,9 @@ public abstract class BaseEntity : MonoBehaviour
 
     public void Destroy()
     {
-        OnDestroy();
+        WhenDestroy();
         Destroy(gameObject);
     }
 
-    public abstract void OnDestroy();
+    public abstract void WhenDestroy();
 }
