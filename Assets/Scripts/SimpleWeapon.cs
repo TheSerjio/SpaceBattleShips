@@ -11,12 +11,14 @@ public sealed class SimpleWeapon : ShipWeapon
     protected override void DoFire()
     {
         var q = Instantiate(Projectile);
-        q.transform.position = transform.position + transform.forward;
-        q.transform.rotation = transform.rotation;
+        q.transform.SetPositionAndRotation(transform.position + transform.forward, transform.rotation);
         var p = q.GetComponent<Projectile>();
         p.team = Parent.team;
         Destroy(q, bulletLifeTime);
         var rb = q.GetComponent<Rigidbody>();
         rb.velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);
+        var trail = q.GetComponent<TrailRenderer>();
+        if (trail)
+            trail.AddPosition(transform.position);
     }
 }

@@ -6,17 +6,20 @@ public abstract class Ship : BaseEntity
     public float speed;
     public abstract bool IsPlayerControlled { get; }
     private Transform Eye;
-    public TrailRenderer[] trails;
-    public float lentghOfTrails;
     public float MaxHealth;
     public float Health { get; private set; }
     private ShipWeapon[] weapons;
+    public ShipTrail[] trails;
 
-    [ContextMenu("Add trails")]
-    public void AddTrails()
+#if UNITY_EDITOR
+    [ContextMenu("Magic")]
+    public void Magic()
     {
-        trails = GetComponentsInChildren<TrailRenderer>();
+        weapons = GetComponentsInChildren<ShipWeapon>();
+        trails = GetComponentsInChildren<ShipTrail>();
+        UnityEditor.EditorUtility.SetDirty(this);
     }
+#endif
 
     public override void OnDamaged(float dmg)
     {
@@ -30,26 +33,6 @@ public abstract class Ship : BaseEntity
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
     }
 
-    public void ConfigureTrails(bool emit)
-    {
-
-        for (int i = 0; i < trails.Length; i++)
-        {
-            var it = trails[i];
-            if (it)
-                it.emitting = emit;
-            else
-            {
-                var list = new System.Collections.Generic.List<TrailRenderer>();
-                foreach (var q in trails)
-                    if (q)
-                        list.Add(q);
-                trails = list.ToArray();
-                break;
-            }
-        }
-    }
-
     public void Fire()
     {
         if (weapons == null)
@@ -60,6 +43,12 @@ public abstract class Ship : BaseEntity
 
     public void Update()
     {
+        float q = 2.125f;
+        float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
+        var mag = RB.velocity.magnitude;
+        for (int i = 0; i < trails.Length; i++)
+            trails[i].SetTrailLent(L, mag);
+
         OnUpdate();
     }
 

@@ -23,31 +23,23 @@ public sealed class PlayerShip : Ship
 
         transform.Rotate(-Input.GetAxis("Vertical") * Time.deltaTime * rotationSpeed, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, z * Time.deltaTime * rotationSpeed, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))
-        {
+
             RB.velocity += speed * Time.deltaTime * transform.forward;
-            ConfigureTrails(true);
-        }
-        else
-        {
-            if (autoBrake)
-                Brake();
-            ConfigureTrails(false);
-        }
+
+        else if (autoBrake)
+            Brake();
 
         if (Input.GetKeyDown(KeyCode.Tab))
             autoBrake = !autoBrake;
 
         if (Input.GetKey(KeyCode.Z))
             Brake();
-        if (Input.GetKey(KeyCode.LeftControl))
-        {
-            if (Input.GetKey(KeyCode.Alpha1))
-                LookAt(RB.position + RB.velocity);
-            if (Input.GetKey(KeyCode.Alpha2))
-                LookAt(RB.position - RB.velocity);
-            if (Input.GetKey(KeyCode.Alpha1))
-                LookAt(RB.position + RB.velocity);
-        }
+        if (Input.GetKey(KeyCode.Alpha1))
+            LookAt(RB.position + RB.velocity);
+        if (Input.GetKey(KeyCode.Alpha2))
+            LookAt(RB.position - RB.velocity);
+        if (Input.GetKey(KeyCode.Alpha3))
+            LookAt(Vector3.zero);
         if (Input.GetKey(KeyCode.Space))
             Fire();
     }
