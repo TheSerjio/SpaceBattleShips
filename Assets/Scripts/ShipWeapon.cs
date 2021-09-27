@@ -15,6 +15,10 @@ public abstract class ShipWeapon : MonoBehaviour
     }
     private Ship ship;
 
+    /// <summary>
+    /// 1/bulletSpeed
+    /// </summary>
+    public abstract float AntiSpeed { get; }
 
     public void Fire()
     {

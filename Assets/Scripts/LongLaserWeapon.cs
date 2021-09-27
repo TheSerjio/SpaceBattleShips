@@ -7,6 +7,8 @@ public class LongLaserWeapon : ShipWeapon
 
     private float q;
 
+    public override float AntiSpeed => 0;
+
     public void Start()
     {
         lr = GetComponent<LineRenderer>();

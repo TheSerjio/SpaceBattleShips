@@ -8,6 +8,8 @@ public sealed class SimpleWeapon : ShipWeapon
 
     public float bulletSpeed;
 
+    public override float AntiSpeed => 1 / bulletSpeed;
+
     protected override void DoFire()
     {
         var q = Instantiate(Projectile);

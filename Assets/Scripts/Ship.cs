@@ -4,12 +4,17 @@ public abstract class Ship : BaseEntity
 {
     [Tooltip("Degrees per second")] public float rotationSpeed;
     public float speed;
-    public abstract bool IsPlayerControlled { get; }
-    private Transform Eye;
+    protected Transform EyeA { get; private set; }
+    protected Transform EyeB { get; private set; }
     public float MaxHealth;
     public float Health { get; private set; }
     [SerializeField] private ShipWeapon[] weapons;
     [SerializeField] private ShipTrail[] trails;
+    public bool PlayerControlled;
+    private static bool AutoBrake;
+    public float EnginePower { get; protected set; }
+    public float BrakePower { get; protected set; }
+    public float ShieldPower { get; protected set; }
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -23,10 +28,16 @@ public abstract class Ship : BaseEntity
 
     public override void OnDamaged(float dmg)
     {
-        Debug.Log($"{name} got {dmg} damage");
         Health -= dmg;
         if (Health <= 0)
             Destroy(gameObject);
+        else
+            Debug.Log($"{name}: {Health} health left!");
+    }
+
+    protected void Forward()
+    {
+        RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
     }
 
     protected T GetWeapon<T>() where T : ShipWeapon
@@ -39,7 +50,7 @@ public abstract class Ship : BaseEntity
 
     protected void Brake()
     {
-        RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
+        RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * BrakePower * Time.deltaTime);
     }
 
     public void Fire()
@@ -61,18 +72,44 @@ public abstract class Ship : BaseEntity
 
     public void Update()
     {
-        OnUpdate();
+        if (PlayerControlled)
+            ControlPlayer();
+        else
+            OnUpdate();
     }
 
     public abstract void OnUpdate();
 
+    public abstract void OnStart();
+
+    public abstract void OnFixedUpdate();
+
+    private Transform CreateEye(string q)
+    {
+        var obj = new GameObject(q).transform;
+        obj.parent = transform;
+        obj.localPosition = Vector3.zero;
+        obj.localEulerAngles = Vector3.zero;
+        obj.localScale = Vector3.one;
+        return obj;
+    }
+
     public void Start()
     {
+        EnginePower = 1;
+        BrakePower = 1;
+        ShieldPower = 1;
+        EyeA = CreateEye("eye a");
+        EyeB = CreateEye("eye b");
         OnStart();
         Health = MaxHealth;
     }
 
-    public abstract void OnStart();
+    public void FixedUpdate()
+    {
+        if (!PlayerControlled)
+            OnFixedUpdate();
+    }
 
 #if DEBUG
     public void OnDrawGizmos()
@@ -87,19 +124,41 @@ public abstract class Ship : BaseEntity
 
     protected void LookAt(Vector3 worldPoint)
     {
-        if (Eye == null)
+        transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
+    }
+
+    private void ControlPlayer()
+    {
+        float z = 0;
+        if (Input.GetKey(KeyCode.Q))
+            z++;
+        if (Input.GetKey(KeyCode.E))
+            z--;
+
+        transform.Rotate(-Input.GetAxis("Vertical") * Time.deltaTime * rotationSpeed, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, z * Time.deltaTime * rotationSpeed, Space.Self);
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            Eye = new GameObject("systemEye").transform;
-            Eye.parent = transform;
-            Eye.localEulerAngles = Vector3.zero;
-            Eye.localPosition= Vector3.zero;
-            Eye.localScale = Vector3.one;
+            ConfigTrails(1);
+            Forward();
         }
-        Eye.LookAt(worldPoint);
-        var z = transform.eulerAngles.z;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Eye.rotation, rotationSpeed * Time.deltaTime);
-        var e = transform.eulerAngles;
-        e.z = z;
-        transform.eulerAngles = e;
+        else
+        {
+            ConfigTrails(0);
+            if (AutoBrake)
+                Brake();
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+            AutoBrake = !AutoBrake;
+
+        if (Input.GetKey(KeyCode.Z))
+            Brake();
+        if (Input.GetKey(KeyCode.Alpha1))
+            LookAt(RB.position + RB.velocity);
+        if (Input.GetKey(KeyCode.Alpha2))
+            LookAt(RB.position - RB.velocity);
+        if (Input.GetKey(KeyCode.Alpha3))
+            LookAt(Vector3.zero);
+        if (Input.GetKey(KeyCode.Space))
+            Fire();
     }
 }
