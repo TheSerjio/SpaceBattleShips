@@ -10,8 +10,6 @@ public abstract class Ship : BaseEntity
     public float Health { get; private set; }
     [SerializeField] private ShipWeapon[] weapons;
     [SerializeField] private ShipTrail[] trails;
-    public bool PlayerControlled;
-    private static bool AutoBrake;
     public float EnginePower { get; protected set; }
     public float BrakePower { get; protected set; }
     public float ShieldPower { get; protected set; }
@@ -72,9 +70,6 @@ public abstract class Ship : BaseEntity
 
     public void Update()
     {
-        if (PlayerControlled)
-            ControlPlayer();
-        else
             OnUpdate();
     }
 
@@ -107,7 +102,6 @@ public abstract class Ship : BaseEntity
 
     public void FixedUpdate()
     {
-        if (!PlayerControlled)
             OnFixedUpdate();
     }
 
@@ -125,40 +119,5 @@ public abstract class Ship : BaseEntity
     protected void LookAt(Vector3 worldPoint)
     {
         transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
-    }
-
-    private void ControlPlayer()
-    {
-        float z = 0;
-        if (Input.GetKey(KeyCode.Q))
-            z++;
-        if (Input.GetKey(KeyCode.E))
-            z--;
-
-        transform.Rotate(-Input.GetAxis("Vertical") * Time.deltaTime * rotationSpeed, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, z * Time.deltaTime * rotationSpeed, Space.Self);
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            ConfigTrails(1);
-            Forward();
-        }
-        else
-        {
-            ConfigTrails(0);
-            if (AutoBrake)
-                Brake();
-        }
-        if (Input.GetKeyDown(KeyCode.Tab))
-            AutoBrake = !AutoBrake;
-
-        if (Input.GetKey(KeyCode.Z))
-            Brake();
-        if (Input.GetKey(KeyCode.Alpha1))
-            LookAt(RB.position + RB.velocity);
-        if (Input.GetKey(KeyCode.Alpha2))
-            LookAt(RB.position - RB.velocity);
-        if (Input.GetKey(KeyCode.Alpha3))
-            LookAt(Vector3.zero);
-        if (Input.GetKey(KeyCode.Space))
-            Fire();
     }
 }

@@ -9,6 +9,8 @@ public class LongLaserWeapon : ShipWeapon
 
     public override float AntiSpeed => 0;
 
+    public float damagePerSecond;
+
     public void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -22,6 +24,10 @@ public class LongLaserWeapon : ShipWeapon
         lr.positionCount = 2;
         if (Physics.Raycast(transform.position, transform.forward, out var hit))
         {
+            var obj = hit.collider.gameObject.GetComponentInParent<BaseEntity>();
+            if (obj)
+                if (obj.team != Parent.team)
+                    obj.OnDamaged(damagePerSecond * Time.deltaTime);
             lr.SetPositions(new Vector3[] { transform.position, hit.point });
         }
         else

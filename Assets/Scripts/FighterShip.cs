@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class FighterShip : Ship
 {
-    private Rigidbody target;
+    public Rigidbody target;
 
     public ShipWeapon mainWeapon;
 
@@ -25,7 +25,7 @@ public class FighterShip : Ship
             EyeB.LookAt(RB.position + RB.velocity);
             EyeA.LookAt(EyeA.position + (EyeA.forward * 2 - EyeB.forward));
             float direction = Vector3.Dot(transform.forward, (target.position - transform.position).normalized);
-            BrakePower = 1 - (distance / (distance + 10));
+            BrakePower = EnginePower;
             Brake();
             LookAt(transform.position + EyeA.forward);
                 if (direction > 0.5f)

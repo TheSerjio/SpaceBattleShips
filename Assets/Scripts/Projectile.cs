@@ -15,8 +15,11 @@ public class Projectile : BaseEntity
     {
         var q = other.GetComponentInParent<BaseEntity>();
         if (q)
-            q.OnDamaged(damage);
-        Destroy(gameObject);
+            if (q.team != team)
+            {
+                q.OnDamaged(damage);
+                Destroy(gameObject);
+            }
     }
     public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);
 }
