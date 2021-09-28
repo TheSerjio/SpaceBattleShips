@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 2058199985271724012}
   - component: {fileID: 2058199985271724011}
   - component: {fileID: 2058199985271724010}
+  - component: {fileID: 4094231551408845624}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -354,7 +355,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d36efa52d86e2459146634c5a35313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  target: {fileID: 0}
+  mainWeapon: {fileID: 2058199984457396272}
+--- !u!114 &4094231551408845624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058199985271724009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5242e309e6863f4a90676a1c41a0951, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
   rotationSpeed: 90
   speed: 5
   MaxHealth: 10
@@ -363,8 +378,6 @@ MonoBehaviour:
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
-  target: {fileID: 0}
-  mainWeapon: {fileID: 2058199984457396272}
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,19 @@
 using UnityEngine;
 
-public abstract class Ship : BaseEntity
+public sealed class Ship : BaseEntity
 {
+    private ShipController brain;
     [Tooltip("Degrees per second")] public float rotationSpeed;
     public float speed;
-    protected Transform EyeA { get; private set; }
-    protected Transform EyeB { get; private set; }
+    public Transform EyeA { get;private set; }
+    public Transform EyeB { get;private set; }
     public float MaxHealth;
     public float Health { get; private set; }
     [SerializeField] private ShipWeapon[] weapons;
     [SerializeField] private ShipTrail[] trails;
-    public float EnginePower { get; protected set; }
-    public float BrakePower { get; protected set; }
-    public float ShieldPower { get; protected set; }
+    public float EnginePower { get;  set; }
+    public float BrakePower { get;  set; }
+    public float ShieldPower { get;  set; }
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -33,12 +34,12 @@ public abstract class Ship : BaseEntity
             Debug.Log($"{name}: {Health} health left!");
     }
 
-    protected void Forward()
+    public void Forward()
     {
         RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
     }
 
-    protected T GetWeapon<T>() where T : ShipWeapon
+    public T GetWeapon<T>() where T : ShipWeapon
     {
         foreach (var q in weapons)
             if (q is T t)
@@ -46,7 +47,7 @@ public abstract class Ship : BaseEntity
         return null;
     }
 
-    protected void Brake()
+    public void Brake()
     {
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * BrakePower * Time.deltaTime);
     }
@@ -59,7 +60,7 @@ public abstract class Ship : BaseEntity
             q.Fire();
     }
 
-    protected void ConfigTrails(float power)
+    public void ConfigTrails(float power)
     {
         float q = 2.125f;
         float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
@@ -67,17 +68,6 @@ public abstract class Ship : BaseEntity
         for (int i = 0; i < trails.Length; i++)
             trails[i].SetTrailLent(L, mag * power);
     }
-
-    public void Update()
-    {
-            OnUpdate();
-    }
-
-    public abstract void OnUpdate();
-
-    public abstract void OnStart();
-
-    public abstract void OnFixedUpdate();
 
     private Transform CreateEye(string q)
     {
@@ -96,13 +86,8 @@ public abstract class Ship : BaseEntity
         ShieldPower = 1;
         EyeA = CreateEye("eye a");
         EyeB = CreateEye("eye b");
-        OnStart();
         Health = MaxHealth;
-    }
-
-    public void FixedUpdate()
-    {
-            OnFixedUpdate();
+        brain = GetComponent<ShipController>();
     }
 
 #if DEBUG
@@ -116,8 +101,13 @@ public abstract class Ship : BaseEntity
     }
 #endif
 
-    protected void LookAt(Vector3 worldPoint)
+    public void LookAt(Vector3 worldPoint)
     {
         transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
+    }
+
+    public override void WhenDestroy()
+    {
+        //TODO
     }
 }

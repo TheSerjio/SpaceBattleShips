@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public sealed class PlayerShip : Ship
+public sealed class PlayerShip : ShipController
 {
     public bool AutoBrake;
     public float MouseSense;
-    public override void OnFixedUpdate() { }
-    public override void OnStart() { }
 
-    public override void OnUpdate()
+    public void Update()
     {
         Vector3 rotation = Vector3.back * Input.GetAxis("Horizontal");
         if (Input.GetMouseButton(1))
@@ -18,32 +16,31 @@ public sealed class PlayerShip : Ship
             pos = pos * MouseSense / size;
             rotation += new Vector3(-pos.y / (Mathf.Abs(pos.y) + 1), pos.x / (Mathf.Abs(pos.x) + 1));
         }
-        transform.Rotate(rotationSpeed * Time.deltaTime * rotation, Space.Self);
+        if (rotation != Vector3.zero)
+            transform.Rotate(ship.rotationSpeed * Time.deltaTime * rotation, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            ConfigTrails(1);
-            Forward();
+            ship.ConfigTrails(1);
+            ship.Forward();
         }
         else
         {
-            ConfigTrails(0);
+            ship.ConfigTrails(0);
             if (AutoBrake)
-                Brake();
+                ship.Brake();
         }
         if (Input.GetKeyDown(KeyCode.Tab))
             AutoBrake = !AutoBrake;
 
         if (Input.GetKey(KeyCode.Z))
-            Brake();
+            ship.Brake();
         if (Input.GetKey(KeyCode.Alpha1))
-            LookAt(RB.position + RB.velocity);
+            ship.LookAt(RB.position + RB.velocity);
         if (Input.GetKey(KeyCode.Alpha2))
-            LookAt(RB.position - RB.velocity);
+            ship.LookAt(RB.position - RB.velocity);
         if (Input.GetKey(KeyCode.Alpha3))
-            LookAt(Vector3.zero);
+            ship.LookAt(Vector3.zero);
         if (Input.GetKey(KeyCode.Space))
-            Fire();
+            ship.Fire();
     }
-
-    public override void WhenDestroy() { }
 }

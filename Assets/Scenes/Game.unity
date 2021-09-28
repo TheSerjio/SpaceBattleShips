@@ -1955,6 +1955,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3037400723036222544, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037400723036222544, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
+      propertyPath: weapons.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037400723036222544, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3939391291606161747, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
       propertyPath: m_Name
       value: Ship2 (1)
@@ -1965,7 +1977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3939391291606161750, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11000
+      value: 10500
       objectReference: {fileID: 0}
     - target: {fileID: 3939391291606161750, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2003,14 +2015,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6655380596833669391, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-      propertyPath: damagePerSecond
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7145739510157320579, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-      propertyPath: damagePerSecond
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3037400723036222544, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
@@ -2019,51 +2023,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3939391291606161747, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
   m_PrefabInstance: {fileID: 892393425}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &892393427 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7689984975464146366, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-  m_PrefabInstance: {fileID: 892393425}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e045ef5545a9540903fd84c7629584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &892393428 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3939391292371521494, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-  m_PrefabInstance: {fileID: 892393425}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e045ef5545a9540903fd84c7629584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &892393429 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7145739510157320579, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-  m_PrefabInstance: {fileID: 892393425}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &892393430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6655380596833669391, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-  m_PrefabInstance: {fileID: 892393425}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &892393431
+--- !u!114 &892393429
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2075,18 +2035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1678e8d3d43c038478df0e5f3a2a446c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
-  rotationSpeed: 80
-  speed: 5
-  MaxHealth: 1e+17
-  weapons:
-  - {fileID: 892393430}
-  - {fileID: 892393429}
-  trails:
-  - {fileID: 892393428}
-  - {fileID: 892393427}
   AutoBrake: 0
-  MouseSense: 3
+  MouseSense: 2
 --- !u!4 &892393432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3939391291606161750, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
