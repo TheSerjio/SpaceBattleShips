@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 636f73d285667a7458db1a5b3fff46f6, type: 2}
+  - {fileID: 2100000, guid: 3720b878e6868df4495a317e249c2796, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -315,8 +315,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058199985271724009}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10000, y: 0, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2058199984000862007}
@@ -326,7 +326,7 @@ Transform:
   - {fileID: 3489211680565054328}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2058199985271724011
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -357,6 +357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   mainWeapon: {fileID: 2058199984457396272}
+  SpeedLimit: 20
 --- !u!114 &4094231551408845624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5242e309e6863f4a90676a1c41a0951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
   rotationSpeed: 90
   speed: 5
   MaxHealth: 10
@@ -378,6 +379,12 @@ MonoBehaviour:
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
+  MaxEnergy: 10
+  EnergyRegeneration: 1
+  MaxShield: 10
+  ShieldRegeneration: 1
+  ShieldRender: {fileID: 4095155870148727928}
+  ShieldCollider: {fileID: 7999770157014059747}
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

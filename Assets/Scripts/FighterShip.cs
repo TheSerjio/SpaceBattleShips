@@ -6,6 +6,10 @@ public class FighterShip : ShipController
 
     public ShipWeapon mainWeapon;
 
+    public float SpeedLimit;
+
+    public bool isLaser;
+
     public void FixedUpdate()
     {
         if (target)
@@ -15,20 +19,28 @@ public class FighterShip : ShipController
                 a = mainWeapon.AntiSpeed;
             else
                 mainWeapon = ship.GetWeapon<ShipWeapon>();
-            float distance = Vector3.Distance(target.position, transform.position);
-            Vector3 targetPos = target.position + (a * distance * target.velocity);
-            ship.EyeA.LookAt(targetPos);
-            ship.EyeB.LookAt(RB.position + RB.velocity);
-            ship.EyeA.LookAt(ship.EyeA.position + (ship.EyeA.forward * 2 - ship.EyeB.forward));
-            float direction = Vector3.Dot(transform.forward, (target.position - transform.position).normalized);
-            ship.BrakePower = ship.EnginePower;
-            ship.Brake();
-            ship.LookAt(transform.position + ship.EyeA.forward);
-            if (direction > 0.5f)
+            ship.BrakePower = 0.5f;
+            ship.EnginePower = 1;
+            if (isLaser)
+            {
                 ship.Fire();
-            ship.EnginePower = direction / 4 + 0.5f;
-            ship.Forward();
-            ship.ConfigTrails(1);
+                ship.LookAt(target.position);
+            }
+            else
+            {
+                float distance = Vector3.Distance(target.position, transform.position);
+                Vector3 targetPos = target.position + (a * distance * target.velocity);
+                ship.EyeA.LookAt(targetPos);
+                ship.EyeB.LookAt(RB.position + RB.velocity);
+                ship.EyeA.LookAt(ship.EyeA.position + (ship.EyeA.forward * 2 - ship.EyeB.forward));
+                float direction = Vector3.Dot(transform.forward, (target.position - transform.position).normalized);
+                //ship.Brake();
+                ship.LookAt(transform.position + ship.EyeA.forward);
+                if (direction > 0.5f)
+                    ship.Fire();
+            }
+            if (Vector3.Dot(transform.forward, RB.velocity) < SpeedLimit)
+                ship.Forward();
         }
         else
         {

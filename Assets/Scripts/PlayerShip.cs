@@ -16,19 +16,25 @@ public sealed class PlayerShip : ShipController
             pos = pos * MouseSense / size;
             rotation += new Vector3(-pos.y / (Mathf.Abs(pos.y) + 1), pos.x / (Mathf.Abs(pos.x) + 1));
         }
+        ship.EnginePower = GameUI.It.Engines.value;
+        ship.BrakePower = GameUI.It.Brakes.value;
         if (rotation != Vector3.zero)
             transform.Rotate(ship.rotationSpeed * Time.deltaTime * rotation, Space.Self);
-        if (Input.GetKey(KeyCode.LeftShift))
+        bool q = true;
+        if (Input.GetKey(KeyCode.W))
         {
-            ship.ConfigTrails(1);
+            ship.EnginePower += Input.mouseScrollDelta.y;
             ship.Forward();
         }
-        else
+        else if (AutoBrake)
         {
-            ship.ConfigTrails(0);
-            if (AutoBrake)
-                ship.Brake();
+            ship.Brake();
+            q = false;
         }
+        if (Input.GetKey(KeyCode.S))
+            if (q)
+                ship.Brake();
+
         if (Input.GetKeyDown(KeyCode.Tab))
             AutoBrake = !AutoBrake;
 

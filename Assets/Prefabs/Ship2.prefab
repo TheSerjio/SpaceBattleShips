@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReloadTime: 0
-  damagePerSecond: 1
+  damagePerSecond: 10
 --- !u!1 &3939391291606161747
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   mainWeapon: {fileID: 0}
+  SpeedLimit: 5
+  isLaser: 1
 --- !u!114 &706638974077699411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5242e309e6863f4a90676a1c41a0951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
   rotationSpeed: 80
   speed: 5
   MaxHealth: 20
@@ -333,6 +335,12 @@ MonoBehaviour:
   trails:
   - {fileID: 3939391292371521494}
   - {fileID: 7689984975464146366}
+  MaxEnergy: 20
+  EnergyRegeneration: 2
+  MaxShield: 10
+  ShieldRegeneration: 1
+  ShieldRender: {fileID: 1364411364922366658}
+  ShieldCollider: {fileID: 4989798085384078425}
 --- !u!1 &3939391292371521489
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +547,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 15dfc968989ed7145a48835df74ad083, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -719,7 +727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReloadTime: 0
-  damagePerSecond: 1
+  damagePerSecond: 10
 --- !u!1 &7724420836567980821
 GameObject:
   m_ObjectHideFlags: 0

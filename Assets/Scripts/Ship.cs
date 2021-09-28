@@ -2,7 +2,7 @@ using UnityEngine;
 
 public sealed class Ship : BaseEntity
 {
-    private ShipController brain;
+   // private ShipController brain;
     [Tooltip("Degrees per second")] public float rotationSpeed;
     public float speed;
     public Transform EyeA { get;private set; }
@@ -13,7 +13,26 @@ public sealed class Ship : BaseEntity
     [SerializeField] private ShipTrail[] trails;
     public float EnginePower { get;  set; }
     public float BrakePower { get;  set; }
+    /// <summary>
+    /// Legacy
+    /// </summary>
     public float ShieldPower { get;  set; }
+    /// <summary>
+    /// Serializable
+    /// </summary>
+    public float MaxEnergy;
+    public float Energy { get; private set; }
+    [Tooltip("Per second")] [SerializeField] float EnergyRegeneration;
+    /// <summary>
+    /// Serializable
+    /// </summary>
+    public float MaxShield;
+    public float Shield { get; private set; }
+    [Tooltip("Per second")] [SerializeField] float ShieldRegeneration;
+    private float EngineQ;
+    [SerializeField] Renderer ShieldRender;
+    [SerializeField] Collider ShieldCollider;
+    private bool HasShield;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -25,18 +44,49 @@ public sealed class Ship : BaseEntity
     }
 #endif
 
+    public void Update()
+    {
+        EngineQ = Mathf.MoveTowards(EngineQ, 0, Time.deltaTime);
+        float q = 2.125f;
+        float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
+        float mag = RB.velocity.magnitude;
+        for (int i = 0; i < trails.Length; i++)
+            trails[i].SetTrailLent(L, mag * EngineQ);
+    }
+
+    public void FixedUpdate()
+    {
+        Shield = Mathf.MoveTowards(Shield, MaxShield, ShieldRegeneration * Time.deltaTime);
+        if (!HasShield)
+            HasShield = Shield > MaxShield / 2f;
+        ShieldRender.enabled = HasShield && (Shield != 1);
+        ShieldCollider.enabled = HasShield;
+    }
+
     public override void OnDamaged(float dmg)
     {
-        Health -= dmg;
-        if (Health <= 0)
-            Destroy(gameObject);
+        if (HasShield)
+        {
+            Shield -= dmg;
+            if (Shield <= 0)
+            {
+                Shield = 0;
+                HasShield = false;
+            }
+        }
         else
-            Debug.Log($"{name}: {Health} health left!");
+        {
+            Health -= dmg;
+            if (Health <= 0)
+                Destroy(gameObject);
+        }
     }
 
     public void Forward()
     {
+        EnginePower = Mathf.Clamp01(EnginePower);
         RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
+        EngineQ = EnginePower;
     }
 
     public T GetWeapon<T>() where T : ShipWeapon
@@ -49,6 +99,7 @@ public sealed class Ship : BaseEntity
 
     public void Brake()
     {
+        BrakePower = Mathf.Clamp01(BrakePower);
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * BrakePower * Time.deltaTime);
     }
 
@@ -58,15 +109,6 @@ public sealed class Ship : BaseEntity
             weapons = GetComponentsInChildren<ShipWeapon>();
         foreach (var q in weapons)
             q.Fire();
-    }
-
-    public void ConfigTrails(float power)
-    {
-        float q = 2.125f;
-        float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
-        float mag = RB.velocity.magnitude;
-        for (int i = 0; i < trails.Length; i++)
-            trails[i].SetTrailLent(L, mag * power);
     }
 
     private Transform CreateEye(string q)
@@ -84,10 +126,12 @@ public sealed class Ship : BaseEntity
         EnginePower = 1;
         BrakePower = 1;
         ShieldPower = 1;
+        Shield = 1;
+        HasShield = true;
         EyeA = CreateEye("eye a");
         EyeB = CreateEye("eye b");
         Health = MaxHealth;
-        brain = GetComponent<ShipController>();
+     //   brain = GetComponent<ShipController>();
     }
 
 #if DEBUG
