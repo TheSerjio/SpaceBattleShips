@@ -26,14 +26,11 @@ public class LongLaserWeapon : ShipWeapon
         foreach (var hit in Physics.RaycastAll(transform.position, transform.forward))
         {
             var obj = hit.collider.gameObject;
-            Debug.Log(obj.name);
             var tar = obj.GetComponentInParent<BaseEntity>();
             if (tar)
             {
-                Debug.Log("kek");
                 if (tar.team != Parent.team)
                 {
-                    Debug.Log("pew");
                     tar.OnDamaged(damagePerSecond * Time.deltaTime);
                     lr.SetPositions(new Vector3[] { transform.position, hit.point });
                     break;

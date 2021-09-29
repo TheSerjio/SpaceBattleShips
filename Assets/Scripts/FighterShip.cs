@@ -6,7 +6,7 @@ public class FighterShip : ShipController
 
     public ShipWeapon mainWeapon;
 
-    public float SpeedLimit;
+    public float SpeedLimit => Mathf.Sqrt(Vector3.Distance(transform.position, target.position));
 
     public bool isLaser;
 
@@ -18,33 +18,33 @@ public class FighterShip : ShipController
             if (mainWeapon)
                 a = mainWeapon.AntiSpeed;
             else
-                mainWeapon = ship.GetWeapon<ShipWeapon>();
-            ship.BrakePower = 0.5f;
-            ship.EnginePower = 1;
+                mainWeapon = Ship.GetWeapon<ShipWeapon>();
+            Ship.BrakePower = 0.5f;
+            Ship.EnginePower = 1;
             if (isLaser)
             {
-                ship.Fire();
-                ship.LookAt(target.position);
+                Ship.Fire();
+                Ship.LookAt(target.position);
             }
             else
             {
                 float distance = Vector3.Distance(target.position, transform.position);
                 Vector3 targetPos = target.position + (a * distance * target.velocity);
-                ship.EyeA.LookAt(targetPos);
-                ship.EyeB.LookAt(RB.position + RB.velocity);
-                ship.EyeA.LookAt(ship.EyeA.position + (ship.EyeA.forward * 2 - ship.EyeB.forward));
+                Ship.EyeA.LookAt(targetPos);
+                Ship.EyeB.LookAt(RB.position + RB.velocity);
+                Ship.EyeA.LookAt(Ship.EyeA.position + (Ship.EyeA.forward * 2 - Ship.EyeB.forward));
                 float direction = Vector3.Dot(transform.forward, (target.position - transform.position).normalized);
                 //ship.Brake();
-                ship.LookAt(transform.position + ship.EyeA.forward);
+                Ship.LookAt(transform.position + Ship.EyeA.forward);
                 if (direction > 0.5f)
-                    ship.Fire();
+                    Ship.Fire();
             }
             if (Vector3.Dot(transform.forward, RB.velocity) < SpeedLimit)
-                ship.Forward();
+                Ship.Forward();
         }
         else
         {
-            var obj = Utils.Choice(System.Array.FindAll(FindObjectsOfType<Ship>(), (Ship s) => s.team != ship.team));
+            var obj = Utils.Choice(System.Array.FindAll(FindObjectsOfType<Ship>(), (Ship s) => s.team != Ship.team));
             if (obj)
                 target = obj.RB;
         }

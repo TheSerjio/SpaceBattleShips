@@ -4,12 +4,12 @@ public sealed class DataBase : ScriptableObject
 {
     private static DataBase self;
 
-    public DataBase Get()
+    public static DataBase Get()
     {
         if (!self)
             self = Resources.Load<DataBase>("System");
         return self;
     }
 
-    public GameObject SimpleProjectile;
+    public GameObject TargetFramePrefab;
 }

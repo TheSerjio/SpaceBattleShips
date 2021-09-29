@@ -9,8 +9,10 @@ public sealed class Ship : BaseEntity
     public Transform EyeB { get;private set; }
     public float MaxHealth;
     public float Health { get; private set; }
-    [SerializeField] private ShipWeapon[] weapons;
-    [SerializeField] private ShipTrail[] trails;
+    public ShipWeapon[] weapons;
+    public ShipTrail[] trails;
+    public float EngineConsumption;
+    public float BrakeConsumption;
     public float EnginePower { get;  set; }
     public float BrakePower { get;  set; }
     /// <summary>
@@ -56,6 +58,7 @@ public sealed class Ship : BaseEntity
 
     public void FixedUpdate()
     {
+        Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
         Shield = Mathf.MoveTowards(Shield, MaxShield, ShieldRegeneration * Time.deltaTime);
         if (!HasShield)
             HasShield = Shield > MaxShield / 2f;
@@ -84,9 +87,20 @@ public sealed class Ship : BaseEntity
 
     public void Forward()
     {
-        EnginePower = Mathf.Clamp01(EnginePower);
-        RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
-        EngineQ = EnginePower;
+#if DEBUG
+        if (EnginePower < 0)
+        {
+            Debug.Log($"{name} has negative engine power - {EnginePower}");
+            return;
+        }
+#endif
+        float e = EngineConsumption * Utils.EnergyConsumption(EnginePower) * Time.deltaTime;
+        if (Energy >= e)
+        {
+            RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
+            Energy -= e;
+            EngineQ = EnginePower;
+        }
     }
 
     public T GetWeapon<T>() where T : ShipWeapon
@@ -99,8 +113,27 @@ public sealed class Ship : BaseEntity
 
     public void Brake()
     {
-        BrakePower = Mathf.Clamp01(BrakePower);
-        RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * BrakePower * Time.deltaTime);
+#if DEBUG
+        if (BrakePower < 0)
+        {
+            Debug.Log($"{name} has negative brake power - {EnginePower}");
+            return;
+        }
+#endif
+        Vector3 next = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * BrakePower * Time.deltaTime);
+        if (next == Vector3.zero)
+        {
+            RB.velocity = next;
+        }
+        else
+        {
+            float e = BrakeConsumption * Utils.EnergyConsumption(BrakePower) * Time.deltaTime;
+            if (Energy >= e)
+            {
+                RB.velocity = next;
+                Energy -= e;
+            }
+        }
     }
 
     public void Fire()
@@ -126,7 +159,8 @@ public sealed class Ship : BaseEntity
         EnginePower = 1;
         BrakePower = 1;
         ShieldPower = 1;
-        Shield = 1;
+        Shield = MaxShield;
+        Energy = MaxEnergy;
         HasShield = true;
         EyeA = CreateEye("eye a");
         EyeB = CreateEye("eye b");

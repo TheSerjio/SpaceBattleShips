@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266390cc27b14c419cb0349bdc429a5, type: 3}
   m_Name: System
   m_EditorClassIdentifier: 
+  TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}

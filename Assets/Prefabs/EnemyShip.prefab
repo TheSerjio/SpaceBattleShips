@@ -358,6 +358,7 @@ MonoBehaviour:
   target: {fileID: 0}
   mainWeapon: {fileID: 2058199984457396272}
   SpeedLimit: 20
+  isLaser: 0
 --- !u!114 &4094231551408845624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +380,8 @@ MonoBehaviour:
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
+  EngineConsumption: 1
+  BrakeConsumption: 1
   MaxEnergy: 10
   EnergyRegeneration: 1
   MaxShield: 10

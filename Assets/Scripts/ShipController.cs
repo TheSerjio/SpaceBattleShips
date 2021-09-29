@@ -4,11 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Ship))]
 public abstract class ShipController : MonoBehaviour
 {
-    protected Ship ship;
-    protected Rigidbody RB => ship.RB;
+    public Ship Ship { get; private set; }
+    protected Rigidbody RB => Ship.RB;
 
     public void Awake()
     {
-        ship = GetComponent<Ship>();
+        Ship = GetComponent<Ship>();
     }
 }

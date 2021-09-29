@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   rotationSpeed: 80
-  speed: 5
+  speed: 2
   MaxHealth: 20
   weapons:
   - {fileID: 6655380596833669391}
@@ -335,6 +335,8 @@ MonoBehaviour:
   trails:
   - {fileID: 3939391292371521494}
   - {fileID: 7689984975464146366}
+  EngineConsumption: 1
+  BrakeConsumption: 1
   MaxEnergy: 20
   EnergyRegeneration: 2
   MaxShield: 10

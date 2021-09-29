@@ -4,6 +4,7 @@ public sealed class PlayerShip : ShipController
 {
     public bool AutoBrake;
     public float MouseSense;
+    public GameUI ui;
 
     public void Update()
     {
@@ -16,37 +17,45 @@ public sealed class PlayerShip : ShipController
             pos = pos * MouseSense / size;
             rotation += new Vector3(-pos.y / (Mathf.Abs(pos.y) + 1), pos.x / (Mathf.Abs(pos.x) + 1));
         }
-        ship.EnginePower = GameUI.It.Engines.value;
-        ship.BrakePower = GameUI.It.Brakes.value;
+        Ship.EnginePower = GameUI.It.Engines.value;
+        Ship.BrakePower = GameUI.It.Brakes.value;
         if (rotation != Vector3.zero)
-            transform.Rotate(ship.rotationSpeed * Time.deltaTime * rotation, Space.Self);
+            transform.Rotate(Ship.rotationSpeed * Time.deltaTime * rotation, Space.Self);
         bool q = true;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            ship.EnginePower += Input.mouseScrollDelta.y;
-            ship.Forward();
+            ui.Engines.value = ui.Engines.maxValue;
+            Ship.Forward();
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            ui.Engines.value += Input.mouseScrollDelta.y;
+            Ship.Forward();
         }
         else if (AutoBrake)
         {
-            ship.Brake();
+            Ship.Brake();
             q = false;
         }
         if (Input.GetKey(KeyCode.S))
+        {
+            ui.Brakes.value += Input.mouseScrollDelta.y;
             if (q)
-                ship.Brake();
+                Ship.Brake();
+        }
 
         if (Input.GetKeyDown(KeyCode.Tab))
             AutoBrake = !AutoBrake;
 
         if (Input.GetKey(KeyCode.Z))
-            ship.Brake();
+            Ship.Brake();
         if (Input.GetKey(KeyCode.Alpha1))
-            ship.LookAt(RB.position + RB.velocity);
+            Ship.LookAt(RB.position + RB.velocity);
         if (Input.GetKey(KeyCode.Alpha2))
-            ship.LookAt(RB.position - RB.velocity);
+            Ship.LookAt(RB.position - RB.velocity);
         if (Input.GetKey(KeyCode.Alpha3))
-            ship.LookAt(Vector3.zero);
+            Ship.LookAt(Vector3.zero);
         if (Input.GetKey(KeyCode.Space))
-            ship.Fire();
+            Ship.Fire();
     }
 }

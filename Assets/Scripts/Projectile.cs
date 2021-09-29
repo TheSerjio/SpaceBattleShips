@@ -4,6 +4,8 @@ public class Projectile : BaseEntity
 {
     public float damage;
 
+    public Rigidbody Target;
+
     public override void OnDamaged(float dmg)
     {
         Destroy();

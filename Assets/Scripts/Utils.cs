@@ -21,4 +21,11 @@ public static class Utils
         e.z = z;
         self.eulerAngles = e;
     }
+
+
+    /// <param name="power">Power of engine, 0-10</param>
+    public static float EnergyConsumption(float power)
+    {
+        return Mathf.Pow(power, 1.5f);
+    }
 }

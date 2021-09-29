@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1768093384078227404}
   - component: {fileID: 1768093384078227402}
-  - component: {fileID: 1768093384078227405}
   - component: {fileID: 672490438784665518}
   - component: {fileID: 7598580520661205819}
+  - component: {fileID: 745374777629138092}
   m_Layer: 0
   m_Name: ShortBullet
   m_TagString: Untagged
@@ -50,20 +50,6 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1768093384078227405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768093384078227406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb4f93862d6d954f9b3049bca14ada3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 0
-  damage: 1
 --- !u!120 &672490438784665518
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -176,3 +162,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.05
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &745374777629138092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768093384078227406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb4f93862d6d954f9b3049bca14ada3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  damage: 1
+  target: {fileID: 0}
