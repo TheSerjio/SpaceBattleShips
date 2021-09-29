@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  rotationSpeed: 90
+  rotationSpeed: 100
   speed: 5
   MaxHealth: 10
   weapons:

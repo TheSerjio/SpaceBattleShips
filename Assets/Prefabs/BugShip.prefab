@@ -327,7 +327,7 @@ MonoBehaviour:
   team: 1
   rotationSpeed: 90
   speed: 5
-  MaxHealth: 10
+  MaxHealth: 20
   weapons:
   - {fileID: 7442075221799175898}
   - {fileID: 1474345183683731315}
@@ -336,10 +336,10 @@ MonoBehaviour:
   - {fileID: 2058199984122287958}
   EngineConsumption: 1
   BrakeConsumption: 1
-  MaxEnergy: 10
-  EnergyRegeneration: 1
-  MaxShield: 10
-  ShieldRegeneration: 1
+  MaxEnergy: 20
+  EnergyRegeneration: 2
+  MaxShield: 20
+  ShieldRegeneration: 2
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
   MeshForDamage: {fileID: 2058199984000861961}
