@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 2058199985271724010}
   - component: {fileID: 4094231551408845624}
   m_Layer: 0
-  m_Name: EnemyShip
+  m_Name: FighterShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   mainWeapon: {fileID: 2058199984457396272}
-  SpeedLimit: 20
   isLaser: 0
 --- !u!114 &4094231551408845624
 MonoBehaviour:
@@ -388,6 +387,7 @@ MonoBehaviour:
   ShieldRegeneration: 1
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
+  MeshForDamage: {fileID: 2058199984000861961}
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

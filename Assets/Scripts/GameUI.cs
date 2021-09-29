@@ -14,7 +14,6 @@ public sealed class GameUI : MonoBehaviour
     public RectTransform Velocity;
     public RectTransform CVelocity;
 
-
     public void Awake()
     {
         if (It)
@@ -32,6 +31,7 @@ public sealed class GameUI : MonoBehaviour
             Health.localScale = new Vector3(target.Health / target.MaxHealth, 1, 1);
             var cam = Camera.main;
             Velocity.position = (Vector2)cam.WorldToScreenPoint(target.RB.position + target.RB.velocity);
+            CVelocity.gameObject.SetActive(target.RB.velocity.sqrMagnitude > 0.1f);
             CVelocity.position = (Vector2)cam.WorldToScreenPoint(cam.transform.position + target.RB.velocity);
         }
     }

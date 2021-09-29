@@ -6,8 +6,6 @@ public class FighterShip : ShipController
 
     public ShipWeapon mainWeapon;
 
-    public float SpeedLimit => Mathf.Sqrt(Vector3.Distance(transform.position, target.position));
-
     public bool isLaser;
 
     public void FixedUpdate()
@@ -19,7 +17,7 @@ public class FighterShip : ShipController
                 a = mainWeapon.AntiSpeed;
             else
                 mainWeapon = Ship.GetWeapon<ShipWeapon>();
-            Ship.BrakePower = 0.5f;
+            Ship.BrakePower = 1;
             Ship.EnginePower = 1;
             if (isLaser)
             {
@@ -39,8 +37,12 @@ public class FighterShip : ShipController
                 if (direction > 0.5f)
                     Ship.Fire();
             }
-            if (Vector3.Dot(transform.forward, RB.velocity) < SpeedLimit)
+            var limit = Mathf.Sqrt(Vector3.Distance(transform.position, target.position)) + target.velocity.magnitude;
+
+            if (Vector3.Dot(transform.forward, RB.velocity) < limit)
                 Ship.Forward();
+            if (RB.velocity.magnitude > limit * 2)
+                Ship.Brake();
         }
         else
         {

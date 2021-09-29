@@ -5,10 +5,27 @@ public sealed class PlayerShip : ShipController
     public bool AutoBrake;
     public float MouseSense;
     public GameUI ui;
+    public Transform cameroid;
+    public float CameraRotation;
 
     public void Update()
     {
         Vector3 rotation = Vector3.back * Input.GetAxis("Horizontal");
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 pos = Input.mousePosition;
+            var size = new Vector2(Screen.width, Screen.height);
+            pos -= size / 2f;
+            pos = pos * MouseSense / size;
+            cameroid.Rotate(CameraRotation * Time.deltaTime * new Vector3(pos.y, pos.x), Space.Self);
+        }
+        else
+        {
+            var r = cameroid.localRotation;
+            r.SetLookRotation(Vector3.forward);
+            cameroid.localRotation = Quaternion.RotateTowards(cameroid.localRotation, r, CameraRotation * Time.deltaTime);
+        }
+
         if (Input.GetMouseButton(1))
         {
             Vector2 pos = Input.mousePosition;
@@ -24,8 +41,10 @@ public sealed class PlayerShip : ShipController
         bool q = true;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            ui.Engines.value = ui.Engines.maxValue;
+            float prev = Ship.EnginePower;
+            Ship.EnginePower = ui.Engines.maxValue;
             Ship.Forward();
+            Ship.EnginePower = prev;
         }
         else if (Input.GetKey(KeyCode.W))
         {

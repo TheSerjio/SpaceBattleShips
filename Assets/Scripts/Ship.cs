@@ -35,6 +35,7 @@ public sealed class Ship : BaseEntity
     [SerializeField] Renderer ShieldRender;
     [SerializeField] Collider ShieldCollider;
     private bool HasShield;
+    public MeshRenderer MeshForDamage;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -80,6 +81,7 @@ public sealed class Ship : BaseEntity
         else
         {
             Health -= dmg;
+            MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
             if (Health <= 0)
                 Destroy(gameObject);
         }

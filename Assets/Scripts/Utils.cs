@@ -11,17 +11,16 @@ public static class Utils
         return ts.Count == 0 ? default : ts[Random.Range(0, ts.Count)];
     }
 
-    public static void RotateTowards(this Transform self, Vector3 worldPoint, float degreesPerSec)
+    public static void RotateTowards(this Transform self, Vector3 worldPoint, float degrees)
     {
+        var z = self.eulerAngles.z;
         var rotation = self.rotation;
         rotation.SetLookRotation(worldPoint - self.position);
-        var z = self.eulerAngles.z;
-        self.rotation = Quaternion.RotateTowards(self.rotation, rotation, degreesPerSec);
+        self.rotation = Quaternion.RotateTowards(self.rotation, rotation, degrees);
         var e = self.eulerAngles;
         e.z = z;
         self.eulerAngles = e;
     }
-
 
     /// <param name="power">Power of engine, 0-10</param>
     public static float EnergyConsumption(float power)
