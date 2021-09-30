@@ -1746,7 +1746,7 @@ MonoBehaviour:
   MouseSense: 4
   ui: {fileID: 2092472697}
   cameroid: {fileID: 1246467503}
-  CameraRotation: 90
+  CameraRotation: 45
 --- !u!114 &972137474 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4094231551408845624, guid: f93cd08f802b79647ae059c71f2956b2, type: 3}
