@@ -30,6 +30,7 @@ public sealed class Spawner : MonoBehaviour
                 ship.team = team;
                 var f = Instantiate(DataBase.Get().TargetFramePrefab);
                 f.transform.SetParent(canva.transform, true);
+                f.transform.localScale = Vector3.one;
                 var ff = f.GetComponent<TargetFrame>();
                 ff.target = ship;
                 ff.number = ii;

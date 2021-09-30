@@ -35,4 +35,10 @@ public sealed class Shield : MonoBehaviour
         ShieldRender.enabled = HasShield && (Current != MaxShield);
         ShieldCollider.enabled = HasShield;
     }
+
+    public void Start()
+    {
+        HasShield = true;
+        //Current = MaxShield;
+    }
 }
