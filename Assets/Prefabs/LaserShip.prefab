@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 3939391291606161745}
   - component: {fileID: 3037400723036222544}
   - component: {fileID: 706638974077699411}
+  - component: {fileID: 3443616421799514483}
   m_Layer: 0
   m_Name: LaserShip
   m_TagString: Untagged
@@ -338,11 +339,24 @@ MonoBehaviour:
   BrakeConsumption: 1
   MaxEnergy: 20
   EnergyRegeneration: 2
-  MaxShield: 10
-  ShieldRegeneration: 1
+  MeshForDamage: {fileID: 3939391293002615219}
+  frame: {fileID: 0}
+--- !u!114 &3443616421799514483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939391291606161747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc8ae132d84173429c01cf4309b50c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ShieldRender: {fileID: 1364411364922366658}
   ShieldCollider: {fileID: 4989798085384078425}
-  MeshForDamage: {fileID: 3939391293002615219}
+  MaxShield: 15
+  ShieldRegeneration: 1
 --- !u!1 &3939391292371521489
 GameObject:
   m_ObjectHideFlags: 0

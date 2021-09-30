@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 2058199985271724011}
   - component: {fileID: 2058199985271724010}
   - component: {fileID: 4094231551408845624}
+  - component: {fileID: 845703886288328863}
   m_Layer: 0
   m_Name: BugShip
   m_TagString: Untagged
@@ -338,11 +339,24 @@ MonoBehaviour:
   BrakeConsumption: 1
   MaxEnergy: 20
   EnergyRegeneration: 2
-  MaxShield: 20
-  ShieldRegeneration: 2
+  MeshForDamage: {fileID: 2058199984000861961}
+  frame: {fileID: 0}
+--- !u!114 &845703886288328863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058199985271724009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc8ae132d84173429c01cf4309b50c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
-  MeshForDamage: {fileID: 2058199984000861961}
+  MaxShield: 20
+  ShieldRegeneration: 2
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

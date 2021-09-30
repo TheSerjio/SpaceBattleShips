@@ -32,7 +32,7 @@ public sealed class Shield : MonoBehaviour
         Current = Mathf.MoveTowards(Current, MaxShield, ShieldRegeneration * Time.deltaTime);
         if (!HasShield)
             HasShield = Current > MaxShield / 2f;
-        ShieldRender.enabled = HasShield && (Current != 1);
+        ShieldRender.enabled = HasShield && (Current != MaxShield);
         ShieldCollider.enabled = HasShield;
     }
 }

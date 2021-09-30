@@ -45,7 +45,7 @@ public sealed class Ship : BaseEntity
 
     public void Update()
     {
-        EngineQ = Mathf.MoveTowards(EngineQ, 0, Time.deltaTime);
+        EngineQ = Mathf.MoveTowards(EngineQ, 0, Time.deltaTime * 2);
         float q = 2.125f;
         float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
         float mag = RB.velocity.magnitude;
@@ -86,7 +86,7 @@ public sealed class Ship : BaseEntity
         {
             RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
             Energy -= e;
-            EngineQ = EnginePower;
+            EngineQ = 1;
         }
     }
 

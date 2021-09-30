@@ -11,8 +11,8 @@ public sealed class PlayerShip : ShipController
     public void Update()
     {
         Vector3 rotation = Vector3.back * Input.GetAxis("Horizontal");
-        if (Input.GetMouseButton(0))
-            cameroid.Rotate(Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
+        if (Input.GetMouseButton(2))
+            cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
         else
         {
             var r = cameroid.localRotation;
