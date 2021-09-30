@@ -4,12 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class TargetFrame : MonoBehaviour
 {
-    public Ship target;
+   public Ship target;
     public ulong number;
     RectTransform rect;
-    public GameObject image;
+    [SerializeField] GameObject image;
     static Ship player;
-    public TMPro.TextMeshProUGUI text;
+    [SerializeField] TMPro.TextMeshProUGUI text;
+    float timeLeft;
+    [SerializeField]GameObject onHit;
 
     public void Start()
     {
@@ -39,6 +41,10 @@ public class TargetFrame : MonoBehaviour
                 Vector2 pos = cam.WorldToScreenPoint(target.transform.position);
                 rect.position = pos;
                 text.text = $"{target.name}{number}:{Mathf.Round(Vector3.Distance(player.transform.position, target.transform.position))}";
+                if (timeLeft < 0)
+                    onHit.SetActive(false);
+                else
+                    timeLeft -= Time.deltaTime;
             }
             else
             {
@@ -50,5 +56,11 @@ public class TargetFrame : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void OnHit()
+    {
+        timeLeft = 0.25f;
+        onHit.SetActive(true);
     }
 }

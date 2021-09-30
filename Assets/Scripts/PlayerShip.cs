@@ -12,13 +12,7 @@ public sealed class PlayerShip : ShipController
     {
         Vector3 rotation = Vector3.back * Input.GetAxis("Horizontal");
         if (Input.GetMouseButton(0))
-        {
-            Vector2 pos = Input.mousePosition;
-            var size = new Vector2(Screen.width, Screen.height);
-            pos -= size / 2f;
-            pos = pos * MouseSense / size;
-            cameroid.Rotate(CameraRotation * Time.deltaTime * new Vector3(pos.y, pos.x), Space.Self);
-        }
+            cameroid.Rotate(Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
         else
         {
             var r = cameroid.localRotation;
@@ -37,8 +31,7 @@ public sealed class PlayerShip : ShipController
         Ship.EnginePower = GameUI.It.Engines.value;
         Ship.BrakePower = GameUI.It.Brakes.value;
         if (rotation != Vector3.zero)
-            transform.Rotate(Ship.rotationSpeed * Time.deltaTime * rotation, Space.Self);
-        bool q = true;
+            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * rotation, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))
         {
             float prev = Ship.EnginePower;
@@ -53,14 +46,12 @@ public sealed class PlayerShip : ShipController
         }
         else if (AutoBrake)
         {
-            Ship.Brake();
-            q = false;
+            Ship.AutoBrake();
         }
         if (Input.GetKey(KeyCode.S))
         {
             ui.Brakes.value += Input.mouseScrollDelta.y;
-            if (q)
-                Ship.Brake();
+            Ship.Brake();
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))

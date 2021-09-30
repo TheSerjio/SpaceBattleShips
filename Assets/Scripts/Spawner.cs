@@ -33,6 +33,7 @@ public sealed class Spawner : MonoBehaviour
                 var ff = f.GetComponent<TargetFrame>();
                 ff.target = ship;
                 ff.number = ii;
+                ship.frame = ff;
                 yield return null;
             }
         Destroy(gameObject);

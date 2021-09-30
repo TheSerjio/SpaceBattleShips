@@ -3,16 +3,19 @@ using UnityEngine;
 public sealed class Ship : BaseEntity
 {
    // private ShipController brain;
-    [Tooltip("Degrees per second")] public float rotationSpeed;
-    public float speed;
+    [Tooltip("Degrees per second")] [SerializeField] float rotationSpeed;
+    public float RotationSpeed => rotationSpeed;
+    public float RelativeHealth => Health / MaxHealth;
+    public float RelativeEnergy => Energy / MaxEnergy;
+    [SerializeField] float speed;
     public Transform EyeA { get;private set; }
     public Transform EyeB { get;private set; }
-    public float MaxHealth;
+    [SerializeField] float MaxHealth;
     public float Health { get; private set; }
-    public ShipWeapon[] weapons;
-    public ShipTrail[] trails;
-    public float EngineConsumption;
-    public float BrakeConsumption;
+    [SerializeField] ShipWeapon[] weapons;
+    [SerializeField] ShipTrail[] trails;
+    [SerializeField] float EngineConsumption;
+    [SerializeField] float BrakeConsumption;
     public float EnginePower { get;  set; }
     public float BrakePower { get;  set; }
     /// <summary>
@@ -22,20 +25,13 @@ public sealed class Ship : BaseEntity
     /// <summary>
     /// Serializable
     /// </summary>
-    public float MaxEnergy;
+    [SerializeField] float MaxEnergy;
     public float Energy { get; private set; }
     [Tooltip("Per second")] [SerializeField] float EnergyRegeneration;
-    /// <summary>
-    /// Serializable
-    /// </summary>
-    public float MaxShield;
-    public float Shield { get; private set; }
-    [Tooltip("Per second")] [SerializeField] float ShieldRegeneration;
     private float EngineQ;
-    [SerializeField] Renderer ShieldRender;
-    [SerializeField] Collider ShieldCollider;
-    private bool HasShield;
-    public MeshRenderer MeshForDamage;
+    [SerializeField] MeshRenderer MeshForDamage;
+    public TargetFrame frame;
+    public Shield Shield { get; private set; }
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -60,31 +56,20 @@ public sealed class Ship : BaseEntity
     public void FixedUpdate()
     {
         Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
-        Shield = Mathf.MoveTowards(Shield, MaxShield, ShieldRegeneration * Time.deltaTime);
-        if (!HasShield)
-            HasShield = Shield > MaxShield / 2f;
-        ShieldRender.enabled = HasShield && (Shield != 1);
-        ShieldCollider.enabled = HasShield;
     }
 
     public override void OnDamaged(float dmg)
     {
-        if (HasShield)
-        {
-            Shield -= dmg;
-            if (Shield <= 0)
-            {
-                Shield = 0;
-                HasShield = false;
-            }
-        }
-        else
-        {
-            Health -= dmg;
-            MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
-            if (Health <= 0)
-                Destroy(gameObject);
-        }
+        if (!Shield)
+            Shield = GetComponent<Shield>();
+        if (Shield)
+            Shield.TakeDamage(ref dmg);
+        Health -= dmg;
+        MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
+        if (Health <= 0)
+            Destroy(gameObject);
+        if (frame)
+            frame.OnHit();
     }
 
     public void Forward()
@@ -138,6 +123,11 @@ public sealed class Ship : BaseEntity
         }
     }
 
+    public void AutoBrake()
+    {
+        RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
+    }
+
     public void Fire()
     {
         if (weapons == null)
@@ -161,9 +151,7 @@ public sealed class Ship : BaseEntity
         EnginePower = 1;
         BrakePower = 1;
         ShieldPower = 1;
-        Shield = MaxShield;
         Energy = MaxEnergy;
-        HasShield = true;
         EyeA = CreateEye("eye a");
         EyeB = CreateEye("eye b");
         Health = MaxHealth;

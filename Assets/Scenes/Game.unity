@@ -1075,6 +1075,63 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1001 &684303393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 972137472}
+    m_Modifications:
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823722, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337942286436823725, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+      propertyPath: m_Name
+      value: DustNearPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14068295d4ada2641912daca50394a4f, type: 3}
 --- !u!1 &687994364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,7 +1880,7 @@ MonoBehaviour:
   team: 0
   all:
   - prefab: {fileID: 2058199985271724009, guid: f93cd08f802b79647ae059c71f2956b2, type: 3}
-    number: 20
+    number: 2
   canva: {fileID: 2092472695}
 --- !u!4 &1573934796
 Transform:
