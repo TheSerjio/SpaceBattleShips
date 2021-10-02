@@ -58,7 +58,7 @@ public sealed class Ship : BaseEntity
         Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
     }
 
-    public override void OnDamaged(float dmg)
+    public override void OnDamaged(float dmg, BaseEntity from)
     {
         if (!Shield)
             Shield = GetComponent<Shield>();
@@ -69,7 +69,7 @@ public sealed class Ship : BaseEntity
         if (Health <= 0)
             Destroy(gameObject);
         if (frame)
-            frame.OnHit();
+            frame.OnHit(from);
     }
 
     public void Forward()

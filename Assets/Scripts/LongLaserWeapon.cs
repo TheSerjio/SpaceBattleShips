@@ -31,7 +31,7 @@ public class LongLaserWeapon : ShipWeapon
             {
                 if (tar.team != Parent.team)
                 {
-                    tar.OnDamaged(damagePerSecond * Time.deltaTime);
+                    tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
                     lr.SetPositions(new Vector3[] { transform.position, hit.point });
                     break;
                 }

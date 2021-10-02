@@ -16,6 +16,7 @@ public sealed class SimpleWeapon : ShipWeapon
         q.transform.SetPositionAndRotation(transform.position + transform.forward, transform.rotation);
         var p = q.GetComponent<Projectile>();
         p.team = Parent.team;
+        p.parent = Parent;
         Destroy(q, bulletLifeTime);
         var rb = q.GetComponent<Rigidbody>();
         rb.velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);

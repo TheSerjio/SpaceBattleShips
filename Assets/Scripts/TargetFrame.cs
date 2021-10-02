@@ -4,14 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class TargetFrame : MonoBehaviour
 {
-   public Ship target;
+    public Ship target;
     public ulong number;
     RectTransform rect;
     [SerializeField] GameObject image;
     static Ship player;
     [SerializeField] TMPro.TextMeshProUGUI text;
     float timeLeft;
-    [SerializeField]GameObject onHit;
+    [SerializeField] GameObject onHit;
 
     public void Start()
     {
@@ -58,9 +58,11 @@ public class TargetFrame : MonoBehaviour
         }
     }
 
-    public void OnHit()
+    public void OnHit(BaseEntity from)
     {
         timeLeft = 0.25f;
-        onHit.SetActive(true);
+        if (from is Ship s)
+            if (s == player)
+                onHit.SetActive(true);
     }
 }

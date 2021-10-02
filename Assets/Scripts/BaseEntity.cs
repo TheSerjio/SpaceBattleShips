@@ -15,7 +15,7 @@ public abstract class BaseEntity : MonoBehaviour
        // OnAwake();
     }
 
-    public abstract void OnDamaged(float dmg);
+    public abstract void OnDamaged(float dmg, BaseEntity from);
 
     public void Destroy()
     {

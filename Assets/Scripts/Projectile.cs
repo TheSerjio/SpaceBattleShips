@@ -6,7 +6,9 @@ public class Projectile : BaseEntity
 
     public Rigidbody Target;
 
-    public override void OnDamaged(float dmg)
+    public BaseEntity parent;
+
+    public override void OnDamaged(float dmg, BaseEntity from)
     {
         Destroy();
     }
@@ -19,7 +21,7 @@ public class Projectile : BaseEntity
         if (q)
             if (q.team != team)
             {
-                q.OnDamaged(damage);
+                q.OnDamaged(damage, parent);
                 Destroy(gameObject);
             }
     }
