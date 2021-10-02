@@ -7,10 +7,17 @@ public class Gravity : MonoBehaviour
 
     public float Mass;
 
-
     public void Start()
     {
-        all = FindObjectsOfType<Rigidbody>();
+        all = new Rigidbody[0];
+    }
+
+    public static void UpdateObjects()
+    {
+        var shipz = FindObjectsOfType<Ship>();
+        all = new Rigidbody[shipz.Length];
+        for (int i = 0; i < shipz.Length; i++)
+            all[i] = shipz[i].RB;
     }
 
     public void FixedUpdate()
@@ -24,12 +31,14 @@ public class Gravity : MonoBehaviour
                 rb.velocity += Time.deltaTime * Mass * dir.normalized / dir.sqrMagnitude;
             }
             else
-            {
                 sholdStart = true;
-                break;
-            }
 
         if (sholdStart)
-            all = FindObjectsOfType<Rigidbody>();
+            UpdateObjects();
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        UpdateObjects();
     }
 }

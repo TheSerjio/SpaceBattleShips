@@ -16,12 +16,4 @@ public abstract class BaseEntity : MonoBehaviour
     }
 
     public abstract void OnDamaged(float dmg, BaseEntity from);
-
-    public void Destroy()
-    {
-        WhenDestroy();
-        Destroy(gameObject);
-    }
-
-    public abstract void WhenDestroy();
 }

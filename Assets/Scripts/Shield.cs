@@ -15,15 +15,18 @@ public sealed class Shield : MonoBehaviour
 
     public void TakeDamage(ref float dmg)
     {
-        if (Current >= dmg)
+        if (HasShield)
         {
-            Current -= dmg;
-            dmg = 0;
-        }
-        else
-        {
-            dmg -= Current;
-            HasShield = false;
+            if (Current >= dmg)
+            {
+                Current -= dmg;
+                dmg = 0;
+            }
+            else
+            {
+                dmg -= Current;
+                HasShield = false;
+            }
         }
     }
 

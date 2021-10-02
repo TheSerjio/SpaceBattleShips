@@ -8,12 +8,22 @@ public class Projectile : BaseEntity
 
     public BaseEntity parent;
 
-    public override void OnDamaged(float dmg, BaseEntity from)
+    public float LifeTime;
+
+    public void FixedUpdate()
     {
-        Destroy();
+        LifeTime -= Time.deltaTime;
+        if (LifeTime < 0)
+            Die();
     }
 
-    public override void WhenDestroy() { }
+    public void Die()
+    {
+        LifeTime = 1;
+        ProjectilePool.Self.Add(gameObject);
+    }
+
+    public override void OnDamaged(float dmg, BaseEntity from) => Die();
 
     public void OnTriggerEnter(Collider other)
     {
@@ -22,7 +32,7 @@ public class Projectile : BaseEntity
             if (q.team != team)
             {
                 q.OnDamaged(damage, parent);
-                Destroy(gameObject);
+                Die();
             }
     }
     public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);

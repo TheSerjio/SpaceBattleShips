@@ -287,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ReloadTime: 0.1
   Projectile: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
-  bulletLifeTime: 10
+  bulletLifeTime: 5
   bulletSpeed: 25
 --- !u!1 &2058199985271724009
 GameObject:

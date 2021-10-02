@@ -173,9 +173,4 @@ public sealed class Ship : BaseEntity
     {
         transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
     }
-
-    public override void WhenDestroy()
-    {
-        //TODO
-    }
 }
