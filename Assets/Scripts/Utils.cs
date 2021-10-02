@@ -27,4 +27,8 @@ public static class Utils
     {
         return Mathf.Pow(power, 1.5f);
     }
+
+    public static float ToSadUnits(Rigidbody rb) => ToSadUnits(rb.velocity.magnitude);
+    public static float ToSadUnits(Vector3 vec) => ToSadUnits(vec.magnitude);
+    public static float ToSadUnits(float value) => value / 24;
 }

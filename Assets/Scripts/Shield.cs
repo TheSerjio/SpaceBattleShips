@@ -23,7 +23,7 @@ public sealed class Shield : MonoBehaviour
         else
         {
             dmg -= Current;
-
+            HasShield = false;
         }
     }
 

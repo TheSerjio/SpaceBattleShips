@@ -13,6 +13,7 @@ public sealed class GameUI : MonoBehaviour
     public RectTransform Health;
     public RectTransform Velocity;
     public RectTransform CVelocity;
+    public Text VelocityText;
 
     public void Awake()
     {
@@ -34,6 +35,7 @@ public sealed class GameUI : MonoBehaviour
             Velocity.position = (Vector2)cam.WorldToScreenPoint(target.RB.position + target.RB.velocity);
             CVelocity.gameObject.SetActive(target.RB.velocity.sqrMagnitude > 0.1f);
             CVelocity.position = (Vector2)cam.WorldToScreenPoint(cam.transform.position + target.RB.velocity);
+            VelocityText.text = Utils.ToSadUnits(target.RB).ToString();
         }
     }
 }

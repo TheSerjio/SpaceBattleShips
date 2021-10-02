@@ -40,7 +40,7 @@ public class TargetFrame : MonoBehaviour
                 text.enabled = true;
                 Vector2 pos = cam.WorldToScreenPoint(target.transform.position);
                 rect.position = pos;
-                text.text = $"{target.name}{number}:{Mathf.Round(Vector3.Distance(player.transform.position, target.transform.position))}";
+                text.text = $"{target.name}{number}:{Mathf.Round(Utils.ToSadUnits(Vector3.Distance(player.transform.position, target.transform.position)))}:{Mathf.RoundToInt(Utils.ToSadUnits(target.RB))}";
                 if (timeLeft < 0)
                     onHit.SetActive(false);
                 else
