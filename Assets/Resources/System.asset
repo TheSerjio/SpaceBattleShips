@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: System
   m_EditorClassIdentifier: 
   TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}
+  CameraPrefab: {fileID: 1869164099664931348, guid: 6e7960c65ae02e24484986d155bdeacb, type: 3}

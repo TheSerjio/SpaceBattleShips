@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Projectile : BaseEntity
 {
-    public float damage;
+    public float Damage { get; set; }
 
-    public Rigidbody Target;
+    public Rigidbody Target { get; set; }
 
-    public BaseEntity parent;
+    public BaseEntity Parent { get; set; }
 
-    public float LifeTime;
+    public float LifeTime { get; set; }
 
     public void FixedUpdate()
     {
@@ -31,9 +31,9 @@ public class Projectile : BaseEntity
         if (q)
             if (q.team != team)
             {
-                q.OnDamaged(damage, parent);
+                q.OnDamaged(Damage, Parent);
                 Die();
             }
     }
-    public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);
+   // public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);
 }

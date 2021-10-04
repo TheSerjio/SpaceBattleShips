@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 672490438784665518}
   - component: {fileID: 745374777629138092}
   - component: {fileID: 7039838519235403848}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LongBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,6 +164,8 @@ MonoBehaviour:
   team: 0
   damage: 50
   Target: {fileID: 0}
+  parent: {fileID: 0}
+  LifeTime: 0
 --- !u!136 &7039838519235403848
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -172,7 +174,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768093384078227406}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.0625
   m_Height: 2

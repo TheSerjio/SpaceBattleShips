@@ -1,0 +1,1 @@
+using UnityEngine;[DisallowMultipleComponent] public class PlaceForCamera : MonoBehaviour { public bool parent; }

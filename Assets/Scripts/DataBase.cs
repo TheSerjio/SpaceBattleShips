@@ -12,4 +12,5 @@ public sealed class DataBase : ScriptableObject
     }
 
     public GameObject TargetFramePrefab;
+    public GameObject CameraPrefab;
 }

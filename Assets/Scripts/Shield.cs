@@ -12,6 +12,10 @@ public sealed class Shield : MonoBehaviour
     [SerializeField] float ShieldRegeneration;
     public bool HasShield { get; private set; }
     public float Relative => Current / MaxShield;
+    private float Alpha;
+
+    private const float defaultA = 0.25f;
+    private const float HighA = 0.5f;
 
     public void TakeDamage(ref float dmg)
     {
@@ -27,6 +31,7 @@ public sealed class Shield : MonoBehaviour
                 dmg -= Current;
                 HasShield = false;
             }
+            Alpha = HighA;
         }
     }
 
@@ -37,6 +42,8 @@ public sealed class Shield : MonoBehaviour
             HasShield = Current > MaxShield / 2f;
         ShieldRender.enabled = HasShield && (Current != MaxShield);
         ShieldCollider.enabled = HasShield;
+        Alpha = Mathf.MoveTowards(Alpha, defaultA, Time.deltaTime);
+        ShieldRender.material.SetFloat("Alpha", Alpha);
     }
 
     public void Start()

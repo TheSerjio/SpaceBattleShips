@@ -5,8 +5,24 @@ public sealed class PlayerShip : ShipController
     public bool AutoBrake;
     public float MouseSense;
     public GameUI ui;
-    public Transform cameroid;
+    Transform cameroid;
     public float CameraRotation;
+
+    public void Start()
+    {
+        Transform q = null;
+        foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
+
+            if (pfc.parent)
+                cameroid = pfc.transform;
+            else
+                q = pfc.transform;
+        
+        var cam = Instantiate(DataBase.Get().CameraPrefab);
+        cam.transform.SetParent(q);
+        cam.transform.localPosition = Vector3.zero;
+        cam.transform.localScale = Vector3.one;
+    }
 
     public void Update()
     {

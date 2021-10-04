@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OrangeShortBullet
+  m_Name: Bullet
   m_Shader: {fileID: -6465566751694194690, guid: 8d0bfd7fcc0aa1d42ba77f717b1c9384, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -34,6 +34,6 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - EdgeColor: {r: 1, g: 0, b: 0, a: 0}
-    - MainColor: {r: 1, g: 1, b: 0, a: 0}
+    - EdgeColor: {r: 1, g: 1, b: 1, a: 0}
+    - MainColor: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
