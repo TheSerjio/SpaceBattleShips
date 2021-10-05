@@ -2,6 +2,10 @@ using UnityEngine;
 
 public sealed class SimpleWeapon : ShipWeapon
 {
+    public float ReloadTime;
+
+    private float CoolDown;
+
     public float bulletLifeTime;
 
     public float bulletSpeed;
@@ -14,7 +18,20 @@ public sealed class SimpleWeapon : ShipWeapon
 
     public Color EdgeProjectileColor;
 
-    protected override void DoFire()
+    public void Update()
+    {
+        if (CoolDown > 0)
+            CoolDown -= Time.deltaTime;
+        else if (Parent.Fire)
+        {
+            CoolDown += ReloadTime;
+            Shoot();
+        }
+        else
+            CoolDown = 0;
+    }
+
+    private void Shoot()
     {
         var q = ProjectilePool.Self.Get();
         q.transform.SetPositionAndRotation(transform.position + transform.forward, transform.rotation);

@@ -32,6 +32,7 @@ public sealed class Ship : BaseEntity
     [SerializeField] MeshRenderer MeshForDamage;
     public TargetFrame frame;
     public Shield Shield { get; private set; }
+    public bool Fire { get; set; }
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -126,14 +127,6 @@ public sealed class Ship : BaseEntity
     public void AutoBrake()
     {
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
-    }
-
-    public void Fire()
-    {
-        if (weapons == null)
-            weapons = GetComponentsInChildren<ShipWeapon>();
-        foreach (var q in weapons)
-            q.Fire();
     }
 
     private Transform CreateEye(string q)

@@ -21,7 +21,7 @@ public class FighterShip : ShipController
             Ship.EnginePower = 1;
             if (isLaser)
             {
-                Ship.Fire();
+                Ship.Fire = true;
                 Ship.LookAt(target.position);
             }
             else
@@ -34,8 +34,7 @@ public class FighterShip : ShipController
                 float direction = Vector3.Dot(transform.forward, (target.position - transform.position).normalized);
                 //ship.Brake();
                 Ship.LookAt(transform.position + Ship.EyeA.forward);
-                if (direction > 0.5f)
-                    Ship.Fire();
+                Ship.Fire = direction > 0.5f;
             }
             var limit = Mathf.Sqrt(Vector3.Distance(transform.position, target.position)) + target.velocity.magnitude;
 

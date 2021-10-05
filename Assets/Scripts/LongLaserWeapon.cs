@@ -18,29 +18,29 @@ public class LongLaserWeapon : ShipWeapon
         q = lr.widthMultiplier;
     }
 
-    protected override void DoFire()
+    public void FixedUpdate()
     {
-        lr.widthMultiplier = q;
-        lr.positionCount = 2;
-        lr.SetPositions(new Vector3[] { transform.position, transform.position + (transform.forward * ushort.MaxValue) });
-        foreach (var hit in Physics.RaycastAll(transform.position, transform.forward))
+        if (Parent.Fire)
         {
-            var obj = hit.collider.gameObject;
-            var tar = obj.GetComponentInParent<BaseEntity>();
-            if (tar)
+            lr.widthMultiplier = q;
+            lr.positionCount = 2;
+            lr.SetPositions(new Vector3[] { transform.position, transform.position + (transform.forward * ushort.MaxValue) });
+            foreach (var hit in Physics.RaycastAll(transform.position, transform.forward))
             {
-                if (tar.team != Parent.team)
+                var obj = hit.collider.gameObject;
+                var tar = obj.GetComponentInParent<BaseEntity>();
+                if (tar)
                 {
-                    tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
-                    lr.SetPositions(new Vector3[] { transform.position, hit.point });
-                    break;
+                    if (tar.team != Parent.team)
+                    {
+                        tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
+                        lr.SetPositions(new Vector3[] { transform.position, hit.point });
+                        break;
+                    }
                 }
             }
         }
-    }
-
-    void Update()
-    {
-        lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
+        else
+            lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
     }
 }

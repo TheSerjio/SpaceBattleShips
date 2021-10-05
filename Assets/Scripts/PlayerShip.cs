@@ -17,11 +17,12 @@ public sealed class PlayerShip : ShipController
                 cameroid = pfc.transform;
             else
                 q = pfc.transform;
-        
+
         var cam = Instantiate(DataBase.Get().CameraPrefab);
         cam.transform.SetParent(q);
         cam.transform.localPosition = Vector3.zero;
         cam.transform.localScale = Vector3.one;
+        Instantiate(DataBase.Get().DustPrefab, transform);
     }
 
     public void Update()
@@ -81,7 +82,6 @@ public sealed class PlayerShip : ShipController
             Ship.LookAt(RB.position - RB.velocity);
         if (Input.GetKey(KeyCode.Alpha3))
             Ship.LookAt(Vector3.zero);
-        if (Input.GetKey(KeyCode.Space))
-            Ship.Fire();
+        Ship.Fire = Input.GetKey(KeyCode.Space);
     }
 }

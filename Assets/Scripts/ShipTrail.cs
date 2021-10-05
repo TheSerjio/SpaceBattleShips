@@ -8,7 +8,7 @@ public class ShipTrail : MonoBehaviour
 
     private LineRenderer lr;
 
-    void Start()
+    public void Start()
     {
         lr = GetComponent<LineRenderer>();
     }

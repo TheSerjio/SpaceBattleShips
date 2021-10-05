@@ -15,7 +15,6 @@ public sealed class Shield : MonoBehaviour
     private float Alpha;
 
     private const float defaultA = 0.25f;
-    private const float HighA = 0.5f;
 
     public void TakeDamage(ref float dmg)
     {
@@ -31,7 +30,7 @@ public sealed class Shield : MonoBehaviour
                 dmg -= Current;
                 HasShield = false;
             }
-            Alpha = HighA;
+            Alpha = (Alpha + 1) / 2;
         }
     }
 

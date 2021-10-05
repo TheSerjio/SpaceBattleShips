@@ -12,8 +12,12 @@ public abstract class BaseEntity : MonoBehaviour
     public void Awake()
     {
         RB = GetComponent<Rigidbody>();
-       // OnAwake();
+        foreach (var q in FindObjectsOfType<COLLECTOR>())
+            q.Add(this);
+        OnAwake();
     }
+
+    protected virtual void OnAwake() { }
 
     public abstract void OnDamaged(float dmg, BaseEntity from);
 }

@@ -37,7 +37,7 @@ public class Gravity : MonoBehaviour
             UpdateObjects();
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter()
     {
         UpdateObjects();
     }
