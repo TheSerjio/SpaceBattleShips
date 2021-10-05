@@ -2,10 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
-public sealed class GameUI : MonoBehaviour
+public sealed class GameUI : SINGLETON<GameUI>
 {
-    public static GameUI It;
-    public Ship target;
+    private Ship target;
     public Slider Engines;
     public Slider Brakes;
     public RectTransform Shields;
@@ -14,14 +13,6 @@ public sealed class GameUI : MonoBehaviour
     public RectTransform Velocity;
     public RectTransform CVelocity;
     public Text VelocityText;
-
-    public void Awake()
-    {
-        if (It)
-            Debug.Log($"Duplication! [{name}] and [{It.name}]");
-        else
-            It = this;
-    }
 
     public void Update()
     {
@@ -39,6 +30,12 @@ public sealed class GameUI : MonoBehaviour
                 CVelocity.gameObject.SetActive(target.RB.velocity.sqrMagnitude > 0.1f);
                 CVelocity.position = (Vector2)cam.WorldToScreenPoint(cam.transform.position + target.RB.velocity);
             }
+        }
+        else
+        {
+            var tar = FindObjectOfType<PlayerShip>();
+            if (tar)
+                target = tar.Ship;
         }
     }
 }

@@ -590,12 +590,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0.5
+  ReloadTime: 1
   bulletLifeTime: 20
   bulletSpeed: 50
   damage: 15
-  MainProjectileColor: {r: 1, g: 1, b: 1, a: 0}
-  EdgeProjectileColor: {r: 0, g: 1, b: 1, a: 0}
+  MainProjectileColor: {r: 0, g: 1, b: 1, a: 0}
+  EdgeProjectileColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &4271706942908349771
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,12 +736,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0.5
+  ReloadTime: 1
   bulletLifeTime: 20
   bulletSpeed: 50
   damage: 15
-  MainProjectileColor: {r: 1, g: 1, b: 1, a: 0}
-  EdgeProjectileColor: {r: 0, g: 1, b: 1, a: 0}
+  MainProjectileColor: {r: 0, g: 1, b: 1, a: 0}
+  EdgeProjectileColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1 &7070068156680053928
 GameObject:
   m_ObjectHideFlags: 0

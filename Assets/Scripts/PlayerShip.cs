@@ -2,11 +2,11 @@ using UnityEngine;
 
 public sealed class PlayerShip : ShipController
 {
-    public bool AutoBrake;
-    public float MouseSense;
+    public bool AutoBrake = true;
+    public float MouseSense = 30;
     public GameUI ui;
     Transform cameroid;
-    public float CameraRotation;
+    public float CameraRotation = 90;
 
     public void Start()
     {
@@ -27,6 +27,11 @@ public sealed class PlayerShip : ShipController
 
     public void Update()
     {
+        if (!ui)
+        {
+            ui = FindObjectOfType<GameUI>();
+            return;
+        }
         Vector3 rotation = Vector3.back * Input.GetAxis("Horizontal");
         if (Input.GetMouseButton(2))
             cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
@@ -45,8 +50,8 @@ public sealed class PlayerShip : ShipController
             pos = pos * MouseSense / size;
             rotation += new Vector3(-pos.y / (Mathf.Abs(pos.y) + 1), pos.x / (Mathf.Abs(pos.x) + 1));
         }
-        Ship.EnginePower = GameUI.It.Engines.value;
-        Ship.BrakePower = GameUI.It.Brakes.value;
+        Ship.EnginePower = GameUI.Self.Engines.value;
+        Ship.BrakePower = GameUI.Self.Brakes.value;
         if (rotation != Vector3.zero)
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * rotation, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))

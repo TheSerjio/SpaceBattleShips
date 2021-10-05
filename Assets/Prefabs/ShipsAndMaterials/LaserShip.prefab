@@ -285,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0
   damagePerSecond: 10
 --- !u!1 &2746703076095767380
 GameObject:
@@ -403,6 +402,7 @@ MonoBehaviour:
   target: {fileID: 0}
   mainWeapon: {fileID: 0}
   isLaser: 1
+  LaserAccuracy: 1000
 --- !u!114 &706638974077699411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,7 +832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0
   damagePerSecond: 10
 --- !u!1 &7724420836567980821
 GameObject:

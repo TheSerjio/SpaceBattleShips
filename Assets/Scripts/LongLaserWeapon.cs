@@ -14,7 +14,7 @@ public class LongLaserWeapon : ShipWeapon
     public void Start()
     {
         lr = GetComponent<LineRenderer>();
-        lr.useWorldSpace = true;
+        lr.useWorldSpace = false;
         q = lr.widthMultiplier;
     }
 
@@ -24,7 +24,7 @@ public class LongLaserWeapon : ShipWeapon
         {
             lr.widthMultiplier = q;
             lr.positionCount = 2;
-            lr.SetPositions(new Vector3[] { transform.position, transform.position + (transform.forward * ushort.MaxValue) });
+            lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * ushort.MaxValue });
             foreach (var hit in Physics.RaycastAll(transform.position, transform.forward))
             {
                 var obj = hit.collider.gameObject;
@@ -34,7 +34,7 @@ public class LongLaserWeapon : ShipWeapon
                     if (tar.team != Parent.team)
                     {
                         tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
-                        lr.SetPositions(new Vector3[] { transform.position, hit.point });
+                        lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * hit.distance });
                         break;
                     }
                 }

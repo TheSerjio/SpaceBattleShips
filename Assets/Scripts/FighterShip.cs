@@ -8,6 +8,8 @@ public class FighterShip : ShipController
 
     public bool isLaser;
 
+    public float LaserAccuracy;
+
     public void FixedUpdate()
     {
         if (target)
@@ -21,8 +23,8 @@ public class FighterShip : ShipController
             Ship.EnginePower = 1;
             if (isLaser)
             {
-                Ship.Fire = true;
-                Ship.LookAt(target.position);
+                Ship.Fire = Vector3.Dot(transform.forward, (target.position - transform.position).normalized) > 0;
+                Ship.LookAt(target.position + Random.insideUnitSphere * Vector3.Distance(transform.position, target.position) / LaserAccuracy);
             }
             else
             {
@@ -48,6 +50,7 @@ public class FighterShip : ShipController
             var obj = Utils.Choice(System.Array.FindAll(FindObjectsOfType<Ship>(), (Ship s) => s.team != Ship.team));
             if (obj)
                 target = obj.RB;
+            Ship.Fire = false;
         }
     }
 }
