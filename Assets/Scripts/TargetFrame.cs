@@ -54,7 +54,7 @@ public class TargetFrame : MonoBehaviour
         }
         else
         {
-            onHit.transform.parent = transform.parent;
+            onHit.transform.SetParent(transform.parent);
             onHit.SetActive(true);
             Destroy(onHit, 1);
             Destroy(gameObject);
