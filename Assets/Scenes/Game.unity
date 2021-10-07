@@ -184,6 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3037400723036222544, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
+    - {fileID: 3720124415845513083, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
 --- !u!1 &32437509 stripped
 GameObject:
@@ -2306,7 +2307,7 @@ MonoBehaviour:
   team: 0
   all:
   - prefab: {fileID: 3939391291606161747, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
-    number: 4
+    number: 10
   canva: {fileID: 2092472695}
 --- !u!4 &1573934796
 Transform:
@@ -3032,7 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WarnDistance: 10000
-  DeathDistance: 11111
+  DeathDistance: 12345
 --- !u!33 &959186683340885100
 MeshFilter:
   m_ObjectHideFlags: 0

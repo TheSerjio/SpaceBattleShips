@@ -47,6 +47,7 @@ Material:
     - Holy: 0.02
     - Metallic: 0
     - Scale: 21.57
+    - Skin: 0
     - Smoothness: 1
     m_Colors:
     - BrokenColor: {r: 1, g: 0, b: 0, a: 0.99215686}

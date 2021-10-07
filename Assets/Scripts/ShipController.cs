@@ -17,16 +17,36 @@ public abstract class ShipController : MonoBehaviour
 
 public abstract class ShipAIController : ShipController
 {
-    private Vector3 target;
+    [SerializeField]private Vector3 to;
 
     public sealed override void Warn(Vector3 moveTo)
     {
-        target = moveTo;
+        to = moveTo;
     }
 
     protected void LookAt(Vector3 where)
     {
-        target = Vector3.MoveTowards(target, where, Time.deltaTime * Vector3.Distance(target, where));
-        Ship.LookAt(target);
+        //yes, 8
+        to = Vector3.MoveTowards(to, where, 8 * Time.deltaTime * Vector3.Distance(to, where));
+        Ship.LookAt(to);
     }
+}
+
+public abstract class ShipSimpleAIController : ShipAIController
+{
+    public Ship target;
+
+    public void FixedUpdate()
+    {
+        if (!target)
+        {
+            var obj = Utils.Choice(System.Array.FindAll(FindObjectsOfType<Ship>(), (Ship s) => s.team != Ship.team));
+            if (obj)
+                target = obj;
+            Ship.Fire = false;
+        }
+        OnFixedUpdate();
+    }
+
+    public abstract void OnFixedUpdate();
 }

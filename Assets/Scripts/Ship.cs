@@ -17,8 +17,8 @@ public sealed class Ship : BaseEntity
     public float RelativeHealth => Health / MaxHealth;
     public float RelativeEnergy => Energy / MaxEnergy;
     [SerializeField] float speed;
-    public Transform EyeA { get;private set; }
-    public Transform EyeB { get;private set; }
+    public Transform EyeA { get; private set; }
+    public Transform EyeB { get; private set; }
     [SerializeField] float MaxHealth;
     public float Health { get; private set; }
     [SerializeField] ShipWeapon[] weapons;
@@ -154,7 +154,7 @@ public sealed class Ship : BaseEntity
         return obj;
     }
 
-    public void Start()
+    protected override void OnAwake()
     {
         EnginePower = 1;
         BrakePower = 1;
