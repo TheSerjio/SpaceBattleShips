@@ -89,4 +89,9 @@ public sealed class PlayerShip : ShipController
             Ship.LookAt(Vector3.zero);
         Ship.Fire = Input.GetKey(KeyCode.Space);
     }
+
+    public override void Warn(Vector3 moveTo)
+    {
+        Debug.Log($"Move to [{moveTo}]");
+    }
 }

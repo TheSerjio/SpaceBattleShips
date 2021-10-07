@@ -3031,6 +3031,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c6eae39db0ec640b071d4bb86d2b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WarnDistance: 10000
+  DeathDistance: 11111
 --- !u!33 &959186683340885100
 MeshFilter:
   m_ObjectHideFlags: 0

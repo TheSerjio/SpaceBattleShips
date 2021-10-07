@@ -2,7 +2,16 @@ using UnityEngine;
 
 public sealed class Ship : BaseEntity
 {
-   // private ShipController brain;
+    private ShipController __brain__;
+    private ShipController Brain
+    {
+        get
+        {
+            if (!__brain__)
+                __brain__ = GetComponent<ShipController>();
+            return __brain__;
+        }
+    }
     [Tooltip("Degrees per second")] [SerializeField] float rotationSpeed;
     public float RotationSpeed => rotationSpeed;
     public float RelativeHealth => Health / MaxHealth;
@@ -43,6 +52,12 @@ public sealed class Ship : BaseEntity
         UnityEditor.EditorUtility.SetDirty(this);
     }
 #endif
+
+    public void Warn(Vector3 moveTo)
+    {
+        if (Brain)
+            Brain.Warn(moveTo);
+    }
 
     public void Update()
     {
@@ -148,7 +163,6 @@ public sealed class Ship : BaseEntity
         EyeA = CreateEye("eye a");
         EyeB = CreateEye("eye b");
         Health = MaxHealth;
-     //   brain = GetComponent<ShipController>();
     }
 
 #if DEBUG

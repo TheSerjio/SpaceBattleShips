@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FighterShip : ShipController
+public class FighterShip : ShipAIController
 {
     public Rigidbody target;
 
@@ -24,7 +24,7 @@ public class FighterShip : ShipController
             if (isLaser)
             {
                 Ship.Fire = Vector3.Dot(transform.forward, (target.position - transform.position).normalized) > 0;
-                Ship.LookAt(target.position + Random.insideUnitSphere * Vector3.Distance(transform.position, target.position) / LaserAccuracy);
+                LookAt(target.position + Random.insideUnitSphere * Vector3.Distance(transform.position, target.position) / LaserAccuracy);
             }
             else
             {
@@ -35,7 +35,7 @@ public class FighterShip : ShipController
                 Ship.EyeA.LookAt(Ship.EyeA.position + (Ship.EyeA.forward * 2 - Ship.EyeB.forward));
                 float direction = Vector3.Dot(transform.forward, (target.position - transform.position).normalized);
                 //ship.Brake();
-                Ship.LookAt(transform.position + Ship.EyeA.forward);
+                LookAt(transform.position + Ship.EyeA.forward);
                 Ship.Fire = direction > 0.5f;
             }
             var limit = Mathf.Sqrt(Vector3.Distance(transform.position, target.position)) + target.velocity.magnitude;
