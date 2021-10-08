@@ -88,11 +88,15 @@ public sealed class PlayerShip : ShipController
         if (Input.GetKey(KeyCode.Alpha3))
             Ship.LookAt(Vector3.zero);
         Ship.Fire = Input.GetKey(KeyCode.Space);
+
+        cameroid.localPosition = Vector3.MoveTowards(cameroid.localPosition, Vector3.zero, Time.deltaTime);
     }
 
-    public override void Warn(Vector3 moveTo, DistanceWarn how)
+    public override void Warn(Vector3 moveTo, Warning how)
     {
-        if (GameUI.Self)
-            GameUI.Self.Warn.color = Color.white;
+        cameroid.localPosition = Random.insideUnitSphere * how.shakePower;
+        if (how.showText)
+            if (GameUI.Self)
+                GameUI.Self.Warn.color = Color.white;
     }
 }

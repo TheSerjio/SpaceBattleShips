@@ -71,11 +71,14 @@ public abstract class COLLECTOR<T> : COLLECTOR where T : BaseEntity
     public abstract void ForEach(T with);
 }
 
-[System.Flags]
-public enum DistanceWarn
+public struct Warning
 {
-    None = 0,
-    CameraShake = 1,
-    Text = 2,
-    All = 3
+    public bool showText;
+    public float shakePower;
+
+    public Warning(bool text,float power)
+    {
+        showText = text;
+        shakePower = power;
+    }
 }

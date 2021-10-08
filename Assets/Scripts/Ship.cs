@@ -51,7 +51,7 @@ public sealed class Ship : BaseEntity
     }
 #endif
 
-    public void Warn(Vector3 moveTo, DistanceWarn how)
+    public void Warn(Vector3 moveTo, Warning how)
     {
         if (Brain)
             Brain.Warn(moveTo, how);

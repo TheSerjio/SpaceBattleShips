@@ -12,14 +12,14 @@ public abstract class ShipController : MonoBehaviour
         Ship = GetComponent<Ship>();
     }
 
-    public abstract void Warn(Vector3 moveTo, DistanceWarn how);
+    public abstract void Warn(Vector3 moveTo, Warning how);
 }
 
 public abstract class ShipAIController : ShipController
 {
     [SerializeField]private Vector3 to;
 
-    public override void Warn(Vector3 moveTo, DistanceWarn how)
+    public override void Warn(Vector3 moveTo, Warning how)
     {
         to = moveTo;
     }

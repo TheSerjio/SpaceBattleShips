@@ -10,7 +10,7 @@ public class DistanceLeash : COLLECTOR<Ship>
         var d = Vector3.Distance(transform.position, q.transform.position);
         if (d > WarnDistance)
         {
-            q.Warn(transform.position, DistanceWarn.Text);
+            q.Warn(transform.position, new Warning(true, 0));
             if (d > DeathDistance)
                 q.OnDamaged(1, null);
         }
