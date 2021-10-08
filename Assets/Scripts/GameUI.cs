@@ -11,8 +11,8 @@ public sealed class GameUI : SINGLETON<GameUI>
     public RectTransform Power;
     public RectTransform Health;
     public RectTransform Velocity;
-    public RectTransform CVelocity;
     public Text VelocityText;
+    public Graphic Warn;
 
     public void Update()
     {
@@ -26,9 +26,8 @@ public sealed class GameUI : SINGLETON<GameUI>
             var cam = Camera.main;
             if (cam)
             {
-                Velocity.position = (Vector2)cam.WorldToScreenPoint(target.RB.position + target.RB.velocity);
-                CVelocity.gameObject.SetActive(target.RB.velocity.sqrMagnitude > 0.1f);
-                CVelocity.position = (Vector2)cam.WorldToScreenPoint(cam.transform.position + target.RB.velocity);
+                Velocity.gameObject.SetActive(target.RB.velocity.sqrMagnitude > 0.1f);
+                Velocity.position = (Vector2)cam.WorldToScreenPoint(cam.transform.position + target.RB.velocity);
             }
         }
         else
@@ -37,5 +36,7 @@ public sealed class GameUI : SINGLETON<GameUI>
             if (tar)
                 target = tar.Ship;
         }
+
+        Warn.color = Vector4.MoveTowards(Warn.color, new Color(1, 1, 1, 0), Time.deltaTime);
     }
 }

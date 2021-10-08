@@ -16,17 +16,16 @@ public abstract class SINGLETON<T> : MonoBehaviour where T : SINGLETON<T>
     protected virtual void OnAwake() { }
 }
 
-[DisallowMultipleComponent]
 public abstract class COLLECTOR : MonoBehaviour
 {
     public abstract void Add(BaseEntity it);
 }
 
-public abstract class COLLECTOR<T>:COLLECTOR where T : BaseEntity
+public abstract class COLLECTOR<T> : COLLECTOR where T : BaseEntity
 {
     private System.Collections.Generic.List<T> all;
 
-    protected System.Collections.Generic.List<T> All
+    private System.Collections.Generic.List<T> All
     {
         get
         {
@@ -38,11 +37,11 @@ public abstract class COLLECTOR<T>:COLLECTOR where T : BaseEntity
 
     public override sealed void Add(BaseEntity it)
     {
-        if(it is T t)
+        if (it is T t)
             All.Add(t);
     }
 
-    public void RemoveNull()
+    private void RemoveNull()
     {
         var real = new System.Collections.Generic.List<T>();
         foreach (var q in All)
@@ -50,4 +49,33 @@ public abstract class COLLECTOR<T>:COLLECTOR where T : BaseEntity
                 real.Add(q);
         all = real;
     }
+
+    public void FixedUpdate()
+    {
+        for (int i = 0; i < All.Count; i++)
+        {
+            var q = all[i];
+            if (q)
+            {
+                ForEach(q);
+            }
+            else
+            {
+                RemoveNull();
+                break;
+            }
+        }
+    }
+
+    /// <param name="with">never null</param>
+    public abstract void ForEach(T with);
+}
+
+[System.Flags]
+public enum DistanceWarn
+{
+    None = 0,
+    CameraShake = 1,
+    Text = 2,
+    All = 3
 }

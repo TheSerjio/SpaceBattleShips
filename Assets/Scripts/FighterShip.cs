@@ -17,13 +17,9 @@ public class FighterShip : ShipSimpleAIController
             Ship.EnginePower = 1;
 
             float distance = Vector3.Distance(target.transform.position, transform.position);
-            Vector3 targetPos = target.transform.position + (a * distance * target.RB.velocity);
-            Ship.EyeA.LookAt(targetPos);
-            Ship.EyeB.LookAt(RB.position + RB.velocity);
-            Ship.EyeA.LookAt(Ship.EyeA.position + (Ship.EyeA.forward * 2 - Ship.EyeB.forward));
+            LookAt(target.transform.position + (a * distance * (target.RB.velocity - RB.velocity)));
             float direction = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized);
             //ship.Brake();
-            LookAt(transform.position + Ship.EyeA.forward);
             Ship.Fire = direction > 0.5f;
 
             // 8 is fine

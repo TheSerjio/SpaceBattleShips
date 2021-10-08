@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Laser
-  m_Shader: {fileID: -6465566751694194690, guid: 1a2c25cf019505d408a8fce644aea8c1, type: 3}
+  m_Name: Earth
+  m_Shader: {fileID: -6465566751694194690, guid: 20dffcceb31f2c7409229f42087dfed4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +19,24 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Broken:
-        m_Texture: {fileID: 2800000, guid: fa16aa4063de78f498c47cf6ad63d412, type: 3}
+    - Day:
+        m_Texture: {fileID: 2800000, guid: c0f8e88f8b4bf6047b2373d9d042e1c4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - Texture:
-        m_Texture: {fileID: 2800000, guid: d10696b54b561164ea08346f2e52b20b, type: 3}
+    - Night:
+        m_Texture: {fileID: 2800000, guid: c29324e198416744cb2ce15322f4117e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Normals:
+        m_Texture: {fileID: 2800000, guid: dc24e7114de96c141bab7ceeea6446f7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - SurfaceMap:
+        m_Texture: {fileID: 2800000, guid: c0f8e88f8b4bf6047b2373d9d042e1c4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_4bd5ae8d1b264e0c84b13a5ada8e7909_Out_0:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,16 +53,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BrokenPower: 10
-    - BrokenTextureScale: 6
-    - Damage: 0
-    - Holy: 0.02
-    - Horror: 1
-    - Metallic: 0
-    - Scale: 21.57
-    - Skin: 0
-    - Smoothness: 1
+    - Scale: 1000
     m_Colors:
-    - BrokenColor: {r: 1, g: 0, b: 0, a: 0.99215686}
-    - DamageColor: {r: 1, g: 0, b: 0, a: 0}
+    - Sun: {r: 0, g: 0, b: 4068, a: 0}
   m_BuildTextureStacks: []

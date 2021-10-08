@@ -90,8 +90,9 @@ public sealed class PlayerShip : ShipController
         Ship.Fire = Input.GetKey(KeyCode.Space);
     }
 
-    public override void Warn(Vector3 moveTo)
+    public override void Warn(Vector3 moveTo, DistanceWarn how)
     {
-        Debug.Log($"Move to [{moveTo}]");
+        if (GameUI.Self)
+            GameUI.Self.Warn.color = Color.white;
     }
 }

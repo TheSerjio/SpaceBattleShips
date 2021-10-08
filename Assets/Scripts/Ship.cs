@@ -17,8 +17,6 @@ public sealed class Ship : BaseEntity
     public float RelativeHealth => Health / MaxHealth;
     public float RelativeEnergy => Energy / MaxEnergy;
     [SerializeField] float speed;
-    public Transform EyeA { get; private set; }
-    public Transform EyeB { get; private set; }
     [SerializeField] float MaxHealth;
     public float Health { get; private set; }
     [SerializeField] ShipWeapon[] weapons;
@@ -53,10 +51,10 @@ public sealed class Ship : BaseEntity
     }
 #endif
 
-    public void Warn(Vector3 moveTo)
+    public void Warn(Vector3 moveTo, DistanceWarn how)
     {
         if (Brain)
-            Brain.Warn(moveTo);
+            Brain.Warn(moveTo, how);
     }
 
     public void Update()
@@ -144,7 +142,8 @@ public sealed class Ship : BaseEntity
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
     }
 
-    private Transform CreateEye(string q)
+    /*[System.Obsolete]
+    Transform CreateEye(string q)
     {
         var obj = new GameObject(q).transform;
         obj.parent = transform;
@@ -152,7 +151,7 @@ public sealed class Ship : BaseEntity
         obj.localEulerAngles = Vector3.zero;
         obj.localScale = Vector3.one;
         return obj;
-    }
+    }*/
 
     protected override void OnAwake()
     {
@@ -160,8 +159,6 @@ public sealed class Ship : BaseEntity
         BrakePower = 1;
         ShieldPower = 1;
         Energy = MaxEnergy;
-        EyeA = CreateEye("eye a");
-        EyeB = CreateEye("eye b");
         Health = MaxHealth;
     }
 
