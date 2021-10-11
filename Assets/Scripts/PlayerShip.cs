@@ -3,8 +3,7 @@ using UnityEngine;
 public sealed class PlayerShip : ShipController
 {
     public bool AutoBrake = true;
-    public float MouseSense = 30;
-    public GameUI ui;
+    GameUI ui;
     Transform cameroid;
     public float CameraRotation = 90;
 
@@ -44,11 +43,9 @@ public sealed class PlayerShip : ShipController
 
         if (Input.GetMouseButton(1))
         {
-            Vector2 pos = Input.mousePosition;
-            var size = new Vector2(Screen.width, Screen.height);
-            pos -= size / 2f;
-            pos = pos * MouseSense / size;
-            rotation += new Vector3(-pos.y / (Mathf.Abs(pos.y) + 1), pos.x / (Mathf.Abs(pos.x) + 1));
+            Vector2 pos = 2 * Input.mousePosition / new Vector2(Screen.width, Screen.height);
+            pos -= Vector2.one;
+            rotation += new Vector3(-pos.y, pos.x);
         }
         Ship.EnginePower = GameUI.Self.Engines.value;
         Ship.BrakePower = GameUI.Self.Brakes.value;
@@ -92,11 +89,16 @@ public sealed class PlayerShip : ShipController
         cameroid.localPosition = Vector3.MoveTowards(cameroid.localPosition, Vector3.zero, Time.deltaTime);
     }
 
-    public override void Warn(Vector3 moveTo, Warning how)
+    public override void Warn(Vector3 moveTo, Ship.Warning how)
     {
         cameroid.localPosition = Random.insideUnitSphere * how.shakePower;
         if (how.showText)
             if (GameUI.Self)
                 GameUI.Self.Warn.color = Color.white;
+    }
+
+    public override void Death()
+    {
+        cameroid.SetParent(null, true);
     }
 }

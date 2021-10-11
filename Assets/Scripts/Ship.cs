@@ -2,6 +2,24 @@ using UnityEngine;
 
 public sealed class Ship : BaseEntity
 {
+    public struct Warning
+    {
+        public bool showText;
+        public float shakePower;
+
+        public Warning(bool text, float power)
+        {
+            showText = text;
+            shakePower = power;
+        }
+    }
+
+    public enum Type
+    {
+        Projectile,
+        Laser
+    }
+
     private ShipController __brain__;
     private ShipController Brain
     {
@@ -23,12 +41,12 @@ public sealed class Ship : BaseEntity
     [SerializeField] ShipTrail[] trails;
     [SerializeField] float EngineConsumption;
     [SerializeField] float BrakeConsumption;
-    public float EnginePower { get;  set; }
-    public float BrakePower { get;  set; }
+    public float EnginePower { get; set; }
+    public float BrakePower { get; set; }
     /// <summary>
     /// Legacy
     /// </summary>
-    public float ShieldPower { get;  set; }
+    public float ShieldPower { get; set; }
     /// <summary>
     /// Serializable
     /// </summary>
@@ -81,7 +99,11 @@ public sealed class Ship : BaseEntity
         Health -= dmg;
         MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
         if (Health <= 0)
+        {
+            if (Brain)
+                Brain.Death();
             Destroy(gameObject);
+        }
         if (frame)
             frame.OnHit(from);
     }
@@ -176,5 +198,16 @@ public sealed class Ship : BaseEntity
     public void LookAt(Vector3 worldPoint)
     {
         transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        var q = collision.collider.gameObject.GetComponentInParent<Ship>();
+        if (q)
+        {
+            float dmg = collision.relativeVelocity.magnitude;
+            q.OnDamaged(dmg, this);
+            OnDamaged(dmg, q);
+        }
     }
 }

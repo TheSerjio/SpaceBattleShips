@@ -35,5 +35,4 @@ public class Projectile : BaseEntity
                 Die();
             }
     }
-   // public void OnCollisionEnter(Collision other) => OnTriggerEnter(other.collider);
 }

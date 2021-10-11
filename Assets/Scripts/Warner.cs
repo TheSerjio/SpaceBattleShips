@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// component of warning window
+/// </summary>
 [RequireComponent(typeof(Graphic))]
 public class Warner : MonoBehaviour
 {

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(Canvas))]
 public sealed class GameUI : SINGLETON<GameUI>
 {
     private Ship target;
@@ -13,9 +14,18 @@ public sealed class GameUI : SINGLETON<GameUI>
     public RectTransform Velocity;
     public Text VelocityText;
     public Graphic Warn;
+    private Canvas canva;
+
+    protected override void OnAwake()
+    {
+        canva = GetComponent<Canvas>();
+    }
 
     public void Update()
     {
+        if (!canva.worldCamera)
+            canva.worldCamera = Camera.main;
+            
         if (target)
         {
             if (target.Shield)

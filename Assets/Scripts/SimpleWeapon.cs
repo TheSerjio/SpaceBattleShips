@@ -18,6 +18,10 @@ public sealed class SimpleWeapon : ShipWeapon
 
     public Color EdgeProjectileColor;
 
+    public float ProjecileLentgh;
+
+    public float ProjectileSize;
+
     public void Update()
     {
         if (CoolDown > 0)
@@ -34,15 +38,20 @@ public sealed class SimpleWeapon : ShipWeapon
     private void Shoot()
     {
         var q = ProjectilePool.Self.Get();
-        q.transform.SetPositionAndRotation(transform.position + transform.forward, transform.rotation);
+        q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         var p = q.GetComponent<Projectile>();
         p.team = Parent.team;
         p.Parent = Parent;
         p.LifeTime = bulletLifeTime;
         p.Damage = damage;
-        var mat = q.GetComponent<LineRenderer>().material;
-        mat.SetColor("MainColor", MainProjectileColor);
-        mat.SetColor("EdgeColor", EdgeProjectileColor);
+        var line = q.GetComponent<LineRenderer>();
+        line.material.SetColor("MainColor", MainProjectileColor);
+        line.material.SetColor("EdgeColor", EdgeProjectileColor);
+        line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh, Vector3.forward * ProjecileLentgh });
+        line.widthMultiplier = ProjectileSize;
+        var capsule = q.GetComponent<CapsuleCollider>();
+        capsule.height = ProjecileLentgh;
+        capsule.radius = ProjectileSize;
         var rb = q.GetComponent<Rigidbody>();
         rb.velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();

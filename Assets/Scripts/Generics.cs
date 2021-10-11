@@ -71,14 +71,26 @@ public abstract class COLLECTOR<T> : COLLECTOR where T : BaseEntity
     public abstract void ForEach(T with);
 }
 
-public struct Warning
+public abstract class ValidableScriptableObject : ScriptableObject
 {
-    public bool showText;
-    public float shakePower;
-
-    public Warning(bool text,float power)
+    public enum Level
     {
-        showText = text;
-        shakePower = power;
+        Message, Warning, Error
     }
+
+    public struct Warning
+    {
+        public Level level;
+        public string text;
+        public ValidableScriptableObject parent;
+
+        public Warning(Level lvl, string txt)
+        {
+            level = lvl;
+            text = txt;
+            parent = null;
+        }
+    }
+
+    public abstract System.Collections.Generic.IEnumerable<Warning> Validate();
 }
