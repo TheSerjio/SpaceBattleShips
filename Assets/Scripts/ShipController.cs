@@ -22,18 +22,22 @@ public abstract class ShipController : MonoBehaviour
 
 public abstract class ShipAIController : ShipController
 {
-    [SerializeField]private Vector3 to;
+    private float time;
+
+    private Vector3 to;
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)
     {
+        time = Time.time;
         to = moveTo;
     }
 
     protected void LookAt(Vector3 where)
     {
-        //yes, 8
-        to = Vector3.MoveTowards(to, where, 8 * Time.deltaTime * Vector3.Distance(to, where));
-        Ship.LookAt(to);
+        if (Time.time - time > 1)
+            Ship.LookAt(where);
+        else
+            Ship.LookAt(to);
     }
 }
 
