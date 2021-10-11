@@ -15,6 +15,7 @@ MonoBehaviour:
   TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}
   CameraPrefab: {fileID: 1869164099664931348, guid: 6e7960c65ae02e24484986d155bdeacb, type: 3}
   DustPrefab: {fileID: 8337942286436823725, guid: 14068295d4ada2641912daca50394a4f, type: 3}
+  ShipExplosion: {fileID: 6220865246766937617, guid: 3896d957818034947a3a845355213787, type: 3}
   Ships:
   - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}

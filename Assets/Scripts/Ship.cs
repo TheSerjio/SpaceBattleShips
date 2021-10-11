@@ -102,6 +102,7 @@ public sealed class Ship : BaseEntity
         {
             if (Brain)
                 Brain.Death();
+            Destroy(Instantiate(DataBase.Get().ShipExplosion, transform.position, Quaternion.identity), 30);
             Destroy(gameObject);
         }
         if (frame)
@@ -209,5 +210,13 @@ public sealed class Ship : BaseEntity
             q.OnDamaged(dmg, this);
             OnDamaged(dmg, q);
         }
+    }
+
+    public void ExtraForward()
+    {
+        float prev = EnginePower;
+        EnginePower = 5;//5
+        Forward();
+        EnginePower = prev;
     }
 }

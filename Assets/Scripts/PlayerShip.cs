@@ -53,10 +53,7 @@ public sealed class PlayerShip : ShipController
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * rotation, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            float prev = Ship.EnginePower;
-            Ship.EnginePower = ui.Engines.maxValue;
-            Ship.Forward();
-            Ship.EnginePower = prev;
+            Ship.ExtraForward();
         }
         else if (Input.GetKey(KeyCode.W))
         {

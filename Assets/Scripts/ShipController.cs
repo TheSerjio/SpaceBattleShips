@@ -26,27 +26,22 @@ public abstract class ShipAIController : ShipController
 
     private Vector3 to;
 
+    public Ship target;
+
     public override void Warn(Vector3 moveTo, Ship.Warning how)
     {
         time = Time.time;
         to = moveTo;
     }
 
-    protected void LookAt(Vector3 where)
-    {
-        if (Time.time - time > 1)
-            Ship.LookAt(where);
-        else
-            Ship.LookAt(to);
-    }
-}
-
-public abstract class ShipSimpleAIController : ShipAIController
-{
-    public Ship target;
-
     public void FixedUpdate()
     {
+        if (Time.time - time < 1)
+        {
+            Ship.LookAt(to);
+            Ship.ExtraForward();
+            return;
+        }
         if (!target)
         {
             var obj = Utils.Choice(System.Array.FindAll(FindObjectsOfType<Ship>(), (Ship s) => s.team != Ship.team));

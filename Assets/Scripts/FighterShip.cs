@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FighterShip : ShipSimpleAIController
+public class FighterShip : ShipAIController
 {
     public ShipWeapon mainWeapon;
 
@@ -17,7 +17,7 @@ public class FighterShip : ShipSimpleAIController
             Ship.EnginePower = 1;
 
             float distance = Vector3.Distance(target.transform.position, transform.position);
-            LookAt(target.transform.position + (a * distance * (target.RB.velocity - RB.velocity)));
+            Ship.LookAt(target.transform.position + (a * distance * (target.RB.velocity - RB.velocity)));
             float direction = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized);
             //ship.Brake();
             Ship.Fire = direction > 0.5f;
