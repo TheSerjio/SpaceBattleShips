@@ -12,8 +12,7 @@ public abstract class BaseEntity : MonoBehaviour
     public void Awake()
     {
         RB = GetComponent<Rigidbody>();
-        foreach (var q in FindObjectsOfType<COLLECTOR>())
-            q.Add(this);
+        GameCore.Add(this);
         OnAwake();
     }
 

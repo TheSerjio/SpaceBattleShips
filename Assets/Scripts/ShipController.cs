@@ -44,9 +44,7 @@ public abstract class ShipAIController : ShipController
         }
         if (!target)
         {
-            var obj = Utils.Choice(System.Array.FindAll(FindObjectsOfType<Ship>(), (Ship s) => s.team != Ship.team));
-            if (obj)
-                target = obj;
+            target = GameCore.Self.FindTargetShip(Ship.team);
             Ship.Fire = false;
         }
         OnFixedUpdate();

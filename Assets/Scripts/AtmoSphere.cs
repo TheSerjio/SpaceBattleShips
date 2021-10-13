@@ -14,7 +14,7 @@ public class AtmoSphere : COLLECTOR<Ship>
             if (d <= Death)
                 q.OnDamaged(1, null);
             else
-                q.Warn(q.transform.position - transform.position, new Ship.Warning(false, CameraShake * (d - Warn) / (Death - Warn)));
+                q.Warn(q.transform.position * 2 - transform.position, new Ship.Warning(false, CameraShake * (d - Warn) / (Death - Warn)));
         }
     }
 }

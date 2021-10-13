@@ -63,7 +63,7 @@ public sealed class DataBase : ScriptableObject
                 foreach (var qq in q.Validate())
                 {
                     var qw = qq;
-                    qw.parent = q;
+                    qw.parent = q;                    
                     all.Add(qq);
                 }
             }

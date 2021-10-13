@@ -24,7 +24,7 @@ public sealed class GameUI : SINGLETON<GameUI>
     public void Update()
     {
         if (!canva.worldCamera)
-            canva.worldCamera = Camera.main;
+            canva.worldCamera = GameCore.MainCamera;
             
         if (target)
         {
@@ -33,7 +33,7 @@ public sealed class GameUI : SINGLETON<GameUI>
             Power.localScale = new Vector3(target.RelativeEnergy, 1, 1);
             Health.localScale = new Vector3(target.RelativeHealth, 1, 1);
             VelocityText.text = Mathf.RoundToInt(Utils.ToSadUnits(target.RB)).ToString();
-            var cam = Camera.main;
+            var cam = GameCore.MainCamera;
             if (cam)
             {
                 Velocity.gameObject.SetActive(target.RB.velocity.sqrMagnitude > 0.1f);

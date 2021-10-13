@@ -28,7 +28,7 @@ public class TargetFrame : MonoBehaviour
     {
         if (target)
         {
-            var cam = Camera.main;
+            var cam = GameCore.MainCamera;
             if (!cam)
             {
                 target = null;
