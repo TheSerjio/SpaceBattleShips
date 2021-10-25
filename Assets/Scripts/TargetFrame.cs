@@ -13,6 +13,10 @@ public class TargetFrame : MonoBehaviour
     float timeLeft;
     [SerializeField] GameObject onHit;
 
+    public UnityEngine.UI.Graphic[] all;
+
+    public float MaxVisionDistance;
+
     public void Start()
     {
         if (!player)
@@ -36,6 +40,13 @@ public class TargetFrame : MonoBehaviour
             }
             if (Vector3.Dot(cam.transform.forward, cam.transform.position - target.transform.position) < 0)
             {
+                var dist = Vector3.Distance(target.transform.position, cam.transform.position);
+                foreach (var q in all)
+                {
+                    var c= q.color;
+                    c.a = Mathf.Lerp(1, 0, dist / MaxVisionDistance);//TODO optimization
+                    q.color = c;
+                }
                 image.SetActive(true);
                 text.enabled = true;
                 Vector2 pos = cam.WorldToScreenPoint(target.transform.position);
