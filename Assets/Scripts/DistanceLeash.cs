@@ -12,7 +12,7 @@ public class DistanceLeash : COLLECTOR<Ship>
         {
             q.Warn(transform.position, new Ship.Warning(true, 0));
             if (d > DeathDistance)
-                q.OnDamaged(1, null);
+                q.DeathDamage();
         }
     }
 }

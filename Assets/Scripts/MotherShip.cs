@@ -10,7 +10,7 @@ public sealed class MotherShip : Ship
         public ShipData ship;
     }
 
-    [SerializeField] Transform spawner;
+    [SerializeField] Transform[] spawners;
 
     [SerializeField] Data[] all;
 
@@ -18,12 +18,13 @@ public sealed class MotherShip : Ship
     {
         if (all != null)
         {
+            foreach(var spw in spawners)
             foreach (var q in all)
                 if (q.count != 0)
                 {
                     q.count--;
-                    if (q.ship)
-                        Instantiate(q.ship.prefab, spawner.position, spawner.rotation);
+                        if (q.ship)
+                            Instantiate(q.ship.prefab, spw.position, spw.rotation).GetComponent<Ship>().team = team;
                     break;
                 }
         }

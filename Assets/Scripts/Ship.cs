@@ -80,8 +80,7 @@ public class Ship : BaseEntity
     public void Update()
     {
         EngineQ = Mathf.MoveTowards(EngineQ, 0, Time.deltaTime * 2);
-        float q = 2.125f;
-        float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / q + (1 - 1 / q);
+        float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / 2 + 1;
         float mag = RB.velocity.magnitude;
         for (int i = 0; i < trails.Length; i++)
             trails[i].SetTrailLent(L, mag * EngineQ);
@@ -224,5 +223,10 @@ public class Ship : BaseEntity
         EnginePower = 5;//5
         Forward();
         EnginePower = prev;
+    }
+
+    public override void DeathDamage()
+    {
+        OnDamaged(MaxHealth * Time.deltaTime, null);
     }
 }

@@ -31,9 +31,6 @@
             "m_Id": "3fc8eabe64e24cc8b29490411a461677"
         },
         {
-            "m_Id": "a16a99135f034659a477dd331d077a7a"
-        },
-        {
             "m_Id": "598b130b3eca44669c6c0b933148238a"
         }
     ],
@@ -1634,10 +1631,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3079.77197265625,
-            "y": 492.76348876953127,
-            "width": 0.0,
-            "height": 0.0
+            "x": -2453.000244140625,
+            "y": 253.00001525878907,
+            "width": 143.0,
+            "height": 34.000003814697269
         }
     },
     "m_Slots": [
@@ -3016,31 +3013,6 @@
     "m_ShaderOutputName": "Out",
     "m_StageCapability": 3,
     "m_BareResource": false
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "a16a99135f034659a477dd331d077a7a",
-    "m_Guid": {
-        "m_GuidSerialized": "98e181be-9558-4625-b565-4f9883621d23"
-    },
-    "m_Name": "Holy",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Holy",
-    "m_DefaultReferenceName": "Holy",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 1.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
 }
 
 {
