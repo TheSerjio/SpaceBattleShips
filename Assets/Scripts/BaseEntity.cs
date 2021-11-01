@@ -19,4 +19,6 @@ public abstract class BaseEntity : MonoBehaviour
     protected virtual void OnAwake() { }
 
     public abstract void OnDamaged(float dmg, BaseEntity from);
+
+    public abstract void DeathDamage();
 }

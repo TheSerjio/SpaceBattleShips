@@ -443,7 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  to: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   LaserAccuracy: 1000
   OptimalDistance: 1000
@@ -587,11 +586,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3939391292371521489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e045ef5545a9540903fd84c7629584, type: 3}
+  m_Script: {fileID: 11500000, guid: 9794579dfb3d52c40a3205526934cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLentgh: 1.5
-  VelocityAffect: 5
+  MaxLentgh: 0
+  VelocityAffect: 0
 --- !u!1 &3939391293002615180
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,8 +972,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7724420836567980821}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e045ef5545a9540903fd84c7629584, type: 3}
+  m_Script: {fileID: 11500000, guid: 9794579dfb3d52c40a3205526934cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLentgh: 1.5
-  VelocityAffect: 5
+  MaxLentgh: 0
+  VelocityAffect: 0

@@ -281,7 +281,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058199984122287957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e045ef5545a9540903fd84c7629584, type: 3}
+  m_Script: {fileID: 11500000, guid: 9794579dfb3d52c40a3205526934cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxLentgh: 1
@@ -405,7 +405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45d36efa52d86e2459146634c5a35313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  to: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   mainWeapon: {fileID: 2058199984457396272}
 --- !u!114 &4094231551408845624
@@ -591,7 +590,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058199985504403819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e045ef5545a9540903fd84c7629584, type: 3}
+  m_Script: {fileID: 11500000, guid: 9794579dfb3d52c40a3205526934cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxLentgh: 1

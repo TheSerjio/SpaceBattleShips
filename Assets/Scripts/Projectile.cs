@@ -35,4 +35,9 @@ public class Projectile : BaseEntity
                 Die();
             }
     }
+
+    public override void DeathDamage()
+    {
+        Die();
+    }
 }
