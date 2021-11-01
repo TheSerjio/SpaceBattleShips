@@ -9,7 +9,7 @@ public sealed class Spawner : MonoBehaviour
     [System.Serializable]
     public struct Group
     {
-        public GameObject prefab;
+        public ShipData prefab;
         public byte number;
     }
 
@@ -24,8 +24,8 @@ public sealed class Spawner : MonoBehaviour
         foreach (var g in all)
             for (ushort ii = 0; ii < g.number; ii++)
             {
-                var q = Instantiate(g.prefab);
-                q.transform.position = transform.position + (Vector3.up * i++);
+                var q = Instantiate(g.prefab.prefab);
+                q.transform.position = transform.position + (Random.onUnitSphere * i++);
                 var ship = q.GetComponent<Ship>();
                 ship.team = team;
                 var f = Instantiate(DataBase.Get().TargetFramePrefab);

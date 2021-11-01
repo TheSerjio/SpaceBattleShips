@@ -17,18 +17,17 @@ public class FighterShip : ShipAIController
             Ship.EnginePower = 1;
 
             float distance = Vector3.Distance(target.transform.position, transform.position);
-            Ship.LookAt(target.transform.position + (a * distance * (target.RB.velocity - RB.velocity)));
-            float direction = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized);
-            //ship.Brake();
-            Ship.Fire = direction > 0.5f;
-
-            // 8 is fine
-            var limit = Vector3.Distance(transform.position, target.transform.position) / 2;
-
-            if (Vector3.Dot(transform.forward, RB.velocity - target.RB.velocity) < limit)
-                Ship.Forward();
-            if (RB.velocity.magnitude > limit * 2)
+            var dir = Ship.LookAt(target.transform.position + (a * distance * (target.RB.velocity - RB.velocity)));
+            if (dir < 0.5f)
+            {
                 Ship.Brake();
+                Ship.Fire = false;
+            }
+            else
+            {
+                Ship.Forward();
+                Ship.Fire = true;
+            }
         }
     }
 }

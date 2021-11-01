@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class Ship : BaseEntity
+public class Ship : BaseEntity
 {
     public struct Warning
     {
@@ -26,7 +26,9 @@ public sealed class Ship : BaseEntity
         get
         {
             if (!__brain__)
-                __brain__ = GetComponent<ShipController>();
+                foreach (var q in GetComponents<ShipController>())
+                    if (q.isActiveAndEnabled)
+                        __brain__ = q;
             return __brain__;
         }
     }
@@ -85,12 +87,14 @@ public sealed class Ship : BaseEntity
             trails[i].SetTrailLent(L, mag * EngineQ);
     }
 
+    public virtual void UseExtraAbility() { }
+
     public void FixedUpdate()
     {
         Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
     }
 
-    public override void OnDamaged(float dmg, BaseEntity from)
+    public sealed override void OnDamaged(float dmg, BaseEntity from)
     {
         if (!Shield)
             Shield = GetComponent<Shield>();
@@ -103,6 +107,7 @@ public sealed class Ship : BaseEntity
             if (Brain)
                 Brain.Death();
             Destroy(Instantiate(DataBase.Get().ShipExplosion, transform.position, Quaternion.identity), 30);
+            GameCore.Self.Explode(transform.position, 10, this);
             Destroy(gameObject);
         }
         if (frame)
@@ -176,7 +181,7 @@ public sealed class Ship : BaseEntity
         return obj;
     }*/
 
-    protected override void OnAwake()
+    protected sealed override void OnAwake()
     {
         EnginePower = 1;
         BrakePower = 1;
@@ -196,9 +201,10 @@ public sealed class Ship : BaseEntity
     }
 #endif
 
-    public void LookAt(Vector3 worldPoint)
+    public float LookAt(Vector3 worldPoint)
     {
         transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
+        return Vector3.Dot(transform.forward, (worldPoint - transform.position).normalized);
     }
 
     public void OnCollisionEnter(Collision collision)

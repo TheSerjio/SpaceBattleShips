@@ -4,11 +4,17 @@ public static class Utils
 {
     public static T Choice<T>(T[] ts)
     {
-        return ts.Length == 0 ? default : ts[Random.Range(0, ts.Length)];
+        if (ts == null)
+            return default;
+        else
+            return ts.Length == 0 ? default : ts[Random.Range(0, ts.Length)];
     }
     public static T Choice<T>(System.Collections.Generic.List<T> ts)
     {
-        return ts.Count == 0 ? default : ts[Random.Range(0, ts.Count)];
+        if (ts == null)
+            return default;
+        else
+            return ts.Count == 0 ? default : ts[Random.Range(0, ts.Count)];
     }
 
     public static void RotateTowards(this Transform self, Vector3 worldPoint, float degrees)

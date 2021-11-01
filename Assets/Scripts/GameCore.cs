@@ -14,6 +14,33 @@ public class GameCore : SINGLETON<GameCore>
             return _all_;
         }
     }
+    private System.Collections.Generic.List<Explosion> Booms = new System.Collections.Generic.List<Explosion>();
+
+    private struct Explosion
+    {
+        public Ship from;
+        public Vector3 position;
+        public float damage;
+    }
+
+    private void RemoveNull()
+    {
+        bool yes = true;
+        while (yes)
+        {
+            yes = false;
+
+            for (int i = 0; i < All.Count; i++)
+            {
+                if (!All[i])
+                {
+                    All.RemoveAt(i);
+                    yes = true;
+                    break;
+                }
+            }
+        }
+    }
 
     public static void Add(BaseEntity it)
     {
@@ -22,6 +49,7 @@ public class GameCore : SINGLETON<GameCore>
             me = FindObjectOfType<GameCore>();
         if (!me)
             return;
+        me.RemoveNull();
         if (it is Ship s)
             me.All.Add(s);
         for (int i = 0; i < me.Collectors.Length; i++)
@@ -34,10 +62,19 @@ public class GameCore : SINGLETON<GameCore>
     {
         if (!MainCamera)
             MainCamera = Camera.main;
+        if (Booms.Count > 0)
+        {
+            Shuffle();
+            var b = Booms[0];
+            Booms.RemoveAt(0);
+            foreach (var q in All)
+                q.OnDamaged(b.damage / Vector3.Distance(b.position, q.transform.position), null);
+        }
     }
 
     private void Shuffle()
     {
+        RemoveNull();
         if (All.Count > 1)
         {
             var temp = All[0];
@@ -54,5 +91,16 @@ public class GameCore : SINGLETON<GameCore>
             if (ship.team != team)
                 return ship;
         return null;
+    }
+
+    public void Explode(Vector3 where, float power, Ship from)
+    {
+        var q = new Explosion()
+        {
+            damage = power,
+            position = where,
+            from = from
+        };
+        Booms.Add(q);
     }
 }
