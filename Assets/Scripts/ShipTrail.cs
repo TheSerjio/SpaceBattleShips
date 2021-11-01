@@ -2,8 +2,7 @@ using UnityEngine;
 
 public abstract class ShipTrail : MonoBehaviour
 {
-
-    /// <param name="dir">direction, -1~1</param>
-    /// <param name="speed">positive</param>
-    public abstract void SetTrailLent(float dir, float speed);
+    [SerializeField]protected float size;
+    /// <param name="speed">positive, 0~5?</param>
+    public abstract void SetTrailLent(float speed);
 }

@@ -48,6 +48,6 @@ public sealed class Shield : MonoBehaviour
     public void Start()
     {
         HasShield = true;
-        //Current = MaxShield;
+        Current = MaxShield;
     }
 }

@@ -123,6 +123,7 @@ MonoBehaviour:
   EnergyRegeneration: 1
   MeshForDamage: {fileID: 68572853361035843}
   frame: {fileID: 0}
+  size: 1
 --- !u!114 &4278961052493863913
 MonoBehaviour:
   m_ObjectHideFlags: 0

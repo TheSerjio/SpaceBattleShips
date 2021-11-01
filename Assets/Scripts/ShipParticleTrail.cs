@@ -4,9 +4,6 @@ using UnityEngine.VFX;
 [RequireComponent(typeof(VisualEffect))]
 public class ShipParticleTrail : ShipTrail
 {
-    public float MaxLentgh;
-    public float VelocityAffect;
-
     private VisualEffect lr;
 
     public void Start()
@@ -14,9 +11,9 @@ public class ShipParticleTrail : ShipTrail
         lr = GetComponent<VisualEffect>();
     }
 
-    public override void SetTrailLent(float dir, float speed)
+    public override void SetTrailLent(float speed)
     {
         // :)
-        lr.SetVector2("speed", Vector2.up * MaxLentgh * speed / (speed + VelocityAffect));
+        lr.SetVector2("speed", Vector2.up * size * speed);
     }
 }

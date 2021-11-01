@@ -415,6 +415,7 @@ MonoBehaviour:
   EnergyRegeneration: 2
   MeshForDamage: {fileID: 3939391293002615219}
   frame: {fileID: 0}
+  size: 1
 --- !u!114 &3443616421799514483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,8 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9794579dfb3d52c40a3205526934cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLentgh: 0
-  VelocityAffect: 0
+  size: 1
 --- !u!1 &3939391293002615180
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,5 +975,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9794579dfb3d52c40a3205526934cc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLentgh: 0
-  VelocityAffect: 0
+  size: 1

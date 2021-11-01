@@ -60,6 +60,7 @@ public class Ship : BaseEntity
     public TargetFrame frame;
     public Shield Shield { get; private set; }
     public bool Fire { get; set; }
+    public float size;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -79,11 +80,9 @@ public class Ship : BaseEntity
 
     public void Update()
     {
-        EngineQ = Mathf.MoveTowards(EngineQ, 0, Time.deltaTime * 2);
-        float L = Vector3.Dot(transform.forward, RB.velocity.normalized) / 2 + 1;
-        float mag = RB.velocity.magnitude;
+        EngineQ = Mathf.MoveTowards(EngineQ, 0, EngineQ * Time.deltaTime);
         for (int i = 0; i < trails.Length; i++)
-            trails[i].SetTrailLent(L, mag * EngineQ);
+            trails[i].SetTrailLent(EngineQ);
     }
 
     public virtual void UseExtraAbility() { }
@@ -95,6 +94,13 @@ public class Ship : BaseEntity
 
     public sealed override void OnDamaged(float dmg, BaseEntity from)
     {
+        void Do(Vector3 world)
+        {
+            var boom = Instantiate(DataBase.Get().ShipExplosion, world, Quaternion.identity);
+            boom.transform.localScale = Vector3.one * size;
+            Destroy(boom, 30);
+        }
+
         if (!Shield)
             Shield = GetComponent<Shield>();
         if (Shield)
@@ -105,8 +111,10 @@ public class Ship : BaseEntity
         {
             if (Brain)
                 Brain.Death();
-            Destroy(Instantiate(DataBase.Get().ShipExplosion, transform.position, Quaternion.identity), 30);
-            GameCore.Self.Explode(transform.position, 10, this);
+            foreach (var q in GetComponentsInChildren<ShipAdditionalExplosion>())
+                Do(q.transform.position);
+            Do(transform.position);
+            GameCore.Self.Explode(transform.position, MaxHealth, this);
             Destroy(gameObject);
         }
         if (frame)
@@ -127,7 +135,7 @@ public class Ship : BaseEntity
         {
             RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
             Energy -= e;
-            EngineQ = 1;
+            EngineQ = EnginePower;
         }
     }
 

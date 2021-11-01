@@ -3,9 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class ShipLineTrail : ShipTrail
 {
-    public float MaxLentgh;
-    public float VelocityAffect;
-
     private LineRenderer lr;
 
     public void Start()
@@ -13,9 +10,8 @@ public class ShipLineTrail : ShipTrail
         lr = GetComponent<LineRenderer>();
     }
 
-    public override void SetTrailLent(float dir, float speed)
+    public override void SetTrailLent(float speed)
     {
-        var q = speed / (speed + VelocityAffect);
-        lr.SetPosition(0, /*dir **/ MaxLentgh * q * Vector3.back);
+        lr.SetPosition(0, speed * size * Vector3.back);
     }
 }
