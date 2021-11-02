@@ -80,16 +80,10 @@ public class Ship : BaseEntity
 
     public void Update()
     {
+        Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
         EngineQ = Mathf.MoveTowards(EngineQ, 0, EngineQ * Time.deltaTime);
         for (int i = 0; i < trails.Length; i++)
             trails[i].SetTrailLent(EngineQ);
-    }
-
-    public virtual void UseExtraAbility() { }
-
-    public void FixedUpdate()
-    {
-        Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
     }
 
     public sealed override void OnDamaged(float dmg, BaseEntity from)
@@ -98,7 +92,7 @@ public class Ship : BaseEntity
         {
             var boom = Instantiate(DataBase.Get().ShipExplosion, world, Quaternion.identity);
             boom.transform.localScale = Vector3.one * size;
-            Destroy(boom, 30);
+            Destroy(boom, 10);
         }
 
         if (!Shield)
@@ -218,11 +212,13 @@ public class Ship : BaseEntity
     {
         var q = collision.collider.gameObject.GetComponentInParent<Ship>();
         if (q)
-        {
-            float dmg = collision.relativeVelocity.magnitude;
-            q.OnDamaged(dmg, this);
-            OnDamaged(dmg, q);
-        }
+            if (!GetComponent<JustSpawned>())
+                if (!q.GetComponent<JustSpawned>())
+                {
+                    float dmg = collision.relativeVelocity.magnitude;
+                    q.OnDamaged(dmg, this);
+                    OnDamaged(dmg, q);
+                }
     }
 
     public void ExtraForward()

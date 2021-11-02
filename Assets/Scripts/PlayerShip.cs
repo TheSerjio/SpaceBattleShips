@@ -81,8 +81,6 @@ public sealed class PlayerShip : ShipController
             Ship.LookAt(RB.position - RB.velocity);
         if (Input.GetKey(KeyCode.Alpha3))
             Ship.LookAt(Vector3.zero);
-        if (Input.GetKeyDown(KeyCode.Q))
-            Ship.UseExtraAbility();
         Ship.Fire = Input.GetKey(KeyCode.Space);
 
         cameroid.localPosition = Vector3.MoveTowards(cameroid.localPosition, Vector3.zero, Time.deltaTime);

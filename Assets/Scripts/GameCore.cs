@@ -23,6 +23,8 @@ public class GameCore : SINGLETON<GameCore>
         public float damage;
     }
 
+    public Canvas canvas;
+
     private void RemoveNull()
     {
         bool yes = true;
@@ -88,8 +90,11 @@ public class GameCore : SINGLETON<GameCore>
     {
         Shuffle();
         foreach (var ship in All)
-            if (ship.team != team)
+            if (ship.team == BaseEntity.Team.Pie)
                 return ship;
+            else if (ship.team != team)
+                if (ship.team != BaseEntity.Team.Derelict)
+                    return ship;
         return null;
     }
 
