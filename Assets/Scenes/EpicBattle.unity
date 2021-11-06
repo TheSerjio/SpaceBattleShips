@@ -298,8 +298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rotationSpeed: 1
-  scrollSpeed: 60
   zRotationSpeed: 30
+  mouseSpeed: 1
 --- !u!114 &806116726
 MonoBehaviour:
   m_ObjectHideFlags: 0
