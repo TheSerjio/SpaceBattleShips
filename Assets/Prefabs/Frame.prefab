@@ -59,7 +59,7 @@ MonoBehaviour:
   all:
   - {fileID: 812338418644395191}
   - {fileID: 1679718328009973564}
-  MaxVisionDistance: 1000
+  MaxVisionDistance: 300
 --- !u!1 &2666994485051018901
 GameObject:
   m_ObjectHideFlags: 0
