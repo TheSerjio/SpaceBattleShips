@@ -34,7 +34,7 @@ public sealed class Shield : MonoBehaviour
         }
     }
 
-    public void FixedUpdate()
+    public void LateUpdate()
     {
         Current = Mathf.MoveTowards(Current, MaxShield, ShieldRegeneration * Time.deltaTime);
         if (!HasShield)
