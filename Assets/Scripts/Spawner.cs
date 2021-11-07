@@ -6,6 +6,8 @@ public sealed class Spawner : MonoBehaviour
     public BaseEntity.Team team;
     public MotherShip.Data[] all;
 
+    public const float time = 5;
+
     public void Start()
     {
         StartCoroutine(Summon());
@@ -19,6 +21,7 @@ public sealed class Spawner : MonoBehaviour
         var ff = f.GetComponent<TargetFrame>();
         ff.target = ship;
         ff.number = (ushort)Random.Range(0, ushort.MaxValue);
+        ff.text.text = $"{ship.name}:{ff.number}";
         ship.frame = ff;
     }
 

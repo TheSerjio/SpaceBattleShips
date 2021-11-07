@@ -41,7 +41,7 @@ public abstract class ShipAIController : ShipController
 
     public void FixedUpdate()
     {
-        if (Time.time - time < JustSpawned.Duration)
+        if (Time.time - time < Spawner.time)
         {
             Ship.LookAt(to);
             Ship.ExtraForward();

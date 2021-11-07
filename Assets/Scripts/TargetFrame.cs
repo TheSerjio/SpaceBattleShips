@@ -9,7 +9,7 @@ public class TargetFrame : MonoBehaviour
     RectTransform rect;
     [SerializeField] GameObject image;
     static Ship player;
-    [SerializeField] TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI text;
     float timeLeft;
     [SerializeField] GameObject onHit;
 

@@ -32,6 +32,7 @@ public class Ship : BaseEntity
             return __brain__;
         }
     }
+    internal float ImmuneUntil;
     [Tooltip("Degrees per second")] [SerializeField] float rotationSpeed;
     public float RotationSpeed => rotationSpeed;
     public float RelativeHealth => Health / MaxHealth;
@@ -88,9 +89,11 @@ public class Ship : BaseEntity
 
     public sealed override void OnDamaged(float dmg, BaseEntity from)
     {
+
         void Do(Vector3 world)
         {
             var boom = Instantiate(DataBase.Get().ShipExplosion, world, Quaternion.identity);
+            boom.transform.rotation = Random.rotation;
             boom.transform.localScale = Vector3.one * size;
             Destroy(boom, 10);
         }
@@ -99,6 +102,11 @@ public class Ship : BaseEntity
             Shield = GetComponent<Shield>();
         if (Shield)
             Shield.TakeDamage(ref dmg);
+
+
+        if (Time.time < ImmuneUntil)
+            return;
+
         Health -= dmg;
         MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
         if (Health <= 0)
@@ -189,6 +197,7 @@ public class Ship : BaseEntity
         ShieldPower = 1;
         Energy = MaxEnergy;
         Health = MaxHealth;
+        ImmuneUntil = Time.time + Spawner.time;
     }
 
 #if DEBUG
@@ -212,10 +221,10 @@ public class Ship : BaseEntity
     {
         var q = collision.collider.gameObject.GetComponentInParent<Ship>();
         if (q)
-            if (!GetComponent<JustSpawned>())
-                if (!q.GetComponent<JustSpawned>())
+            if (Time.time > ImmuneUntil)
+                if (Time.time > q.ImmuneUntil)
                 {
-                    float dmg = collision.relativeVelocity.magnitude;
+                    float dmg = collision.relativeVelocity.magnitude / 5f;
                     q.OnDamaged(dmg, this);
                     OnDamaged(dmg, q);
                 }

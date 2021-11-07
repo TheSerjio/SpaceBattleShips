@@ -35,10 +35,12 @@ public sealed class MotherShip : Ship
                                     q.count--;
                                     var ship = Instantiate(q.ship.prefab, spawner.position, spawner.rotation).GetComponent<Ship>();
                                     ship.team = team;
-                                    ship.Warn(ship.transform.position * 2 - transform.position, new Warning(false, 0));
+                                    var point = ship.transform.position * 2 - transform.position + (Random.onUnitSphere * Vector3.Distance(ship.transform.position, transform.position) / 2);
+                                    ship.Warn(point, new Warning(false, 0));
+                                    ship.transform.LookAt(point);
                                     alive[i] = ship;
                                     Spawner.CreateFrame(ship);
-                                    Destroy(ship.gameObject.AddComponent<JustSpawned>(), JustSpawned.Duration);
+                                    ship.ImmuneUntil = Time.time + Spawner.time;
                                     goto End;//because i cant use "return" or "break"
                                 }
                 End:;
