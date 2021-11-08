@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public sealed class SimpleWeapon : ShipWeapon
+public class SimpleWeapon : ShipWeapon
 {
     public float ReloadTime;
 
@@ -50,8 +50,8 @@ public sealed class SimpleWeapon : ShipWeapon
         line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh, Vector3.forward * ProjecileLentgh });
         line.widthMultiplier = ProjectileSize;
         var capsule = q.GetComponent<CapsuleCollider>();
-        capsule.height = ProjecileLentgh;
-        capsule.radius = ProjectileSize;
+        capsule.height = Parent.UseCheats ? ProjecileLentgh * 5 : ProjecileLentgh;
+        capsule.radius = Parent.UseCheats ? ProjectileSize * 5 : ProjectileSize;
         var rb = q.GetComponent<Rigidbody>();
         rb.velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();

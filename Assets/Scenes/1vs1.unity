@@ -1947,7 +1947,7 @@ MonoBehaviour:
   team: 3
   all:
   - count: 1
-    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+    ship: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
 --- !u!4 &1140048289
 Transform:
   m_ObjectHideFlags: 0
@@ -3105,7 +3105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337ce87794862134da6f75cfdae9da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!4 &4242510290343592905
 Transform:
   m_ObjectHideFlags: 0

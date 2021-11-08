@@ -1,5 +1,8 @@
 using UnityEngine;
 
+public enum Team : byte
+{ Defenders, Attackers, Derelict, Pirates }
+
 public static class Utils
 {
     public static T Choice<T>(T[] ts)
@@ -37,4 +40,11 @@ public static class Utils
     public static float ToSadUnits(Rigidbody rb) => ToSadUnits(rb.velocity.magnitude);
     public static float ToSadUnits(Vector3 vec) => ToSadUnits(vec.magnitude);
     public static float ToSadUnits(float value) => value * 24;
+
+    public static Vector3 ShootTo(Rigidbody me, Rigidbody target, float aBulletSpeed) => ShootTo(me.position, me.velocity, target.position, target.velocity, aBulletSpeed);
+
+    public static Vector3 ShootTo(Vector3 me,Vector3 mySpeed,Vector3 target,Vector3 targetSpeed,float aBulletSpeed)
+    {
+        return target + (aBulletSpeed * Vector3.Distance(target, me) * (targetSpeed - mySpeed));
+    }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class BaseEntity : MonoBehaviour
 {
-    public enum Team : byte
-    { Defenders, Attackers, Derelict, Pirates }
     public Team team;
     public Rigidbody RB { get; private set; }
 

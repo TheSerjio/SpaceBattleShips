@@ -28,7 +28,7 @@ public class LongLaserWeapon : ShipWeapon
             lr.widthMultiplier = q;
             lr.positionCount = 2;
             lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * ushort.MaxValue });
-            foreach (var hit in Physics.SphereCastAll(transform.position, laserWidth, transform.forward))
+            foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
             {
                 var obj = hit.collider.gameObject;
                 var tar = obj.GetComponentInParent<BaseEntity>();

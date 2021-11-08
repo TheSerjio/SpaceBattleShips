@@ -86,12 +86,12 @@ public class GameCore : SINGLETON<GameCore>
         }
     }
 
-    public Ship FindTargetShip(BaseEntity.Team team)
+    public Ship FindTargetShip(Team team)
     {
         Shuffle();
         foreach (var ship in All)
             if (ship.team != team)
-                if (ship.team != BaseEntity.Team.Derelict)
+                if (ship.team != Team.Derelict)
                     return ship;
         return null;
     }

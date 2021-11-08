@@ -4,7 +4,7 @@ public class PlayerSpawner : MonoBehaviour
 {
     public ShipData ship;
 
-    public BaseEntity.Team team;
+    public Team team;
 
     public void Start()
     {

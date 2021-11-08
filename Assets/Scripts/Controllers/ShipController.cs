@@ -53,10 +53,16 @@ public abstract class ShipAIController : ShipController
             {
                 target = GameCore.Self.FindTargetShip(Ship.team);
                 Ship.Fire = false;
+                Ship.AutoBrake();
             }
-            OnFixedUpdate();
+            else
+               OnFixedUpdate();
         }
     }
 
+
+    /// <summary>
+    /// target is nut null
+    /// </summary>
     public abstract void OnFixedUpdate();
 }

@@ -32,6 +32,18 @@ public class Ship : BaseEntity
             return __brain__;
         }
     }
+
+    public bool UseCheats
+    {
+        get
+        {
+            if (Brain)
+                return Brain is PlayerShip;
+            else
+                return Random.value < 0.5f;
+        }
+    }
+
     internal float ImmuneUntil;
     [Tooltip("Degrees per second")] [SerializeField] float rotationSpeed;
     public float RotationSpeed => rotationSpeed;
@@ -95,7 +107,7 @@ public class Ship : BaseEntity
         {
             var boom = Instantiate(DataBase.Get().ShipExplosion, world, Quaternion.identity);
             boom.transform.rotation = Random.rotation;
-            boom.transform.localScale = Vector3.one * size;
+            boom.transform.localScale = Vector3.one * ExplosionPower;
             Destroy(boom, 10);
             GameCore.Self.Explode(transform.position, ExplosionPower, this);
         }
@@ -199,6 +211,7 @@ public class Ship : BaseEntity
         Energy = MaxEnergy;
         Health = MaxHealth;
         ImmuneUntil = Time.time + Spawner.time;
+        Shield = GetComponent<Shield>();
     }
 
 #if DEBUG

@@ -3,7 +3,7 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public sealed class Spawner : MonoBehaviour
 {
-    public BaseEntity.Team team;
+    public Team team;
     public MotherShip.Data[] all;
 
     public const float time = 0;

@@ -8,21 +8,18 @@ public class LaserFighterShip : ShipAIController
 
     public override void OnFixedUpdate()
     {
-        if (target)
+        var dist = Vector3.Distance(transform.position, target.transform.position);
+        if (dist > OptimalDistance)
         {
-            var dist = Vector3.Distance(transform.position, target.transform.position);
-            if (dist > OptimalDistance)
-            {
-                Ship.EnginePower = 1;
-                Ship.Forward();
-            }
-            else
-            {
-                Ship.BrakePower = 1;
-                Ship.Brake();
-            }
-            Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > 0;
-            Ship.LookAt(target.transform.position + Random.insideUnitSphere * Vector3.Distance(transform.position, target.transform.position) / LaserAccuracy);
+            Ship.EnginePower = 1;
+            Ship.Forward();
         }
+        else
+        {
+            Ship.BrakePower = 1;
+            Ship.Brake();
+        }
+        Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > 0.5f;
+        Ship.LookAt(target.transform.position + Random.insideUnitSphere * dist / LaserAccuracy);
     }
 }
