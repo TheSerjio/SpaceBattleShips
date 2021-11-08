@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
-  m_Name: LaserShip
+  m_Name: SimpleLaser
   m_EditorClassIdentifier: 
   Name: 
   cost: 0

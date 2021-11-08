@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MotherShip
+  m_Name: Bug
   m_Shader: {fileID: -6465566751694194690, guid: 1a2c25cf019505d408a8fce644aea8c1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -45,13 +45,12 @@ Material:
     - BrokenTextureScale: 6
     - Damage: 0
     - E_ColorPower: 0
-    - E_Holy: 0
     - E_Skin: 0
     - Holy: 0.02
     - Metallic: 0
-    - Scale: 5
+    - Scale: 21.57
     - Skin: 0
-    - Smoothness: 0
+    - Smoothness: 1
     m_Colors:
     - BrokenColor: {r: 1, g: 0, b: 0, a: 0.99215686}
     - DamageColor: {r: 1, g: 0, b: 0, a: 0}
