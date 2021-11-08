@@ -328,7 +328,7 @@ MonoBehaviour:
   MeshForDamage: {fileID: 3481466277026033714}
   frame: {fileID: 0}
   size: 1
-  ExplosionPower: 100
+  ExplosionPower: 10
 --- !u!114 &178045382229015929
 MonoBehaviour:
   m_ObjectHideFlags: 0

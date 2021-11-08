@@ -286,6 +286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerSecond: 10
+  laserWidth: 0.1
+  playerLaserWidth: 0.5
 --- !u!1 &2746703076095767380
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +835,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerSecond: 10
+  laserWidth: 0.1
+  playerLaserWidth: 0.5
 --- !u!1 &7724420836567980821
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseEntity : MonoBehaviour
 {
     public enum Team : byte
-    { Defenders, Attackers, Derelict, Pie, Pirates }
+    { Defenders, Attackers, Derelict, Pirates }
     public Team team;
     public Rigidbody RB { get; private set; }
 

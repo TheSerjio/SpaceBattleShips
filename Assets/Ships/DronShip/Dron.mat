@@ -42,14 +42,18 @@ Material:
     m_Ints: []
     m_Floats:
     - BrokenPower: 10
-    - BrokenTextureScale: 6
-    - Damage: 0
+    - BrokenTextureScale: 94.2
+    - Damage: 1.68
+    - E_ColorPower: 0
+    - E_Holy: 0
+    - E_Skin: 0
     - Holy: 0.02
     - Metallic: 0
-    - Scale: 21.57
+    - Scale: 17.08
     - Skin: 0
     - Smoothness: 1
     m_Colors:
-    - BrokenColor: {r: 1, g: 0, b: 0, a: 0.99215686}
+    - BrokenColor: {r: 0, g: 0, b: 1, a: 0.99215686}
     - DamageColor: {r: 1, g: 0, b: 0, a: 0}
+    - E_Color: {r: 0, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
