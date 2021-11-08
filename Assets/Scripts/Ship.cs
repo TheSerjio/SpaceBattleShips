@@ -62,6 +62,7 @@ public class Ship : BaseEntity
     public Shield Shield { get; private set; }
     public bool Fire { get; set; }
     public float size;
+    public float ExplosionPower;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -96,6 +97,7 @@ public class Ship : BaseEntity
             boom.transform.rotation = Random.rotation;
             boom.transform.localScale = Vector3.one * size;
             Destroy(boom, 10);
+            GameCore.Self.Explode(transform.position, ExplosionPower, this);
         }
 
         if (!Shield)
@@ -116,7 +118,6 @@ public class Ship : BaseEntity
             foreach (var q in GetComponentsInChildren<ShipAdditionalExplosion>())
                 Do(q.transform.position);
             Do(transform.position);
-            GameCore.Self.Explode(transform.position, MaxHealth, this);
             Destroy(gameObject);
         }
         if (frame)

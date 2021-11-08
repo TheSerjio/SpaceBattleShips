@@ -313,6 +313,7 @@ MonoBehaviour:
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
   size: 20
+  ExplosionPower: 1000
   spawners:
   - {fileID: 4129263872524746533}
   - {fileID: 4129263872194915734}

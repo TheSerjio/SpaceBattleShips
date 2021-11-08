@@ -258,6 +258,7 @@ GameObject:
   - component: {fileID: 4467543410043563383}
   - component: {fileID: 6445991215757118411}
   - component: {fileID: 178045382229015929}
+  - component: {fileID: 2747515676622489423}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -315,8 +316,11 @@ MonoBehaviour:
   rotationSpeed: 45
   speed: 3
   MaxHealth: 10
-  weapons: []
-  trails: []
+  weapons:
+  - {fileID: 7851812694907981593}
+  - {fileID: 2246549447324774444}
+  trails:
+  - {fileID: 8042651870510748577}
   EngineConsumption: 1
   BrakeConsumption: 1
   MaxEnergy: 10
@@ -324,6 +328,7 @@ MonoBehaviour:
   MeshForDamage: {fileID: 3481466277026033714}
   frame: {fileID: 0}
   size: 1
+  ExplosionPower: 100
 --- !u!114 &178045382229015929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +343,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   mainWeapon: {fileID: 0}
+--- !u!135 &2747515676622489423
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865819100266150960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0
