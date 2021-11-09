@@ -190,12 +190,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReloadTime: 1
-  bulletLifeTime: 10
+  bulletLifeTime: 4
   bulletSpeed: 100
-  damage: 5
+  damage: 10
   MainProjectileColor: {r: 1, g: 0, b: 0, a: 1}
   EdgeProjectileColor: {r: 1, g: 1, b: 0, a: 1}
-  ProjecileLentgh: 2
-  ProjectileSize: 2
+  ProjecileLentgh: 0.5
+  ProjectileSize: 0.5
   type: 1
   ProjectileExplosionPower: 10

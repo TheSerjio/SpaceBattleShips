@@ -114,6 +114,6 @@ public class GameCore : SINGLETON<GameCore>
     private void InstantExplode(Vector3 where, float power)
     {
         foreach (var q in All)
-            q.OnDamaged(power / (where - q.transform.position).sqrMagnitude, null);
+            q.OnDamaged(power / ((where - q.transform.position).sqrMagnitude + 1), null);
     }
 }

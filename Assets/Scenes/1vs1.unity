@@ -1946,7 +1946,7 @@ MonoBehaviour:
   team: 3
   all:
   - count: 1
-    ship: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
+    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
 --- !u!4 &1140048289
 Transform:
   m_ObjectHideFlags: 0
@@ -2004,7 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09064928302bc9748b6f3bde6ad4b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
+  ship: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
   team: 0
 --- !u!1 &1314409888
 GameObject:

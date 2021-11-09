@@ -342,6 +342,7 @@ MonoBehaviour:
   frame: {fileID: 0}
   size: 1
   ExplosionPower: 100
+  ExplosionSize: 2
 --- !u!114 &845703886288328863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,6 +598,8 @@ MonoBehaviour:
   EdgeProjectileColor: {r: 1, g: 0, b: 0, a: 1}
   ProjecileLentgh: 10
   ProjectileSize: 0.14
+  type: 0
+  ProjectileExplosionPower: 0
 --- !u!1 &4271706942908349771
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +748,8 @@ MonoBehaviour:
   EdgeProjectileColor: {r: 1, g: 0, b: 0, a: 1}
   ProjecileLentgh: 10
   ProjectileSize: 0.14
+  type: 0
+  ProjectileExplosionPower: 0
 --- !u!1 &7070068156680053928
 GameObject:
   m_ObjectHideFlags: 0

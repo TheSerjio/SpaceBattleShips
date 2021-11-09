@@ -26,6 +26,8 @@ public class SimpleWeapon : ShipWeapon
 
     public float ProjectileExplosionPower;
 
+    public float EnergyPerShot;
+
     public void Start()
     {
         CoolDown = ReloadTime * Random.value * 2;
@@ -37,8 +39,11 @@ public class SimpleWeapon : ShipWeapon
             CoolDown -= Time.deltaTime;
         else if (Parent.Fire)
         {
-            CoolDown += ReloadTime;
-            Shoot();
+            if (Parent.TakeEnergy(EnergyPerShot))
+            {
+                CoolDown += ReloadTime;
+                Shoot();
+            }
         }
         else
             CoolDown = 0;

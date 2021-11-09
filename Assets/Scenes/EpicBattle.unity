@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: team
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
@@ -249,7 +249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fd64b0401e2aa4488b1894ddce2d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
 --- !u!4 &439231197
 Transform:
   m_ObjectHideFlags: 0
@@ -397,6 +396,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &872746346
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5491697146561974813, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_Name
+      value: SpaceFortress
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618078036044481478, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
 --- !u!1 &908509231
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337ce87794862134da6f75cfdae9da4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 806116729}
 --- !u!23 &908509234
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -502,7 +557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: team
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
@@ -570,11 +625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043997, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872628885247, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872628885247, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_Materials.Array.data[0]

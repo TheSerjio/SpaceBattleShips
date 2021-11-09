@@ -26,9 +26,10 @@ public class Ship : BaseEntity
         get
         {
             if (!__brain__)
-                foreach (var q in GetComponents<ShipController>())
-                    if (q.isActiveAndEnabled)
-                        __brain__ = q;
+                if(this)
+                    foreach (var q in GetComponents<ShipController>())
+                        if (q.isActiveAndEnabled)
+                            __brain__ = q;
             return __brain__;
         }
     }
@@ -42,6 +43,17 @@ public class Ship : BaseEntity
             else
                 return Random.value < 0.5f;
         }
+    }
+
+    public bool TakeEnergy(float value)
+    {
+        if (Energy > value)
+        {
+            Energy -= value;
+            return true;
+        }
+        else
+            return false;
     }
 
     internal float ImmuneUntil;
@@ -75,6 +87,7 @@ public class Ship : BaseEntity
     public bool Fire { get; set; }
     public float size;
     public float ExplosionPower;
+    public float ExplosionSize;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -106,7 +119,7 @@ public class Ship : BaseEntity
         void Do(Vector3 world)
         {
             var boom = Instantiate(DataBase.Get().ShipExplosion, world, Random.rotation);
-            boom.transform.localScale = Vector3.one * ExplosionPower;
+            boom.transform.localScale = Vector3.one * ExplosionSize;
             Destroy(boom, 10);
             GameCore.Self.Explode(transform.position, ExplosionPower, this);
         }

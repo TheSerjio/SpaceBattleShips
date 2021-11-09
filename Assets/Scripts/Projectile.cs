@@ -27,7 +27,6 @@ public class Projectile : BaseEntity
         {
             GameCore.Self.Explode(transform.position, Explosion, null);
             var boom = Instantiate(DataBase.Get().SmallExplosion, transform.position, Random.rotation);
-            boom.transform.localScale = Vector3.one * Explosion;
             Destroy(boom, 10);
         }
     }

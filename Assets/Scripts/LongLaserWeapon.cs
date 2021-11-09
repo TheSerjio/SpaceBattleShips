@@ -14,6 +14,10 @@ public class LongLaserWeapon : ShipWeapon
     public float laserWidth;
     public float playerLaserWidth;
 
+    float noEnergyCoolDown;
+
+    public float EnergyPerSecond;
+
     public void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -23,27 +27,39 @@ public class LongLaserWeapon : ShipWeapon
 
     public void FixedUpdate()
     {
+        bool b = true;
         if (Parent.Fire)
         {
-            lr.widthMultiplier = q;
-            lr.positionCount = 2;
-            lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * ushort.MaxValue });
-            foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
+            if (Time.time > noEnergyCoolDown)
             {
-                var obj = hit.collider.gameObject;
-                var tar = obj.GetComponentInParent<BaseEntity>();
-                if (tar)
+                if (Parent.TakeEnergy(Time.deltaTime * EnergyPerSecond))
                 {
-                    if (tar.team != Parent.team)
+                    lr.widthMultiplier = q;
+                    lr.positionCount = 2;
+                    lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * ushort.MaxValue });
+                    foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
                     {
-                        tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
-                        lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * hit.distance });
-                        break;
+                        var obj = hit.collider.gameObject;
+                        var tar = obj.GetComponentInParent<BaseEntity>();
+                        if (tar)
+                        {
+                            if (tar.team != Parent.team)
+                            {
+                                tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
+                                lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * hit.distance });
+                                break;
+                            }
+                        }
                     }
+                    b = false;
+                }
+                else
+                {
+                    noEnergyCoolDown = Time.time + 2;
                 }
             }
         }
-        else
+        if(b)
             lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
     }
 }

@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dron
-  m_Shader: {fileID: -6465566751694194690, guid: 1a2c25cf019505d408a8fce644aea8c1, type: 3}
+  m_Name: MagicEngine
+  m_Shader: {fileID: -6465566751694194690, guid: 233af699145395645aea0e665e42b7f0, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,14 +19,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Broken:
-        m_Texture: {fileID: 2800000, guid: fa16aa4063de78f498c47cf6ad63d412, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture:
-        m_Texture: {fileID: 2800000, guid: 35392268d267ae946ba0948abb41dc24, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -41,19 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - BrokenPower: 10
-    - BrokenTextureScale: 94.2
-    - Damage: 0
-    - E_ColorPower: 0
-    - E_Holy: 0
-    - E_Skin: 0
-    - Holy: 0.02
-    - Metallic: 0
-    - Scale: 17.08
-    - Skin: 0
-    - Smoothness: 1
-    m_Colors:
-    - BrokenColor: {r: 0, g: 0, b: 1, a: 0.99215686}
-    - DamageColor: {r: 1, g: 0, b: 0, a: 0}
-    - E_Color: {r: 0, g: 1, b: 0, a: 1}
+    - Scale: 50
+    - Speed: 25
+    m_Colors: []
   m_BuildTextureStacks: []

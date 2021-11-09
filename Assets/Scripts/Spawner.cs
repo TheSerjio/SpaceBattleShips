@@ -6,7 +6,7 @@ public sealed class Spawner : MonoBehaviour
     public Team team;
     public MotherShip.Data[] all;
 
-    public const float time = 0;
+    public const float time = 5;
 
     public void Start()
     {

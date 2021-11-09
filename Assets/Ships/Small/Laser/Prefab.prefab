@@ -288,6 +288,7 @@ MonoBehaviour:
   damagePerSecond: 10
   laserWidth: 0.1
   playerLaserWidth: 0.5
+  EnergyPerSecond: 10
 --- !u!1 &2746703076095767380
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,14 +412,15 @@ MonoBehaviour:
   trails:
   - {fileID: 3939391292371521494}
   - {fileID: 7689984975464146366}
-  EngineConsumption: 1
-  BrakeConsumption: 1
-  MaxEnergy: 20
-  EnergyRegeneration: 2
+  EngineConsumption: 5
+  BrakeConsumption: 5
+  MaxEnergy: 100
+  EnergyRegeneration: 10
   MeshForDamage: {fileID: 3939391293002615219}
   frame: {fileID: 0}
   size: 1
   ExplosionPower: 100
+  ExplosionSize: 3
 --- !u!114 &3443616421799514483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +452,7 @@ MonoBehaviour:
   target: {fileID: 0}
   LaserAccuracy: 1000
   OptimalDistance: 1000
+  FireIf: 0
 --- !u!1 &3939391292371521489
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +840,7 @@ MonoBehaviour:
   damagePerSecond: 10
   laserWidth: 0.1
   playerLaserWidth: 0.5
+  EnergyPerSecond: 10
 --- !u!1 &7724420836567980821
 GameObject:
   m_ObjectHideFlags: 0

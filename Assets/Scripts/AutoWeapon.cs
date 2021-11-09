@@ -16,7 +16,10 @@ public class AutoWeapon : MonoBehaviour
             {
                 body.RotateTowards(Utils.ShootTo(parent.RB, target, weapon ? weapon.AntiSpeed : 0), rotationSpeed * Time.deltaTime);
                 if (Vector3.Dot(transform.forward, body.forward) < maxAngle)
+                {
                     body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed * 2);
+                    target = null;
+                }
             }
             else
             {
