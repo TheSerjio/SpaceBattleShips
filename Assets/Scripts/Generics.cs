@@ -94,3 +94,11 @@ public abstract class ValidableScriptableObject : ScriptableObject
 
     public abstract System.Collections.Generic.IEnumerable<Warning> Validate();
 }
+
+public enum Team : byte
+{ Defenders, Attackers, Derelict, Pirates }
+
+public enum ExplosionType : byte
+{
+    Large, Small
+}

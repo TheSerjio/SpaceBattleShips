@@ -15,6 +15,9 @@ public sealed class DataBase : ScriptableObject
     public GameObject CameraPrefab;
     public GameObject DustPrefab;
     public GameObject ShipExplosion;
+    public GameObject SmallExplosion;
+    public GameObject FlatProjectile;
+    public GameObject EffectProjectile;
 
     public ShipData[] Ships;
 

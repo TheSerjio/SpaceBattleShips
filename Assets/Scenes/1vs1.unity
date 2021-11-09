@@ -404,7 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8fd64b0401e2aa4488b1894ddce2d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
 --- !u!4 &248214836
 Transform:
   m_ObjectHideFlags: 0
@@ -2005,7 +2004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09064928302bc9748b6f3bde6ad4b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
+  ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   team: 0
 --- !u!1 &1314409888
 GameObject:

@@ -1,8 +1,5 @@
 using UnityEngine;
 
-public enum Team : byte
-{ Defenders, Attackers, Derelict, Pirates }
-
 public static class Utils
 {
     public static T Choice<T>(T[] ts)

@@ -10,6 +10,8 @@ public class Projectile : BaseEntity
 
     public float LifeTime { get; set; }
 
+    public float Explosion { get; set; }
+
     public void FixedUpdate()
     {
         LifeTime -= Time.deltaTime;
@@ -21,6 +23,13 @@ public class Projectile : BaseEntity
     {
         LifeTime = 1;
         ProjectilePool.Self.Add(gameObject);
+        if (Explosion != 0)
+        {
+            GameCore.Self.Explode(transform.position, Explosion, null);
+            var boom = Instantiate(DataBase.Get().SmallExplosion, transform.position, Random.rotation);
+            boom.transform.localScale = Vector3.one * Explosion;
+            Destroy(boom, 10);
+        }
     }
 
     public override void OnDamaged(float dmg, BaseEntity from) => Die();

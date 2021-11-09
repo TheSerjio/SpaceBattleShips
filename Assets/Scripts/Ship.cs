@@ -105,8 +105,7 @@ public class Ship : BaseEntity
 
         void Do(Vector3 world)
         {
-            var boom = Instantiate(DataBase.Get().ShipExplosion, world, Quaternion.identity);
-            boom.transform.rotation = Random.rotation;
+            var boom = Instantiate(DataBase.Get().ShipExplosion, world, Random.rotation);
             boom.transform.localScale = Vector3.one * ExplosionPower;
             Destroy(boom, 10);
             GameCore.Self.Explode(transform.position, ExplosionPower, this);

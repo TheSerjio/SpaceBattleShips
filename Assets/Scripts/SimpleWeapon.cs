@@ -22,6 +22,15 @@ public class SimpleWeapon : ShipWeapon
 
     public float ProjectileSize;
 
+    public ProjectilePool.Projectile type;
+
+    public float ProjectileExplosionPower;
+
+    public void Start()
+    {
+        CoolDown = ReloadTime * Random.value * 2;
+    }
+
     public void Update()
     {
         if (CoolDown > 0)
@@ -37,18 +46,32 @@ public class SimpleWeapon : ShipWeapon
 
     private void Shoot()
     {
-        var q = ProjectilePool.Self.Get();
+        var q = ProjectilePool.Self.Get(type);
         q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         var p = q.GetComponent<Projectile>();
         p.team = Parent.team;
         p.Parent = Parent;
         p.LifeTime = bulletLifeTime;
         p.Damage = damage;
-        var line = q.GetComponent<LineRenderer>();
-        line.material.SetColor("MainColor", MainProjectileColor);
-        line.material.SetColor("EdgeColor", EdgeProjectileColor);
-        line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh, Vector3.forward * ProjecileLentgh });
-        line.widthMultiplier = ProjectileSize;
+        p.Explosion = ProjectileExplosionPower;
+        {
+            var line = q.GetComponent<LineRenderer>();
+            if (line)
+            {
+                line.material.SetColor("MainColor", MainProjectileColor);
+                line.material.SetColor("EdgeColor", EdgeProjectileColor);
+                line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh, Vector3.forward * ProjecileLentgh });
+                line.widthMultiplier = ProjectileSize;
+            }
+        }
+        {
+            var effect = q.GetComponent<UnityEngine.VFX.VisualEffect>();
+            if (effect)
+            {
+
+
+            }
+        }
         var capsule = q.GetComponent<CapsuleCollider>();
         capsule.height = Parent.UseCheats ? ProjecileLentgh * 5 : ProjecileLentgh;
         capsule.radius = Parent.UseCheats ? ProjectileSize * 5 : ProjectileSize;

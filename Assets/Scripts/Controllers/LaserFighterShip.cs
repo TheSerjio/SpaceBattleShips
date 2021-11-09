@@ -6,6 +6,8 @@ public class LaserFighterShip : ShipAIController
 
     public float OptimalDistance;
 
+    [Tooltip("more value = less shoot")][Range(-1, 1)] public float FireIf;
+
     public override void OnFixedUpdate()
     {
         var dist = Vector3.Distance(transform.position, target.transform.position);
@@ -19,7 +21,7 @@ public class LaserFighterShip : ShipAIController
             Ship.BrakePower = 1;
             Ship.Brake();
         }
-        Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > 0.5f;
+        Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > FireIf;
         Ship.LookAt(target.transform.position + Random.insideUnitSphere * dist / LaserAccuracy);
     }
 }

@@ -8,7 +8,6 @@ public class TargetFrame : MonoBehaviour
     public ulong number;
     RectTransform rect;
     [SerializeField] GameObject image;
-    static Ship player;
     public TMPro.TextMeshProUGUI text;
     float timeLeft;
     [SerializeField] GameObject onHit;
@@ -19,12 +18,6 @@ public class TargetFrame : MonoBehaviour
 
     public void Start()
     {
-        if (!player)
-        {
-            var obj = FindObjectOfType<PlayerShip>();
-            if (obj)
-                player = obj.Ship;
-        }
         rect = GetComponent<RectTransform>();
     }
 
@@ -43,7 +36,7 @@ public class TargetFrame : MonoBehaviour
                 var dist = Vector3.Distance(target.transform.position, cam.transform.position);
                 foreach (var q in all)
                 {
-                    var c= q.color;
+                    var c = q.color;
                     c.a = Mathf.Lerp(1, 0, dist / MaxVisionDistance);//TODO optimization
                     q.color = c;
                 }
@@ -51,8 +44,7 @@ public class TargetFrame : MonoBehaviour
                 text.enabled = true;
                 Vector2 pos = cam.WorldToScreenPoint(target.transform.position);
                 rect.position = pos;
-                if (player)
-                    text.text = $"{target.name}{number}:{Mathf.Round(Utils.ToSadUnits(Vector3.Distance(player.transform.position, target.transform.position)))}";
+                text.text = $"{target.name}{number}:{Mathf.Round(Utils.ToSadUnits(Vector3.Distance(cam.transform.position, target.transform.position)))}";
                 if (timeLeft < 0)
                     onHit.SetActive(false);
                 else
@@ -77,7 +69,7 @@ public class TargetFrame : MonoBehaviour
     {
         timeLeft = 0.25f;
         if (from is Ship s)
-            if (s == player)
+            if (s.UseCheats)
                 onHit.SetActive(true);
     }
 }

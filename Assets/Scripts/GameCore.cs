@@ -69,8 +69,7 @@ public class GameCore : SINGLETON<GameCore>
             Shuffle();
             var b = Booms[0];
             Booms.RemoveAt(0);
-            foreach (var q in All)
-                q.OnDamaged(b.damage / Vector3.Distance(b.position, q.transform.position), null);
+            InstantExplode(b.position, b.damage);
         }
     }
 
@@ -98,12 +97,23 @@ public class GameCore : SINGLETON<GameCore>
 
     public void Explode(Vector3 where, float power, Ship from)
     {
-        var q = new Explosion()
+        if (from)
         {
-            damage = power,
-            position = where,
-            from = from
-        };
-        Booms.Add(q);
+            var q = new Explosion()
+            {
+                damage = power,
+                position = where,
+                from = from
+            };
+            Booms.Add(q);
+        }
+        else
+            InstantExplode(where, power);
+    }
+
+    private void InstantExplode(Vector3 where, float power)
+    {
+        foreach (var q in All)
+            q.OnDamaged(power / (where - q.transform.position).sqrMagnitude, null);
     }
 }
