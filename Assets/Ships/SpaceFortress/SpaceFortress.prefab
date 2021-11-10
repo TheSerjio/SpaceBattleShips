@@ -351,7 +351,7 @@ MonoBehaviour:
   team: 0
   rotationSpeed: 15
   speed: 0.1
-  MaxHealth: 1000
+  MaxHealth: 600
   weapons:
   - {fileID: 7698845796518400047}
   - {fileID: 448984694262968212}
@@ -367,15 +367,15 @@ MonoBehaviour:
   - {fileID: 8121905957494706733}
   - {fileID: 2810199502290301027}
   trails: []
-  EngineConsumption: 1
-  BrakeConsumption: 1
-  MaxEnergy: 10
-  EnergyRegeneration: 10
+  EngineConsumption: 100
+  BrakeConsumption: 100
+  MaxEnergy: 1000
+  EnergyRegeneration: 100
   MeshForDamage: {fileID: 2864552740584565286}
   frame: {fileID: 0}
   size: 1
   ExplosionPower: 100
-  ExplosionSize: 0
+  ExplosionSize: 20
 --- !u!114 &3079299493328993905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   ShieldRender: {fileID: 857948125192339583}
   ShieldCollider: {fileID: 4773362236423930057}
   MaxShield: 1000
-  ShieldRegeneration: 1000
+  ShieldRegeneration: 50
 --- !u!1 &6427522612504496910
 GameObject:
   m_ObjectHideFlags: 0

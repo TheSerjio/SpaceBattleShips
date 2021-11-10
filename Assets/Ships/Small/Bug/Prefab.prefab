@@ -290,7 +290,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058199985271724009}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -326,22 +326,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   rotationSpeed: 90
-  speed: 5
-  MaxHealth: 20
+  speed: 4
+  MaxHealth: 30
   weapons:
   - {fileID: 7442075221799175898}
   - {fileID: 1474345183683731315}
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
-  EngineConsumption: 1
-  BrakeConsumption: 1
-  MaxEnergy: 20
-  EnergyRegeneration: 2
+  EngineConsumption: 7
+  BrakeConsumption: 7
+  MaxEnergy: 100
+  EnergyRegeneration: 10
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
   size: 1
-  ExplosionPower: 100
+  ExplosionPower: 12
   ExplosionSize: 2
 --- !u!114 &845703886288328863
 MonoBehaviour:
@@ -358,7 +358,7 @@ MonoBehaviour:
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
   MaxShield: 20
-  ShieldRegeneration: 2
+  ShieldRegeneration: 3
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,16 +590,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 1
-  bulletLifeTime: 20
-  bulletSpeed: 50
-  damage: 15
-  MainProjectileColor: {r: 0, g: 1, b: 1, a: 1}
-  EdgeProjectileColor: {r: 1, g: 0, b: 0, a: 1}
+  ReloadTime: 0.4
+  bulletLifeTime: 5
+  bulletSpeed: 80
+  damage: 5
+  MainProjectileColor: {r: 0.8860987, g: 1, b: 0.3160377, a: 1}
+  EdgeProjectileColor: {r: 1, g: 0.41667736, b: 0, a: 1}
   ProjecileLentgh: 10
   ProjectileSize: 0.14
   type: 0
   ProjectileExplosionPower: 0
+  EnergyPerShot: 1
 --- !u!1 &4271706942908349771
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,16 +741,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 1
-  bulletLifeTime: 20
-  bulletSpeed: 50
-  damage: 15
-  MainProjectileColor: {r: 0, g: 1, b: 1, a: 1}
-  EdgeProjectileColor: {r: 1, g: 0, b: 0, a: 1}
+  ReloadTime: 0.4
+  bulletLifeTime: 5
+  bulletSpeed: 80
+  damage: 5
+  MainProjectileColor: {r: 0.8860987, g: 1, b: 0.3160377, a: 1}
+  EdgeProjectileColor: {r: 1, g: 0.41667736, b: 0, a: 1}
   ProjecileLentgh: 10
   ProjectileSize: 0.14
   type: 0
   ProjectileExplosionPower: 0
+  EnergyPerShot: 1
 --- !u!1 &7070068156680053928
 GameObject:
   m_ObjectHideFlags: 0
