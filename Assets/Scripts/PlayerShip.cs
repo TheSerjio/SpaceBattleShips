@@ -90,8 +90,8 @@ public sealed class PlayerShip : ShipController
     {
         cameroid.localPosition = Random.insideUnitSphere * how.shakePower;
         if (how.showText)
-            if (GameUI.Self)
-                GameUI.Self.Warn.color = Color.white;
+            if (Warner.Self)
+                Warner.Self.Show();
     }
 
     public override void Death()

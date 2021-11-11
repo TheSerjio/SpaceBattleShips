@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Projectile : BaseEntity
+[DisallowMultipleComponent]
+public class Projectile : MonoBehaviour
 {
     public float Damage { get; set; }
 
@@ -12,8 +13,13 @@ public class Projectile : BaseEntity
 
     public float Explosion { get; set; }
 
+    public Vector3 Velocity { get; set; }
+
+    public Team Team { get; set; }
+
     public void FixedUpdate()
     {
+        transform.position += Velocity * Time.deltaTime;
         LifeTime -= Time.deltaTime;
         if (LifeTime < 0)
             Die();
@@ -29,23 +35,5 @@ public class Projectile : BaseEntity
             var boom = Instantiate(DataBase.Get().SmallExplosion, transform.position, Random.rotation);
             Destroy(boom, 10);
         }
-    }
-
-    public override void OnDamaged(float dmg, BaseEntity from) => Die();
-
-    public void OnTriggerEnter(Collider other)
-    {
-        var q = other.GetComponentInParent<BaseEntity>();
-        if (q)
-            if (q.team != team)
-            {
-                q.OnDamaged(Damage, Parent);
-                Die();
-            }
-    }
-
-    public override void DeathDamage()
-    {
-        Die();
     }
 }

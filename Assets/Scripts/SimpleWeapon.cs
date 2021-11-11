@@ -54,7 +54,7 @@ public class SimpleWeapon : ShipWeapon
         var q = ProjectilePool.Self.Get(type);
         q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         var p = q.GetComponent<Projectile>();
-        p.team = Parent.team;
+        p.Team = Parent.team;
         p.Parent = Parent;
         p.LifeTime = bulletLifeTime;
         p.Damage = damage;
@@ -80,8 +80,7 @@ public class SimpleWeapon : ShipWeapon
         var capsule = q.GetComponent<CapsuleCollider>();
         capsule.height = Parent.UseCheats ? ProjecileLentgh * 5 : ProjecileLentgh;
         capsule.radius = Parent.UseCheats ? ProjectileSize * 5 : ProjectileSize;
-        var rb = q.GetComponent<Rigidbody>();
-        rb.velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);
+        p.Velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();
         if (trail)
             trail.AddPosition(transform.position);

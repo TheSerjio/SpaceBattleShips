@@ -5,21 +5,25 @@ using UnityEngine.UI;
 /// component of warning window
 /// </summary>
 [RequireComponent(typeof(Graphic))]
-public class Warner : MonoBehaviour
+[DisallowMultipleComponent]
+public class Warner : SINGLETON<Warner>
 {
-    public Graphic text;
-
-    private Graphic my;
+    public Graphic[] images;
 
     public Gradient color;
 
-    public void Awake()
-    {
-        my = GetComponent<Graphic>();
-    }
+    public Color current;
 
     public void Update()
     {
-        text.color = my.color * color.Evaluate(Time.time % 1);
+        current = Vector4.MoveTowards(current, new Color(0, 0, 0, 0), Time.deltaTime);
+
+        foreach (var q in images)
+            q.color = current;
+    }
+
+    public void Show()
+    {
+        current = color.Evaluate(Time.time % 1);
     }
 }

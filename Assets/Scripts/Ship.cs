@@ -256,6 +256,17 @@ public class Ship : BaseEntity
                 }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        var p = other.gameObject.GetComponent<Projectile>();
+        if (p)
+            if (p.Team != team)
+            {
+                OnDamaged(p.Damage, p.Parent);
+                p.Die();
+            }
+    }
+
     public void ExtraForward()
     {
         float prev = EnginePower;

@@ -13,7 +13,6 @@ public sealed class GameUI : SINGLETON<GameUI>
     public RectTransform Health;
     public RectTransform Velocity;
     public Text VelocityText;
-    public Graphic Warn;
     private Canvas canva;
 
     protected override void OnAwake()
@@ -46,7 +45,5 @@ public sealed class GameUI : SINGLETON<GameUI>
             if (tar)
                 target = tar.Ship;
         }
-
-        Warn.color = Vector4.MoveTowards(Warn.color, new Color(1, 1, 1, 0), Time.deltaTime);
     }
 }
