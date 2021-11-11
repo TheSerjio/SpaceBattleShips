@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AutoWeapon : MonoBehaviour
+public class AutoWeapon : MonoBehaviour, IFireControl
 {
     public float rotationSpeed;
     public Transform body;
@@ -9,11 +9,17 @@ public class AutoWeapon : MonoBehaviour
     public ShipWeapon weapon;
     [Range(-1, 1)] public float maxAngle;
 
+    bool IFireControl.Fire => target;
+
+    Ship IFireControl.Parent => parent;
+
     public void Update()
     {
         if (parent)
             if (target)
             {
+                if (!ReferenceEquals(weapon.Parent, this))
+                    weapon.Parent = this;
                 body.RotateTowards(Utils.ShootTo(parent.RB, target, weapon ? weapon.AntiSpeed : 0), rotationSpeed * Time.deltaTime);
                 if (Vector3.Dot(transform.forward, body.forward) < maxAngle)
                 {
@@ -29,6 +35,5 @@ public class AutoWeapon : MonoBehaviour
             }
         else
             parent = GetComponentInParent<Ship>();
-
     }
 }

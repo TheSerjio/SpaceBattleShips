@@ -39,7 +39,7 @@ public class SimpleWeapon : ShipWeapon
             CoolDown -= Time.deltaTime;
         else if (Parent.Fire)
         {
-            if (Parent.TakeEnergy(EnergyPerShot))
+            if (Parent.Parent.TakeEnergy(EnergyPerShot))
             {
                 CoolDown += ReloadTime;
                 Shoot();
@@ -54,8 +54,8 @@ public class SimpleWeapon : ShipWeapon
         var q = ProjectilePool.Self.Get(type);
         q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         var p = q.GetComponent<Projectile>();
-        p.Team = Parent.team;
-        p.Parent = Parent;
+        p.Team = Parent.Parent.team;
+        p.Parent = Parent.Parent;
         p.LifeTime = bulletLifeTime;
         p.Damage = damage;
         p.Explosion = ProjectileExplosionPower;
@@ -78,9 +78,9 @@ public class SimpleWeapon : ShipWeapon
             }
         }
         var capsule = q.GetComponent<CapsuleCollider>();
-        capsule.height = Parent.UseCheats ? ProjecileLentgh * 5 : ProjecileLentgh;
-        capsule.radius = Parent.UseCheats ? ProjectileSize * 5 : ProjectileSize;
-        p.Velocity = Parent.RB.velocity + (transform.forward * bulletSpeed);
+        capsule.height = Parent.Parent.UseCheats ? ProjecileLentgh * 5 : ProjecileLentgh;
+        capsule.radius = Parent.Parent.UseCheats ? ProjectileSize * 5 : ProjectileSize;
+        p.Velocity = Parent.Parent.RB.velocity + (transform.forward * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();
         if (trail)
             trail.AddPosition(transform.position);

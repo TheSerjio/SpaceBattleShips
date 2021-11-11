@@ -3,13 +3,22 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public abstract class SINGLETON<T> : MonoBehaviour where T : SINGLETON<T>
 {
-    public static T Self { get; private set; }
+    public static T Self {get
+        {
+            if (!RealSelf)
+                RealSelf = FindObjectOfType<T>();
+            return RealSelf;
+        }
+    }
+
+    private static T RealSelf { get; set; }
 
     public void Awake()
     {
         if (Self)
-            Debug.LogError($"Duplicated singleton {typeof(T).Name}! [{name}] and [{Self.name}]");
-        Self = (T)this;
+            if (Self != this)
+                Debug.LogError($"Duplicated singleton {typeof(T).Name}! [{name}] and [{Self.name}]");
+        RealSelf = (T)this;
         OnAwake();
     }
 
@@ -101,4 +110,10 @@ public enum Team : byte
 public enum ExplosionType : byte
 {
     Large, Small
+}
+
+public interface IFireControl
+{
+    public bool Fire { get; }
+    public Ship Parent { get; }
 }

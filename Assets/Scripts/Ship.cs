@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ship : BaseEntity
+public class Ship : BaseEntity,IFireControl
 {
     public struct Warning
     {
@@ -19,6 +19,9 @@ public class Ship : BaseEntity
         Projectile,
         Laser
     }
+
+    bool IFireControl.Fire { get => Fire; }
+    Ship IFireControl.Parent { get => this; }
 
     private ShipController __brain__;
     private ShipController Brain

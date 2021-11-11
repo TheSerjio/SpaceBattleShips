@@ -32,20 +32,20 @@ public class LongLaserWeapon : ShipWeapon
         {
             if (Time.time > noEnergyCoolDown)
             {
-                if (Parent.TakeEnergy(Time.deltaTime * EnergyPerSecond))
+                if (Parent.Parent.TakeEnergy(Time.deltaTime * EnergyPerSecond))
                 {
                     lr.widthMultiplier = q;
                     lr.positionCount = 2;
                     lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * ushort.MaxValue });
-                    foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
+                    foreach (var hit in Physics.SphereCastAll(transform.position, Parent.Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
                     {
                         var obj = hit.collider.gameObject;
                         var tar = obj.GetComponentInParent<BaseEntity>();
                         if (tar)
                         {
-                            if (tar.team != Parent.team)
+                            if (tar.team != Parent.Parent.team)
                             {
-                                tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
+                                tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent.Parent);
                                 lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * hit.distance });
                                 break;
                             }

@@ -23,8 +23,6 @@ public class GameCore : SINGLETON<GameCore>
         public float damage;
     }
 
-    public Canvas canvas;
-
     private void RemoveNull()
     {
         bool yes = true;
@@ -87,6 +85,7 @@ public class GameCore : SINGLETON<GameCore>
 
     public Ship FindTargetShip(Team team)
     {
+        RemoveNull();
         Shuffle();
         foreach (var ship in All)
             if (ship.team != team)
@@ -113,6 +112,7 @@ public class GameCore : SINGLETON<GameCore>
 
     private void InstantExplode(Vector3 where, float power)
     {
+        RemoveNull();
         foreach (var q in All)
             q.OnDamaged(power / ((where - q.transform.position).sqrMagnitude + 1), null);
     }

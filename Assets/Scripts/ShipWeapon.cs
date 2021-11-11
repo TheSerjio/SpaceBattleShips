@@ -2,16 +2,20 @@ using UnityEngine;
 
 public abstract class ShipWeapon : MonoBehaviour
 {
-    public Ship Parent
+    public IFireControl Parent
     {
         get
         {
-            if (!ship)
+            if (ship == null)
                 ship = GetComponentInParent<Ship>();
             return ship;
         }
+        set
+        {
+            ship = value;
+        }
     }
-    private Ship ship;
+    private IFireControl ship;
 
     public abstract float AntiSpeed { get; }
 }

@@ -16,7 +16,7 @@ public sealed class Spawner : MonoBehaviour
     public static void CreateFrame(Ship ship)
     {
         var f = Instantiate(DataBase.Get().TargetFramePrefab);
-        f.transform.SetParent(GameCore.Self.canvas.transform);
+        f.transform.SetParent(GameUI.Self.transform);
         f.transform.localScale = Vector3.one;
         var ff = f.GetComponent<TargetFrame>();
         ff.target = ship;
