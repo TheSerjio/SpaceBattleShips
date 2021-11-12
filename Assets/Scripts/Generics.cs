@@ -105,7 +105,16 @@ public abstract class ValidableScriptableObject : ScriptableObject
 }
 
 public enum Team : byte
-{ Defenders, Attackers, Derelict, Pirates }
+{
+    Defenders,
+    Attackers,
+    Derelict,
+    Pirates,
+    /// <summary>
+    /// Entity cant have this team
+    /// </summary>
+    _SYSTEM_
+}
 
 public enum ExplosionType : byte
 {

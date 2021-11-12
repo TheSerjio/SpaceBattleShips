@@ -368,9 +368,6 @@ MonoBehaviour:
   rotationSpeed: 45
   speed: 3
   MaxHealth: 10
-  weapons:
-  - {fileID: 7851812694907981593}
-  - {fileID: 2246549447324774444}
   trails:
   - {fileID: 8042651870510748577}
   EngineConsumption: 5
@@ -395,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  mainWeapon: {fileID: 0}
+  mainWeapon: {fileID: 2246549447324774444}
 --- !u!135 &2747515676622489423
 SphereCollider:
   m_ObjectHideFlags: 0

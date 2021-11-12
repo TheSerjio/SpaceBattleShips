@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
         ProjectilePool.Self.Add(gameObject);
         if (Explosion != 0)
         {
-            GameCore.Self.Explode(transform.position, Explosion, null);
+            GameCore.Self.Explode(transform.position, Explosion, Team);
             var boom = Instantiate(DataBase.Get().SmallExplosion, transform.position, Random.rotation);
             Destroy(boom, 10);
         }

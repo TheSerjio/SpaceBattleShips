@@ -67,7 +67,6 @@ public class Ship : BaseEntity,IFireControl
     [SerializeField] float speed;
     [SerializeField] float MaxHealth;
     public float Health { get; private set; }
-    [SerializeField] ShipWeapon[] weapons;
     [SerializeField] ShipTrail[] trails;
     [SerializeField] float EngineConsumption;
     [SerializeField] float BrakeConsumption;
@@ -96,7 +95,6 @@ public class Ship : BaseEntity,IFireControl
     [ContextMenu("Magic")]
     public void Magic()
     {
-        weapons = GetComponentsInChildren<ShipWeapon>();
         trails = GetComponentsInChildren<ShipTrail>();
         UnityEditor.EditorUtility.SetDirty(this);
     }
@@ -118,13 +116,12 @@ public class Ship : BaseEntity,IFireControl
 
     public sealed override void OnDamaged(float dmg, BaseEntity from)
     {
-
         void Do(Vector3 world)
         {
             var boom = Instantiate(DataBase.Get().ShipExplosion, world, Random.rotation);
             boom.transform.localScale = Vector3.one * ExplosionSize;
             Destroy(boom, 10);
-            GameCore.Self.Explode(transform.position, ExplosionPower, this);
+            GameCore.Self.Explode(transform.position, ExplosionPower, team);
         }
 
         if (!Shield)
@@ -167,14 +164,6 @@ public class Ship : BaseEntity,IFireControl
             Energy -= e;
             EngineQ = EnginePower;
         }
-    }
-
-    public T GetWeapon<T>() where T : ShipWeapon
-    {
-        foreach (var q in weapons)
-            if (q is T t)
-                return t;
-        return null;
     }
 
     public void Brake()
@@ -240,6 +229,7 @@ public class Ship : BaseEntity,IFireControl
     }
 #endif
 
+    /// <returns>from -1 to 1</returns>
     public float LookAt(Vector3 worldPoint)
     {
         transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);

@@ -14,14 +14,6 @@ public class GameCore : SINGLETON<GameCore>
             return _all_;
         }
     }
-    private System.Collections.Generic.List<Explosion> Booms = new System.Collections.Generic.List<Explosion>();
-
-    private struct Explosion
-    {
-        public Ship from;
-        public Vector3 position;
-        public float damage;
-    }
 
     private void RemoveNull()
     {
@@ -62,13 +54,6 @@ public class GameCore : SINGLETON<GameCore>
     {
         if (!MainCamera)
             MainCamera = Camera.main;
-        if (Booms.Count > 0)
-        {
-            Shuffle();
-            var b = Booms[0];
-            Booms.RemoveAt(0);
-            InstantExplode(b.position, b.damage);
-        }
     }
 
     private void Shuffle()
@@ -94,26 +79,11 @@ public class GameCore : SINGLETON<GameCore>
         return null;
     }
 
-    public void Explode(Vector3 where, float power, Ship from)
-    {
-        if (from)
-        {
-            var q = new Explosion()
-            {
-                damage = power,
-                position = where,
-                from = from
-            };
-            Booms.Add(q);
-        }
-        else
-            InstantExplode(where, power);
-    }
-
-    private void InstantExplode(Vector3 where, float power)
+    public void Explode(Vector3 where, float power, Team team)
     {
         RemoveNull();
         foreach (var q in All)
-            q.OnDamaged(power / ((where - q.transform.position).sqrMagnitude + 1), null);
+            if (q.team != team)
+                q.OnDamaged(power / ((where - q.transform.position).sqrMagnitude + 1), null);
     }
 }

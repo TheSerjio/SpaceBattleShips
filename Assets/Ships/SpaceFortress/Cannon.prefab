@@ -192,7 +192,7 @@ MonoBehaviour:
   ReloadTime: 1
   bulletLifeTime: 4
   bulletSpeed: 60
-  damage: 1
+  damage: 5
   MainProjectileColor: {r: 1, g: 0, b: 0, a: 1}
   EdgeProjectileColor: {r: 1, g: 1, b: 0, a: 1}
   ProjecileLentgh: 0.5

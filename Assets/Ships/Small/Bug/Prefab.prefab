@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  mainWeapon: {fileID: 0}
+  mainWeapon: {fileID: 7442075221799175898}
 --- !u!114 &4094231551408845624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,9 +328,6 @@ MonoBehaviour:
   rotationSpeed: 90
   speed: 4
   MaxHealth: 30
-  weapons:
-  - {fileID: 7442075221799175898}
-  - {fileID: 1474345183683731315}
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}

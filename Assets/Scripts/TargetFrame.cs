@@ -26,11 +26,6 @@ public class TargetFrame : MonoBehaviour
         if (target)
         {
             var cam = GameCore.MainCamera;
-            if (!cam)
-            {
-                target = null;
-                return;
-            }
             if (Vector3.Dot(cam.transform.forward, cam.transform.position - target.transform.position) < 0)
             {
                 var dist = Vector3.Distance(target.transform.position, cam.transform.position);
@@ -40,17 +35,23 @@ public class TargetFrame : MonoBehaviour
                     c.a = Mathf.Lerp(1, 0, dist / MaxVisionDistance);//TODO optimization
                     q.color = c;
                 }
-                image.SetActive(true);
-                text.enabled = true;
+                if (!image.activeSelf)
+                {
+                    image.SetActive(true);
+                    text.enabled = true;
+                }
                 Vector2 pos = cam.WorldToScreenPoint(target.transform.position);
                 rect.position = pos;
-                text.text = $"{target.name}{number}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(Vector3.Distance(cam.transform.position, target.transform.position)))}";
+                text.text = $"{target.name}{number}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
                 if (timeLeft < 0)
+                {
+                    if(onHit.activeSelf)
                     onHit.SetActive(false);
+                }
                 else
                     timeLeft -= Time.deltaTime;
             }
-            else
+            else if (image.activeSelf)
             {
                 image.SetActive(false);
                 text.enabled = false;

@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].count
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[1].count
@@ -403,6 +403,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3477215623944422658, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+      propertyPath: ShieldRegeneration
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 5491697146561974813, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
       propertyPath: m_Name
       value: SpaceFortress
@@ -897,7 +901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Collectors: []
-  canvas: {fileID: 0}
 --- !u!4 &1611647742
 Transform:
   m_ObjectHideFlags: 0
