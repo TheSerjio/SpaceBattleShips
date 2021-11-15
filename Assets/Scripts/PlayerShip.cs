@@ -5,7 +5,8 @@ public sealed class PlayerShip : ShipController
     public bool AutoBrake = true;
     GameUI ui;
     Transform cameroid;
-    public float CameraRotation = 90;
+
+    const float CameraRotation = 180;
 
     public void Start()
     {
