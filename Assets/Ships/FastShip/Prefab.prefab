@@ -973,11 +973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 750872169710731828, guid: 7af873778378c1c4aa83bfa30ae9ea5e, type: 3}
       propertyPath: ReloadTime
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 750872169710731828, guid: 7af873778378c1c4aa83bfa30ae9ea5e, type: 3}
       propertyPath: bulletSpeed
-      value: 20
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 750872169710731828, guid: 7af873778378c1c4aa83bfa30ae9ea5e, type: 3}
       propertyPath: EnergyPerShot
@@ -989,7 +989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 750872169710731828, guid: 7af873778378c1c4aa83bfa30ae9ea5e, type: 3}
       propertyPath: bulletLifeTime
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 750872169710731828, guid: 7af873778378c1c4aa83bfa30ae9ea5e, type: 3}
       propertyPath: ProjecileLentgh
