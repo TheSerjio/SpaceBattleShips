@@ -85,4 +85,10 @@ public class SimpleWeapon : ShipWeapon
         if (trail)
             trail.AddPosition(transform.position);
     }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(ProjectileSize, ProjectileSize, ProjecileLentgh));
+    }
 }

@@ -31,8 +31,14 @@ public sealed class PlayerShip : ShipController
             ui = FindObjectOfType<GameUI>();
             return;
         }
-        Vector3 rotation = Vector3.back * Input.GetAxis("Horizontal");
-        if (Input.GetMouseButton(2))
+        if (Input.GetKey(KeyCode.A))
+            if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
+                RB.velocity -= Ship.EnginePower * Time.deltaTime * transform.right / 2;
+        if (Input.GetKey(KeyCode.D))
+            if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
+                RB.velocity += Ship.EnginePower * Time.deltaTime * transform.right / 2;
+
+        if (Input.GetMouseButton(1))
             cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
         else
         {
@@ -41,12 +47,18 @@ public sealed class PlayerShip : ShipController
             cameroid.localRotation = Quaternion.RotateTowards(cameroid.localRotation, r, CameraRotation * Time.deltaTime);
         }
 
-        if (Input.GetMouseButton(1))
+        Vector3 rotation = default;
+        if (Input.GetMouseButton(0))
         {
             Vector2 pos = 2 * Input.mousePosition / new Vector2(Screen.width, Screen.height);
             pos -= Vector2.one;
             rotation += new Vector3(-pos.y, pos.x);
         }
+        if (Input.GetKey(KeyCode.Q))
+            rotation += Vector3.forward;
+        if (Input.GetKey(KeyCode.E))
+            rotation += Vector3.back;
+
         Ship.EnginePower = GameUI.Self.Engines.value;
         Ship.BrakePower = GameUI.Self.Brakes.value;
         if (rotation != Vector3.zero)

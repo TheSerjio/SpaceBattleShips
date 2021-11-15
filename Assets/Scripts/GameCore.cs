@@ -86,4 +86,10 @@ public class GameCore : SINGLETON<GameCore>
             if (q.team != team)
                 q.OnDamaged(power / ((where - q.transform.position).sqrMagnitude + 1), null);
     }
+
+    [ContextMenu("Magic")]
+    public void Collect()
+    {
+        Collectors = FindObjectsOfType<COLLECTOR>();
+    }
 }

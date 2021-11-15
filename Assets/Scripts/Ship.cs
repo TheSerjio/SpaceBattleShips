@@ -69,6 +69,7 @@ public class Ship : BaseEntity,IFireControl
     public float Health { get; private set; }
     [SerializeField] ShipTrail[] trails;
     [SerializeField] float EngineConsumption;
+    public float EngineCons => EngineConsumption;
     [SerializeField] float BrakeConsumption;
     public float EnginePower { get; set; }
     public float BrakePower { get; set; }
