@@ -5,23 +5,24 @@ public sealed class PlayerShip : ShipController
     public bool AutoBrake = true;
     GameUI ui;
     Transform cameroid;
-    Transform realCamera;
+    Camera realCamera;
 
     const float CameraRotation = 180;
 
     public void Start()
     {
+        Transform q = null;
         foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
-
             if (pfc.parent)
                 cameroid = pfc.transform;
             else
-                realCamera = pfc.transform;
+                q = pfc.transform;
 
         var cam = Instantiate(DataBase.Get().CameraPrefab);
-        cam.transform.SetParent(realCamera);
+        cam.transform.SetParent(q);
         cam.transform.localPosition = Vector3.zero;
         cam.transform.localScale = Vector3.one;
+        realCamera = cam.GetComponent<Camera>();
         Instantiate(DataBase.Get().DustPrefab, transform);
     }
 
@@ -34,10 +35,14 @@ public sealed class PlayerShip : ShipController
         }
         if (Input.GetKey(KeyCode.A))
             if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
+            {
                 RB.velocity -= Ship.EnginePower * Time.deltaTime * transform.right / 2;
+            }
         if (Input.GetKey(KeyCode.D))
             if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
+            {
                 RB.velocity += Ship.EnginePower * Time.deltaTime * transform.right / 2;
+            }
 
         if (!Input.GetMouseButton(1))
             cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
@@ -50,10 +55,7 @@ public sealed class PlayerShip : ShipController
 
         if (Input.GetMouseButton(0))
         {
-            Vector2 pos = 2 * Input.mousePosition / new Vector2(Screen.width, Screen.height);
-            pos -= Vector2.one;
-            var rotation = new Vector3(-pos.y, pos.x);
-            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * rotation, Space.Self);
+            Ship.LookAt(realCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.one) - realCamera.transform.position + transform.position);
         }
         if (Input.GetKey(KeyCode.Q))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.forward, Space.Self);
