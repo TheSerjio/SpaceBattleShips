@@ -334,7 +334,6 @@ MonoBehaviour:
   rotationSpeed: 15
   speed: 1
   MaxHealth: 450
-  weapons: []
   trails:
   - {fileID: 5863762263917115451}
   EngineConsumption: 50

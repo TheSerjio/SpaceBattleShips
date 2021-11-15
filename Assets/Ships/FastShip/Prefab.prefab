@@ -406,7 +406,7 @@ MonoBehaviour:
   EnergyRegeneration: 5
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
-  size: 1
+  size: 2
   ExplosionPower: 100
   ExplosionSize: 2
 --- !u!114 &7635971574616362090
@@ -801,7 +801,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8080752092310439734}
-  m_Mesh: {fileID: 4948831444604951431, guid: 9b3acec151e35314b9f337361335276c, type: 3}
+  m_Mesh: {fileID: 4948831444604951431, guid: 7314cbdac2a1e4a49a77c9870a04549f, type: 3}
 --- !u!23 &6474996617362020079
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -823,6 +823,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b72c3c5a1dea2104ea0cfd284c5ed7bb, type: 2}
+  - {fileID: 2100000, guid: 05531f0399e8b4b4a8bd14e95d4a0b87, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -857,7 +858,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 4948831444604951431, guid: 9b3acec151e35314b9f337361335276c, type: 3}
+  m_Mesh: {fileID: 4948831444604951431, guid: 7314cbdac2a1e4a49a77c9870a04549f, type: 3}
 --- !u!1 &8956445090384346636
 GameObject:
   m_ObjectHideFlags: 0

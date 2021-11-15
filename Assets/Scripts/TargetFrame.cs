@@ -12,7 +12,7 @@ public class TargetFrame : MonoBehaviour
     float timeLeft;
     [SerializeField] GameObject onHit;
 
-    const float sizeMultiply = 100;
+    const float sizeMultiply = 500;
     const float minFrameSize = 18;
     const float maxFrameSize = 256;
     const float maxDist = 300;

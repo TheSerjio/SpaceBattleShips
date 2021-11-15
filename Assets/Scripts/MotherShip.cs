@@ -2,7 +2,6 @@ using UnityEngine;
 
 public sealed class MotherShip : Ship
 {
-
     [System.Serializable]
     public class Data
     {
@@ -46,5 +45,16 @@ public sealed class MotherShip : Ship
                 End:;
             }
         }
+    }
+
+    public override void DrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        foreach (var q in spawners)
+        {
+            Gizmos.DrawWireSphere(q.position, 1);
+            Gizmos.DrawLine(q.position, q.forward + q.position);
+        }
+
     }
 }

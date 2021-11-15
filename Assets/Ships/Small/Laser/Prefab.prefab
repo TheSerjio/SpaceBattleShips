@@ -406,9 +406,6 @@ MonoBehaviour:
   rotationSpeed: 30
   speed: 2
   MaxHealth: 20
-  weapons:
-  - {fileID: 7145739510157320579}
-  - {fileID: 740774243760735205}
   trails:
   - {fileID: 3939391292371521494}
   - {fileID: 7689984975464146366}
@@ -418,7 +415,7 @@ MonoBehaviour:
   EnergyRegeneration: 20
   MeshForDamage: {fileID: 3939391293002615219}
   frame: {fileID: 0}
-  size: 1
+  size: 0.7
   ExplosionPower: 20
   ExplosionSize: 3
 --- !u!114 &3443616421799514483

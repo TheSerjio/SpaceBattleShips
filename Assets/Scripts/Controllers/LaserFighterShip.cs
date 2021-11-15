@@ -24,4 +24,11 @@ public class LaserFighterShip : ShipAIController
         Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > FireIf;
         Ship.LookAt(target.transform.position + Random.insideUnitSphere * dist / LaserAccuracy);
     }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawFrustum(transform.position, 360 / LaserAccuracy, OptimalDistance * 2, 1, 1);
+        Gizmos.DrawWireSphere(transform.position, OptimalDistance);
+    }
 }

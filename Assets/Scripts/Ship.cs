@@ -222,7 +222,6 @@ public class Ship : BaseEntity,IFireControl
         Shield = GetComponent<Shield>();
     }
 
-#if DEBUG
     public void OnDrawGizmos()
     {
         if (RB)
@@ -231,7 +230,15 @@ public class Ship : BaseEntity,IFireControl
             Gizmos.DrawLine(RB.position, RB.position + RB.velocity);
         }
     }
-#endif
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, size);
+        DrawGizmosSelected();
+    }
+
+    public virtual void DrawGizmosSelected() { }
 
     /// <returns>from -1 to 1</returns>
     public float LookAt(Vector3 worldPoint)

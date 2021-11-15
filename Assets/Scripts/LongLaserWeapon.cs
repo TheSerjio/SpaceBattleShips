@@ -59,7 +59,14 @@ public class LongLaserWeapon : ShipWeapon
                 }
             }
         }
-        if(b)
+        if (b)
             lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, laserWidth);
+        Gizmos.DrawWireSphere(transform.position, playerLaserWidth);
     }
 }
