@@ -5,21 +5,21 @@ public sealed class PlayerShip : ShipController
     public bool AutoBrake = true;
     GameUI ui;
     Transform cameroid;
+    Transform realCamera;
 
     const float CameraRotation = 180;
 
     public void Start()
     {
-        Transform q = null;
         foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
 
             if (pfc.parent)
                 cameroid = pfc.transform;
             else
-                q = pfc.transform;
+                realCamera = pfc.transform;
 
         var cam = Instantiate(DataBase.Get().CameraPrefab);
-        cam.transform.SetParent(q);
+        cam.transform.SetParent(realCamera);
         cam.transform.localPosition = Vector3.zero;
         cam.transform.localScale = Vector3.one;
         Instantiate(DataBase.Get().DustPrefab, transform);
@@ -39,31 +39,29 @@ public sealed class PlayerShip : ShipController
             if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
                 RB.velocity += Ship.EnginePower * Time.deltaTime * transform.right / 2;
 
-        if (Input.GetMouseButton(1))
+        if (!Input.GetMouseButton(1))
             cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
         else
         {
             var r = cameroid.localRotation;
             r.SetLookRotation(Vector3.forward);
-            cameroid.localRotation = Quaternion.RotateTowards(cameroid.localRotation, r, CameraRotation * Time.deltaTime);
+            cameroid.localRotation = Quaternion.RotateTowards(cameroid.localRotation, r, Ship.RotationSpeed * Time.deltaTime);
         }
 
-        Vector3 rotation = default;
         if (Input.GetMouseButton(0))
         {
             Vector2 pos = 2 * Input.mousePosition / new Vector2(Screen.width, Screen.height);
             pos -= Vector2.one;
-            rotation += new Vector3(-pos.y, pos.x);
+            var rotation = new Vector3(-pos.y, pos.x);
+            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * rotation, Space.Self);
         }
         if (Input.GetKey(KeyCode.Q))
-            rotation += Vector3.forward;
+            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.forward, Space.Self);
         if (Input.GetKey(KeyCode.E))
-            rotation += Vector3.back;
+            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.back, Space.Self);
 
         Ship.EnginePower = GameUI.Self.Engines.value;
         Ship.BrakePower = GameUI.Self.Brakes.value;
-        if (rotation != Vector3.zero)
-            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * rotation, Space.Self);
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Ship.ExtraForward();
