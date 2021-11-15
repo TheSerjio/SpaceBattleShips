@@ -53,13 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   number: 0
-  image: {fileID: 3910216472689492811}
+  image: {fileID: 8649033894396410861}
   text: {fileID: 812338418644395191}
   onHit: {fileID: 4710685397194622052}
-  all:
-  - {fileID: 812338418644395191}
-  - {fileID: 1679718328009973564}
-  MaxVisionDistance: 300
 --- !u!1 &2666994485051018901
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +225,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 40}
+  m_SizeDelta: {x: 24, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3759471938877545882
 CanvasRenderer:
@@ -260,7 +256,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 808ec920232369140839712de596124c, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -268,7 +264,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.01
 --- !u!1 &4710685397194622052
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +277,7 @@ GameObject:
   - component: {fileID: 6055021926536538204}
   - component: {fileID: 6540609259592959778}
   m_Layer: 5
-  m_Name: Image
+  m_Name: on hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

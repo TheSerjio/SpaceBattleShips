@@ -7,14 +7,15 @@ public class TargetFrame : MonoBehaviour
     public Ship target;
     public ulong number;
     RectTransform rect;
-    [SerializeField] GameObject image;
+    [SerializeField] RectTransform image;
     public TMPro.TextMeshProUGUI text;
     float timeLeft;
     [SerializeField] GameObject onHit;
 
-    public UnityEngine.UI.Graphic[] all;
-
-    public float MaxVisionDistance;
+    const float sizeMultiply = 100;
+    const float minFrameSize = 18;
+    const float maxFrameSize = 256;
+    const float maxDist = 300;
 
     public void Start()
     {
@@ -29,19 +30,28 @@ public class TargetFrame : MonoBehaviour
             if (Vector3.Dot(cam.transform.forward, cam.transform.position - target.transform.position) < 0)
             {
                 var dist = Vector3.Distance(target.transform.position, cam.transform.position);
-                foreach (var q in all)
+                if (dist > maxDist)
                 {
-                    var c = q.color;
-                    c.a = Mathf.Lerp(1, 0, dist / MaxVisionDistance);//TODO optimization
-                    q.color = c;
+                    if (image.gameObject.activeSelf)
+                    {
+                        image.gameObject.SetActive(false);
+                        text.enabled = false;
+                    }
+                    return;
                 }
-                if (!image.activeSelf)
+                else if (!image.gameObject.activeSelf)
                 {
-                    image.SetActive(true);
+                    image.gameObject.SetActive(true);
                     text.enabled = true;
                 }
-                Vector2 pos = cam.WorldToScreenPoint(target.transform.position);
-                rect.position = pos;
+                {
+                    //this somehow sets color of text
+                    var c = text.color;
+                    c.a = Mathf.Lerp(1, 0, dist / maxDist);
+                    text.color = c;
+                }
+                image.sizeDelta = Vector2.one * Mathf.Clamp(sizeMultiply / Mathf.Sqrt(dist), minFrameSize, maxFrameSize);
+                rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
                 text.text = $"{target.name}{number}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
                 if (timeLeft < 0)
                 {
@@ -51,9 +61,9 @@ public class TargetFrame : MonoBehaviour
                 else
                     timeLeft -= Time.deltaTime;
             }
-            else if (image.activeSelf)
+            else if (image.gameObject.activeSelf)
             {
-                image.SetActive(false);
+                image.gameObject.SetActive(false);
                 text.enabled = false;
             }
         }
