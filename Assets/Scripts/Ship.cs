@@ -90,6 +90,7 @@ public class Ship : BaseEntity,IFireControl
     public float size;
     public float ExplosionPower;
     public float ExplosionSize;
+    private bool _exploded = false;
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -116,6 +117,8 @@ public class Ship : BaseEntity,IFireControl
 
     public sealed override void OnDamaged(float dmg, BaseEntity from)
     {
+        if (_exploded)
+            return;
         void Do(Vector3 world)
         {
             var boom = Instantiate(DataBase.Get().ShipExplosion, world, Random.rotation);
@@ -137,6 +140,7 @@ public class Ship : BaseEntity,IFireControl
         MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
         if (Health <= 0)
         {
+            _exploded = true;
             if (Brain)
                 Brain.Death();
             foreach (var q in GetComponentsInChildren<ShipAdditionalExplosion>())
