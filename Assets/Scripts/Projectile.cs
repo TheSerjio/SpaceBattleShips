@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         {
             GameCore.Self.Explode(transform.position, Explosion, Team);
             var boom = Instantiate(DataBase.Get().SmallExplosion, transform.position, Random.rotation);
-            Destroy(boom, 10);
+            Destroy(boom);
         }
     }
 }

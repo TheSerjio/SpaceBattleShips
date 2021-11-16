@@ -52,7 +52,7 @@ public sealed class ProjectilePool : SINGLETON<ProjectilePool>
         }
 
         var obj = Instantiate(prefab);
-        obj.transform.SetParent(GetTransform(type), false);
+       // obj.transform.SetParent(GetTransform(type), false);
         obj.SetActive(active);
         return obj;
     }
@@ -73,7 +73,7 @@ public sealed class ProjectilePool : SINGLETON<ProjectilePool>
         {
             var type = (Projectile)i;
             var q = GetTransform(type);
-            while (q.childCount < 256)//i love magic numbers
+            while (q.childCount < 2560)//i love magic numbers
             {
                 Create(false, type);
                 yield return null;

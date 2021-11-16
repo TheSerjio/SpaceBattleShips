@@ -50,9 +50,10 @@ public class TargetFrame : MonoBehaviour
                     c.a = Mathf.Lerp(1, 0, dist / maxDist);
                     text.color = c;
                 }
-                image.sizeDelta = Vector2.one * Mathf.Clamp(sizeMultiply / Mathf.Sqrt(dist), minFrameSize, maxFrameSize);
-                rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
-                text.text = $"{target.name}{number}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
+              //  image.sizeDelta = Vector2.one * Mathf.Clamp(sizeMultiply / Mathf.Sqrt(dist), minFrameSize, maxFrameSize);
+             //   rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
+              //  text.text = $"{target.name}{number}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
+              
                 if (timeLeft < 0)
                 {
                     if(onHit.activeSelf)
