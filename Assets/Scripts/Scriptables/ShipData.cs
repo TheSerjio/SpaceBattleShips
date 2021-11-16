@@ -11,7 +11,7 @@ public class ShipData : ValidableScriptableObject
 
     public string Name;
     public ulong cost;
-    public GameObject prefab;
+    public Ship prefab;
     public Type type;
 
     public override IEnumerable<Warning> Validate()
