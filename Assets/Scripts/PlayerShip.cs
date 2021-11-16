@@ -28,21 +28,28 @@ public sealed class PlayerShip : ShipController
 
     public void Update()
     {
+        bool autoBrake = AutoBrake;
         if (!ui)
         {
             ui = FindObjectOfType<GameUI>();
             return;
         }
         if (Input.GetKey(KeyCode.A))
+        {
             if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
             {
                 RB.velocity -= Ship.EnginePower * Time.deltaTime * transform.right / 2;
             }
+            autoBrake = false;
+        }
         if (Input.GetKey(KeyCode.D))
+        {
             if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
             {
                 RB.velocity += Ship.EnginePower * Time.deltaTime * transform.right / 2;
             }
+            autoBrake = false;
+        }
 
         if (!Input.GetMouseButton(1))
             cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
@@ -67,21 +74,23 @@ public sealed class PlayerShip : ShipController
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Ship.ExtraForward();
+            autoBrake = false;
         }
         else if (Input.GetKey(KeyCode.W))
         {
             ui.Engines.value += Input.mouseScrollDelta.y;
             Ship.Forward();
-        }
-        else if (AutoBrake)
-        {
-            Ship.AutoBrake();
+            autoBrake = false;
         }
         if (Input.GetKey(KeyCode.S))
         {
             ui.Brakes.value += Input.mouseScrollDelta.y;
             Ship.Brake();
+            autoBrake = false;
         }
+
+        if (autoBrake)
+            Ship.AutoBrake();
 
         if (Input.GetKeyDown(KeyCode.Tab))
             AutoBrake = !AutoBrake;

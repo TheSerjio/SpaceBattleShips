@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: dron
   cost: 1
-  prefab: {fileID: 5865819100266150960, guid: 1e5df9fd94ecaf04a8e36c3a9d65044f, type: 3}
+  prefab: {fileID: 6445991215757118411, guid: 1e5df9fd94ecaf04a8e36c3a9d65044f, type: 3}
   type: 1

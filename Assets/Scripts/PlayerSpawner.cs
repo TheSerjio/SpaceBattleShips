@@ -8,7 +8,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public void Start()
     {
-        var obj = Instantiate(ship.prefab);
+        var obj = Instantiate(ship.Prefab);
         obj.GetComponent<Ship>().team = team;
         obj.transform.position = transform.position;
         DestroyImmediate(obj.GetComponent<ShipController>());

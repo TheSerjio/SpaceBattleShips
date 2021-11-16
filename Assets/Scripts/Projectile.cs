@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Projectile : MonoBehaviour
+public class Projectile : PoolableComponent
 {
     public float Damage { get; set; }
 
@@ -23,17 +23,18 @@ public class Projectile : MonoBehaviour
         LifeTime -= Time.deltaTime;
         if (LifeTime < 0)
             Die();
+        Destroy(null);
     }
 
     public void Die()
     {
         LifeTime = 1;
-        ProjectilePool.Self.Add(gameObject);
         if (Explosion != 0)
         {
             GameCore.Self.Explode(transform.position, Explosion, Team);
-            var boom = Instantiate(DataBase.Get().SmallExplosion, transform.position, Random.rotation);
-            Destroy(boom, 10);
+            GameCore.Self.MakeBoom(transform.position, Poolable.SmallExplosion, Mathf.Sqrt(Explosion));
         }
     }
+
+    public override void ReInit() { }
 }

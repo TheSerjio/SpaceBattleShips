@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: kek
   cost: 1
-  prefab: {fileID: 4129263872148043997, guid: caf41776378c30f42af61f7c55845e68, type: 3}
+  prefab: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
   type: 1

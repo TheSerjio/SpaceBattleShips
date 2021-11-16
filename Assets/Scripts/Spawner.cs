@@ -31,7 +31,7 @@ public sealed class Spawner : MonoBehaviour
         foreach (var g in all)
             for (ushort ii = 0; ii < g.count; ii++)
             {
-                var q = Instantiate(g.ship.prefab);
+                var q = Instantiate(g.ship.Prefab);
                 q.transform.position = transform.position + (4 * i++ * Random.onUnitSphere);
                 var ship = q.GetComponent<Ship>();
                 ship.team = team;

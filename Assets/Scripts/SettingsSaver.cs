@@ -32,14 +32,14 @@ public static class SettingsSaver
 
     public static void Save()
     {
-        var file = new System.IO.StreamWriter(Path);
+        var file = new StreamWriter(Path);
         foreach (var q in All)
             q.Save(file);
     }
 
     public static void Read()
     {
-        var file = new System.IO.StreamReader(Path);
+        var file = new StreamReader(Path);
         foreach (var q in All)
             q.Read(file);
     }

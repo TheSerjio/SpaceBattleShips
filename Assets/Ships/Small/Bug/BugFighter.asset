@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Bob
   cost: 10
-  prefab: {fileID: 2058199985271724009, guid: f93cd08f802b79647ae059c71f2956b2, type: 3}
+  prefab: {fileID: 4094231551408845624, guid: f93cd08f802b79647ae059c71f2956b2, type: 3}
   type: 1

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Battle station
   cost: 1
-  prefab: {fileID: 5491697146561974813, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
+  prefab: {fileID: 1792645574978071883, guid: 9d17b91242b227f468a59de081a01a77, type: 3}
   type: 2

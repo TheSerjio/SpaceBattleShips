@@ -122,10 +122,8 @@ public class Ship : BaseEntity,IFireControl
             return;
         void Do(Vector3 world)
         {
-            var boom = Instantiate(DataBase.Get().ShipExplosion, world, Random.rotation);
-            boom.transform.localScale = Vector3.one * ExplosionSize;
-            Destroy(boom, 10);
-            GameCore.Self.Explode(transform.position, ExplosionPower, team);
+            GameCore.Self.Explode(world, ExplosionPower, team);
+            GameCore.Self.MakeBoom(world, Poolable.ShipExplosion, ExplosionSize);
         }
 
         if (!Shield)

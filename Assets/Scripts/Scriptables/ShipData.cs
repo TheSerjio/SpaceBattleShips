@@ -11,12 +11,13 @@ public class ShipData : ValidableScriptableObject
 
     public string Name;
     public ulong cost;
-    public GameObject prefab;
+    public GameObject Prefab => prefab.gameObject;
+    [SerializeField] Ship prefab;
     public Type type;
 
     public override IEnumerable<Warning> Validate()
     {
-        if (!prefab)
+        if (!Prefab)
             yield return new Warning(Level.Error, "no prefab");
         if (cost == 0)
             yield return new Warning(Level.Warning, "zero cost");

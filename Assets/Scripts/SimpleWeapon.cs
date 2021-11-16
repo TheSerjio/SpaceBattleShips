@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SimpleWeapon : ShipWeapon
 {
+    public enum ProjectileType { Flat, Effect }
+
     public float ReloadTime;
 
     private float CoolDown;
@@ -22,7 +24,7 @@ public class SimpleWeapon : ShipWeapon
 
     public float ProjectileSize;
 
-    public ProjectilePool.Projectile type;
+    public ProjectileType type;
 
     public float ProjectileExplosionPower;
 
@@ -49,9 +51,26 @@ public class SimpleWeapon : ShipWeapon
             CoolDown = 0;
     }
 
+    private Poolable Converted
+    {
+        get
+        {
+            switch (type)
+            {
+                case ProjectileType.Flat:
+                    return Poolable.FlatProjectile;
+                case ProjectileType.Effect:
+                    return Poolable.ParticleEffectProjectile;
+                default:
+                    Debug.LogError(type);
+                    return default;
+            }
+        }
+    }
+
     private void Shoot()
     {
-        var q = ProjectilePool.Self.Get(type);
+        var q = GameCore.Self.GetFromPool(Converted);
         q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         var p = q.GetComponent<Projectile>();
         p.Team = Parent.Parent.team;

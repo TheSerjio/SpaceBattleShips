@@ -32,7 +32,7 @@ public sealed class MotherShip : Ship
                                 if (q.ship)
                                 {
                                     q.count--;
-                                    var ship = Instantiate(q.ship.prefab, spawner.position, spawner.rotation).GetComponent<Ship>();
+                                    var ship = Instantiate(q.ship.Prefab, spawner.position, spawner.rotation).GetComponent<Ship>();
                                     ship.team = team;
                                     var point = ship.transform.position * 2 - transform.position + (Random.onUnitSphere * Vector3.Distance(ship.transform.position, transform.position) / 2);
                                     ship.Warn(point, new Warning(false, 0));
