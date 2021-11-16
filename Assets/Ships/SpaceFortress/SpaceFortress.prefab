@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379923243407740927}
-  m_Mesh: {fileID: -5353085736211732667, guid: 3d20de13eda4f334ea720880f6328098, type: 3}
+  m_Mesh: {fileID: -5353085736211732667, guid: 8c5a0602e849e3245a54cf7b30ebf7fd, type: 3}
 --- !u!23 &2864552740584565286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bfd9895b546fc894e98addc91697d676, type: 2}
+  - {fileID: 2100000, guid: 66edbf493793673468cdfba276ab63d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5353085736211732667, guid: 3d20de13eda4f334ea720880f6328098, type: 3}
+  m_Mesh: {fileID: -5353085736211732667, guid: 8c5a0602e849e3245a54cf7b30ebf7fd, type: 3}
 --- !u!1 &2978362210171657853
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,20 +348,6 @@ MonoBehaviour:
   rotationSpeed: 15
   speed: 0.1
   MaxHealth: 1000
-  weapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   trails: []
   EngineConsumption: 50
   BrakeConsumption: 50
