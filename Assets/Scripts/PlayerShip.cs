@@ -6,7 +6,8 @@ public sealed class PlayerShip : ShipController
     GameUI ui;
     Transform cameroid;
 
-    const float CameraRotation = 180;
+    const float SlowCamera = 180;
+    const float FastCamera = 1000;
 
     public void Start()
     {
@@ -52,17 +53,27 @@ public sealed class PlayerShip : ShipController
         }
 
         if (!Input.GetMouseButton(1))
-            cameroid.Rotate(-Input.GetAxis("Mouse Y") * CameraRotation * Time.deltaTime, Input.GetAxis("Mouse X") * CameraRotation * Time.deltaTime, 0, Space.Self);
-        else
         {
-            var r = cameroid.localRotation;
-            r.SetLookRotation(Vector3.forward);
-            cameroid.localRotation = Quaternion.RotateTowards(cameroid.localRotation, r, Ship.RotationSpeed * Time.deltaTime);
+            Vector2 tar = Input.mousePosition;
+            tar /= new Vector2(Screen.width, Screen.height);
+            tar -= new Vector2(0.5f, 0.5f);
+            var power = Vector3.Distance(transform.forward, cameroid.forward) + 1;
+            cameroid.Rotate(FastCamera * Time.deltaTime * new Vector3(-tar.y, tar.x) / power);
         }
-
+        var r = cameroid.localRotation;
+        r.SetLookRotation(Vector3.forward);
+        cameroid.localRotation = Quaternion.RotateTowards(cameroid.localRotation, r, SlowCamera * Time.deltaTime);
+        
         if (Input.GetMouseButton(0))
         {
-            Ship.LookAt(cam.ScreenToWorldPoint(Input.mousePosition + Vector3.one) - cam.transform.position + transform.position);
+            Vector2 tar = Input.mousePosition;
+            tar /= new Vector2(Screen.width, Screen.height);
+            tar -= new Vector2(0.5f, 0.5f);
+            tar *= Ship.RotationSpeed * 2;
+
+            var rotation = cameroid.rotation;
+            transform.Rotate(new Vector2(-tar.y, tar.x) * Time.deltaTime, Space.Self);
+            cameroid.rotation = rotation;
         }
         if (Input.GetKey(KeyCode.Q))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.forward, Space.Self);
