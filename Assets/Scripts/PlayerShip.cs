@@ -5,7 +5,6 @@ public sealed class PlayerShip : ShipController
     public bool AutoBrake = true;
     GameUI ui;
     Transform cameroid;
-    Camera realCamera;
 
     const float CameraRotation = 180;
 
@@ -22,12 +21,13 @@ public sealed class PlayerShip : ShipController
         cam.transform.SetParent(q);
         cam.transform.localPosition = Vector3.zero;
         cam.transform.localScale = Vector3.one;
-        realCamera = cam.GetComponent<Camera>();
         Instantiate(DataBase.Get().DustPrefab, transform);
     }
 
     public void Update()
     {
+        var cam = GameCore.MainCamera;
+
         bool autoBrake = AutoBrake;
         if (!ui)
         {
@@ -62,7 +62,7 @@ public sealed class PlayerShip : ShipController
 
         if (Input.GetMouseButton(0))
         {
-            Ship.LookAt(realCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.one) - realCamera.transform.position + transform.position);
+            Ship.LookAt(cam.ScreenToWorldPoint(Input.mousePosition + Vector3.one) - cam.transform.position + transform.position);
         }
         if (Input.GetKey(KeyCode.Q))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.forward, Space.Self);
@@ -106,6 +106,18 @@ public sealed class PlayerShip : ShipController
         Ship.Fire = Input.GetKey(KeyCode.Space);
 
         cameroid.localPosition = Vector3.MoveTowards(cameroid.localPosition, Vector3.zero, Time.deltaTime);
+
+        //update ui
+        {
+            var ui = GameUI.Self;
+            if (Ship.Shield)
+                ui.Shields.localScale = new Vector3(Ship.Shield.Relative, 1, 1);
+            ui.Power.localScale = new Vector3(Ship.RelativeEnergy, 1, 1);
+            ui.Health.localScale = new Vector3(Ship.RelativeHealth, 1, 1);
+            ui.VelocityText.text = Mathf.RoundToInt(Utils.ToSadUnits(RB)).ToString();
+            ui.Velocity.gameObject.SetActive(RB.velocity.sqrMagnitude > 0.1f);
+            ui.Velocity.position = (Vector2)cam.WorldToScreenPoint(cam.transform.position + RB.velocity);
+        }
     }
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)

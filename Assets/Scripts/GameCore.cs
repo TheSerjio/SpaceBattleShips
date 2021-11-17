@@ -36,6 +36,28 @@ public class GameCore : SINGLETON<GameCore>
         }
     }
 
+    protected override void OnAwake()
+    {
+        //StartCoroutine(Initialize());
+    }
+
+    private System.Collections.IEnumerator Initialize()
+    {
+        Time.timeScale = 0;
+        foreach (var q in System.Enum.GetValues(typeof(Poolable)))
+        {
+            var p = (Poolable)q;
+            var t = GetTransform(p);
+            while(t.childCount<100)
+            {
+                Create(false, p);
+                yield return null;
+            }
+        }
+        Debug.LogWarning("Finished!");
+        Time.timeScale = 1;
+    }
+
     public static void Add(BaseEntity it)
     {
         GameCore me = Self;
@@ -50,12 +72,21 @@ public class GameCore : SINGLETON<GameCore>
             me.collectors[i].Add(it);
     }
 
-    public static Camera MainCamera { get; private set; }
-
-    public void Update()
+    public static Camera MainCamera
     {
-        if (!MainCamera)
-            MainCamera = Camera.main;
+        get
+        {
+            if (!_cam)
+                _cam = FindObjectOfType<Camera>();
+            return _cam;
+        }
+    }
+
+    private static Camera _cam;
+
+    public void FixedUpdate()
+    {
+        Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
     }
 
     private void Shuffle()
@@ -147,8 +178,9 @@ public class GameCore : SINGLETON<GameCore>
                 Debug.LogError(type);
                 break;
         }
-
-        var obj = Instantiate(prefab, GetTransform(type));
+        var t = GetTransform(type);
+        Debug.Log($"Created {type} - {t.childCount}");
+        var obj = Instantiate(prefab, t);
         obj.GetComponent<PoolableComponent>().ReInit();
         obj.SetActive(active);
         return obj;

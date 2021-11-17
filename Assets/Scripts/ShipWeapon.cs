@@ -15,6 +15,7 @@ public abstract class ShipWeapon : MonoBehaviour
             ship = value;
         }
     }
+
     private IFireControl ship;
 
     public abstract float AntiSpeed { get; }

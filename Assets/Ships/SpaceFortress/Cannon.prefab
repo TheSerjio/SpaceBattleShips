@@ -145,6 +145,8 @@ MonoBehaviour:
   rotationSpeed: 90
   body: {fileID: 9019740523505577636}
   weapon: {fileID: 6789131706266822063}
+  automatic: 0
+  turret: 0
   maxAngle: 0.75
 --- !u!1 &7591982150244076728
 GameObject:

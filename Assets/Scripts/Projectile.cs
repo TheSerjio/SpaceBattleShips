@@ -23,17 +23,16 @@ public class Projectile : PoolableComponent
         LifeTime -= Time.deltaTime;
         if (LifeTime < 0)
             Die();
-        Destroy(null);
     }
 
     public void Die()
     {
-        LifeTime = 1;
         if (Explosion != 0)
         {
             GameCore.Self.Explode(transform.position, Explosion, Team);
             GameCore.Self.MakeBoom(transform.position, Poolable.SmallExplosion, Mathf.Sqrt(Explosion));
         }
+        gameObject.SetActive(false);
     }
 
     public override void ReInit() { }

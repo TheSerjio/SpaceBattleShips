@@ -34,14 +34,14 @@ public sealed class Shield : MonoBehaviour
         }
     }
 
-    public void LateUpdate()
+    public void Update()
     {
         Current = Mathf.MoveTowards(Current, MaxShield, ShieldRegeneration * Time.deltaTime);
         if (!HasShield)
             HasShield = Current > MaxShield / 2f;
-        ShieldRender.enabled = HasShield && (Current != MaxShield);
+        ShieldRender.enabled = HasShield && (Alpha != 0);
         ShieldCollider.enabled = HasShield;
-        Alpha = Mathf.MoveTowards(Alpha, defaultA, Time.deltaTime);
+        Alpha = Mathf.MoveTowards(Alpha, (Current == MaxShield) ? 0 : defaultA, Time.deltaTime);
         ShieldRender.material.SetFloat("Alpha", Alpha);
     }
 

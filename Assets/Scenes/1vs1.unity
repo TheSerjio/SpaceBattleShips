@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09064928302bc9748b6f3bde6ad4b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
+  ship: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
   team: 0
 --- !u!1 &1862676375
 GameObject:

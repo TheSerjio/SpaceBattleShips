@@ -30,6 +30,8 @@ public class SimpleWeapon : ShipWeapon
 
     public float EnergyPerShot;
 
+    const float PlayerCheat = 5;
+
     public void Start()
     {
         CoolDown = ReloadTime * Random.value * 2;
@@ -84,7 +86,7 @@ public class SimpleWeapon : ShipWeapon
             {
                 line.material.SetColor("MainColor", MainProjectileColor);
                 line.material.SetColor("EdgeColor", EdgeProjectileColor);
-                line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh, Vector3.forward * ProjecileLentgh });
+                line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh / 2f, Vector3.forward * ProjecileLentgh / 2f });
                 line.widthMultiplier = ProjectileSize;
             }
         }
@@ -92,13 +94,12 @@ public class SimpleWeapon : ShipWeapon
             var effect = q.GetComponent<UnityEngine.VFX.VisualEffect>();
             if (effect)
             {
-
-
+                //TODO Effect customization
             }
         }
         var capsule = q.GetComponent<CapsuleCollider>();
-        capsule.height = Parent.Parent.UseCheats ? ProjecileLentgh * 5 : ProjecileLentgh;
-        capsule.radius = Parent.Parent.UseCheats ? ProjectileSize * 5 : ProjectileSize;
+        capsule.height = Parent.Parent.UseCheats ? ProjecileLentgh * PlayerCheat : ProjecileLentgh;
+        capsule.radius = (Parent.Parent.UseCheats ? ProjectileSize * PlayerCheat : ProjectileSize) / 2f;
         p.Velocity = Parent.Parent.RB.velocity + (transform.forward * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();
         if (trail)
@@ -108,6 +109,9 @@ public class SimpleWeapon : ShipWeapon
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, new Vector3(ProjectileSize, ProjectileSize, ProjecileLentgh));
+        float q = (ProjecileLentgh - ProjectileSize) / 2f;
+        Gizmos.DrawWireSphere(transform.position + (transform.forward * q), ProjectileSize / 2f);
+        Gizmos.DrawWireSphere(transform.position - (transform.forward * q), ProjectileSize / 2f);
+        Gizmos.DrawLine(transform.position - (transform.forward * q), transform.position + (transform.forward * q));
     }
 }

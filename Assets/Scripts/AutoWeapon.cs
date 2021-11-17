@@ -19,8 +19,7 @@ public class AutoWeapon : MonoBehaviour, IFireControl
         if (parent)
             if (target)
             {
-                if (!ReferenceEquals(weapon.Parent, this))
-                    weapon.Parent = this;
+                weapon.Parent = this;
                 body.RotateTowards(Utils.ShootTo(parent.RB, target, weapon ? weapon.AntiSpeed : 0), rotationSpeed * Time.deltaTime);
                 if (Vector3.Dot(transform.forward, body.forward) < maxAngle)
                 {
