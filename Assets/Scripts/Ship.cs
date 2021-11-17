@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ship : BaseEntity,IFireControl
+public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
 {
     public struct Warning
     {
@@ -92,6 +92,8 @@ public class Ship : BaseEntity,IFireControl
     public float ExplosionPower;
     public float ExplosionSize;
     private bool _exploded = false;
+
+    public float GameCoreCachedValue { get; set; }
 
 #if UNITY_EDITOR
     [ContextMenu("Magic")]
@@ -242,7 +244,7 @@ public class Ship : BaseEntity,IFireControl
     /// <returns>from -1 to 1</returns>
     public float LookAt(Vector3 worldPoint)
     {
-        transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime);
+        transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime, true);
         return Vector3.Dot(transform.forward, (worldPoint - transform.position).normalized);
     }
 
@@ -281,5 +283,10 @@ public class Ship : BaseEntity,IFireControl
     public override void DeathDamage()
     {
         OnDamaged(MaxHealth * Time.deltaTime, null);
+    }
+
+    public int CompareTo(Ship obj)
+    {
+        return GameCoreCachedValue.CompareTo(obj.GameCoreCachedValue);
     }
 }

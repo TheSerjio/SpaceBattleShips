@@ -7,7 +7,7 @@ public sealed class PlayerShip : ShipController
     Transform cameroid;
 
     const float SlowCamera = 180;
-    const float FastCamera = 1000;
+    const float FastCamera = SlowCamera * 3;
 
     public void Start()
     {
@@ -23,6 +23,16 @@ public sealed class PlayerShip : ShipController
         cam.transform.localPosition = Vector3.zero;
         cam.transform.localScale = Vector3.one;
         Instantiate(DataBase.Get().DustPrefab, transform);
+    }
+
+
+    static Vector2 MouseRotation
+    {
+        get
+        {
+            Vector2 tar = ((Input.mousePosition / new Vector2(Screen.width, Screen.height)) - new Vector2(0.5f, 0.5f)) * 2;
+            return new Vector2(Mathf.Clamp(-tar.y, -1, 1), Mathf.Clamp(tar.x, -1, 1));
+        }
     }
 
     public void Update()
@@ -54,11 +64,8 @@ public sealed class PlayerShip : ShipController
 
         if (!Input.GetMouseButton(1))
         {
-            Vector2 tar = Input.mousePosition;
-            tar /= new Vector2(Screen.width, Screen.height);
-            tar -= new Vector2(0.5f, 0.5f);
             var power = Vector3.Distance(transform.forward, cameroid.forward) + 1;
-            cameroid.Rotate(FastCamera * Time.deltaTime * new Vector3(-tar.y, tar.x) / power);
+            cameroid.Rotate(FastCamera * Time.deltaTime * MouseRotation / power);
         }
         var r = cameroid.localRotation;
         r.SetLookRotation(Vector3.forward);
@@ -66,13 +73,8 @@ public sealed class PlayerShip : ShipController
         
         if (Input.GetMouseButton(0))
         {
-            Vector2 tar = Input.mousePosition;
-            tar /= new Vector2(Screen.width, Screen.height);
-            tar -= new Vector2(0.5f, 0.5f);
-            tar *= Ship.RotationSpeed * 2;
-
             var rotation = cameroid.rotation;
-            transform.Rotate(new Vector2(-tar.y, tar.x) * Time.deltaTime, Space.Self);
+            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * MouseRotation, Space.Self);
             cameroid.rotation = rotation;
         }
         if (Input.GetKey(KeyCode.Q))

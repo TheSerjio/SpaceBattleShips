@@ -4,11 +4,10 @@ public class AutoWeapon : MonoBehaviour, IFireControl
 {
     public float rotationSpeed;
     public Transform body;
-    private Rigidbody target;
+    public Rigidbody target;
     private Ship parent;
     public ShipWeapon weapon;
     public bool automatic;
-    public bool turret;
     [Tooltip("less value -> more rotation")] [Range(-1, 1)] public float maxAngle;
 
     bool IFireControl.Fire => automatic ? target : parent.Fire;
@@ -20,17 +19,18 @@ public class AutoWeapon : MonoBehaviour, IFireControl
             if (target)
             {
                 weapon.Parent = this;
-                body.RotateTowards(Utils.ShootTo(parent.RB, target, weapon ? weapon.AntiSpeed : 0), rotationSpeed * Time.deltaTime);
-                if (Vector3.Dot(transform.forward, body.forward) < maxAngle)
+                body.RotateTowards(Utils.ShootTo(weapon.transform.position, parent.RB.velocity, target, weapon ? weapon.AntiSpeed : 0), rotationSpeed * Time.deltaTime, false);
+                body.localEulerAngles = (Vector2)body.localEulerAngles;
+                while (Vector3.Dot(transform.forward, body.forward) < maxAngle)
                 {
-                    body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed * 2);
+                    body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed, false);
                     target = null;
                 }
-//                if (turret) { }
             }
             else
             {
-                var tar = GameCore.Self.FindTargetShip(parent.team);
+                body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed, false);
+                var tar = GameCore.Self.FindTargetShip(parent.team, transform.position);
                 if (tar)
                     target = tar.RB;
             }

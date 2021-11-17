@@ -51,7 +51,7 @@ public abstract class ShipAIController : ShipController
         {
             if (!target)
             {
-                target = GameCore.Self.FindTargetShip(Ship.team);
+                target = GameCore.Self.FindTargetShip(Ship.team, transform.position);
                 Ship.Fire = false;
                 Ship.AutoBrake();
             }

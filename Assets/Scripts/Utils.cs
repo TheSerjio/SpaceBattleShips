@@ -17,15 +17,24 @@ public static class Utils
             return ts.Count == 0 ? default : ts[Random.Range(0, ts.Count)];
     }
 
-    public static void RotateTowards(this Transform self, Vector3 worldPoint, float degrees)
+    public static void RotateTowards(this Transform self, Vector3 worldPoint, float degrees, bool saveZ)
     {
-        var z = self.eulerAngles.z;
-        var rotation = self.rotation;
-        rotation.SetLookRotation(worldPoint - self.position);
-        self.rotation = Quaternion.RotateTowards(self.rotation, rotation, degrees);
-        var e = self.eulerAngles;
-        e.z = z;
-        self.eulerAngles = e;
+        if (saveZ)
+        {
+            var z = self.eulerAngles.z;
+            var rotation = self.rotation;
+            rotation.SetLookRotation(worldPoint - self.position);
+            self.rotation = Quaternion.RotateTowards(self.rotation, rotation, degrees);
+            var e = self.eulerAngles;
+            e.z = z;
+            self.eulerAngles = e;
+        }
+        else
+        {
+            var rotation = self.rotation;
+            rotation.SetLookRotation(worldPoint - self.position);
+            self.rotation = Quaternion.RotateTowards(self.rotation, rotation, degrees);
+        }
     }
 
     /// <param name="power">Power of engine, 0-10</param>
@@ -39,6 +48,8 @@ public static class Utils
     public static float ToSadUnits(float value) => value * 24;
 
     public static Vector3 ShootTo(Rigidbody me, Rigidbody target, float aBulletSpeed) => ShootTo(me.position, me.velocity, target.position, target.velocity, aBulletSpeed);
+
+    public static Vector3 ShootTo(Vector3 me, Vector3 mySpeed, Rigidbody target, float aBulletSpeed) => ShootTo(me, mySpeed, target.position, target.velocity, aBulletSpeed);
 
     public static Vector3 ShootTo(Vector3 me,Vector3 mySpeed,Vector3 target,Vector3 targetSpeed,float aBulletSpeed)
     {

@@ -13,7 +13,7 @@ public class TargetFrame : MonoBehaviour
     [SerializeField] GameObject onHit;
 
     const float minFrameSize = 18;
-    const float maxFrameSize = 64;
+    const float maxFrameSize = 36;
     const float maxDist = 300;
 
     public void Start()

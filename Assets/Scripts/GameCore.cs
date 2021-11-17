@@ -89,22 +89,28 @@ public class GameCore : SINGLETON<GameCore>
         Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
     }
 
-    private void Shuffle()
+    public Ship FindTargetShip(Team team, Vector3 from)
     {
         RemoveNull();
-        if (All.Count > 1)
-        {
-            var temp = All[0];
-            var i = Random.Range(1, All.Count);
-            All[0] = All[i];
-            All[i] = temp;
-        }
+        foreach (var q in All)
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, from);
+        All.Sort();
+        return FindTargetShip(team);
     }
 
-    public Ship FindTargetShip(Team team)
+    public Ship FindTargetShip(Team team, Transform from)
     {
         RemoveNull();
-        Shuffle();
+        var pos = from.position;
+        var forward = from.forward;
+        foreach (var q in All)
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) * Vector3.Dot(forward, (q.transform.position - pos).normalized) * Random.value;
+        All.Sort();
+        return FindTargetShip(team);
+    }
+
+    private Ship FindTargetShip(Team team)
+    {
         foreach (var ship in All)
             if (ship.team != team)
                 if (ship.team != Team.Derelict)
