@@ -430,6 +430,7 @@ MonoBehaviour:
   - {fileID: 2058199984122287958}
   EngineConsumption: 5
   BrakeConsumption: 5
+  BrakePower: 0
   MaxEnergy: 100
   EnergyRegeneration: 10
   MeshForDamage: {fileID: 2058199984000861961}
@@ -437,6 +438,7 @@ MonoBehaviour:
   size: 1
   ExplosionPower: 10
   ExplosionSize: 2
+  NoEnergyCooldown: 5
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0

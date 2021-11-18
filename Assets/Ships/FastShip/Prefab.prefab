@@ -384,12 +384,13 @@ MonoBehaviour:
   BrakeConsumption: 10
   BrakePower: 50
   MaxEnergy: 250
-  EnergyRegeneration: 20
+  EnergyRegeneration: 5
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
   size: 2
   ExplosionPower: 100
   ExplosionSize: 2
+  NoEnergyCooldown: 0
 --- !u!114 &7635971574616362090
 MonoBehaviour:
   m_ObjectHideFlags: 0

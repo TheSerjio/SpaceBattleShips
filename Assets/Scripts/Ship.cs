@@ -50,10 +50,18 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
 
     public bool TakeEnergy(float value)
     {
-        if (Energy > value)
+        if (EnergyCD <= 0)
         {
-            Energy -= value;
-            return true;
+            if (Energy > value)
+            {
+                Energy -= value;
+                return true;
+            }
+            else
+            {
+                EnergyCD = NoEnergyCooldown;
+                return false;
+            }
         }
         else
             return false;
@@ -92,6 +100,8 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     public float ExplosionPower;
     public float ExplosionSize;
     private bool _exploded = false;
+    [SerializeField] float NoEnergyCooldown;
+    float EnergyCD;
 
     public float GameCoreCachedValue { get; set; }
 
@@ -116,6 +126,8 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         EngineQ = Mathf.MoveTowards(EngineQ, 0, EngineQ * Time.deltaTime);
         for (int i = 0; i < trails.Length; i++)
             trails[i].SetTrailLent(EngineQ);
+        if (EnergyCD > 0)
+            EnergyCD -= Time.deltaTime;
     }
 
     public sealed override void OnDamaged(float dmg, BaseEntity from)
@@ -163,10 +175,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         }
 #endif
         float e = EngineConsumption * Utils.EnergyConsumption(EnginePower) * Time.deltaTime;
-        if (Energy >= e)
+        if (TakeEnergy(e))
         {
             RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
-            Energy -= e;
             EngineQ = EnginePower;
         }
     }
@@ -182,10 +193,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         else
         {
             float e = BrakeConsumption * Time.deltaTime;
-            if (Energy >= e)
+            if (TakeEnergy(e))
             {
                 RB.velocity = next;
-                Energy -= e;
             }
         }
     }
