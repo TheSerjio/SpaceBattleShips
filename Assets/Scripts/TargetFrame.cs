@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetFrame : MonoBehaviour
 {
     public Ship target;
-    public ulong number;
+    public string Name;
     RectTransform rect;
     [SerializeField] RectTransform image;
     public TMPro.TextMeshProUGUI text;
@@ -15,6 +15,7 @@ public class TargetFrame : MonoBehaviour
     const float minFrameSize = 18;
     const float maxFrameSize = 36;
     const float maxDist = 300;
+    const float maxTextDist = 200;
 
     public void Start()
     {
@@ -37,16 +38,16 @@ public class TargetFrame : MonoBehaviour
                 {
                     //this somehow sets color of text
                     var c = text.color;
-                    c.a = Mathf.Lerp(1, 0, dist / maxDist);
+                    c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
                     text.color = c;
                 }
                 image.sizeDelta = Vector2.one * Mathf.Lerp(maxFrameSize, minFrameSize, dist / maxDist);
                 rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
-                text.text = $"{target.name}{number}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
+                text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
                 if (timeLeft < 0)
                 {
-                    if(onHit.activeSelf)
-                    onHit.SetActive(false);
+                    if (onHit.activeSelf)
+                        onHit.SetActive(false);
                 }
                 else
                     timeLeft -= Time.deltaTime;

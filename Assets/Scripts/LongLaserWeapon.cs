@@ -69,4 +69,6 @@ public class LongLaserWeapon : ShipWeapon
         Gizmos.DrawWireSphere(transform.position, laserWidth);
         Gizmos.DrawWireSphere(transform.position, playerLaserWidth);
     }
+
+    public override bool IsOutOfRange(float distance) => false;
 }

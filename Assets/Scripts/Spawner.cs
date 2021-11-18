@@ -13,15 +13,14 @@ public sealed class Spawner : MonoBehaviour
         StartCoroutine(Summon());
     }
 
-    public static void CreateFrame(Ship ship)
+    public static void CreateFrame(Ship ship, ShipData asset)
     {
         var f = Instantiate(DataBase.Get().TargetFramePrefab);
         f.transform.SetParent(GameUI.Self.transform);
         f.transform.localScale = Vector3.one;
         var ff = f.GetComponent<TargetFrame>();
         ff.target = ship;
-        ff.number = (ushort)Random.Range(0, ushort.MaxValue);
-        ff.text.text = $"{ship.name}:{ff.number}";
+        ff.Name = $"{asset.name}-{(ushort)Random.Range(0, ushort.MaxValue)}";
         ship.frame = ff;
     }
 
@@ -35,7 +34,7 @@ public sealed class Spawner : MonoBehaviour
                 q.transform.position = transform.position + (4 * i++ * Random.onUnitSphere);
                 var ship = q.GetComponent<Ship>();
                 ship.team = team;
-                CreateFrame(ship);
+                CreateFrame(ship, g.ship);
                 yield return null;
             }
         Destroy(gameObject);

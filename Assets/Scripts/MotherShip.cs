@@ -38,7 +38,7 @@ public sealed class MotherShip : Ship
                                     ship.Warn(point, new Warning(false, 0));
                                     ship.transform.LookAt(point);
                                     alive[i] = ship;
-                                    Spawner.CreateFrame(ship);
+                                    Spawner.CreateFrame(ship, q.ship);
                                     ship.ImmuneUntil = Time.time + Spawner.time;
                                     goto End;//because i cant use "return" or "break"
                                 }

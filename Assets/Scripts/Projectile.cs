@@ -30,7 +30,7 @@ public class Projectile : PoolableComponent
         if (Explosion != 0)
         {
             GameCore.Self.Explode(transform.position, Explosion, Team);
-            GameCore.Self.MakeBoom(transform.position, Poolable.SmallExplosion, Mathf.Sqrt(Explosion));
+            GameCore.Self.MakeBoom(transform.position, Poolable.SmallExplosion, 1);//TODO formula of explosion size
         }
         gameObject.SetActive(false);
     }

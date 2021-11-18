@@ -20,17 +20,20 @@ public class AutoWeapon : MonoBehaviour, IFireControl
             {
                 weapon.Parent = this;
                 body.RotateTowards(Utils.ShootTo(weapon.transform.position, parent.RB.velocity, target, weapon ? weapon.AntiSpeed : 0), rotationSpeed * Time.deltaTime, false);
-                body.localEulerAngles = (Vector2)body.localEulerAngles;
-                while (Vector3.Dot(transform.forward, body.forward) < maxAngle)
-                {
-                    body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed, false);
+                if (weapon.IsOutOfRange(Vector3.Distance(weapon.transform.position, target.transform.position)))
                     target = null;
-                }
+                else
+                    while (Vector3.Dot(transform.forward, body.forward) < maxAngle)
+                    {
+                        body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed, false);
+                        target = null;
+                    }
             }
             else
             {
                 body.RotateTowards(body.position + transform.forward, Time.deltaTime * rotationSpeed, false);
-                var tar = GameCore.Self.FindTargetShip(parent.team, transform.position);
+                body.localEulerAngles = (Vector2)body.localEulerAngles;
+                var tar = GameCore.Self.FindTargetShip(parent.team, transform);
                 if (tar)
                     target = tar.RB;
             }

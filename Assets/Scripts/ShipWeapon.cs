@@ -19,4 +19,6 @@ public abstract class ShipWeapon : MonoBehaviour
     private IFireControl ship;
 
     public abstract float AntiSpeed { get; }
+
+    public abstract bool IsOutOfRange(float distance);
 }
