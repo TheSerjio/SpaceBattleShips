@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0.6
+  ReloadTime: 0.4
   bulletLifeTime: 3
-  bulletSpeed: 40
+  bulletSpeed: 70
   damage: 2
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.030305736, b: 0, a: 1}
@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0.6
+  ReloadTime: 0.4
   bulletLifeTime: 3
-  bulletSpeed: 40
+  bulletSpeed: 70
   damage: 2
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.030305736, b: 0, a: 1}
@@ -370,15 +370,17 @@ MonoBehaviour:
   MaxHealth: 10
   trails:
   - {fileID: 8042651870510748577}
-  EngineConsumption: 5
-  BrakeConsumption: 5
+  EngineConsumption: 1
+  BrakeConsumption: 1
+  BrakePower: 40
   MaxEnergy: 100
-  EnergyRegeneration: 6
+  EnergyRegeneration: 4
   MeshForDamage: {fileID: 3481466277026033714}
   frame: {fileID: 0}
   size: 1
   ExplosionPower: 10
   ExplosionSize: 1
+  NoEnergyCooldown: 5
 --- !u!114 &178045382229015929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,7 +515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7303745653781373021}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0.25, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4264830891095233099}

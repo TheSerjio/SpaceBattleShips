@@ -269,7 +269,7 @@ MonoBehaviour:
   ProjectileSize: 0.05
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 0
+  EnergyPerShot: 0.5
 --- !u!1 &9062677248125654089
 GameObject:
   m_ObjectHideFlags: 0
