@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].ship
       value: 
-      objectReference: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+      objectReference: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[1].ship
       value: 
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80f78973610b4043b59f5ba11b5fb4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2
   rotationSpeed: 1
   zRotationSpeed: 30
   mouseSpeed: -1
@@ -663,7 +663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
-      value: 24
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -675,7 +675,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].count
-      value: 200
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043996, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_RootOrder
