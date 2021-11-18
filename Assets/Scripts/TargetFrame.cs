@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class TargetFrame : MonoBehaviour
 {
+    public static float PlayerAntiBulletSpeed;
+    public static Rigidbody Player;
+
     public Ship target;
     public string Name;
     RectTransform rect;
@@ -11,6 +14,7 @@ public class TargetFrame : MonoBehaviour
     public TMPro.TextMeshProUGUI text;
     float timeLeft;
     [SerializeField] GameObject onHit;
+    [SerializeField] RectTransform probablyPosition;
 
     const float minFrameSize = 18;
     const float maxFrameSize = 36;
@@ -33,6 +37,7 @@ public class TargetFrame : MonoBehaviour
                 if (!image.gameObject.activeSelf)
                 {
                     image.gameObject.SetActive(true);
+                    probablyPosition.gameObject.SetActive(true);
                     text.enabled = true;
                 }
                 {
@@ -41,7 +46,17 @@ public class TargetFrame : MonoBehaviour
                     c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
                     text.color = c;
                 }
+
                 image.sizeDelta = Vector2.one * Mathf.Lerp(maxFrameSize, minFrameSize, dist / maxDist);
+                if (Player)
+                {
+                    if (!probablyPosition.gameObject.activeSelf)
+                        probablyPosition.gameObject.SetActive(true);
+                    probablyPosition.position = (Vector2)cam.WorldToScreenPoint(Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed));
+                }
+                else if (probablyPosition.gameObject.activeSelf)
+                    probablyPosition.gameObject.SetActive(false);
+
                 rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
                 text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
                 if (timeLeft < 0)
@@ -55,6 +70,7 @@ public class TargetFrame : MonoBehaviour
             else if (image.gameObject.activeSelf)
             {
                 image.gameObject.SetActive(false);
+                probablyPosition.gameObject.SetActive(false);
                 text.enabled = false;
             }
         }

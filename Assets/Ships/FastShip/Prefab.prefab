@@ -391,6 +391,7 @@ MonoBehaviour:
   ExplosionPower: 100
   ExplosionSize: 2
   NoEnergyCooldown: 5
+  mainWeapon: {fileID: 4084623393390096273}
 --- !u!114 &7635971574616362090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,7 +405,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  mainWeapon: {fileID: 4084623393390096273}
 --- !u!114 &4509003813159771384
 MonoBehaviour:
   m_ObjectHideFlags: 0

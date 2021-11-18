@@ -37,6 +37,8 @@ public sealed class PlayerShip : ShipController
 
     public void Update()
     {
+        TargetFrame.Player = RB;
+        TargetFrame.PlayerAntiBulletSpeed = Ship.mainWeapon ? Ship.mainWeapon.AntiSpeed : 1;
 
         var cam = GameCore.MainCamera;
 

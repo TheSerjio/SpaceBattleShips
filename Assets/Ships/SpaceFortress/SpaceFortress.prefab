@@ -351,6 +351,7 @@ MonoBehaviour:
   trails: []
   EngineConsumption: 50
   BrakeConsumption: 50
+  BrakePower: 0
   MaxEnergy: 1000
   EnergyRegeneration: 100
   MeshForDamage: {fileID: 2864552740584565286}
@@ -358,6 +359,8 @@ MonoBehaviour:
   size: 1
   ExplosionPower: 100
   ExplosionSize: 20
+  NoEnergyCooldown: 0
+  mainWeapon: {fileID: 6385380467895637082}
 --- !u!114 &3079299493328993905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +494,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e762f4a0460a1e4ab0549fe9f4a1452, type: 3}
+--- !u!114 &6385380467895637082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6789131706266822063, guid: 5e762f4a0460a1e4ab0549fe9f4a1452, type: 3}
+  m_PrefabInstance: {fileID: 480401804417511925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &642342448376507827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1027020726942686278, guid: 5e762f4a0460a1e4ab0549fe9f4a1452, type: 3}

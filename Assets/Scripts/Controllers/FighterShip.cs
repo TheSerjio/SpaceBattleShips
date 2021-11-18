@@ -1,10 +1,8 @@
 public class FighterShip : ShipAIController
 {
-    public ShipWeapon mainWeapon;
-
     public override void OnFixedUpdate()
     {
-        var dir = Ship.LookAt(Utils.ShootTo(RB, target.RB, mainWeapon.AntiSpeed));
+        var dir = Ship.LookAt(Utils.ShootTo(RB, target.RB, Ship.mainWeapon.AntiSpeed));
 
         if (dir < 0f)
         {

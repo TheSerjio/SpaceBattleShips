@@ -102,6 +102,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     private bool _exploded = false;
     [SerializeField] float NoEnergyCooldown;
     float EnergyCD;
+    public ShipWeapon mainWeapon;
 
     public float GameCoreCachedValue { get; set; }
 
