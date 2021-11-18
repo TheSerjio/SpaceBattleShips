@@ -63,7 +63,9 @@ public class TargetFrame : MonoBehaviour
                     probablyPosition.gameObject.SetActive(false);
 
                 rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
-                text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
+                //text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
+                text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}";
+
                 if (timeLeft < 0)
                 {
                     if (onHit.activeSelf)
