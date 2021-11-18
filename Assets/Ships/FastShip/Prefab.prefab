@@ -382,8 +382,8 @@ MonoBehaviour:
   - {fileID: 1458558475666843165}
   EngineConsumption: 2
   BrakeConsumption: 2
-  MaxEnergy: 50
-  EnergyRegeneration: 5
+  MaxEnergy: 250
+  EnergyRegeneration: 20
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
   size: 2
