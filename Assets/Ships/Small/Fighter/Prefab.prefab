@@ -328,17 +328,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 0.15
-  bulletLifeTime: 4
-  bulletSpeed: 30
-  damage: 1
+  ReloadTime: 0.2
+  bulletLifeTime: 2
+  bulletSpeed: 120
+  damage: 3
   MainProjectileColor: {r: 0.4764151, g: 1, b: 0.9401792, a: 1}
   EdgeProjectileColor: {r: 0, g: 0.40196466, b: 1, a: 1}
   ProjecileLentgh: 0.5
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 0.5
+  EnergyPerShot: 1
 --- !u!1 &2058199985271724009
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,11 +428,11 @@ MonoBehaviour:
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
-  EngineConsumption: 5
-  BrakeConsumption: 5
-  BrakePower: 0
+  EngineConsumption: 2
+  BrakeConsumption: 2
+  BrakePower: 40
   MaxEnergy: 100
-  EnergyRegeneration: 10
+  EnergyRegeneration: 7
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
   size: 1
