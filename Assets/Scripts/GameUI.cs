@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public sealed class GameUI : SINGLETON<GameUI>
 {
     public Slider Engines;
-    public Slider Brakes;
     public RectTransform Shields;
     public RectTransform Power;
     public RectTransform Health;

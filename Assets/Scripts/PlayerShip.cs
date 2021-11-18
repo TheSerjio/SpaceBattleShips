@@ -37,6 +37,7 @@ public sealed class PlayerShip : ShipController
 
     public void Update()
     {
+
         var cam = GameCore.MainCamera;
 
         bool autoBrake = AutoBrake;
@@ -45,22 +46,10 @@ public sealed class PlayerShip : ShipController
             ui = FindObjectOfType<GameUI>();
             return;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
-            {
-                RB.velocity -= Ship.EnginePower * Time.deltaTime * transform.right / 2;
-            }
-            autoBrake = false;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (Ship.TakeEnergy(Time.deltaTime * Ship.EngineCons))
-            {
-                RB.velocity += Ship.EnginePower * Time.deltaTime * transform.right / 2;
-            }
-            autoBrake = false;
-        }
+        ui.Engines.value += Input.mouseScrollDelta.y / 4f;
+
+        transform.Rotate(Input.GetAxis("Horizontal") * Ship.RotationSpeed * Time.deltaTime * Vector3.up);
+        cameroid.Rotate(Input.GetAxis("Horizontal") * SlowCamera * Time.deltaTime * Vector3.down / (0.5f + Vector3.Distance(cameroid.forward, transform.forward)));
 
         if (!Input.GetMouseButton(1))
         {
@@ -83,7 +72,7 @@ public sealed class PlayerShip : ShipController
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.back, Space.Self);
 
         Ship.EnginePower = GameUI.Self.Engines.value;
-        Ship.BrakePower = GameUI.Self.Brakes.value;
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Ship.ExtraForward();
@@ -91,13 +80,11 @@ public sealed class PlayerShip : ShipController
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            ui.Engines.value += Input.mouseScrollDelta.y;
             Ship.Forward();
             autoBrake = false;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            ui.Brakes.value += Input.mouseScrollDelta.y;
             Ship.Brake();
             autoBrake = false;
         }

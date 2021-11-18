@@ -8,7 +8,6 @@ public class FighterShip : ShipAIController
 
         if (dir < 0f)
         {
-            Ship.BrakePower = 1;
             Ship.Brake();
             Ship.Fire = false;
         }

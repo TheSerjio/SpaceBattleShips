@@ -71,8 +71,8 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     [SerializeField] float EngineConsumption;
     public float EngineCons => EngineConsumption;
     [SerializeField] float BrakeConsumption;
+    [SerializeField] float BrakePower;
     public float EnginePower { get; set; }
-    public float BrakePower { get; set; }
     /// <summary>
     /// Legacy
     /// </summary>
@@ -173,21 +173,15 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
 
     public void Brake()
     {
-#if DEBUG
-        if (BrakePower < 0)
-        {
-            Debug.Log($"{name} has negative brake power - {EnginePower}");
-            return;
-        }
-#endif
-        Vector3 next = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * BrakePower * Time.deltaTime);
-        if (next == Vector3.zero)
+        var target = -transform.forward;
+        Vector3 next = Vector3.MoveTowards(RB.velocity, target, speed * BrakePower * Time.deltaTime);
+        if (next == target)
         {
             RB.velocity = next;
         }
         else
         {
-            float e = BrakeConsumption * Utils.EnergyConsumption(BrakePower) * Time.deltaTime;
+            float e = BrakeConsumption * Time.deltaTime;
             if (Energy >= e)
             {
                 RB.velocity = next;
@@ -215,7 +209,6 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     protected sealed override void OnAwake()
     {
         EnginePower = 1;
-        BrakePower = 1;
         ShieldPower = 1;
         Energy = MaxEnergy;
         Health = MaxHealth;
