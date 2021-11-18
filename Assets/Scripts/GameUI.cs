@@ -12,6 +12,7 @@ public sealed class GameUI : SINGLETON<GameUI>
     public RectTransform Velocity;
     public Text VelocityText;
     private Canvas canva;
+    public Text ShipCount;
 
     protected override void OnAwake()
     {

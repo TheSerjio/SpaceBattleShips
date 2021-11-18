@@ -16,6 +16,7 @@ public class GameCore : SINGLETON<GameCore>
             return _all_;
         }
     }
+    private System.Collections.Generic.Dictionary<Team, ulong> Counts;
 
     private void RemoveNull()
     {
@@ -38,6 +39,9 @@ public class GameCore : SINGLETON<GameCore>
 
     protected override void OnAwake()
     {
+        Counts = new System.Collections.Generic.Dictionary<Team, ulong>();
+        foreach (var q in System.Enum.GetValues(typeof(Team)))
+            Counts[(Team)q] = 0;
         //StartCoroutine(Initialize());
     }
 
@@ -87,6 +91,18 @@ public class GameCore : SINGLETON<GameCore>
     public void FixedUpdate()
     {
         Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
+        RemoveNull();
+        foreach(var q in System.Enum.GetValues(typeof(Team)))
+            Counts[(Team)q] = 0;
+        foreach(var q in All)
+            Counts[q.team]++;
+        string s = "";
+        foreach(var q in Counts)
+        {
+            if (q.Value != 0)
+                s += $"{q.Key}:{q.Value}\n";
+        }
+        GameUI.Self.ShipCount.text = s;
     }
 
     public Ship FindTargetShip(Team team, Vector3 from)
