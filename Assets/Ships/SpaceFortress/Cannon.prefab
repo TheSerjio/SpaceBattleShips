@@ -144,9 +144,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 90
   body: {fileID: 9019740523505577636}
+  target: {fileID: 0}
   weapon: {fileID: 6789131706266822063}
   automatic: 0
-  turret: 0
   maxAngle: 0.75
 --- !u!1 &7591982150244076728
 GameObject:
@@ -191,10 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReloadTime: 1
-  bulletLifeTime: 4
-  bulletSpeed: 60
-  damage: 5
+  ReloadTime: 2
+  bulletLifeTime: 3
+  bulletSpeed: 80
+  damage: 10
   MainProjectileColor: {r: 1, g: 0, b: 0, a: 1}
   EdgeProjectileColor: {r: 1, g: 1, b: 0, a: 1}
   ProjecileLentgh: 0.5

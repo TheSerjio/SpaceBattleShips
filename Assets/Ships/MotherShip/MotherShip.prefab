@@ -336,8 +336,9 @@ MonoBehaviour:
   MaxHealth: 450
   trails:
   - {fileID: 5863762263917115451}
-  EngineConsumption: 50
-  BrakeConsumption: 50
+  EngineConsumption: 10
+  BrakeConsumption: 10
+  BrakePower: 10
   MaxEnergy: 2500
   EnergyRegeneration: 100
   MeshForDamage: {fileID: 6474996617362020079}
@@ -345,13 +346,15 @@ MonoBehaviour:
   size: 20
   ExplosionPower: 1000
   ExplosionSize: 15
+  NoEnergyCooldown: 5
+  mainWeapon: {fileID: 0}
   spawners:
   - {fileID: 4129263872524746533}
   - {fileID: 8952300620821174894}
   - {fileID: 5772621825630249348}
   - {fileID: 3155650863193040538}
   all: []
-  MaxAlive: 50
+  MaxAlive: 244
 --- !u!114 &2557810732042206474
 MonoBehaviour:
   m_ObjectHideFlags: 0

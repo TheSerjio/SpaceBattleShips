@@ -349,9 +349,9 @@ MonoBehaviour:
   speed: 0.1
   MaxHealth: 1000
   trails: []
-  EngineConsumption: 50
-  BrakeConsumption: 50
-  BrakePower: 0
+  EngineConsumption: 5
+  BrakeConsumption: 5
+  BrakePower: 5
   MaxEnergy: 1000
   EnergyRegeneration: 100
   MeshForDamage: {fileID: 2864552740584565286}
@@ -359,7 +359,7 @@ MonoBehaviour:
   size: 1
   ExplosionPower: 100
   ExplosionSize: 20
-  NoEnergyCooldown: 0
+  NoEnergyCooldown: 5
   mainWeapon: {fileID: 6385380467895637082}
 --- !u!114 &3079299493328993905
 MonoBehaviour:
