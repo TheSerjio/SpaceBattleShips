@@ -50,9 +50,6 @@ public sealed class PlayerShip : ShipController
         }
         ui.Engines.value += Input.mouseScrollDelta.y / 4f;
 
-        transform.Rotate(Input.GetAxis("Horizontal") * Ship.RotationSpeed * Time.deltaTime * Vector3.up);
-        cameroid.Rotate(Input.GetAxis("Horizontal") * SlowCamera * Time.deltaTime * Vector3.down / (0.5f + Vector3.Distance(cameroid.forward, transform.forward)));
-
         if (!Input.GetMouseButton(1))
         {
             var power = Vector3.Distance(transform.forward, cameroid.forward) + 1;
@@ -68,9 +65,9 @@ public sealed class PlayerShip : ShipController
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * MouseRotation, Space.Self);
             cameroid.rotation = rotation;
         }
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.A))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.forward, Space.Self);
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.D))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.back, Space.Self);
 
         Ship.EnginePower = GameUI.Self.Engines.value;

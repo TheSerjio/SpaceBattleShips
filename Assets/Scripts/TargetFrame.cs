@@ -15,6 +15,7 @@ public class TargetFrame : MonoBehaviour
     float timeLeft;
     [SerializeField] GameObject onHit;
     [SerializeField] RectTransform probablyPosition;
+    [SerializeField] UnityEngine.UI.Image probabPos;
 
     const float minFrameSize = 18;
     const float maxFrameSize = 36;
@@ -45,6 +46,10 @@ public class TargetFrame : MonoBehaviour
                     var c = text.color;
                     c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
                     text.color = c;
+
+                    c = probabPos.color;
+                    c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
+                    probabPos.color = c;
                 }
 
                 image.sizeDelta = Vector2.one * Mathf.Lerp(maxFrameSize, minFrameSize, dist / maxDist);
