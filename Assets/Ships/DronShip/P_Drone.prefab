@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6497642889577817738}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7851812694907981593
 MonoBehaviour:
@@ -53,7 +53,7 @@ MonoBehaviour:
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 1
+  EnergyPerShot: 2
 --- !u!1 &1104758393831900180
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6497642889577817738}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &3019774051490160205
 LineRenderer:
@@ -251,7 +251,7 @@ MonoBehaviour:
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 1
+  EnergyPerShot: 2
 --- !u!1 &5756431883138927028
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,8 +329,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8317053667046953873}
-  - {fileID: 2699374130149020773}
   - {fileID: 4587259431339422861}
+  - {fileID: 2699374130149020773}
   - {fileID: 3415727601461972500}
   - {fileID: 4264830891095233099}
   m_Father: {fileID: 0}
