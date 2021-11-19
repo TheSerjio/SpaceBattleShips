@@ -11,8 +11,8 @@ public class PlayerSpawner : MonoBehaviour
         var obj = Instantiate(ship.Prefab);
         obj.GetComponent<Ship>().team = team;
         obj.transform.position = transform.position;
-        DestroyImmediate(obj.GetComponent<ShipController>());
-        obj.AddComponent<PlayerShip>();
+        obj.AddComponent<PlayerMark>();
+        Spectator.Self.gameObject.SetActive(false);
         Destroy(gameObject);
     }
 }

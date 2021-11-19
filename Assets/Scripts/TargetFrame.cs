@@ -32,6 +32,8 @@ public class TargetFrame : MonoBehaviour
         if (target)
         {
             var cam = GameCore.MainCamera;
+            if (!cam)
+                return;
             if (Vector3.Dot(cam.transform.forward, cam.transform.position - target.transform.position) < 0)
             {
                 var dist = Vector3.Distance(target.transform.position, cam.transform.position);

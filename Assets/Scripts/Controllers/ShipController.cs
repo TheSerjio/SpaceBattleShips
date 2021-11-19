@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[DisallowMultipleComponent]
 [RequireComponent(typeof(Ship))]
 public abstract class ShipController : MonoBehaviour
 {
@@ -15,7 +14,7 @@ public abstract class ShipController : MonoBehaviour
     public abstract void Warn(Vector3 moveTo, Ship.Warning how);
 
     /// <summary>
-    /// Does nothing by default
+    /// Does nothing by default, made mostly for players
     /// </summary>
     public virtual void Death() { }
 }

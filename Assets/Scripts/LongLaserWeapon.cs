@@ -16,6 +16,8 @@ public class LongLaserWeapon : ShipWeapon
 
     public float EnergyPerSecond;
 
+    public float Accuracy;
+
     public void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -23,7 +25,7 @@ public class LongLaserWeapon : ShipWeapon
         q = lr.widthMultiplier;
     }
 
-    public void FixedUpdate()
+    public void Update()
     {
         bool b = true;
         if (Parent.Fire)
@@ -32,8 +34,10 @@ public class LongLaserWeapon : ShipWeapon
             {
                 lr.widthMultiplier = q;
                 lr.positionCount = 2;
-                lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * ushort.MaxValue });
-                foreach (var hit in Physics.SphereCastAll(transform.position, Parent.Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
+                Vector3 randy = transform.forward + (Random.insideUnitSphere / Accuracy);
+                var point = transform.position + (randy * ushort.MaxValue);
+                lr.SetPosition(0,Vector3.zero);
+                foreach (var hit in Physics.SphereCastAll(transform.position, Parent.Parent.UseCheats ? playerLaserWidth : laserWidth, randy))
                 {
                     var obj = hit.collider.gameObject;
                     var tar = obj.GetComponentInParent<BaseEntity>();
@@ -42,11 +46,12 @@ public class LongLaserWeapon : ShipWeapon
                         if (tar.team != Parent.Parent.team)
                         {
                             tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent.Parent);
-                            lr.SetPositions(new Vector3[] { Vector3.zero, Vector3.forward * hit.distance });
+                            point = hit.point;
                             break;
                         }
                     }
                 }
+                lr.SetPosition(1, transform.InverseTransformPoint(point));
                 b = false;
             }
         }
@@ -59,6 +64,11 @@ public class LongLaserWeapon : ShipWeapon
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, laserWidth);
         Gizmos.DrawWireSphere(transform.position, playerLaserWidth);
+
+        Gizmos.color = Color.cyan;
+        float D = 100;
+        foreach (var vec in new Vector3[] { transform.up, transform.right, -transform.up, -transform.right })
+            Gizmos.DrawLine(transform.position, (transform.forward + vec / Accuracy) * D);
     }
 
     public override bool IsOutOfRange(float distance) => false;

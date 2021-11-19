@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class LaserFighterShip : ShipAIController
 {
-    public float LaserAccuracy;
-
     public float OptimalDistance;
 
     [Tooltip("more value = less shoot")][Range(-1, 1)] public float FireIf;
@@ -21,13 +19,12 @@ public class LaserFighterShip : ShipAIController
             Ship.Brake();
         }
         Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > FireIf;
-        Ship.LookAt(target.transform.position + Random.insideUnitSphere * dist / LaserAccuracy);
+        Ship.LookAt(target.transform.position);
     }
 
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawFrustum(transform.position, 360 / LaserAccuracy, OptimalDistance * 2, 1, 1);
         Gizmos.DrawWireSphere(transform.position, OptimalDistance);
     }
 }

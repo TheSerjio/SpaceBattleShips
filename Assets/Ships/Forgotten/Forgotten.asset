@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
-  m_Name: MotherShip
+  m_Name: Forgotten
   m_EditorClassIdentifier: 
-  Name: Kekship
+  Name: Forgotten Hyperion
   cost: 1
-  prefab: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
-  type: 1
+  prefab: {fileID: 1792645574978071883, guid: 856e68e58c80f3e429209bce5cbb9efe, type: 3}
+  type: 2

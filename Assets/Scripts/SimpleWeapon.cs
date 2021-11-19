@@ -80,6 +80,7 @@ public class SimpleWeapon : ShipWeapon
         p.LifeTime = bulletLifeTime;
         p.Damage = damage;
         p.Explosion = ProjectileExplosionPower;
+        if (type == ProjectileType.Flat)
         {
             var line = q.GetComponent<LineRenderer>();
             if (line)
@@ -90,6 +91,7 @@ public class SimpleWeapon : ShipWeapon
                 line.widthMultiplier = ProjectileSize;
             }
         }
+        else
         {
             var effect = q.GetComponent<UnityEngine.VFX.VisualEffect>();
             if (effect)

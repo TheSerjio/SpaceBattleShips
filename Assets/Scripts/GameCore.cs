@@ -81,8 +81,22 @@ public class GameCore : SINGLETON<GameCore>
         get
         {
             if (!_cam)
+            {
                 _cam = FindObjectOfType<Camera>();
+                if (!_cam)
+                {
+                    _cam = FindObjectOfType<Camera>(true);
+                    _cam.enabled = true;
+                    _cam.gameObject.SetActive(true);
+                }
+
+            }
             return _cam;
+        }
+        set
+        {
+            if (value)
+                _cam = value;
         }
     }
 
@@ -105,11 +119,23 @@ public class GameCore : SINGLETON<GameCore>
         GameUI.Self.ShipCount.text = s;
     }
 
+    public Ship FindTeamMateShipFromCamera(Team team, Vector3 pos, Vector3 dir)
+    {
+        RemoveNull();
+        foreach (var q in All)
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) * (Vector3.Dot(dir, (q.transform.position - pos).normalized) + 1);
+        All.Sort();
+        foreach (var ship in All)
+            if (ship.team == team)
+                return ship;
+        return null;
+    }
+
     public Ship FindTargetShip(Team team, Vector3 from)
     {
         RemoveNull();
         foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, from) * Random.value;
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, from) / q.size * Random.value;
         All.Sort();
         return FindTargetShip(team);
     }
@@ -120,7 +146,7 @@ public class GameCore : SINGLETON<GameCore>
         var pos = from.position;
         var forward = from.forward;
         foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) * (Vector3.Dot(forward, (q.transform.position - pos).normalized) + 1) * Random.value;
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) / q.size * (Vector3.Dot(forward, (q.transform.position - pos).normalized) + 1) * Random.value;
         All.Sort();
         return FindTargetShip(team);
     }

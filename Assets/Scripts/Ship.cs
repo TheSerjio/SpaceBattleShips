@@ -29,11 +29,20 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         get
         {
             if (!__brain__)
-                if(this)
+            {
+                if (this)
                     foreach (var q in GetComponents<ShipController>())
                         if (q.isActiveAndEnabled)
                             __brain__ = q;
+            }
+            else if (!__brain__.enabled)
+                __brain__ = null;
+
             return __brain__;
+        }
+        set
+        {
+            __brain__ = value;
         }
     }
 
@@ -44,7 +53,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
             if (Brain)
                 return Brain is PlayerShip;
             else
-                return Random.value < 0.5f;
+                return false;
         }
     }
 
@@ -80,11 +89,10 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     public float EngineCons => EngineConsumption;
     [SerializeField] float BrakeConsumption;
     [SerializeField] float BrakePower;
-    public float EnginePower { get; set; }
     /// <summary>
-    /// Legacy
+    /// Mutable
     /// </summary>
-    public float ShieldPower { get; set; }
+    public float EnginePower { get; set; }
     /// <summary>
     /// Serializable
     /// </summary>
@@ -220,11 +228,11 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     protected sealed override void OnAwake()
     {
         EnginePower = 1;
-        ShieldPower = 1;
         Energy = MaxEnergy;
         Health = MaxHealth;
         ImmuneUntil = Time.time + Spawner.time;
         Shield = GetComponent<Shield>();
+        MeshForDamage.material.SetFloat("E_Skin", Random.value);
     }
 
     public void OnDrawGizmos()

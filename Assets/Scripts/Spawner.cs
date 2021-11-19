@@ -20,7 +20,7 @@ public sealed class Spawner : MonoBehaviour
         f.transform.localScale = Vector3.one;
         var ff = f.GetComponent<TargetFrame>();
         ff.target = ship;
-        ff.Name = $"{asset.name}";//-{(ushort)Random.Range(0, ushort.MaxValue)}";
+        ff.Name = $"{asset.Name}";//-{(ushort)Random.Range(0, ushort.MaxValue)}";
         ship.frame = ff;
     }
 

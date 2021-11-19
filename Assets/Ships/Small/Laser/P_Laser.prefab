@@ -289,6 +289,7 @@ MonoBehaviour:
   laserWidth: 0.1
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
+  Accuracy: 200
 --- !u!1 &2746703076095767380
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,9 +451,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  LaserAccuracy: 1000
-  OptimalDistance: 1000
-  FireIf: 0
+  OptimalDistance: 100
+  FireIf: 0.9
 --- !u!1 &3939391292371521489
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +841,7 @@ MonoBehaviour:
   laserWidth: 0.1
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
+  Accuracy: 200
 --- !u!1 &7724420836567980821
 GameObject:
   m_ObjectHideFlags: 0
