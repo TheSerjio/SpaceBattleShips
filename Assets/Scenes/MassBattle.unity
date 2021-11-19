@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   all:
-  - count: 10
+  - count: 100
     ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
 --- !u!4 &600959439
 Transform:
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   all:
-  - count: 1
+  - count: 10
     ship: {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
 --- !u!4 &2061695449
 Transform:

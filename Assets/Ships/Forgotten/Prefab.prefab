@@ -229,7 +229,7 @@ MonoBehaviour:
   laserWidth: 0.125
   playerLaserWidth: 0.25
   EnergyPerSecond: 1
-  Accuracy: 100
+  Accuracy: 1000
 --- !u!1 &2978362210171657853
 GameObject:
   m_ObjectHideFlags: 0

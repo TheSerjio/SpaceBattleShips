@@ -73,9 +73,4 @@ public sealed class PlayerShip : ShipController
             if (Warner.Self)
                 Warner.Self.Show();
     }
-
-    public override void Death()
-    {
-        Mark.IfDie();
-    }
 }

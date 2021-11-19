@@ -162,9 +162,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
         if (Health <= 0)
         {
+            if (TryGetComponent<PlayerMark>(out var mark))
+                mark.IfDie();
             _exploded = true;
-            if (Brain)
-                Brain.Death();
             foreach (var q in GetComponentsInChildren<ShipAdditionalExplosion>())
                 Do(q.transform.position);
             Do(transform.position);
