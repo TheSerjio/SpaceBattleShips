@@ -427,14 +427,6 @@ PrefabInstance:
       propertyPath: Inaccuracy
       value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletSpeed
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletLifeTime
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8329092825695357326, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -500,14 +492,6 @@ PrefabInstance:
     - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
       propertyPath: Inaccuracy
       value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletSpeed
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletLifeTime
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8329092825695357326, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
       propertyPath: m_RootOrder
@@ -586,14 +570,6 @@ PrefabInstance:
       propertyPath: Inaccuracy
       value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletSpeed
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletLifeTime
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8329092825695357326, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -659,14 +635,6 @@ PrefabInstance:
     - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
       propertyPath: Inaccuracy
       value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletSpeed
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013955970862906987, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
-      propertyPath: bulletLifeTime
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8329092825695357326, guid: 6253a89478224de4482ce81ee3a4cd00, type: 3}
       propertyPath: m_RootOrder

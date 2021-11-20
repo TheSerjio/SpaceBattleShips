@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ReloadTime: 0.1
-  bulletLifeTime: 2
-  bulletSpeed: 50
+  bulletLifeTime: 10
+  bulletSpeed: 120
   damage: 2
   MainProjectileColor: {r: 1, g: 0, b: 0, a: 1}
   EdgeProjectileColor: {r: 0, g: 0, b: 0, a: 0}
@@ -54,3 +54,4 @@ MonoBehaviour:
   type: 0
   ProjectileExplosionPower: 0
   EnergyPerShot: 1
+  Inaccuracy: 0
