@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].ship
       value: 
-      objectReference: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
+      objectReference: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[1].ship
       value: 
@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043996, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043996, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043997, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_Name
-      value: A
+      value: Atakers
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043997, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_IsActive
@@ -389,11 +389,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: team
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: MaxAlive
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -402,14 +402,14 @@ PrefabInstance:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].ship
       value: 
-      objectReference: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+      objectReference: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].count
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043996, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043996, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -453,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043997, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_Name
-      value: B
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043997, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_IsActive
