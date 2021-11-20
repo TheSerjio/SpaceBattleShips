@@ -19,6 +19,7 @@ public sealed class Spawner : MonoBehaviour
         f.transform.SetParent(GameUI.Self.WorlsCanvas.transform);
         f.transform.localScale = Vector3.one;
         var ff = f.GetComponent<TargetFrame>();
+        ff.frameImage.color = DataBase.Get().TeamColor(ship.team);
         ff.target = ship;
         ff.Name = $"{asset.Name}";//-{(ushort)Random.Range(0, ushort.MaxValue)}";
         ship.frame = ff;

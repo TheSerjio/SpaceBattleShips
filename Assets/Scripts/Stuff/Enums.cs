@@ -7,7 +7,8 @@ public enum Team : byte
     /// <summary>
     /// Entity cant have this team
     /// </summary>
-    SYSTEM
+    SYSTEM,
+    Player
 }
 
 public enum ExplosionType : byte

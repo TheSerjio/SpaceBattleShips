@@ -19,6 +19,11 @@ public sealed class DataBase : ScriptableObject
     public GameObject FlatProjectile;
     public GameObject EffectProjectile;
 
+    public Color PlayerColor;
+    public Color Defenders;
+    public Color Attackers;
+    public Color Pirates;
+
     public ShipData[] Ships;
 
     public ValidableScriptableObject[] EveryThing;
@@ -119,4 +124,16 @@ public sealed class DataBase : ScriptableObject
         public int CompareTo(Temp<T> other) => value.CompareTo(other.value);
     }
 #endif
+
+    public Color TeamColor(Team team)
+    {
+        switch (team)
+        {
+            case Team.Defenders: return Defenders;
+            case Team.Attackers: return Attackers;
+            case Team.Pirates: return Pirates;
+            case Team.Player: return PlayerColor;
+            default: return Random.ColorHSV();
+        }
+    }
 }
