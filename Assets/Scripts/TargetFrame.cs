@@ -92,11 +92,9 @@ public class TargetFrame : MonoBehaviour
         }
     }
 
-    public void OnHit(BaseEntity from)
+    public void OnHit()
     {
         timeLeft = 0.25f;
-        if (from is Ship s)
-            if (s.UseCheats)
-                onHit.SetActive(true);
+        onHit.SetActive(true);
     }
 }

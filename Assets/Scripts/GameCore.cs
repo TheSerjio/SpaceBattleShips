@@ -16,6 +16,7 @@ public class GameCore : SINGLETON<GameCore>
             return _all_;
         }
     }
+
     private System.Collections.Generic.Dictionary<Team, ulong> Counts;
 
     private void RemoveNull()
@@ -123,7 +124,7 @@ public class GameCore : SINGLETON<GameCore>
     {
         RemoveNull();
         foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) * (Vector3.Dot(dir, (q.transform.position - pos).normalized) + 1);
+            q.GameCoreCachedValue = Vector3.Dot(dir, (pos - q.transform.position).normalized);
         All.Sort();
         foreach (var ship in All)
             if (ship.team == team)

@@ -35,7 +35,7 @@ public class LongLaserWeapon : ShipWeapon
                 lr.widthMultiplier = q;
                 lr.positionCount = 2;
                 Vector3 randy = transform.forward + (Random.insideUnitSphere / Accuracy);
-                var point = transform.position + (randy * ushort.MaxValue);
+                bool kek = true;
                 lr.SetPosition(0,Vector3.zero);
                 foreach (var hit in Physics.SphereCastAll(transform.position, Parent.Parent.UseCheats ? playerLaserWidth : laserWidth, randy))
                 {
@@ -46,12 +46,14 @@ public class LongLaserWeapon : ShipWeapon
                         if (tar.team != Parent.Parent.team)
                         {
                             tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent.Parent);
-                            point = hit.point;
+                            lr.SetPosition(1, transform.InverseTransformPoint(hit.point));
+                            kek = false;
                             break;
                         }
                     }
                 }
-                lr.SetPosition(1, transform.InverseTransformPoint(point));
+                if (kek)
+                    lr.SetPosition(1, Vector3.forward * ushort.MaxValue);
                 b = false;
             }
         }

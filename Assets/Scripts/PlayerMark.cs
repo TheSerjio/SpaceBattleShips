@@ -21,7 +21,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
     public void Start()
     {
         Ship = GetComponent<Ship>();
-
+        Ship.PlayerMarked = true;
         Transform q = null;
         foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
             if (pfc.parent)
@@ -77,7 +77,9 @@ public class PlayerMark : SINGLETON<PlayerMark>
         {
             IfDie();
             Destroy(Cameroid.GetChild(0).GetChild(0).gameObject);
+            Ship.PlayerMarked = false;
             Destroy(this);
+            return;
         }
 
         //update ui

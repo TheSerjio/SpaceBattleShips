@@ -111,6 +111,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     [SerializeField] float NoEnergyCooldown;
     float EnergyCD;
     public ShipWeapon mainWeapon;
+    public bool PlayerMarked { get; set; }
 
     public float GameCoreCachedValue { get; set; }
 
@@ -143,6 +144,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     {
         if (_exploded)
             return;
+         if (Time.time < ImmuneUntil)
+            return;
+
         void Do(Vector3 world)
         {
             GameCore.Self.Explode(world, ExplosionPower, team);
@@ -153,10 +157,6 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
             Shield = GetComponent<Shield>();
         if (Shield)
             Shield.TakeDamage(ref dmg);
-
-
-        if (Time.time < ImmuneUntil)
-            return;
 
         Health -= dmg;
         MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
@@ -170,8 +170,11 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
             Do(transform.position);
             Destroy(gameObject);
         }
+
         if (frame)
-            frame.OnHit(from);
+            if (from is Ship s)
+                if (s.PlayerMarked)
+                    frame.OnHit();
     }
 
     public void Forward()
