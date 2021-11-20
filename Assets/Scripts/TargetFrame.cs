@@ -56,7 +56,7 @@ public class TargetFrame : MonoBehaviour
 
             //text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
             text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}";
-            text.fontSize = Vector3.Distance(transform.position, cam.transform.position) / 20f;
+            text.fontSize = Vector3.Distance(transform.position, cam.transform.position) / 30f;
             /*{
                 var t = textT.sizeDelta;
                 t.y = Vector3.Distance(transform.position, cam.transform.position) / 10f;
