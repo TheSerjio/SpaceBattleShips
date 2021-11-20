@@ -97,13 +97,17 @@ public abstract class ValidableScriptableObject : ScriptableObject
         public Level level;
         public string text;
         public ValidableScriptableObject parent;
+    }
 
-        public Warning(Level lvl, string txt)
+    protected Warning Warn(Level lvl, string txt)
+    {
+        var w = new Warning()
         {
-            level = lvl;
-            text = txt;
-            parent = null;
-        }
+            level = lvl,
+            text = txt,
+            parent = this
+        };
+        return w;
     }
 
     public abstract System.Collections.Generic.IEnumerable<Warning> Validate();

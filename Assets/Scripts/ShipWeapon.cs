@@ -21,4 +21,6 @@ public abstract class ShipWeapon : MonoBehaviour
     public abstract float AntiSpeed { get; }
 
     public abstract bool IsOutOfRange(float distance);
+
+    public abstract float MaxDPS();
 }

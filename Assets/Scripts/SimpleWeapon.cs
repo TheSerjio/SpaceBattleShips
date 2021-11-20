@@ -32,6 +32,8 @@ public class SimpleWeapon : ShipWeapon
 
     const float PlayerCheat = 5;
 
+    [Range(0, 1)] public float Inaccuracy;
+
     public void Start()
     {
         CoolDown = ReloadTime * Random.value * 2;
@@ -102,7 +104,7 @@ public class SimpleWeapon : ShipWeapon
         var capsule = q.GetComponent<CapsuleCollider>();
         capsule.height = Parent.Parent.UseCheats ? ProjecileLentgh * PlayerCheat : ProjecileLentgh;
         capsule.radius = (Parent.Parent.UseCheats ? ProjectileSize * PlayerCheat : ProjectileSize) / 2f;
-        p.Velocity = Parent.Parent.RB.velocity + (transform.forward * bulletSpeed);
+        p.Velocity = Parent.Parent.RB.velocity + ((transform.forward + (Random.insideUnitSphere * Inaccuracy)) * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();
         if (trail)
             trail.AddPosition(transform.position);
@@ -118,4 +120,9 @@ public class SimpleWeapon : ShipWeapon
     }
 
     public override bool IsOutOfRange(float distance) => distance > bulletLifeTime * bulletSpeed;
+
+    public override float MaxDPS()
+    {
+        return damage / ReloadTime;
+    }
 }

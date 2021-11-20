@@ -14,14 +14,17 @@ public class ShipData : ValidableScriptableObject
     public GameObject Prefab => prefab.gameObject;
     [SerializeField] Ship prefab;
     public Type type;
+    public Sprite Preview;
 
     public override IEnumerable<Warning> Validate()
     {
         if (!Prefab)
-            yield return new Warning(Level.Error, "no prefab");
+            yield return Warn(Level.Error, "no prefab");
         if (cost == 0)
-            yield return new Warning(Level.Warning, "zero cost");
+            yield return Warn(Level.Warning, "zero cost");
         if (string.IsNullOrWhiteSpace(Name))
-            yield return new Warning(Level.Warning, "no name");
+            yield return Warn(Level.Warning, "no name");
+        if (!Preview)
+            yield return Warn(Level.Warning, "no preview");
     }
 }

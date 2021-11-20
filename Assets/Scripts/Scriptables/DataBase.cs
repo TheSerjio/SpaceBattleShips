@@ -41,7 +41,7 @@ public sealed class DataBase : ScriptableObject
         foreach (var id in ids)
         {
             var it = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(UnityEditor.AssetDatabase.GUIDToAssetPath(id));
-            if (it != null)
+            if (it)
                 all.Add(it);
         }
         var r = all.ToArray();
@@ -60,20 +60,16 @@ public sealed class DataBase : ScriptableObject
     {
         Debug.ClearDeveloperConsole();
         var all = new System.Collections.Generic.List<ValidableScriptableObject.Warning>();
-        foreach (var q in FindAll<ValidableScriptableObject>())
-            try
+        var objs = FindAll<ValidableScriptableObject>();
+        foreach (var q in objs)
+        {
+            foreach (var qq in q.Validate())
             {
-                foreach (var qq in q.Validate())
-                {
-                    var qw = qq;
-                    qw.parent = q;                    
-                    all.Add(qq);
-                }
+                var qw = qq;
+                qw.parent = q;
+                all.Add(qq);
             }
-            catch
-            {
-                Debug.Log("kek");
-            }
+        }
 
         foreach (var q in all)
         {
@@ -91,6 +87,36 @@ public sealed class DataBase : ScriptableObject
                     break;
             }
         }
+    }
+
+    [ContextMenu("Ship stats")]
+    public void CountShipStats()
+    {
+        Temp<ShipData>[] all = new Temp<ShipData>[Ships.Length];
+        for (int i = 0; i < Ships.Length; i++)
+        {
+            var obj = Ships[i].Prefab.gameObject;
+            float dps = 0;
+            foreach (var weapon in obj.GetComponentsInChildren<ShipWeapon>())
+                dps += weapon.MaxDPS();
+            var q = new Temp<ShipData>()
+            {
+                value = dps,
+                obj = Ships[i]
+            };
+            all[i] = q;
+        }
+        System.Array.Sort(all);
+        foreach (var q in all)
+            Debug.Log($"{q.obj.Name}:{q.value}");
+    }
+
+    struct Temp<T> : System.IComparable<Temp<T>> where T : Object
+    {
+        public float value;
+        public T obj;
+
+        public int CompareTo(Temp<T> other) => value.CompareTo(other.value);
     }
 #endif
 }

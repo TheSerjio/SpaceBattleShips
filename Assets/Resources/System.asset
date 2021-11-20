@@ -20,14 +20,22 @@ MonoBehaviour:
   FlatProjectile: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
   EffectProjectile: {fileID: 1768093384078227406, guid: f065c1c1c7dfd9e4ba11f602e6c5648c, type: 3}
   Ships:
+  - {fileID: 11400000, guid: 2c34961a4246c9a4bae4e7e66fb45e9f, type: 2}
   - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  - {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+  - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
+  - {fileID: 11400000, guid: 2bc63ba1715f997428b7b69f6e112ce3, type: 2}
   - {fileID: 11400000, guid: 14f10ac604518e64597d422e7f22ff1c, type: 2}
   - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
   - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
   - {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
   EveryThing:
+  - {fileID: 11400000, guid: 2c34961a4246c9a4bae4e7e66fb45e9f, type: 2}
   - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  - {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+  - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
+  - {fileID: 11400000, guid: 2bc63ba1715f997428b7b69f6e112ce3, type: 2}
   - {fileID: 11400000, guid: 14f10ac604518e64597d422e7f22ff1c, type: 2}
   - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}

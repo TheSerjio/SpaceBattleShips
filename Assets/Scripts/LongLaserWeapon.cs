@@ -74,4 +74,6 @@ public class LongLaserWeapon : ShipWeapon
     }
 
     public override bool IsOutOfRange(float distance) => false;
+
+    public override float MaxDPS() => damagePerSecond;
 }
