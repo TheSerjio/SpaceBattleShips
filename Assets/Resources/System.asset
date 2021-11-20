@@ -20,9 +20,9 @@ MonoBehaviour:
   FlatProjectile: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
   EffectProjectile: {fileID: 1768093384078227406, guid: f065c1c1c7dfd9e4ba11f602e6c5648c, type: 3}
   PlayerColor: {r: 0, g: 0.8492365, b: 1, a: 1}
-  Defenders: {r: 0.37903273, g: 1, b: 0, a: 1}
-  Attackers: {r: 1, g: 0, b: 0, a: 1}
-  Pirates: {r: 1, g: 0, b: 0.8507924, a: 1}
+  Defenders: {r: 0.3337404, g: 0.8773585, b: 0, a: 1}
+  Attackers: {r: 0.87370133, g: 1, b: 0, a: 1}
+  Pirates: {r: 0.6260886, g: 0, b: 1, a: 1}
   Ships:
   - {fileID: 11400000, guid: 2c34961a4246c9a4bae4e7e66fb45e9f, type: 2}
   - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}

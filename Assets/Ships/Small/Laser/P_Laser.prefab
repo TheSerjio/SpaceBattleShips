@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 10
+  damagePerSecond: 7
   laserWidth: 0.1
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 10
+  damagePerSecond: 7
   laserWidth: 0.1
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
