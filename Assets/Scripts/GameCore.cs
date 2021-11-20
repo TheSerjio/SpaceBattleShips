@@ -136,7 +136,7 @@ public class GameCore : SINGLETON<GameCore>
     {
         RemoveNull();
         foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, from) / q.size * Random.value;
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, from) * Random.value;
         All.Sort();
         return FindTargetShip(team);
     }
@@ -147,7 +147,7 @@ public class GameCore : SINGLETON<GameCore>
         var pos = from.position;
         var forward = from.forward;
         foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) / q.size * (Vector3.Dot(forward, (q.transform.position - pos).normalized) + 1) * Random.value;
+            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) * (Vector3.Dot(forward, (q.transform.position - pos).normalized) + 1) * Random.value;
         All.Sort();
         return FindTargetShip(team);
     }
