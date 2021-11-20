@@ -17,7 +17,7 @@ MonoBehaviour:
   rotationSpeed: 1
   zRotationSpeed: 45
   mouseSpeed: -1
-  team: 1
+  team: 5
 --- !u!1001 &2268416982258896018
 PrefabInstance:
   m_ObjectHideFlags: 0
