@@ -16,6 +16,7 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Text ShipCount;
     public Text SliderValue;
     public RectTransform ForwardAim;
+    public Canvas WorlsCanvas;
 
     protected override void OnAwake()
     {
@@ -27,5 +28,6 @@ public sealed class GameUI : SINGLETON<GameUI>
         if (!canva.worldCamera)
             canva.worldCamera = GameCore.MainCamera;
         SliderValue.text = Engines.value.ToString();
+        WorlsCanvas.worldCamera = GameCore.MainCamera;
     }
 }

@@ -56,6 +56,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
             var power = Vector3.Distance(transform.forward, Cameroid.forward) + 1;
             Cameroid.Rotate(FastCamera * Time.deltaTime * MouseRotation / power);
         }
+
         var r = Cameroid.localRotation;
         r.SetLookRotation(Vector3.forward);
         Cameroid.localRotation = Quaternion.RotateTowards(Cameroid.localRotation, r, SlowCamera * Time.deltaTime);

@@ -117,6 +117,10 @@ public class SimpleWeapon : ShipWeapon
         Gizmos.DrawWireSphere(transform.position + (transform.forward * q), ProjectileSize / 2f);
         Gizmos.DrawWireSphere(transform.position - (transform.forward * q), ProjectileSize / 2f);
         Gizmos.DrawLine(transform.position - (transform.forward * q), transform.position + (transform.forward * q));
+
+        Gizmos.color = Color.cyan;
+        foreach (var v in new Vector3[] { transform.up, transform.right, -transform.up, -transform.right })
+            Gizmos.DrawLine(transform.position, transform.position + (transform.forward + v * Inaccuracy) * ushort.MaxValue);
     }
 
     public override bool IsOutOfRange(float distance) => distance > bulletLifeTime * bulletSpeed;

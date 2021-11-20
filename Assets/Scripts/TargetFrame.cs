@@ -9,7 +9,7 @@ public class TargetFrame : MonoBehaviour
 
     public Ship target;
     public string Name;
-    RectTransform rect;
+
     [SerializeField] RectTransform image;
     public TMPro.TextMeshProUGUI text;
     float timeLeft;
@@ -22,9 +22,9 @@ public class TargetFrame : MonoBehaviour
     const float maxDist = 300;
     const float maxTextDist = 200;
 
-    public void Start()
+    private void SetScale(RectTransform what, float size)
     {
-        rect = GetComponent<RectTransform>();
+        what.sizeDelta = Vector2.one * size * new Plane(GameCore.MainCamera.transform.forward, GameCore.MainCamera.transform.position).GetDistanceToPoint(what.position);
     }
 
     public void Update()
@@ -59,14 +59,23 @@ public class TargetFrame : MonoBehaviour
                 {
                     if (!probablyPosition.gameObject.activeSelf)
                         probablyPosition.gameObject.SetActive(true);
-                    probablyPosition.position = (Vector2)cam.WorldToScreenPoint(Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed));
+                    probablyPosition.position = cam.WorldToScreenPoint(Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed));
+                    SetScale(probablyPosition, 0.1f);
                 }
                 else if (probablyPosition.gameObject.activeSelf)
                     probablyPosition.gameObject.SetActive(false);
 
-                rect.position = (Vector2)cam.WorldToScreenPoint(target.transform.position);
+                transform.position = target.transform.position;
+                SetScale(image, 0.1f);
+                transform.LookAt(transform.position + cam.transform.forward);
+                var e = transform.eulerAngles;
+                e.z = cam.transform.eulerAngles.z;
+                transform.eulerAngles = e;
+
                 //text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
                 text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}";
+                text.fontSize = Vector3.Distance(transform.position, cam.transform.position) / 20f;
+
 
                 if (timeLeft < 0)
                 {
