@@ -516,7 +516,7 @@ MonoBehaviour:
   team: 1
   rotationSpeed: 15
   speed: 5
-  MaxHealth: 20
+  MaxHealth: 1000
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 4910978667672830537}
