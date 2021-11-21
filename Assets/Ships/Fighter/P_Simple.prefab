@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 2058199984457396287}
   - component: {fileID: 2058199984457396272}
   m_Layer: 0
-  m_Name: Cannon1 (2)
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,17 +328,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 3
   ReloadTime: 0.2
+  EnergyPerShot: 1.5
   bulletLifeTime: 2
   bulletSpeed: 120
-  damage: 3
   MainProjectileColor: {r: 0.4764151, g: 1, b: 0.9401792, a: 1}
   EdgeProjectileColor: {r: 0, g: 0.40196466, b: 1, a: 1}
   ProjecileLentgh: 0.5
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 1.5
+  Inaccuracy: 0
 --- !u!1 &2058199985271724009
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,20 +1,14 @@
 using UnityEngine;
 
-public class SimpleWeapon : ShipWeapon
+public class SimpleWeapon : ShipWeaponWithCoolDown
 {
     public enum ProjectileType { Flat, Effect }
-
-    public float ReloadTime;
-
-    private float CoolDown;
 
     public float bulletLifeTime;
 
     public float bulletSpeed;
 
     public override float AntiSpeed => 1 / bulletSpeed;
-
-    public float damage;
 
     public Color MainProjectileColor;
 
@@ -28,32 +22,9 @@ public class SimpleWeapon : ShipWeapon
 
     public float ProjectileExplosionPower;
 
-    public float EnergyPerShot;
-
     const float PlayerCheat = 5;
 
     [Range(0, 1)] public float Inaccuracy;
-
-    public void Start()
-    {
-        CoolDown = ReloadTime * Random.value * 2;
-    }
-
-    public void Update()
-    {
-        if (CoolDown > 0)
-            CoolDown -= Time.deltaTime;
-        else if (Parent.Fire)
-        {
-            if (Parent.Parent.TakeEnergy(EnergyPerShot))
-            {
-                CoolDown += ReloadTime;
-                Shoot();
-            }
-        }
-        else
-            CoolDown = 0;
-    }
 
     private Poolable Converted
     {
@@ -72,7 +43,7 @@ public class SimpleWeapon : ShipWeapon
         }
     }
 
-    private void Shoot()
+    public override void Shoot()
     {
         var q = GameCore.Self.GetFromPool(Converted);
         q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
@@ -80,7 +51,7 @@ public class SimpleWeapon : ShipWeapon
         p.Team = Parent.Parent.team;
         p.Parent = Parent.Parent;
         p.LifeTime = bulletLifeTime;
-        p.Damage = damage;
+        p.Damage =  Damage;
         p.Explosion = ProjectileExplosionPower;
         if (type == ProjectileType.Flat)
         {
@@ -124,9 +95,4 @@ public class SimpleWeapon : ShipWeapon
     }
 
     public override bool IsOutOfRange(float distance) => distance > bulletLifeTime * bulletSpeed;
-
-    public override float MaxDPS()
-    {
-        return damage / ReloadTime;
-    }
 }

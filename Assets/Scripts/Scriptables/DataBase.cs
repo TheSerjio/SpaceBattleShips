@@ -127,13 +127,13 @@ public sealed class DataBase : ScriptableObject
 
     public Color TeamColor(Team team)
     {
-        switch (team)
+        return team switch
         {
-            case Team.Defenders: return Defenders;
-            case Team.Attackers: return Attackers;
-            case Team.Pirates: return Pirates;
-            case Team.Player: return PlayerColor;
-            default: return Random.ColorHSV();
-        }
+            Team.Defenders => Defenders,
+            Team.Attackers => Attackers,
+            Team.Pirates => Pirates,
+            Team.Player => PlayerColor,
+            _ => Random.ColorHSV(),
+        };
     }
 }

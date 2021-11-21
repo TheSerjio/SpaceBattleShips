@@ -589,17 +589,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 5
   ReloadTime: 0.4
+  EnergyPerShot: 3
   bulletLifeTime: 1
   bulletSpeed: 240
-  damage: 5
   MainProjectileColor: {r: 0.8860987, g: 1, b: 0.3160377, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.41667736, b: 0, a: 1}
   ProjecileLentgh: 10
   ProjectileSize: 0.14
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 3
+  Inaccuracy: 0
 --- !u!1 &4271706942908349771
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,17 +741,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 5
   ReloadTime: 0.4
+  EnergyPerShot: 3
   bulletLifeTime: 1
   bulletSpeed: 240
-  damage: 5
   MainProjectileColor: {r: 0.8860987, g: 1, b: 0.3160377, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.41667736, b: 0, a: 1}
   ProjecileLentgh: 10
   ProjectileSize: 0.14
   type: 0
   ProjectileExplosionPower: 0
-  EnergyPerShot: 3
+  Inaccuracy: 0
 --- !u!1 &7070068156680053928
 GameObject:
   m_ObjectHideFlags: 0
