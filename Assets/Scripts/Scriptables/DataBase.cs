@@ -100,7 +100,7 @@ public sealed class DataBase : ScriptableObject
         Temp<ShipData>[] all = new Temp<ShipData>[Ships.Length];
         for (int i = 0; i < Ships.Length; i++)
         {
-            var obj = Ships[i].Prefab.gameObject;
+            var obj = Ships[i].Prefab;
             float dps = 0;
             foreach (var weapon in obj.GetComponentsInChildren<ShipWeapon>())
                 dps += weapon.MaxDPS();

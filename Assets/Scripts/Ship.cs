@@ -194,9 +194,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         }
     }
 
-    public void Brake()
+    public void Brake(bool backWard)
     {
-        var target = -transform.forward;
+        var target = backWard ? -transform.forward : Vector3.zero;
         Vector3 next = Vector3.MoveTowards(RB.velocity, target, speed * BrakePower * Time.deltaTime);
         if (next == target)
         {

@@ -6,7 +6,7 @@ public class FighterShip : ShipAIController
 
         if (dir < 0.9f)
         {
-            Ship.Brake();
+            Ship.Brake(false);
             Ship.Fire = false;
         }
         else
@@ -14,7 +14,7 @@ public class FighterShip : ShipAIController
             var dot = UnityEngine.Vector3.Dot(transform.forward, RB.velocity);
             if (dot < -2)
             {
-                Ship.Brake();
+                Ship.Brake(false);
                 Ship.Fire = false;
             }
             else

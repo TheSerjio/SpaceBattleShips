@@ -16,7 +16,7 @@ public class LaserFighterShip : ShipAIController
         }
         else
         {
-            Ship.Brake();
+            Ship.Brake(true);
         }
         Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > FireIf;
         Ship.LookAt(target.transform.position);

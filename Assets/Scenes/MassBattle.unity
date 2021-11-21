@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 3
   all:
   - count: 200
     ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 1000938162}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100000, y: 100000, z: 100000}
+  m_LocalScale: {x: 1000000, y: 1000000, z: 1000000}
   m_Children: []
   m_Father: {fileID: 1900401381}
   m_RootOrder: 1
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 5
   all:
   - count: 30
     ship: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}

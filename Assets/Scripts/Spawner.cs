@@ -23,6 +23,7 @@ public sealed class Spawner : MonoBehaviour
         ff.target = ship;
         ff.Name = $"{asset.Name}";//-{(ushort)Random.Range(0, ushort.MaxValue)}";
         ship.frame = ff;
+        ff.Update();
     }
 
     private System.Collections.IEnumerator Summon()
