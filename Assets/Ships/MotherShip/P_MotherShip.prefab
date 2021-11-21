@@ -333,7 +333,7 @@ MonoBehaviour:
   team: 1
   rotationSpeed: 15
   speed: 1
-  MaxHealth: 450
+  MaxHealth: 1000
   trails:
   - {fileID: 5863762263917115451}
   EngineConsumption: 10
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShieldRender: {fileID: 5999076244167810725}
   ShieldCollider: {fileID: 5392107150266097489}
-  MaxShield: 500
+  MaxShield: 1200
   ShieldRegeneration: 20
 --- !u!114 &4440787702537612975
 MonoBehaviour:
