@@ -31,7 +31,10 @@ public abstract class ShipAIController : ShipController
     public void Start()
     {
         time = Time.time - 60;
+        OnStart();
     }
+
+    public virtual void OnStart() { }
 
     public void FixedUpdate()
     {

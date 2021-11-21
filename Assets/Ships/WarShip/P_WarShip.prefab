@@ -563,8 +563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  OptimalDistance: 240
-  FireIf: 0
+  MinOptimalDistance: 240
+  MaxOptimalDistance: 300
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

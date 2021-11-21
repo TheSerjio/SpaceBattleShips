@@ -311,8 +311,8 @@ GameObject:
   - component: {fileID: 4129263872148043996}
   - component: {fileID: 4129263872148043986}
   - component: {fileID: 3664832532834273340}
-  - component: {fileID: 7635971574616362090}
   - component: {fileID: 4509003813159771384}
+  - component: {fileID: 7632923205945408135}
   m_Layer: 0
   m_Name: P_Faster
   m_TagString: Untagged
@@ -392,19 +392,6 @@ MonoBehaviour:
   ExplosionSize: 2
   NoEnergyCooldown: 5
   mainWeapon: {fileID: 4084623393390096273}
---- !u!114 &7635971574616362090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4129263872148043997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45d36efa52d86e2459146634c5a35313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &4509003813159771384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +408,21 @@ MonoBehaviour:
   ShieldCollider: {fileID: 5392107150266097489}
   MaxShield: 50
   ShieldRegeneration: 5
+--- !u!114 &7632923205945408135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4129263872148043997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  MinOptimalDistance: 100
+  MaxOptimalDistance: 150
 --- !u!1 &4129263872524746534
 GameObject:
   m_ObjectHideFlags: 0

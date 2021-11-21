@@ -34,7 +34,7 @@ public sealed class MotherShip : Ship
                                     q.count--;
                                     var ship = Instantiate(q.ship.Prefab, spawner.position, spawner.rotation).GetComponent<Ship>();
                                     ship.team = team;
-                                    var point = ship.transform.position * 2 - transform.position + (Random.onUnitSphere * Vector3.Distance(ship.transform.position, transform.position) / 2);
+                                    var point = spawner.position + (spawner.forward * 100);
                                     ship.Warn(point, new Warning(false, 0));
                                     ship.transform.LookAt(point);
                                     alive[i] = ship;

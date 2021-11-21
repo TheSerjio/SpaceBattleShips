@@ -18,8 +18,13 @@ public class LongLaserWeapon : ShipWeapon
 
     public float Accuracy;
 
+    private float NoShootUntil;
+
+    private bool wasFiring;
+
     public void Start()
     {
+        NoShootUntil = Time.time + Spawner.time;
         lr = GetComponent<LineRenderer>();
         lr.useWorldSpace = false;
         q = lr.widthMultiplier;
@@ -30,6 +35,8 @@ public class LongLaserWeapon : ShipWeapon
         bool b = true;
         if (Parent.Fire)
         {
+            if (Time.time < NoShootUntil)
+                goto end;
             if (Parent.Parent.TakeEnergy(Time.deltaTime * EnergyPerSecond))
             {
                 lr.widthMultiplier = q;
@@ -57,6 +64,13 @@ public class LongLaserWeapon : ShipWeapon
                 b = false;
             }
         }
+        else if (wasFiring)
+        {
+            NoShootUntil = Time.time + 1;
+        }
+
+        end:
+        wasFiring = Parent.Fire;
         if (b)
             lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
     }

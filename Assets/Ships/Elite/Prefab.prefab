@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 6445991215757118411}
   - component: {fileID: 2747515676622489423}
   - component: {fileID: 1717840775074347804}
-  - component: {fileID: 7901285349765656850}
+  - component: {fileID: 6120491305376377622}
   m_Layer: 0
   m_Name: Prefab
   m_TagString: Untagged
@@ -552,7 +552,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: 655165214509265391}
   MaxShield: 100
   ShieldRegeneration: 10
---- !u!114 &7901285349765656850
+--- !u!114 &6120491305376377622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,10 +561,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5865819100266150960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45d36efa52d86e2459146634c5a35313, type: 3}
+  m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  MinOptimalDistance: 100
+  MaxOptimalDistance: 150
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0

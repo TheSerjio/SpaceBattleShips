@@ -350,9 +350,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2058199985271724012}
   - component: {fileID: 2058199985271724011}
-  - component: {fileID: 2058199985271724010}
   - component: {fileID: 4094231551408845624}
   - component: {fileID: 141515290426716345}
+  - component: {fileID: 8216538019185489247}
   m_Layer: 0
   m_Name: P_Simple
   m_TagString: Untagged
@@ -396,19 +396,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &2058199985271724010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058199985271724009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45d36efa52d86e2459146634c5a35313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &4094231551408845624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +443,21 @@ MonoBehaviour:
   ShieldCollider: {fileID: 7999770157014059747}
   MaxShield: 20
   ShieldRegeneration: 1
+--- !u!114 &8216538019185489247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058199985271724009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  MinOptimalDistance: 100
+  MaxOptimalDistance: 150
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0
