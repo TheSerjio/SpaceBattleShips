@@ -513,7 +513,7 @@ MonoBehaviour:
   - {fileID: 6689676717823245435}
   EngineConsumption: 3
   BrakeConsumption: 4
-  BrakePower: 30
+  BrakePower: 15
   MaxEnergy: 240
   EnergyRegeneration: 24
   MeshForDamage: {fileID: 3481466277026033714}
@@ -551,7 +551,7 @@ MonoBehaviour:
   ShieldRender: {fileID: 1062633211311622492}
   ShieldCollider: {fileID: 655165214509265391}
   MaxShield: 100
-  ShieldRegeneration: 10
+  ShieldRegeneration: 5
 --- !u!114 &6120491305376377622
 MonoBehaviour:
   m_ObjectHideFlags: 0
