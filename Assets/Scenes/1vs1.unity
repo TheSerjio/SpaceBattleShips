@@ -201,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   all:
-  - count: 5
-    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
+  - count: 20
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
 --- !u!4 &1140048289
 Transform:
   m_ObjectHideFlags: 0
