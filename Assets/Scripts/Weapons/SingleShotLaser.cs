@@ -9,6 +9,8 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
 
     public override float AntiSpeed => 0;
 
+    public override float MaxFireDist => float.PositiveInfinity;
+
     public float laserWidth;
 
     public float playerLaserWidth;
@@ -16,7 +18,7 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
     public override void OnStart()
     {
         lr = GetComponent<LineRenderer>();
-        lr.useWorldSpace = false;
+        lr.useWorldSpace = true;
         q = lr.widthMultiplier;
     }
 
@@ -25,7 +27,7 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
         lr.widthMultiplier = q;
         lr.positionCount = 2;
         bool kek = true;
-        lr.SetPosition(0, Vector3.zero);
+        lr.SetPosition(0, transform.position);
         foreach (var hit in Physics.SphereCastAll(transform.position, Parent.Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
         {
             var obj = hit.collider.gameObject;
@@ -35,19 +37,19 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
                 if (tar.team != Parent.Parent.team)
                 {
                     tar.OnDamaged(Damage, Parent.Parent);
-                    lr.SetPosition(1, transform.InverseTransformPoint(hit.point));
+                    lr.SetPosition(1, hit.point);
                     kek = false;
                     break;
                 }
             }
         }
         if (kek)
-            lr.SetPosition(1, Vector3.forward * ushort.MaxValue);
+            lr.SetPosition(1, transform.position + (transform.forward * ushort.MaxValue));
     }
 
     public override void OnUpdate()
     {
-        lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
+        lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime / 4f);
     }
 
     public void OnDrawGizmosSelected()

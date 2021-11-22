@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
   m_Name: WarShip
   m_EditorClassIdentifier: 
-  Name: WarShip
+  Name: War Ship
   cost: 0
   prefab: {fileID: 4094231551408845624, guid: 2c850e95a17208743a82e9fd47ede26b, type: 3}
   type: 0

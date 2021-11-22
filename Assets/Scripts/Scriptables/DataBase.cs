@@ -97,31 +97,13 @@ public sealed class DataBase : ScriptableObject
     [ContextMenu("Ship stats")]
     public void CountShipStats()
     {
-        Temp<ShipData>[] all = new Temp<ShipData>[Ships.Length];
-        for (int i = 0; i < Ships.Length; i++)
+        foreach (var q in Ships)
         {
-            var obj = Ships[i].Prefab;
             float dps = 0;
-            foreach (var weapon in obj.GetComponentsInChildren<ShipWeapon>())
+            foreach (var weapon in q.Prefab.GetComponentsInChildren<ShipWeapon>())
                 dps += weapon.MaxDPS();
-            var q = new Temp<ShipData>()
-            {
-                value = dps,
-                obj = Ships[i]
-            };
-            all[i] = q;
+            Debug.Log($"{q.Name}: DPS: {dps}; Range: {q.prefab.mainWeapon.MaxFireDist}");
         }
-        System.Array.Sort(all);
-        foreach (var q in all)
-            Debug.Log($"{q.obj.Name}:{q.value}");
-    }
-
-    struct Temp<T> : System.IComparable<Temp<T>> where T : Object
-    {
-        public float value;
-        public T obj;
-
-        public int CompareTo(Temp<T> other) => value.CompareTo(other.value);
     }
 #endif
 

@@ -143,11 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8caa96cf18410e4982e081cbbef5e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 100
-  ReloadTime: 16
+  Damage: 200
+  ReloadTime: 20
   EnergyPerShot: 50
-  laserWidth: 1
-  playerLaserWidth: 5
+  laserWidth: 2
+  playerLaserWidth: 6
 --- !u!1 &1853587170793709776
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,11 +436,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8caa96cf18410e4982e081cbbef5e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 100
-  ReloadTime: 16
+  Damage: 200
+  ReloadTime: 20
   EnergyPerShot: 50
-  laserWidth: 1
-  playerLaserWidth: 5
+  laserWidth: 2
+  playerLaserWidth: 6
 --- !u!1 &2058199985271724009
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  rotationSpeed: 15
+  rotationSpeed: 10
   speed: 5
   MaxHealth: 1000
   trails:
@@ -529,7 +529,7 @@ MonoBehaviour:
   EnergyRegeneration: 30
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
-  size: 1
+  size: 40
   ExplosionPower: 660
   ExplosionSize: 12
   NoEnergyCooldown: 5
@@ -563,8 +563,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  MinOptimalDistance: 240
-  MaxOptimalDistance: 300
+  MinOptimalDistance: 1000
+  MaxOptimalDistance: 1500
+  AccuracyShooting: 0.99
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,11 +995,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8caa96cf18410e4982e081cbbef5e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 100
-  ReloadTime: 16
+  Damage: 200
+  ReloadTime: 20
   EnergyPerShot: 50
-  laserWidth: 1
-  playerLaserWidth: 5
+  laserWidth: 2
+  playerLaserWidth: 6
 --- !u!1 &7464524465627163721
 GameObject:
   m_ObjectHideFlags: 0

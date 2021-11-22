@@ -23,13 +23,15 @@ public abstract class ShipWeapon : MonoBehaviour
     public abstract bool IsOutOfRange(float distance);
 
     public abstract float MaxDPS();
+
+    public abstract float MaxFireDist { get; }
 }
 
 public abstract class ShipWeaponWithCoolDown : ShipWeapon
 {
     public void Start()
     {
-        CoolDown = ReloadTime * (Random.value + 1);
+        CoolDown = ReloadTime;
         OnStart();
     }
 

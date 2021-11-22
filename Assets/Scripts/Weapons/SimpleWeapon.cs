@@ -43,6 +43,8 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
         }
     }
 
+    public override float MaxFireDist => bulletSpeed * bulletLifeTime;
+
     public override void Shoot()
     {
         var q = GameCore.Self.GetFromPool(Converted);

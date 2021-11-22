@@ -9,6 +9,8 @@ public class LongLaserWeapon : ShipWeapon
 
     public override float AntiSpeed => 0;
 
+    public override float MaxFireDist => Accuracy;
+
     public float damagePerSecond;
 
     public float laserWidth;

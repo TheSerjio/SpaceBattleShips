@@ -115,14 +115,16 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
 
     public float GameCoreCachedValue { get; set; }
 
-#if UNITY_EDITOR
     [ContextMenu("Magic")]
-    public void Magic()
+    public void FindTrails()
     {
         trails = GetComponentsInChildren<ShipTrail>();
-        UnityEditor.EditorUtility.SetDirty(this);
-    }
+#if UNITY_EDITOR
+        if (!UnityEditor.EditorApplication.isPlaying)
+            UnityEditor.EditorUtility.SetDirty(this);
 #endif
+    }
+
 
     public void Warn(Vector3 moveTo, Warning how)
     {
@@ -179,7 +181,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
 
     public void Forward()
     {
-#if DEBUG
+#if UNITY_EDITOR
         if (EnginePower < 0)
         {
             Debug.Log($"{name} has negative engine power - {EnginePower}");
@@ -250,7 +252,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, size);
+        Gizmos.DrawWireSphere(transform.position, size / 2f);
         DrawGizmosSelected();
     }
 
@@ -259,7 +261,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     /// <returns>from -1 to 1</returns>
     public float LookAt(Vector3 worldPoint)
     {
-        transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime, true);
+        transform.RotateTowards(worldPoint, rotationSpeed * Time.deltaTime, false);
         return Vector3.Dot(transform.forward, (worldPoint - transform.position).normalized);
     }
 

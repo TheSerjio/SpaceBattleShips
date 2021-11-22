@@ -28,13 +28,15 @@ public sealed class Spawner : MonoBehaviour
 
     private System.Collections.IEnumerator Summon()
     {
-        ulong i = 0;
+        float D = 0;
         foreach (var g in all)
             for (ushort ii = 0; ii < g.count; ii++)
             {
                 var q = Instantiate(g.ship.Prefab);
-                q.transform.position = transform.position + (4 * i++ * Random.onUnitSphere);
+                q.transform.position = transform.position + (D * Random.onUnitSphere);
+                q.transform.rotation = Random.rotationUniform;
                 var ship = q.GetComponent<Ship>();
+                D += ship.size;
                 ship.team = team;
                 CreateFrame(ship, g.ship);
                 yield return null;

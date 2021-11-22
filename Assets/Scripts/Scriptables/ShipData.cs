@@ -12,7 +12,7 @@ public class ShipData : ValidableScriptableObject
     public string Name;
     public ulong cost;
     public GameObject Prefab => prefab.gameObject;
-    [SerializeField] Ship prefab;
+    public Ship prefab;
     public Type type;
     public Sprite Preview;
 
@@ -21,10 +21,12 @@ public class ShipData : ValidableScriptableObject
         if (!Prefab)
             yield return Warn(Level.Error, "no prefab");
         if (cost == 0)
-            yield return Warn(Level.Warning, "zero cost");
+            yield return Warn(Level.Message, "zero cost");
         if (string.IsNullOrWhiteSpace(Name))
             yield return Warn(Level.Warning, "no name");
         if (!Preview)
             yield return Warn(Level.Warning, "no preview");
+        if (!prefab.mainWeapon)
+            yield return Warn(Level.Warning, "no weapon");
     }
 }

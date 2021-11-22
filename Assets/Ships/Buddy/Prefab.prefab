@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 6445991215757118411}
   - component: {fileID: 2747515676622489423}
   - component: {fileID: 1717840775074347804}
+  - component: {fileID: 7704686149318459117}
   m_Layer: 0
   m_Name: Prefab
   m_TagString: Untagged
@@ -214,6 +215,7 @@ MonoBehaviour:
   trails: []
   EngineConsumption: 1
   BrakeConsumption: 1
+  BrakePower: 0
   MaxEnergy: 100
   EnergyRegeneration: 10
   MeshForDamage: {fileID: 3481466277026033714}
@@ -221,6 +223,8 @@ MonoBehaviour:
   size: 1
   ExplosionPower: 10
   ExplosionSize: 1
+  NoEnergyCooldown: 0
+  mainWeapon: {fileID: 7704686149318459117}
 --- !u!135 &2747515676622489423
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -250,6 +254,18 @@ MonoBehaviour:
   ShieldCollider: {fileID: 655165214509265391}
   MaxShield: 10
   ShieldRegeneration: 1
+--- !u!114 &7704686149318459117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865819100266150960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16586ed256e013d46851752502678ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0

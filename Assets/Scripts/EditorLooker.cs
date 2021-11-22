@@ -12,7 +12,7 @@ public sealed class EditorLooker : MonoBehaviour
 
     public void LateUpdate()
     {
-        t.sizeDelta = Vector2.one * size * new Plane(cam.transform.forward, cam.transform.position).GetDistanceToPoint(transform.position);
+        t.sizeDelta = new Plane(cam.transform.forward, cam.transform.position).GetDistanceToPoint(transform.position) * size * Vector2.one;
         transform.LookAt(transform.position  -cam.transform.forward);
         var e = transform.eulerAngles;
         e.z = -cam.transform.eulerAngles.z;

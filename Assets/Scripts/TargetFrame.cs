@@ -23,19 +23,21 @@ public class TargetFrame : MonoBehaviour
 
     private void SetScale(RectTransform what, float size)
     {
-        what.sizeDelta = Vector2.one * size * new Plane(GameCore.MainCamera.transform.forward, GameCore.MainCamera.transform.position).GetDistanceToPoint(what.position);
+        what.sizeDelta = new Plane(GameCore.MainCamera.transform.forward, GameCore.MainCamera.transform.position).GetDistanceToPoint(what.position) * size * Vector2.one;
     }
 
     public void Update()
     {
+        //TODO review and make magic numbers const
         if (target)
         {
-            var cam = GameCore.MainCamera;
+            var cam = GameCore.MainCamera.transform;
             if (!cam)
                 return;
-            var dist = Vector3.Distance(target.transform.position, cam.transform.position);
+            var dist = Vector3.Distance(target.transform.position, cam.position);
+
             {
-                //this somehow sets color of text
+                //this sets alpha of text and circle
                 var c = text.color;
                 c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
                 text.color = c;
@@ -45,27 +47,20 @@ public class TargetFrame : MonoBehaviour
                 probabPos.color = c;
             }
 
-            //image.sizeDelta = Vector2.one * Mathf.Lerp(maxFrameSize, minFrameSize, dist / maxDist);
-
             transform.position = target.transform.position;
             SetScale(GetComponent<RectTransform>(), 0.1f);
-            transform.LookAt(transform.position + cam.transform.forward);
+            transform.LookAt(transform.position + cam.forward);
             var e = transform.eulerAngles;
-            e.z = cam.transform.eulerAngles.z;
+            e.z = cam.eulerAngles.z;
             transform.eulerAngles = e;
 
             //text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
             text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}";
-            text.fontSize = Vector3.Distance(transform.position, cam.transform.position) / 30f;
-            /*{
-                var t = textT.sizeDelta;
-                t.y = Vector3.Distance(transform.position, cam.transform.position) / 10f;
-                textT.sizeDelta = t;
-            }*/
+            text.fontSize = Vector3.Distance(transform.position, cam.position) / 30f;
 
             SetScale(image, Mathf.Lerp(0.25f, 0.05f, dist / 350));
 
-            frameImage.pixelsPerUnitMultiplier = 500f / Vector3.Distance(transform.position, cam.transform.position);
+            frameImage.pixelsPerUnitMultiplier = 500f / Vector3.Distance(transform.position, cam.position);
 
             if (Player)
             {
