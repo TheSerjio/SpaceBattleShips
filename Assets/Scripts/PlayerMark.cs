@@ -22,21 +22,35 @@ public class PlayerMark : SINGLETON<PlayerMark>
     {
         Ship = GetComponent<Ship>();
         Ship.PlayerMarked = true;
-        Transform q = null;
-        foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
-            if (pfc.parent)
-                Cameroid = pfc.transform;
-            else
-                q = pfc.transform;
+        {
+            Transform q = null;
+            foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
+                if (pfc.parent)
+                    Cameroid = pfc.transform;
+                else
+                    q = pfc.transform;
 
-        GameCore.MainCamera.gameObject.SetActive(false);
-        var cam = Instantiate(DataBase.Get().CameraPrefab);
-        GameCore.MainCamera = cam.GetComponent<Camera>();
-        cam.transform.SetParent(q);
-        cam.transform.localPosition = Vector3.zero;
-        cam.transform.localEulerAngles = Vector3.zero;
-        cam.transform.localScale = Vector3.one;
-        Instantiate(DataBase.Get().DustPrefab, transform);
+            GameCore.MainCamera.gameObject.SetActive(false);
+            var cam = Instantiate(DataBase.Get().CameraPrefab);
+            GameCore.MainCamera = cam.GetComponent<Camera>();
+            cam.transform.SetParent(q);
+            cam.transform.localPosition = Vector3.zero;
+            cam.transform.localEulerAngles = Vector3.zero;
+            cam.transform.localScale = Vector3.one;
+        }
+
+        Instantiate(DataBase.Get().DustPrefab, transform).GetComponent<DustNearPlayer>().Init(this, Ship.RB);
+
+        foreach(var q in Ship.GetComponentsInChildren<ShipLineTrail>())
+        {
+            q.gameObject.SetActive(false);
+            var trail = Instantiate(DataBase.Get().BetterTrailPrefab);
+            trail.transform.parent = Ship.transform;
+            trail.transform.localPosition = q.transform.localPosition;
+            trail.transform.localScale = Vector3.one * q.Line.startWidth * 4;
+            trail.AddComponent<ShipParticleTrail>();
+        }
+        Ship.FindTrails();
     }
 
     public void Update()

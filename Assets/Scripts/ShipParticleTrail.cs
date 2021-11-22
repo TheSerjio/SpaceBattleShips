@@ -1,19 +1,17 @@
 using UnityEngine;
 using UnityEngine.VFX;
 
-[RequireComponent(typeof(VisualEffect))]
 public class ShipParticleTrail : ShipTrail
 {
-    private VisualEffect lr;
+    private VisualEffect ve;
 
-    public void Start()
+    public void Awake()
     {
-        lr = GetComponent<VisualEffect>();
+        ve = GetComponentInChildren<VisualEffect>();
     }
 
     public override void SetTrailLent(float speed)
     {
-        // :)
-        lr.SetVector2("speed", size * speed * Vector2.up);
+        ve.SetVector2("speed", 4 * speed * Vector2.up);
     }
 }

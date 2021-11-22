@@ -3,15 +3,17 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class ShipLineTrail : ShipTrail
 {
-    private LineRenderer lr;
+    public float size;
 
-    public void Start()
+    public LineRenderer Line { get; private set; }
+
+    public void Awake()
     {
-        lr = GetComponent<LineRenderer>();
+        Line = GetComponent<LineRenderer>();
     }
 
     public override void SetTrailLent(float speed)
     {
-        lr.SetPosition(0, speed * size * Vector3.back);
+        Line.SetPosition(0, speed * Line.startWidth * 8 * Vector3.back);
     }
 }
