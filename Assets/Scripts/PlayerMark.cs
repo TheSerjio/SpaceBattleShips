@@ -84,15 +84,22 @@ public class PlayerMark : SINGLETON<PlayerMark>
         }
 
         //update ui
+        //yes, its here
         {
             var RB = Ship.RB;
             var ui = GameUI.Self;
+            float q = Mathf.Sin(Time.time * 20) / 2 + 0.5f;
             if (Ship.Shield)
+            {
                 ui.Shields.localScale = new Vector3(Ship.Shield.Relative, 1, 1);
+                ui.I_Shields.color = Ship.Shield.HasShield ? ui.C_Shield : Color.Lerp(ui.C_Shield, ui.C_Red, q);
+            }
+            else
+                ui.Shields.localScale = Vector3.zero;
             var rel = Ship.RelativeEnergy;
             ui.Power.localScale = new Vector3(rel, 1, 1);
-            var f = Mathf.Lerp(Mathf.Sin(Time.time * Mathf.PI * 4) / 2 + 0.5f, 1, Mathf.Sqrt(rel));
-            ui.PowerImage.color = new Color(f, f, f, 1);
+            ui.I_Power.color = Ship.TakeEnergy(0) ? ui.C_Energy : Color.Lerp(ui.C_Energy, ui.C_Red, q);
+
             ui.Health.localScale = new Vector3(Ship.RelativeHealth, 1, 1);
             ui.VelocityText.text = Mathf.RoundToInt(Utils.ToSadUnits(RB)).ToString();
             ui.Velocity.gameObject.SetActive(RB.velocity.sqrMagnitude > 0.1f);

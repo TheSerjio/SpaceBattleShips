@@ -19,7 +19,7 @@ TextureImporter:
     second: Center2
   - first:
       213: -8223382129855978605
-    second: Yellow
+    second: WhiteBar
   - first:
       213: -1318215486492414624
     second: Blue
@@ -229,15 +229,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Yellow
+      name: WhiteBar
       rect:
         serializedVersion: 2
-        x: 60
+        x: 56
         y: 51
-        width: 1
+        width: 2
         height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -245,27 +245,6 @@ TextureImporter:
       bones: []
       spriteID: 393a3a1b58da0ed80800000000000000
       internalID: -8223382129855978605
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Blue
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 57
-        width: 1
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06d633ecff1c4bde0800000000000000
-      internalID: -1318215486492414624
       vertices: []
       indices: 
       edges: []
@@ -287,27 +266,6 @@ TextureImporter:
       bones: []
       spriteID: 3481d68d4ab2b5320800000000000000
       internalID: 2547678001213806659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hppoloska
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 50
-        width: 1
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f999f8196e1f8e60800000000000000
-      internalID: 7966619702581107187
       vertices: []
       indices: 
       edges: []
@@ -342,7 +300,7 @@ TextureImporter:
         width: 1
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

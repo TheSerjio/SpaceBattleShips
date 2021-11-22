@@ -7,8 +7,9 @@ public sealed class GameUI : SINGLETON<GameUI>
 {
     public Slider Engines;
     public RectTransform Shields;
+    public Image I_Shields;
     public RectTransform Power;
-    public Image PowerImage;
+    public Image I_Power;
     public RectTransform Health;
     public RectTransform Velocity;
     public Text VelocityText;
@@ -17,6 +18,9 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Text SliderValue;
     public RectTransform ForwardAim;
     public Canvas WorlsCanvas;
+    public Color C_Shield;
+    public Color C_Energy;
+    public Color C_Red;
 
     protected override void OnAwake()
     {
