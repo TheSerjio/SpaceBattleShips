@@ -327,7 +327,7 @@ MonoBehaviour:
   size: 1
   ExplosionPower: 12
   ExplosionSize: 2
-  NoEnergyCooldown: 5
+  NoEnergyCooldown: 3
   mainWeapon: {fileID: 7442075221799175898}
 --- !u!114 &845703886288328863
 MonoBehaviour:
