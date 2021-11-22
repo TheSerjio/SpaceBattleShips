@@ -331,7 +331,7 @@ MonoBehaviour:
   Damage: 3
   ReloadTime: 0.2
   EnergyPerShot: 1.5
-  bulletLifeTime: 2
+  bulletLifeTime: 1.5
   bulletSpeed: 120
   MainProjectileColor: {r: 0.4764151, g: 1, b: 0.9401792, a: 1}
   EdgeProjectileColor: {r: 0, g: 0.40196466, b: 1, a: 1}
@@ -339,7 +339,7 @@ MonoBehaviour:
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0
+  Inaccuracy: 0.05
 --- !u!1 &2058199985271724009
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   target: {fileID: 0}
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
+  AccuracyShooting: 0
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0
