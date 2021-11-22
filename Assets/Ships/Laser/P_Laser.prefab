@@ -410,11 +410,11 @@ MonoBehaviour:
   trails:
   - {fileID: 3939391292371521494}
   - {fileID: 7689984975464146366}
-  EngineConsumption: 4
-  BrakeConsumption: 4
+  EngineConsumption: 3
+  BrakeConsumption: 3
   BrakePower: 10
-  MaxEnergy: 300
-  EnergyRegeneration: 20
+  MaxEnergy: 240
+  EnergyRegeneration: 15
   MeshForDamage: {fileID: 3939391293002615219}
   frame: {fileID: 0}
   size: 0.7
@@ -453,6 +453,7 @@ MonoBehaviour:
   target: {fileID: 0}
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
+  AccuracyShooting: 0
 --- !u!1 &3939391292371521489
 GameObject:
   m_ObjectHideFlags: 0
