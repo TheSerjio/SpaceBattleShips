@@ -22,7 +22,7 @@ TextureImporter:
     second: WhiteBar
   - first:
       213: -1318215486492414624
-    second: Blue
+    second: Health
   - first:
       213: 2547678001213806659
     second: Corner
@@ -237,7 +237,7 @@ TextureImporter:
         width: 2
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -308,6 +308,27 @@ TextureImporter:
       bones: []
       spriteID: bc842ebb619f9a9f0800000000000000
       internalID: -456560011164628789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 50
+        width: 1
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d633ecff1c4bde0800000000000000
+      internalID: -1318215486492414624
       vertices: []
       indices: 
       edges: []
