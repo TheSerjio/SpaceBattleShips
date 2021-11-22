@@ -360,6 +360,7 @@ MonoBehaviour:
   target: {fileID: 0}
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
+  AccuracyShooting: 0
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,8 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  ReloadTime: 0.4
+  Damage: 4
+  ReloadTime: 0.6
   EnergyPerShot: 3
   bulletLifeTime: 1
   bulletSpeed: 240
@@ -602,7 +603,7 @@ MonoBehaviour:
   ProjectileSize: 0.14
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0
+  Inaccuracy: 0.03
 --- !u!1 &4271706942908349771
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,8 +744,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
-  ReloadTime: 0.4
+  Damage: 4
+  ReloadTime: 0.6
   EnergyPerShot: 3
   bulletLifeTime: 1
   bulletSpeed: 240
@@ -754,7 +755,7 @@ MonoBehaviour:
   ProjectileSize: 0.14
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0
+  Inaccuracy: 0.03
 --- !u!1 &7070068156680053928
 GameObject:
   m_ObjectHideFlags: 0
