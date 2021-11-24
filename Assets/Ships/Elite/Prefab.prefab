@@ -570,8 +570,8 @@ MonoBehaviour:
     Size: 1
     InFrontOfMe: 0
     SomeRandom: 1
-  MinOptimalDistance: 50
-  MaxOptimalDistance: 100
+  MinOptimalDistance: 100
+  MaxOptimalDistance: 130
   AccuracyShooting: 0
 --- !u!1 &5898082224501375727
 GameObject:

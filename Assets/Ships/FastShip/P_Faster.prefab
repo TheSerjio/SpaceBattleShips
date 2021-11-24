@@ -410,11 +410,11 @@ MonoBehaviour:
   - {fileID: 5263570063690481541}
   - {fileID: 4710695003449982212}
   - {fileID: 1458558475666843165}
-  EngineConsumption: 2.4
-  BrakeConsumption: 2
-  BrakePower: 50
+  EngineConsumption: 3
+  BrakeConsumption: 3
+  BrakePower: 10
   MaxEnergy: 250
-  EnergyRegeneration: 14
+  EnergyRegeneration: 22
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
   size: 2
@@ -456,8 +456,8 @@ MonoBehaviour:
     Size: 0
     InFrontOfMe: 0
     SomeRandom: 0
-  MinOptimalDistance: 25
-  MaxOptimalDistance: 75
+  MinOptimalDistance: 10
+  MaxOptimalDistance: 70
   AccuracyShooting: 0
 --- !u!1 &4129263872524746534
 GameObject:

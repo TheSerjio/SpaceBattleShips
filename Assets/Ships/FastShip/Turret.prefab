@@ -47,7 +47,6 @@ MonoBehaviour:
   rotationSpeed: 30
   body: {fileID: 4727614689082853165}
   weapon: {fileID: 3500866970751952407}
-  automatic: 0
   maxAngle: 0
 --- !u!1 &5390822152566185367
 GameObject:
@@ -258,15 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 5
+  Damage: 3.6
   ReloadTime: 0.1
   EnergyPerShot: 1
   bulletLifeTime: 1
-  bulletSpeed: 200
+  bulletSpeed: 100
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   ProjecileLentgh: 0.25
-  ProjectileSize: 0.05
+  ProjectileSize: 0.1
   type: 0
   ProjectileExplosionPower: 0
   Inaccuracy: 0.04
