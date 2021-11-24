@@ -1,10 +1,24 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [DisallowMultipleComponent]
 public sealed class Spawner : MonoBehaviour
 {
     public Team team;
     public MotherShip.Data[] all;
+
+
+    public float TotalCost;
+
+    public void OnValidate()
+    {
+        TotalCost = 0;
+        foreach (var q in all)
+        {
+            TotalCost += q.count * q.ship.cost;
+        }
+    }
 
     public void Start()
     {
