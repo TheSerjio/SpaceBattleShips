@@ -51,6 +51,20 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship.FindTrails();
     }
 
+    public void SwitchPlayer()
+    {
+        if (GetComponent<PlayerShip>())
+        {
+            DestroyImmediate(GetComponent<PlayerShip>());
+            GetComponent<ShipController>().enabled = true;
+        }
+        else
+        {
+            GetComponent<ShipController>().enabled = false;
+            Ship.Brain = gameObject.AddComponent<PlayerShip>();
+        }
+    }
+
     public void Update()
     {
         TargetFrame.Player = Ship.RB;
@@ -74,18 +88,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Cameroid.localRotation = Quaternion.RotateTowards(Cameroid.localRotation, r, SlowCamera * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if (GetComponent<PlayerShip>())
-            {
-                DestroyImmediate(GetComponent<PlayerShip>());
-                GetComponent<ShipController>().enabled = true;
-            }
-            else
-            {
-                GetComponent<ShipController>().enabled = false;
-                Ship.Brain = gameObject.AddComponent<PlayerShip>();
-            }
-        }
+            SwitchPlayer();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             IfDie();

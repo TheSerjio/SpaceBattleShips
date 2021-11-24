@@ -42,17 +42,16 @@ public sealed class PlayerShip : ShipController
         target.Dir = transform.forward;
         if (Input.GetKey(KeyCode.Space))
         {
-            if (Input.GetMouseButton(1))
-            {
-                target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
-                             GameCore.MainCamera.transform.position;
-            }
-            else
-            {
-                var rotation = Mark.Cameroid.rotation;
-                transform.Rotate(Ship.RotationSpeed * Time.deltaTime * PlayerMark.MouseRotation, Space.Self);
-                Mark.Cameroid.rotation = rotation;
-            }
+            var rotation = Mark.Cameroid.rotation;
+            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * PlayerMark.MouseRotation, Space.Self);
+            Mark.Cameroid.rotation = rotation;
+        }
+        
+
+        if (Input.GetMouseButton(1))
+        {
+            target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
+                         GameCore.MainCamera.transform.position;
         }
 
         if (Input.GetKey(KeyCode.LeftShift))
