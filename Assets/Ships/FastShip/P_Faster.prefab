@@ -414,7 +414,7 @@ MonoBehaviour:
   BrakeConsumption: 2
   BrakePower: 50
   MaxEnergy: 250
-  EnergyRegeneration: 10
+  EnergyRegeneration: 14
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
   size: 2
