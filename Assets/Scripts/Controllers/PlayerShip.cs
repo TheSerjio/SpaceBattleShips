@@ -48,7 +48,7 @@ public sealed class PlayerShip : ShipController
         }
         
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
                          GameCore.MainCamera.transform.position;

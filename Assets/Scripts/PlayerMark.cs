@@ -53,6 +53,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
 
     public void SwitchPlayer()
     {
+        Ship = GetComponent<Ship>();
         if (GetComponent<PlayerShip>())
         {
             DestroyImmediate(GetComponent<PlayerShip>());
