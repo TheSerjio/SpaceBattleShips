@@ -8,9 +8,9 @@ public sealed class Shield : MonoBehaviour
 
     [SerializeField] private Renderer ShieldRender;
     [SerializeField] private Collider ShieldCollider;
-    [SerializeField] private float MaxShield;
+    public float MaxShield;
     private float Current { get; set; }
-    [SerializeField] private float ShieldRegeneration;
+    public float ShieldRegeneration;
     public bool HasShield { get; private set; }
     public float Relative => Current / MaxShield;
     private float Alpha;

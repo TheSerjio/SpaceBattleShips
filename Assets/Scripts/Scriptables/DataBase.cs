@@ -104,13 +104,46 @@ public sealed class DataBase : ScriptableObject
     [ContextMenu("ShipStats")]
     public void ShipStats()
     {
-        foreach (var q in Ships)
+        var stats = new string[] {"Name", "HP", "Shield", "+Shield+", "Energy", "+Energy+", "DPS"};
+        var data = new string[stats.Length, Ships.Length];
+        int x = 0;
+        for (var i = 0; i < Ships.Length; i++)
         {
+            void Do(string q)
+            {
+                data[x, i] = q;
+                x++;
+            }
+
+            void DoN(float q) => Do(((long) q).ToString());
+            
+            x = 0;
+            var ship = Ships[i].prefab;
+
+            Do(Ships[i].Name);
+            DoN(ship.MaxHealth);
+            var s = ship.GetComponent<Shield>();
+            if (s)
+            {
+                DoN(s.MaxShield);
+                DoN(s.ShieldRegeneration);
+            }
+            else
+            {
+                Do("-");
+                Do("-");
+            }
+
+            DoN(ship.MaxEnergy);
+            DoN(ship.EnergyRegeneration);
+            
             float dps = 0;
-            foreach (var weapon in q.Prefab.GetComponentsInChildren<ShipWeapon>())
+            foreach (var weapon in ship.GetComponentsInChildren<ShipWeapon>())
                 dps += weapon.MaxDPS();
-            Debug.Log($"{q.Name}: DPS: {dps}; Range: {q.prefab.mainWeapon.MaxFireDist}");
+            DoN(dps);
         }
+        
+        //TODO format
     }
 #endif
 

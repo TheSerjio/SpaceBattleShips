@@ -76,8 +76,8 @@ public class Ship : BaseEntity,System.IComparable<Ship>
     public float RotationSpeed => rotationSpeed;
     public float RelativeHealth => Health / MaxHealth;
     public float RelativeEnergy => Energy / MaxEnergy;
-    [SerializeField] private float speed;
-    [SerializeField] private float MaxHealth;
+    public float speed;
+  public float MaxHealth;
     private float Health { get; set; }
     [SerializeField] private ShipTrail[] trails;
     [SerializeField] private float EngineConsumption;
@@ -91,11 +91,11 @@ public class Ship : BaseEntity,System.IComparable<Ship>
     /// <summary>
     /// Serializable
     /// </summary>
-    [SerializeField] private float MaxEnergy;
+    public float MaxEnergy;
 
     private float Energy { get; set; }
-    [Tooltip("Per second")] [SerializeField]
-    private float EnergyRegeneration;
+
+    [Tooltip("Per second")] public float EnergyRegeneration;
     private float EngineQ;
     [SerializeField] private MeshRenderer MeshForDamage;
     public TargetFrame frame;
