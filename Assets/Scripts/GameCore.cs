@@ -19,6 +19,8 @@ public class GameCore : SINGLETON<GameCore>
 
     private System.Collections.Generic.Dictionary<Team, ulong> Counts;
 
+    public Camera EditorCamera;
+    
     private void RemoveNull()
     {
         var yes = true;
@@ -105,6 +107,7 @@ public class GameCore : SINGLETON<GameCore>
 
     public void FixedUpdate()
     {
+        EditorCamera = MainCamera;
         Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
         RemoveNull();
         foreach(var q in System.Enum.GetValues(typeof(Team)))
@@ -200,7 +203,7 @@ public class GameCore : SINGLETON<GameCore>
                 break;
         }
         var t = GetTransform(type);
-        Debug.Log($"Created {type} - {t.childCount}");
+//        Debug.Log($"Created {type} - {t.childCount}");
         var obj = Instantiate(prefab, t);
         obj.GetComponent<PoolableComponent>().ReInit();
         obj.SetActive(active);
