@@ -439,7 +439,7 @@ MonoBehaviour:
   EnergyRegeneration: 100
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
-  size: 20
+  size: 30
   ExplosionPower: 1000
   ExplosionSize: 15
   NoEnergyCooldown: 5

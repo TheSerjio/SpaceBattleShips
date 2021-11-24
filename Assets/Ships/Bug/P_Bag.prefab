@@ -324,7 +324,7 @@ MonoBehaviour:
   EnergyRegeneration: 10
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
-  size: 1
+  size: 1.5
   ExplosionPower: 12
   ExplosionSize: 2
   NoEnergyCooldown: 3
@@ -360,9 +360,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetFinding:
     Distance: 0
-    InFrontOfMe: 0
-    SomeRandom: 0
     Size: 1
+    InFrontOfMe: 0
+    SomeRandom: 1
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
   AccuracyShooting: 0

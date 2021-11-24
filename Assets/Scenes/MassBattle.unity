@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 600959439}
   - component: {fileID: 600959438}
   m_Layer: 0
-  m_Name: B
+  m_Name: Pirates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 3
   all:
-  - count: 50
-    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
+  - count: 20
+    ship: {fileID: 11400000, guid: 1f452880e9a17b644908766607cecfc5, type: 2}
 --- !u!4 &600959439
 Transform:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600959437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100, y: 0, z: 0}
+  m_LocalPosition: {x: 200, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 653312008}
   - component: {fileID: 653312007}
   m_Layer: 0
-  m_Name: C
+  m_Name: Defender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 3
+  team: 0
   all:
   - count: 20
     ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 2061695449}
   - component: {fileID: 2061695448}
   m_Layer: 0
-  m_Name: A
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,8 +325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 5
   all:
-  - count: 30
-    ship: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+  - count: 20
+    ship: {fileID: 11400000, guid: 1f452880e9a17b644908766607cecfc5, type: 2}
 --- !u!4 &2061695449
 Transform:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061695447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 0}
+  m_LocalPosition: {x: -200, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

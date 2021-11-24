@@ -427,6 +427,7 @@ MonoBehaviour:
   ExplosionSize: 2
   NoEnergyCooldown: 5
   mainWeapon: {fileID: 2058199984457396272}
+  Formation: []
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,7 +456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  TargetFinding:
+    Distance: 0
+    Size: 1
+    InFrontOfMe: 1
+    SomeRandom: 0
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
   AccuracyShooting: 0

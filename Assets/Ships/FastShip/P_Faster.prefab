@@ -404,7 +404,7 @@ MonoBehaviour:
   team: 0
   rotationSpeed: 60
   speed: 10
-  MaxHealth: 200
+  MaxHealth: 180
   trails:
   - {fileID: 5863762263917115451}
   - {fileID: 5263570063690481541}
@@ -417,7 +417,7 @@ MonoBehaviour:
   EnergyRegeneration: 22
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
-  size: 2
+  size: 4
   ExplosionPower: 100
   ExplosionSize: 2
   NoEnergyCooldown: 5
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetFinding:
     Distance: 0
-    Size: 0
+    Size: 2
     InFrontOfMe: 0
-    SomeRandom: 0
+    SomeRandom: 1
   MinOptimalDistance: 5
   MaxOptimalDistance: 70
   AccuracyShooting: 0
