@@ -99,8 +99,8 @@ public sealed class DataBase : ScriptableObject
         }
     }
 
-    [ContextMenu("Ship stats")]
-    public void CountShipStats()
+    [ContextMenu("ShipStats")]
+    public void ShipStats()
     {
         foreach (var q in Ships)
         {

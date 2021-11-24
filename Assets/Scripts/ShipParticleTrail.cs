@@ -12,6 +12,6 @@ public class ShipParticleTrail : ShipTrail
 
     public override void SetTrailLent(float speed)
     {
-        ve.SetVector2("speed", 4 * speed * Vector2.up);
+        ve.SetVector2("speed", ((4 * speed) + 2) * Vector2.up);
     }
 }
