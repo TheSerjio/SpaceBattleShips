@@ -5,6 +5,8 @@ public class ShipLineTrail : ShipTrail
 {
     public float size;
 
+    public bool useCustomGradient;
+    public Gradient effectGradient;
     public LineRenderer Line { get; private set; }
 
     public void Awake()

@@ -44,6 +44,8 @@ public class PlayerMark : SINGLETON<PlayerMark>
         {
             q.gameObject.SetActive(false);
             var trail = Instantiate(DataBase.Get().BetterTrailPrefab,Ship.transform);
+            if (q.useCustomGradient)
+                trail.GetComponentInChildren<UnityEngine.VFX.VisualEffect>().SetGradient("Color", q.effectGradient);
             trail.transform.localPosition = q.transform.localPosition;
             trail.transform.localScale = 4 * q.Line.startWidth * Vector3.one;
             trail.AddComponent<ShipParticleTrail>();
