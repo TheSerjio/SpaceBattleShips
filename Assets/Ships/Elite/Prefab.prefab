@@ -505,14 +505,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   rotationSpeed: 90
-  speed: 5
+  speed: 4
   MaxHealth: 100
   trails:
   - {fileID: 1684042051186649636}
   - {fileID: 1343869124516000031}
   - {fileID: 6689676717823245435}
   EngineConsumption: 3
-  BrakeConsumption: 4
+  BrakeConsumption: 3
   BrakePower: 15
   MaxEnergy: 240
   EnergyRegeneration: 24
@@ -551,8 +551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShieldRender: {fileID: 1062633211311622492}
   ShieldCollider: {fileID: 655165214509265391}
-  MaxShield: 100
-  ShieldRegeneration: 5
+  MaxShield: 120
+  ShieldRegeneration: 10
 --- !u!114 &6120491305376377622
 MonoBehaviour:
   m_ObjectHideFlags: 0
