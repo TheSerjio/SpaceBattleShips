@@ -7,11 +7,12 @@ public class DustNearPlayer : MonoBehaviour
     PlayerMark pm;
     VisualEffect ve;
 
-    public void Init(PlayerMark PM, Rigidbody RB)
+    public void Init(PlayerMark PM, Ship sh)
     {
         pm = PM;
-        rb = RB;
+        rb = sh.RB;
         ve = GetComponent<VisualEffect>();
+        transform.localScale = Vector3.one * sh.size;
     }
 
     public void FixedUpdate()

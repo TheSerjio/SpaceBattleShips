@@ -38,7 +38,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
             cam.transform.localScale = Vector3.one;
         }
 
-        Instantiate(DataBase.Get().DustPrefab, transform).GetComponent<DustNearPlayer>().Init(this, Ship.RB);
+        Instantiate(DataBase.Get().DustPrefab, transform).GetComponent<DustNearPlayer>().Init(this, Ship);
 
         foreach(var q in Ship.GetComponentsInChildren<ShipLineTrail>())
         {

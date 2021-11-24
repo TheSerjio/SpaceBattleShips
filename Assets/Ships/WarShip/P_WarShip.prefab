@@ -551,7 +551,7 @@ MonoBehaviour:
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
   MaxShield: 1000
-  ShieldRegeneration: 10
+  ShieldRegeneration: 30
 --- !u!114 &1687304218858846276
 MonoBehaviour:
   m_ObjectHideFlags: 0
