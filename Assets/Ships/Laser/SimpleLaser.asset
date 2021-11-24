@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SimpleLaser
   m_EditorClassIdentifier: 
   Name: Bzzzzzz
-  cost: 0
+  cost: 300
   prefab: {fileID: 706638974077699411, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
   type: 1
+  Preview: {fileID: 0}

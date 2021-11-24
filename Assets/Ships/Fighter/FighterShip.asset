@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FighterShip
   m_EditorClassIdentifier: 
   Name: Fighter
-  cost: 0
+  cost: 30
   prefab: {fileID: 4094231551408845624, guid: 163e412bd98297c419c0fbb5b21f283b, type: 3}
   type: 0
+  Preview: {fileID: 0}

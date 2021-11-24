@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BugFighter
   m_EditorClassIdentifier: 
   Name: Bug
-  cost: 10
+  cost: 100
   prefab: {fileID: 4094231551408845624, guid: f93cd08f802b79647ae059c71f2956b2, type: 3}
   type: 1
+  Preview: {fileID: 0}

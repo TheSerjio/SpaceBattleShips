@@ -476,12 +476,12 @@ Transform:
   - {fileID: 2058199984457396287}
   - {fileID: 2110639251096427635}
   - {fileID: 2428550764428090916}
-  - {fileID: 2058199985504403822}
-  - {fileID: 8084393414249662318}
   - {fileID: 3489211680565054328}
   - {fileID: 2006321720439457742}
   - {fileID: 8058679060401805076}
+  - {fileID: 2058199985504403822}
   - {fileID: 1614222158755081661}
+  - {fileID: 8084393414249662318}
   - {fileID: 6312497078128541953}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -597,12 +597,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058199985504403819}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2, y: 0.23, z: -21.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2058199985271724012}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &2058199985504403821
 LineRenderer:
@@ -746,7 +746,7 @@ Transform:
   m_Children:
   - {fileID: 3388267606389548790}
   m_Father: {fileID: 2058199985271724012}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4404034400822630827
 MonoBehaviour:
@@ -792,7 +792,7 @@ Transform:
   m_LocalScale: {x: 300, y: 159, z: 666}
   m_Children: []
   m_Father: {fileID: 2058199985271724012}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1494551743490798685
 MeshFilter:
@@ -1184,7 +1184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2058199985271724012}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &9214671510123689083
 LineRenderer:
@@ -1328,7 +1328,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2058199985271724012}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &2360460831506658483
 LineRenderer:
@@ -1472,7 +1472,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2058199985271724012}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &4713661551100048488
 LineRenderer:

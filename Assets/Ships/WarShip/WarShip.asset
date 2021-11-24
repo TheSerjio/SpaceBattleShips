@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WarShip
   m_EditorClassIdentifier: 
   Name: War Ship
-  cost: 0
+  cost: 10000
   prefab: {fileID: 4094231551408845624, guid: 2c850e95a17208743a82e9fd47ede26b, type: 3}
   type: 0
   Preview: {fileID: 0}
