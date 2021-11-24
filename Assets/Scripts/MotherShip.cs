@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public sealed class MotherShip : Ship
@@ -16,6 +17,17 @@ public sealed class MotherShip : Ship
     [SerializeField] private int MaxAlive;
 
     private Ship[] alive;
+
+    public float TotalCost;
+
+    public void OnValidate()
+    {
+        TotalCost = 0;
+        foreach (var q in all)
+        {
+            TotalCost += q.count * q.ship.cost;
+        }
+    }
 
     public void FixedUpdate()
     {

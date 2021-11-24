@@ -5,7 +5,7 @@ public class DefaultShipAI : ShipAIController
     public float MinOptimalDistance;
     public float MaxOptimalDistance;
     private float Dist;
-    [Range(0, 0.99f)] public float AccuracyShooting;
+    [Range(0, 0.99999f)] public float AccuracyShooting;
 
     public override void OnStart()
     {
@@ -25,6 +25,16 @@ public class DefaultShipAI : ShipAIController
             {
                 Ship.EnginePower = 1;
                 Ship.Forward();
+                if (Ship.mainWeapon.IsOutOfRange(Vector3.Distance(transform.position, Target.transform.position)))
+                {
+                    var newTar = GameCore.Self.FindTargetShip(Ship.team, false, TargetFinding, transform);
+                    if(newTar)
+                        if (newTar != Target)
+                        {
+                            Target = newTar;
+                            return;
+                        }
+                }
             }
         }
         else
