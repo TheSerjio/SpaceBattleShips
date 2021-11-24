@@ -258,18 +258,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 1
+  Damage: 5
   ReloadTime: 0.1
-  EnergyPerShot: 0.5
+  EnergyPerShot: 1
   bulletLifeTime: 1
-  bulletSpeed: 120
+  bulletSpeed: 200
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   ProjecileLentgh: 0.25
   ProjectileSize: 0.05
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0
+  Inaccuracy: 0.04
 --- !u!1 &9062677248125654089
 GameObject:
   m_ObjectHideFlags: 0
