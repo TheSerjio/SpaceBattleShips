@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
   m_Name: Drone
   m_EditorClassIdentifier: 
-  Name: dron
+  Name: Drone
   cost: 10
   prefab: {fileID: 6445991215757118411, guid: 1e5df9fd94ecaf04a8e36c3a9d65044f, type: 3}
   type: 1

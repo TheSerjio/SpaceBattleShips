@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
   m_Name: SimpleLaser
   m_EditorClassIdentifier: 
-  Name: Bzzzzzz
+  Name: Laser Ship
   cost: 300
   prefab: {fileID: 706638974077699411, guid: f17e15e296c197e4f8c36ac4a3d2e3cc, type: 3}
   type: 1

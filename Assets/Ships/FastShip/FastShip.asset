@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
   m_Name: FastShip
   m_EditorClassIdentifier: 
-  Name: faster
+  Name: Rocket
   cost: 1000
   prefab: {fileID: 3664832532834273340, guid: c5f112100ea846e4db48075473acb3c3, type: 3}
   type: 0
