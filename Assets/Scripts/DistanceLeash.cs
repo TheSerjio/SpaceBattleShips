@@ -5,7 +5,7 @@ public class DistanceLeash : COLLECTOR<Ship>
     public float WarnDistance;
     public float DeathDistance;
 
-    public override void ForEach(Ship q)
+    protected override void ForEach(Ship q)
     {
         var d = Vector3.Distance(transform.position, q.transform.position);
         if (d > WarnDistance)

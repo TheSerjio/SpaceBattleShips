@@ -1,8 +1,12 @@
-public class MotherShipController : ShipAIController
+using UnityEngine;
+
+public class MotherShipController : ShipController
 {
-    public override void OnFixedUpdate()
+    public void Update()
     {
         Ship.AutoBrake();
-        Ship.Fire = true;
+        Ship.Target.Fire = false;
     }
+
+    public override void Warn(Vector3 moveTo, Ship.Warning how) { }
 }

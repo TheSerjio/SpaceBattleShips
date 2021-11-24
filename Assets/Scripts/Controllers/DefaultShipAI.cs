@@ -4,7 +4,7 @@ public class DefaultShipAI : ShipAIController
 {
     public float MinOptimalDistance;
     public float MaxOptimalDistance;
-    float Dist;
+    private float Dist;
     [Range(0, 0.99f)] public float AccuracyShooting;
 
     public override void OnStart()
@@ -14,7 +14,7 @@ public class DefaultShipAI : ShipAIController
 
     public override void OnFixedUpdate()
     {
-        var dist = Vector3.Distance(transform.position, target.transform.position);
+        var dist = Vector3.Distance(transform.position, Target.transform.position);
         if (dist > Dist)
         {
             if (Vector3.Dot(transform.forward, RB.velocity) < 0)
@@ -31,8 +31,8 @@ public class DefaultShipAI : ShipAIController
         {
             Ship.Brake(false);
         }
-        Ship.Fire = Vector3.Dot(transform.forward, (target.transform.position - transform.position).normalized) > AccuracyShooting;
-        Ship.LookAt(Utils.ShootTo(RB, target.RB, Ship.mainWeapon.AntiSpeed));
+        Ship.Target.Fire = Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) > AccuracyShooting;
+        Ship.LookAt(Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed));
     }
 
     public void OnDrawGizmosSelected()

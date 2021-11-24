@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public sealed class PlayerShip : ShipController
 {
     public bool AutoBrake = true;
 
-    PlayerMark Mark
+    private PlayerMark Mark
     {
         get
         {
@@ -16,8 +18,18 @@ public sealed class PlayerShip : ShipController
 
     PlayerMark __mark__;
 
+    private Targeting.TargetDirection target;
+    
+    public void Start()
+    {
+        target = new Targeting.TargetDirection();
+    }
+
     public void Update()
     {
+        target.Fire = Input.GetKey(KeyCode.Space);
+        Ship.Target = target;
+        
         bool autoBrake = AutoBrake;
 
         if (Input.GetKey(KeyCode.A))
@@ -27,12 +39,22 @@ public sealed class PlayerShip : ShipController
 
         Ship.EnginePower = Mathf.Clamp(Ship.EnginePower + (Input.mouseScrollDelta.y / 4f), 0, 5);
 
+        target.Dir = transform.forward;
         if (Input.GetMouseButton(0))
         {
-            var rotation = Mark.Cameroid.rotation;
-            transform.Rotate(Ship.RotationSpeed * Time.deltaTime * PlayerMark.MouseRotation, Space.Self);
-            Mark.Cameroid.rotation = rotation;
+            if (Input.GetMouseButton(1))
+            {
+                target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
+                             GameCore.MainCamera.transform.position;
+            }
+            else
+            {
+                var rotation = Mark.Cameroid.rotation;
+                transform.Rotate(Ship.RotationSpeed * Time.deltaTime * PlayerMark.MouseRotation, Space.Self);
+                Mark.Cameroid.rotation = rotation;
+            }
         }
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             Ship.ExtraForward();
@@ -55,15 +77,12 @@ public sealed class PlayerShip : ShipController
         if (Input.GetKeyDown(KeyCode.Tab))
             AutoBrake = !AutoBrake;
 
-//        if (Input.GetKey(KeyCode.Z))
-  //          Ship.Brake();
         if (Input.GetKey(KeyCode.Alpha1))
             Ship.LookAt(RB.position + RB.velocity);
         if (Input.GetKey(KeyCode.Alpha2))
             Ship.LookAt(RB.position - RB.velocity);
         if (Input.GetKey(KeyCode.Alpha3))
             Ship.LookAt(Vector3.zero);
-        Ship.Fire = Input.GetKey(KeyCode.Space);
     }
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)

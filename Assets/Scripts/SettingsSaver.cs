@@ -8,11 +8,22 @@ public static class SettingsSaver
         public readonly string name;
         public abstract void Save(TextWriter to);
         public abstract void Read(TextReader from);
+
+        protected Property(string Name)
+        {
+            name = Name;
+            All.Add(this);
+        }
     }
 
     public abstract class Property<T> : Property where T : struct
     {
         public T Value { get; set; }
+
+        protected Property(string Name,T val) : base(Name)
+        {
+            Value = val;
+        }
     }
 
     public sealed class FloatSaver : Property<float>
@@ -26,9 +37,13 @@ public static class SettingsSaver
         {
             throw new System.NotImplementedException();
         }
+
+        public FloatSaver(string Name, float val) : base(Name, val)
+        {
+        }
     }
 
-    static string Path => $"{Directory.GetCurrentDirectory()}\\.settings";
+    private static string Path => $"{Directory.GetCurrentDirectory()}\\.settings";
 
     public static void Save()
     {

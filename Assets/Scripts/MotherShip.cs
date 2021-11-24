@@ -9,23 +9,22 @@ public sealed class MotherShip : Ship
         public ShipData ship;
     }
 
-    [SerializeField] Transform[] spawners;
+    [SerializeField] private Transform[] spawners;
 
-    [SerializeField] Data[] all;
+    [SerializeField] private Data[] all;
 
-    [SerializeField] int MaxAlive;
+    [SerializeField] private int MaxAlive;
 
-    Ship[] alive;
+    private Ship[] alive;
 
     public void FixedUpdate()
     {
-        if (alive == null)
-            alive = new Ship[MaxAlive];
+        alive ??= new Ship[MaxAlive];
         if (all != null)
         {
             foreach (var spawner in spawners)
             {
-                for (int i = 0; i < MaxAlive; i++)
+                for (var i = 0; i < MaxAlive; i++)
                     if (!alive[i])
                         foreach (var q in all)
                             if (q.count != 0)
@@ -39,7 +38,7 @@ public sealed class MotherShip : Ship
                                     ship.transform.LookAt(point);
                                     alive[i] = ship;
                                     Spawner.CreateFrame(ship, q.ship);
-                                    ship.ImmuneUntil = Time.time + Spawner.time;
+                                    ship.ImmuneUntil = Time.time + Utils.StartTime;
                                     goto End;//because i cant use "return" or "break"
                                 }
                 End:;
@@ -47,7 +46,7 @@ public sealed class MotherShip : Ship
         }
     }
 
-    public override void DrawGizmosSelected()
+    protected override void DrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         foreach (var q in spawners)

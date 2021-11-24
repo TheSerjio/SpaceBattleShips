@@ -2,22 +2,6 @@ using UnityEngine;
 
 public abstract class ShipWeapon : MonoBehaviour
 {
-    public IFireControl Parent
-    {
-        get
-        {
-            if (ship == null)
-                ship = GetComponentInParent<Ship>();
-            return ship;
-        }
-        set
-        {
-            ship = value;
-        }
-    }
-
-    private IFireControl ship;
-
     public abstract float AntiSpeed { get; }
 
     public abstract bool IsOutOfRange(float distance);
@@ -25,6 +9,18 @@ public abstract class ShipWeapon : MonoBehaviour
     public abstract float MaxDPS();
 
     public abstract float MaxFireDist { get; }
+
+    public Ship Parent
+    {
+        get
+        {
+            if (!_parent_)
+                _parent_ = GetComponentInParent<Ship>();
+            return _parent_;
+        }
+    }
+
+    private Ship _parent_;
 }
 
 public abstract class ShipWeaponWithCoolDown : ShipWeapon
@@ -47,9 +43,9 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
     {
         if (CoolDown > 0)
             CoolDown -= Time.deltaTime;
-        else if (Parent.Fire)
+        else if (Parent.Target.Fire)
         {
-            if (Parent.Parent.TakeEnergy(EnergyPerShot))
+            if (Parent.TakeEnergy(EnergyPerShot))
             {
                 CoolDown += ReloadTime;
                 Shoot();
@@ -60,10 +56,10 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
         OnUpdate();
     }
 
-    public abstract void Shoot();
+    protected abstract void Shoot();
 
-    public virtual void OnUpdate() { }
-    public virtual void OnStart() { }
+    protected virtual void OnUpdate() { }
+    protected virtual void OnStart() { }
 
     public sealed override float MaxDPS() => Damage / ReloadTime;
 }

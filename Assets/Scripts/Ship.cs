@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
+public class Ship : BaseEntity,System.IComparable<Ship>
 {
-    public struct Warning
+    public readonly struct Warning
     {
-        public bool showText;
-        public float shakePower;
+        public readonly bool showText;
+        public readonly float shakePower;
 
         public Warning(bool text, float power)
         {
@@ -20,11 +20,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         Laser
     }
 
-    bool IFireControl.Fire { get => Fire; }
-    Ship IFireControl.Parent { get => this; }
-
     private ShipController __brain__;
-    private ShipController Brain
+
+    public ShipController Brain
     {
         get
         {
@@ -35,15 +33,9 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
                         if (q.isActiveAndEnabled)
                             __brain__ = q;
             }
-            else if (!__brain__.enabled)
-                __brain__ = null;
-
             return __brain__;
         }
-        set
-        {
-            __brain__ = value;
-        }
+        set => __brain__ = value;
     }
 
     public bool UseCheats
@@ -76,19 +68,22 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
             return false;
     }
 
+    public Targeting Target = new Targeting();
+
     internal float ImmuneUntil;
-    [Tooltip("Degrees per second")] [SerializeField] float rotationSpeed;
+    [Tooltip("Degrees per second")] [SerializeField]
+    private float rotationSpeed;
     public float RotationSpeed => rotationSpeed;
     public float RelativeHealth => Health / MaxHealth;
     public float RelativeEnergy => Energy / MaxEnergy;
-    [SerializeField] float speed;
-    [SerializeField] float MaxHealth;
-    public float Health { get; private set; }
-    [SerializeField] ShipTrail[] trails;
-    [SerializeField] float EngineConsumption;
+    [SerializeField] private float speed;
+    [SerializeField] private float MaxHealth;
+    private float Health { get; set; }
+    [SerializeField] private ShipTrail[] trails;
+    [SerializeField] private float EngineConsumption;
     public float EngineCons => EngineConsumption;
-    [SerializeField] float BrakeConsumption;
-    [SerializeField] float BrakePower;
+    [SerializeField] private float BrakeConsumption;
+    [SerializeField] private float BrakePower;
     /// <summary>
     /// Mutable
     /// </summary>
@@ -96,22 +91,25 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     /// <summary>
     /// Serializable
     /// </summary>
-    [SerializeField] float MaxEnergy;
-    public float Energy { get; private set; }
-    [Tooltip("Per second")] [SerializeField] float EnergyRegeneration;
+    [SerializeField] private float MaxEnergy;
+
+    private float Energy { get; set; }
+    [Tooltip("Per second")] [SerializeField]
+    private float EnergyRegeneration;
     private float EngineQ;
-    [SerializeField] MeshRenderer MeshForDamage;
+    [SerializeField] private MeshRenderer MeshForDamage;
     public TargetFrame frame;
     public Shield Shield { get; private set; }
-    public bool Fire { get; set; }
     public float size;
     public float ExplosionPower;
     public float ExplosionSize;
-    private bool _exploded = false;
-    [SerializeField] float NoEnergyCooldown;
-    float EnergyCD;
+    private bool _exploded;
+    [SerializeField] private float NoEnergyCooldown;
+    private float EnergyCD;
     public ShipWeapon mainWeapon;
     public bool PlayerMarked { get; set; }
+    public Transform[] Formation;
+    public Ship[] Teammates { get; private set; }
 
     public float GameCoreCachedValue { get; set; }
 
@@ -136,8 +134,8 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     {
         Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
         EngineQ = Mathf.MoveTowards(EngineQ, 0, EngineQ * Time.deltaTime);
-        for (int i = 0; i < trails.Length; i++)
-            trails[i].SetTrailLent(EngineQ);
+        foreach (var t in trails)
+            t.SetTrailLent(EngineQ);
         if (EnergyCD > 0)
             EnergyCD -= Time.deltaTime;
     }
@@ -146,7 +144,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     {
         if (_exploded)
             return;
-         if (Time.time < ImmuneUntil)
+        if (Time.time < ImmuneUntil)
             return;
 
         void Do(Vector3 world)
@@ -161,7 +159,7 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
             Shield.TakeDamage(ref dmg);
 
         Health -= dmg;
-        MeshForDamage.material.SetFloat("Damage", 1 - (Health / MaxHealth));
+        MeshForDamage.material.SetFloat(Utils.ShaderID(ShaderName.Damage), 1 - (Health / MaxHealth));
         if (Health <= 0)
         {
             if (TryGetComponent<PlayerMark>(out var mark))
@@ -174,9 +172,8 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         }
 
         if (frame)
-            if (from is Ship s)
-                if (s.PlayerMarked)
-                    frame.OnHit();
+            if (from is Ship {PlayerMarked: true})
+                frame.OnHit();
     }
 
     public void Forward()
@@ -199,14 +196,14 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     public void Brake(bool backWard)
     {
         var target = backWard ? -transform.forward : Vector3.zero;
-        Vector3 next = Vector3.MoveTowards(RB.velocity, target, speed * BrakePower * Time.deltaTime);
+        var next = Vector3.MoveTowards(RB.velocity, target, speed * BrakePower * Time.deltaTime);
         if (next == target)
         {
             RB.velocity = next;
         }
         else
         {
-            float e = BrakeConsumption * Time.deltaTime;
+            var e = BrakeConsumption * Time.deltaTime;
             if (TakeEnergy(e))
             {
                 RB.velocity = next;
@@ -219,25 +216,15 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
     }
 
-    /*[System.Obsolete]
-    Transform CreateEye(string q)
-    {
-        var obj = new GameObject(q).transform;
-        obj.parent = transform;
-        obj.localPosition = Vector3.zero;
-        obj.localEulerAngles = Vector3.zero;
-        obj.localScale = Vector3.one;
-        return obj;
-    }*/
-
     protected sealed override void OnAwake()
     {
         EnginePower = 1;
         Energy = MaxEnergy;
         Health = MaxHealth;
-        ImmuneUntil = Time.time + Spawner.time;
+        ImmuneUntil = Time.time + Utils.StartTime;
         Shield = GetComponent<Shield>();
         MeshForDamage.material.SetFloat("E_Skin", Random.value);
+        Teammates = new Ship[Formation.Length];
     }
 
     public void OnDrawGizmos()
@@ -253,10 +240,14 @@ public class Ship : BaseEntity,IFireControl,System.IComparable<Ship>
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, size / 2f);
+        Gizmos.color = Color.white;
+        if (Formation != null)
+            foreach (var q in Formation)
+                Gizmos.DrawSphere(q.position, 1);
         DrawGizmosSelected();
     }
 
-    public virtual void DrawGizmosSelected() { }
+    protected virtual void DrawGizmosSelected() { }
 
     /// <returns>from -1 to 1</returns>
     public float LookAt(Vector3 worldPoint)

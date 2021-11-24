@@ -6,8 +6,6 @@ public sealed class Spawner : MonoBehaviour
     public Team team;
     public MotherShip.Data[] all;
 
-    public const float time = 5;
-
     public void Start()
     {
         StartCoroutine(Summon());
@@ -33,8 +31,7 @@ public sealed class Spawner : MonoBehaviour
             for (ushort ii = 0; ii < g.count; ii++)
             {
                 var q = Instantiate(g.ship.Prefab);
-                q.transform.position = transform.position + (D * Random.onUnitSphere);
-                q.transform.rotation = Random.rotationUniform;
+                q.transform.SetPositionAndRotation(transform.position + (D * Random.onUnitSphere), Random.rotationUniform);
                 var ship = q.GetComponent<Ship>();
                 D += ship.size;
                 ship.team = team;

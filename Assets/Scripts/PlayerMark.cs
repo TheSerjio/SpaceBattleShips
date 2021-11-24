@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerMark : SINGLETON<PlayerMark>
 {
     private Ship Ship;
-    public Transform Cameroid { get; set; }
+    public Transform Cameroid { get; private set; }
 
-    const float SlowCamera = 180;
-    const float FastCamera = SlowCamera * 3;
+    private const float SlowCamera = 180;
+    private const float FastCamera = SlowCamera * 3;
 
 
     public static Vector2 MouseRotation
@@ -31,9 +31,8 @@ public class PlayerMark : SINGLETON<PlayerMark>
                     q = pfc.transform;
 
             GameCore.MainCamera.gameObject.SetActive(false);
-            var cam = Instantiate(DataBase.Get().CameraPrefab);
+            var cam = Instantiate(DataBase.Get().CameraPrefab, q);
             GameCore.MainCamera = cam.GetComponent<Camera>();
-            cam.transform.SetParent(q);
             cam.transform.localPosition = Vector3.zero;
             cam.transform.localEulerAngles = Vector3.zero;
             cam.transform.localScale = Vector3.one;
@@ -44,10 +43,9 @@ public class PlayerMark : SINGLETON<PlayerMark>
         foreach(var q in Ship.GetComponentsInChildren<ShipLineTrail>())
         {
             q.gameObject.SetActive(false);
-            var trail = Instantiate(DataBase.Get().BetterTrailPrefab);
-            trail.transform.parent = Ship.transform;
+            var trail = Instantiate(DataBase.Get().BetterTrailPrefab,Ship.transform);
             trail.transform.localPosition = q.transform.localPosition;
-            trail.transform.localScale = Vector3.one * q.Line.startWidth * 4;
+            trail.transform.localScale = 4 * q.Line.startWidth * Vector3.one;
             trail.AddComponent<ShipParticleTrail>();
         }
         Ship.FindTrails();
@@ -85,7 +83,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
             else
             {
                 GetComponent<ShipController>().enabled = false;
-                gameObject.AddComponent<PlayerShip>();
+                Ship.Brain = gameObject.AddComponent<PlayerShip>();
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -102,7 +100,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         {
             var RB = Ship.RB;
             var ui = GameUI.Self;
-            float q = Mathf.Sin(Time.time * 20) / 2 + 0.5f;
+            var q = Mathf.Sin(Time.time * 20) / 2 + 0.5f;
             if (Ship.Shield)
             {
                 ui.Shields.localScale = new Vector3(Ship.Shield.Relative, 1, 1);

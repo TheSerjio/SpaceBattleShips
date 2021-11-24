@@ -253,7 +253,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1886820026795636259, guid: e6449c5eafdead945b3eb575986e2f04, type: 3}
+  - {fileID: 2100000, guid: ba845a90ed96837478721fbe6e26ce0f, type: 2}
   - {fileID: 4036165759671385969, guid: e6449c5eafdead945b3eb575986e2f04, type: 3}
   - {fileID: -3522955778539423533, guid: e6449c5eafdead945b3eb575986e2f04, type: 3}
   - {fileID: -4660651839558579860, guid: e6449c5eafdead945b3eb575986e2f04, type: 3}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 2058199985271724011}
   - component: {fileID: 4094231551408845624}
   - component: {fileID: 141515290426716345}
-  - component: {fileID: 244889481726858894}
+  - component: {fileID: 1687304218858846276}
   m_Layer: 0
   m_Name: P_WarShip
   m_TagString: Untagged
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5242e309e6863f4a90676a1c41a0951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 1
+  team: 5
   rotationSpeed: 10
   speed: 5
   MaxHealth: 1000
@@ -534,6 +534,7 @@ MonoBehaviour:
   ExplosionSize: 12
   NoEnergyCooldown: 5
   mainWeapon: {fileID: 8587561453027499572}
+  Formation: []
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +551,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: 7999770157014059747}
   MaxShield: 1000
   ShieldRegeneration: 10
---- !u!114 &244889481726858894
+--- !u!114 &1687304218858846276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -562,9 +563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  TargetFinding:
+    Distance: 0
+    Size: 0
+    InFrontOfMe: 0
+    SomeRandom: 0
   MinOptimalDistance: 1000
-  MaxOptimalDistance: 1500
+  MaxOptimalDistance: 1111
   AccuracyShooting: 0.99
 --- !u!1 &2058199985504403819
 GameObject:

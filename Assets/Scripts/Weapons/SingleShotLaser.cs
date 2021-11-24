@@ -15,28 +15,28 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
 
     public float playerLaserWidth;
 
-    public override void OnStart()
+    protected override void OnStart()
     {
         lr = GetComponent<LineRenderer>();
         lr.useWorldSpace = true;
         q = lr.widthMultiplier;
     }
 
-    public override void Shoot()
+    protected override void Shoot()
     {
         lr.widthMultiplier = q;
         lr.positionCount = 2;
         bool kek = true;
         lr.SetPosition(0, transform.position);
-        foreach (var hit in Physics.SphereCastAll(transform.position, Parent.Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
+        foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, transform.forward))
         {
             var obj = hit.collider.gameObject;
             var tar = obj.GetComponentInParent<BaseEntity>();
             if (tar)
             {
-                if (tar.team != Parent.Parent.team)
+                if (tar.team != Parent.team)
                 {
-                    tar.OnDamaged(Damage, Parent.Parent);
+                    tar.OnDamaged(Damage, Parent);
                     lr.SetPosition(1, hit.point);
                     kek = false;
                     break;
@@ -47,7 +47,7 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
             lr.SetPosition(1, transform.position + (transform.forward * ushort.MaxValue));
     }
 
-    public override void OnUpdate()
+    protected override void OnUpdate()
     {
         lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime / 4f);
     }

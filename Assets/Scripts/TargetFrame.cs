@@ -19,11 +19,12 @@ public class TargetFrame : MonoBehaviour
     [SerializeField] RectTransform probablyPosition;
     [SerializeField] Image probabPos;
 
-    const float maxTextDist = 200;
+    private const float maxTextDist = 200;
 
-    private void SetScale(RectTransform what, float size)
+    private static void SetScale(RectTransform what, float size)
     {
-        what.sizeDelta = new Plane(GameCore.MainCamera.transform.forward, GameCore.MainCamera.transform.position).GetDistanceToPoint(what.position) * size * Vector2.one;
+        var t = GameCore.MainCamera.transform;
+        what.sizeDelta = new Plane(t.forward, t.position).GetDistanceToPoint(what.position) * size * Vector2.one;
     }
 
     public void Update()

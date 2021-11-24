@@ -1,7 +1,27 @@
+using System.Linq;
 using UnityEngine;
 
 public static class Utils
 {
+
+    public const float StartTime = 5;
+    
+    public static T[] EnumValues<T>()
+    {
+        return System.Enum.GetValues(typeof(T)).Cast<T>().ToArray();
+    }
+
+    private static readonly int[] ids = new int[256];
+
+    static Utils()
+    {
+        var all = EnumValues<ShaderName>();
+        for (var i = 0; i < all.Length; i++)
+            ids[i] = Shader.PropertyToID(all[i].ToString());
+    }
+
+    public static int ShaderID(ShaderName name) => ids[(byte) name];
+    
     public static T Choice<T>(T[] ts)
     {
         if (ts == null)
@@ -40,7 +60,7 @@ public static class Utils
     /// <param name="power">Power of engine, 0-10</param>
     public static float EnergyConsumption(float power)
     {
-        return Mathf.Pow(power, 1.5f);
+        return Mathf.Sqrt(power) * power;
     }
 
     public static float ToSadUnits(Rigidbody rb) => ToSadUnits(rb.velocity.magnitude);

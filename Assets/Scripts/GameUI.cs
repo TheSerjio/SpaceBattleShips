@@ -5,6 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Canvas))]
 public sealed class GameUI : SINGLETON<GameUI>
 {
+    [SerializeField] private GameObject Stats;
     public Slider Engines;
     public RectTransform Shields;
     public Image I_Shields;
@@ -21,6 +22,12 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Color C_Shield;
     public Color C_Energy;
     public Color C_Red;
+
+    public void ShowHide(bool showStats, bool showEngineSlider)
+    {
+        Stats.SetActive(showStats);
+        Engines.gameObject.SetActive(showEngineSlider);
+    }
 
     protected override void OnAwake()
     {

@@ -4,18 +4,22 @@ public enum Team : byte
     Attackers,
     Derelict,
     Pirates,
+
     /// <summary>
     /// Entity cant have this team
     /// </summary>
     SYSTEM,
     Player
 }
-
-public enum ExplosionType : byte
-{
-    Large, Small
-}
 public enum Poolable : byte
 {
-    FlatProjectile, ParticleEffectProjectile, SmallExplosion, ShipExplosion
+    FlatProjectile,
+    ParticleEffectProjectile,
+    SmallExplosion,
+    ShipExplosion
+}
+public enum ShaderName : byte
+{
+    Alpha,
+    Damage,
 }

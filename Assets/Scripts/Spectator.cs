@@ -26,8 +26,16 @@ public sealed class Spectator : SINGLETON<Spectator>
         if (Input.GetMouseButtonDown(0))
             if (Input.GetKey(KeyCode.Space))
             {
+                var mode = new Locating
+                {
+                    Distance = Locating.Sorting.Any,
+                    InFrontOfMe = true,
+                    Size = Locating.Sorting.Any,
+                    SomeRandom = false
+                };
                 var cam = GetComponent<Camera>();
-                var tar = GameCore.Self.FindTeamMateShipFromCamera(team, transform.position, cam.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) - transform.position);
+                transform.LookAt(cam.ScreenToWorldPoint(Input.mousePosition + Vector3.forward));
+                var tar = GameCore.Self.FindTargetShip(team, true, mode, transform);
                 if (tar)
                     if (!PlayerMark.Self)
                         tar.gameObject.AddComponent<PlayerMark>();

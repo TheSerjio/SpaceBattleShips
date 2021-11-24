@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public sealed class DataBase : ScriptableObject
 {
@@ -73,13 +75,13 @@ public sealed class DataBase : ScriptableObject
             {
                 var qw = qq;
                 qw.parent = q;
-                all.Add(qq);
+                all.Add(qw);
             }
         }
 
         foreach (var q in all)
         {
-            string txt = $"{q.parent.name}:{q.text}";
+            var txt = $"{q.parent.name}:{q.text}";
             switch (q.level)
             {
                 case ValidableScriptableObject.Level.Message:
@@ -91,6 +93,8 @@ public sealed class DataBase : ScriptableObject
                 case ValidableScriptableObject.Level.Error:
                     Debug.LogError(txt);
                     break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

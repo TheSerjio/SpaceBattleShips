@@ -45,13 +45,13 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
 
     public override float MaxFireDist => bulletSpeed * bulletLifeTime;
 
-    public override void Shoot()
+    protected override void Shoot()
     {
         var q = GameCore.Self.GetFromPool(Converted);
         q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         var p = q.GetComponent<Projectile>();
-        p.Team = Parent.Parent.team;
-        p.Parent = Parent.Parent;
+        p.Team = Parent.team;
+        p.Parent = Parent;
         p.LifeTime = bulletLifeTime;
         p.Damage =  Damage;
         p.Explosion = ProjectileExplosionPower;
@@ -75,9 +75,9 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
             }
         }
         var capsule = q.GetComponent<CapsuleCollider>();
-        capsule.height = Parent.Parent.UseCheats ? ProjecileLentgh * PlayerCheat : ProjecileLentgh;
-        capsule.radius = (Parent.Parent.UseCheats ? ProjectileSize * PlayerCheat : ProjectileSize) / 2f;
-        p.Velocity = Parent.Parent.RB.velocity + ((transform.forward + (Random.insideUnitSphere * Inaccuracy)) * bulletSpeed);
+        capsule.height = Parent.UseCheats ? ProjecileLentgh * PlayerCheat : ProjecileLentgh;
+        capsule.radius = (Parent.UseCheats ? ProjectileSize * PlayerCheat : ProjectileSize) / 2f;
+        p.Velocity = Parent.RB.velocity + ((transform.forward + (Random.insideUnitSphere * Inaccuracy)) * bulletSpeed);
         var trail = q.GetComponent<TrailRenderer>();
         if (trail)
             trail.AddPosition(transform.position);

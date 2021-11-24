@@ -49,7 +49,7 @@ public abstract class COLLECTOR<T> : COLLECTOR where T : BaseEntity
         }
     }
 
-    public override sealed void Add(BaseEntity it)
+    public sealed override void Add(BaseEntity it)
     {
         if (it is T t)
             All.Add(t);
@@ -82,7 +82,7 @@ public abstract class COLLECTOR<T> : COLLECTOR where T : BaseEntity
     }
 
     /// <param name="with">never null</param>
-    public abstract void ForEach(T with);
+    protected abstract void ForEach(T with);
 }
 
 public abstract class ValidableScriptableObject : ScriptableObject

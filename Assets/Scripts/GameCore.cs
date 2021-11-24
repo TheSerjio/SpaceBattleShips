@@ -4,8 +4,8 @@ using UnityEngine;
 public class GameCore : SINGLETON<GameCore>
 {//Someone can say that singletons are bad, and this class is too large, but...
 
-    private System.Collections.Generic.Dictionary<Poolable, Transform> Types = new System.Collections.Generic.Dictionary<Poolable, Transform>();
-    private System.Collections.Generic.List<COLLECTOR> collectors = new System.Collections.Generic.List<COLLECTOR>(8);
+    private readonly System.Collections.Generic.Dictionary<Poolable, Transform> Types = new System.Collections.Generic.Dictionary<Poolable, Transform>();
+    private readonly System.Collections.Generic.List<COLLECTOR> collectors = new System.Collections.Generic.List<COLLECTOR>(8);
     private System.Collections.Generic.List<Ship> _all_;
     private System.Collections.Generic.List<Ship> All
     {
@@ -21,7 +21,7 @@ public class GameCore : SINGLETON<GameCore>
 
     private void RemoveNull()
     {
-        bool yes = true;
+        var yes = true;
         while (yes)
         {
             yes = false;
@@ -46,7 +46,7 @@ public class GameCore : SINGLETON<GameCore>
         //StartCoroutine(Initialize());
     }
 
-    private System.Collections.IEnumerator Initialize()
+    /*private System.Collections.IEnumerator Initialize()
     {
         Time.timeScale = 0;
         foreach (var q in System.Enum.GetValues(typeof(Poolable)))
@@ -61,11 +61,11 @@ public class GameCore : SINGLETON<GameCore>
         }
         Debug.LogWarning("Finished!");
         Time.timeScale = 1;
-    }
+    }*/
 
     public static void Add(BaseEntity it)
     {
-        GameCore me = Self;
+        var me = Self;
         if (!me)
             me = FindObjectOfType<GameCore>();
         if (!me)
@@ -73,7 +73,7 @@ public class GameCore : SINGLETON<GameCore>
         me.RemoveNull();
         if (it is Ship s)
             me.All.Add(s);
-        for (int i = 0; i < me.collectors.Count; i++)
+        for (var i = 0; i < me.collectors.Count; i++)
             me.collectors[i].Add(it);
     }
 
@@ -120,42 +120,14 @@ public class GameCore : SINGLETON<GameCore>
         GameUI.Self.ShipCount.text = s;
     }
 
-    public Ship FindTeamMateShipFromCamera(Team team, Vector3 pos, Vector3 dir)
+    public Ship FindTargetShip(Team team, bool sameTeam, Locating mode, Transform from)
     {
         RemoveNull();
         foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Dot(dir, (pos - q.transform.position).normalized);
+            q.GameCoreCachedValue = mode.Get(from, q);
         All.Sort();
         foreach (var ship in All)
-            if (ship.team == team)
-                return ship;
-        return null;
-    }
-
-    public Ship FindTargetShip(Team team, Vector3 from)
-    {
-        RemoveNull();
-        foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, from) * Random.value;
-        All.Sort();
-        return FindTargetShip(team);
-    }
-
-    public Ship FindTargetShip(Team team, Transform from)
-    {
-        RemoveNull();
-        var pos = from.position;
-        var forward = from.forward;
-        foreach (var q in All)
-            q.GameCoreCachedValue = Vector3.Distance(q.transform.position, pos) * (Vector3.Dot(forward, (q.transform.position - pos).normalized) + 1) * Random.value;
-        All.Sort();
-        return FindTargetShip(team);
-    }
-
-    private Ship FindTargetShip(Team team)
-    {
-        foreach (var ship in All)
-            if (ship.team != team)
+            if ((ship.team == team) == sameTeam)
                 if (ship.team != Team.Derelict)
                     return ship;
         return null;
