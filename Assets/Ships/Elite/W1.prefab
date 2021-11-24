@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 4
+  Damage: 2.4
   ReloadTime: 0.1
   EnergyPerShot: 1.4
   bulletLifeTime: 3

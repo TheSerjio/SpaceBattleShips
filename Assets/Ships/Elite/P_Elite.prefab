@@ -564,7 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  rotationSpeed: 90
+  rotationSpeed: 45
   speed: 4
   MaxHealth: 160
   trails:
