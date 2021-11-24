@@ -37,7 +37,7 @@ public sealed class PlayerShip : ShipController
         if (Input.GetKey(KeyCode.D))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.back, Space.Self);
 
-        Ship.EnginePower = Mathf.Clamp(Ship.EnginePower + (Input.mouseScrollDelta.y / 4f), 0, 5);
+        Ship.EnginePower = Mathf.Clamp(Ship.EnginePower + (Input.mouseScrollDelta.y / 4f), 0.5f, 5);
 
         target.Dir = transform.forward;
         if (Input.GetKey(KeyCode.Space))

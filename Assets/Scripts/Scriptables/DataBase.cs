@@ -31,6 +31,8 @@ public sealed class DataBase : ScriptableObject
 
     public ValidableScriptableObject[] EveryThing;
 
+    public AnimationCurve EngineSizeFromPower;
+
 #if UNITY_EDITOR
     [ContextMenu("Find all")]
     public void Execute()
