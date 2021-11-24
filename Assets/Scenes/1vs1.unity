@@ -268,14 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   all:
-  - count: 10
-    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
-  - count: 5
-    ship: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
-  - count: 3
-    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - count: 1
-    ship: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
 --- !u!4 &1306716663
 Transform:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public sealed class PlayerShip : ShipController
 
     public void Update()
     {
-        target.Fire = Input.GetKey(KeyCode.Space);
+        target.Fire = Input.GetMouseButton(0);
         Ship.Target = target;
         
         bool autoBrake = AutoBrake;
@@ -40,7 +40,7 @@ public sealed class PlayerShip : ShipController
         Ship.EnginePower = Mathf.Clamp(Ship.EnginePower + (Input.mouseScrollDelta.y / 4f), 0, 5);
 
         target.Dir = transform.forward;
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (Input.GetMouseButton(1))
             {

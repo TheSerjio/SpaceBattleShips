@@ -23,9 +23,10 @@ public class Targeting
     {
         public Rigidbody RB;
 
-        public override void OperateAutoWeapon(Ship parent,AutoWeapon what)
+        public override void OperateAutoWeapon(Ship parent, AutoWeapon what)
         {
-            what.body.RotateTowards(Utils.ShootTo(parent.RB, RB, what.weapon.AntiSpeed), what.rotationSpeed, false);
+            if (RB)
+                what.body.RotateTowards(Utils.ShootTo(parent.RB, RB, what.weapon.AntiSpeed), what.rotationSpeed, false);
         }
 
         public TargetRigidBody(Rigidbody rb)
