@@ -9,8 +9,6 @@ public class LongLaserWeapon : ShipWeapon
 
     public override float AntiSpeed => 0;
 
-    public override float MaxFireDist => Accuracy;
-
     public float damagePerSecond;
 
     public float laserWidth;
@@ -46,6 +44,7 @@ public class LongLaserWeapon : ShipWeapon
                 var randy = transform.forward + (Random.insideUnitSphere / Accuracy);
                 var kek = true;
                 lr.SetPosition(0,Vector3.zero);
+                
                 foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, randy))
                 {
                     var obj = hit.collider.gameObject;
@@ -53,7 +52,7 @@ public class LongLaserWeapon : ShipWeapon
                     if (tar && tar.team != Parent.team)
                     {
                         tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
-                        lr.SetPosition(1, transform.InverseTransformPoint(hit.point));
+                        lr.SetPosition(1, Vector3.forward * Vector3.Distance(hit.point, transform.position));
                         kek = false;
                         break;
                     }
@@ -88,5 +87,6 @@ public class LongLaserWeapon : ShipWeapon
 
     public override bool IsOutOfRange(float distance) => false;
 
-    public override float MaxDPS() => damagePerSecond;
+    public override float S_MaxDPS() => damagePerSecond;
+    public override float S_EnergyConsumption => EnergyPerSecond;
 }

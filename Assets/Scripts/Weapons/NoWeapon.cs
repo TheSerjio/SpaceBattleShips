@@ -1,14 +1,19 @@
+using UnityEngine;
+
 public sealed class NoWeapon : ShipWeapon
 {
-    public override float AntiSpeed => 0;
-    public override float MaxFireDist => 0;
+    [Range(0, 1)] [SerializeField] private float A;
+    [SerializeField] private float Range;
+
+    public override float AntiSpeed => A;
+    public override float S_EnergyConsumption => 0;
 
     public override bool IsOutOfRange(float distance)
     {
-        return true;
+        return distance > Range;
     }
 
-    public override float MaxDPS()
+    public override float S_MaxDPS()
     {
         return 0;
     }

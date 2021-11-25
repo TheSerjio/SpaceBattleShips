@@ -42,7 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - BrokenPower: 10
-    - BrokenTextureScale: 6
+    - BrokenTextureScale: 55.34
     - Damage: 0
     - E_ColorPower: 0
     - E_Holy: 0

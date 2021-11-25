@@ -22,6 +22,8 @@ public abstract class ShipAIController : ShipController
 
     public Ship Target { get; set; }
 
+    public Targeting.TargetRigidBody target;
+
     public override void Warn(Vector3 moveTo, Ship.Warning how)
     {
         time = Time.time;
@@ -33,6 +35,7 @@ public abstract class ShipAIController : ShipController
     public void Start()
     {
         time = Time.time - 60;
+        target = new Targeting.TargetRigidBody(null);
         OnStart();
     }
 
@@ -42,24 +45,25 @@ public abstract class ShipAIController : ShipController
 
     public void FixedUpdate()
     {
+        Ship.Target = target;
         if (Time.time - time < Utils.StartTime)
         {
             Ship.LookAt(to);
             Ship.ExtraForward();
-            return;
         }
         else
         {
             if (!Target)
             {
                 Target = GameCore.Self.FindTargetShip(Ship.team, false, TargetFinding, transform);
-                if (Target)
-                    Ship.Target = new Targeting.TargetRigidBody(Target.RB);
-                Ship.Target.Fire = false;
+                target.Fire = false;
                 Ship.AutoBrake();
             }
             else
+            {
+                target.RB = Target.RB;
                 OnFixedUpdate();
+            }
         }
     }
 
@@ -68,4 +72,4 @@ public abstract class ShipAIController : ShipController
     /// target is nut null
     /// </summary>
     public abstract void OnFixedUpdate();
-}
+} 

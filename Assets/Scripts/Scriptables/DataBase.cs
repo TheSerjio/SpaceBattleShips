@@ -34,6 +34,9 @@ public sealed class DataBase : ScriptableObject
     public AnimationCurve EngineSizeFromPower;
 
 #if UNITY_EDITOR
+
+    [SerializeField] private TextAsset file;
+    
     [ContextMenu("Find all")]
     public void Execute()
     {
@@ -104,46 +107,109 @@ public sealed class DataBase : ScriptableObject
     [ContextMenu("ShipStats")]
     public void ShipStats()
     {
-        var stats = new string[] {"Name", "HP", "Shield", "+Shield+", "Energy", "+Energy+", "DPS"};
+        var stats = new[]
+            {"Name", "Cost", "HP", "S", "+S+", "Full_S", "E", "+E+", "Full_E", "DPS", "WEC", "Fire time", "Shift"};
         var data = new string[stats.Length, Ships.Length];
-        int x = 0;
+        var sizes = new int[stats.Length];
+        for (var x = 0; x < stats.Length; x++)
+            sizes[x] = stats[x].Length + 2;
         for (var i = 0; i < Ships.Length; i++)
         {
+            var x = 0;
+
             void Do(string q)
             {
+                sizes[x] = Mathf.Max(sizes[x], q.Length + 2);
                 data[x, i] = q;
                 x++;
             }
 
-            void DoN(float q) => Do(((long) q).ToString());
+            void DoN(float q) => Do(Mathf.RoundToInt(q).ToString());
             
-            x = 0;
             var ship = Ships[i].prefab;
 
             Do(Ships[i].Name);
+            Do(Ships[i].cost.ToString());
+
             DoN(ship.MaxHealth);
             var s = ship.GetComponent<Shield>();
             if (s)
             {
                 DoN(s.MaxShield);
                 DoN(s.ShieldRegeneration);
+                DoN(s.MaxShield / s.ShieldRegeneration);
             }
             else
             {
-                Do("-");
-                Do("-");
+                Do("X");
+                Do("X");
+                Do("X");
             }
 
             DoN(ship.MaxEnergy);
             DoN(ship.EnergyRegeneration);
-            
+            DoN(ship.MaxEnergy/ ship.EnergyRegeneration);
+
             float dps = 0;
+            float wc = 0;
+            bool plus = false;
             foreach (var weapon in ship.GetComponentsInChildren<ShipWeapon>())
-                dps += weapon.MaxDPS();
-            DoN(dps);
+            {
+                dps += weapon.S_MaxDPS();
+                wc += weapon.S_EnergyConsumption;
+                if(weapon is SimpleWeapon sw)
+                    if (sw.ProjectileExplosionPower != 0)
+                        plus = true;
+            }
+
+            if (plus)
+                Do(Mathf.RoundToInt(dps) + "+");
+            else
+                DoN(dps);
+
+            DoN(wc);
+
+            DoN(ship.MaxEnergy / (wc - ship.EnergyRegeneration));
+
+            DoN(ship.MaxEnergy / (Utils.EnergyConsumption(Ship.MaxEngine) * ship.EngineCons - ship.EnergyRegeneration));
+        }
+
+        var path = $"{System.IO.Directory.GetCurrentDirectory()}\\{UnityEditor.AssetDatabase.GetAssetPath(file)}";
+        path = path.Replace('/', '\\');
+        
+        
+        
+        var F = new System.IO.StreamWriter(path, false);
+
+        for(var x=0;x<stats.Length;x++)
+        {
+            F.Write(stats[x]);
+            F.Write(new string(' ', sizes[x] - stats[x].Length));
+        }
+        F.Write('\n');
+
+        for (var y = 0; y < Ships.Length; y++)
+        {
+            for (var x = 0; x < stats.Length; x++)
+            {
+                var q = data[x, y];
+                q += new string(' ', sizes[x] - q.Length);
+                F.Write(q);
+            }
+
+            F.Write('\n');
         }
         
-        //TODO format
+        F.WriteLine("S = Shield = Щит");
+        F.WriteLine("E = Energy = Энергия");
+        F.WriteLine("WEC = Weapon Energy Consumption = Сколько энегрии оружия тратят в секудну");
+        F.WriteLine("Fire time = За сколько секунд оружия потратят всю энергию корабля который стоит на месте. Если меньше нуля, то может стрелять бесконечно");
+        F.WriteLine("Shift = Сколько секунд можно лететь на шифте");
+
+        F.Flush();
+        F.Close();
+        F.Dispose();
+
     }
 #endif
 

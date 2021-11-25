@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  size: 2
   rotationSpeed: 30
   speed: 0
   MaxHealth: 10
@@ -220,11 +221,11 @@ MonoBehaviour:
   EnergyRegeneration: 10
   MeshForDamage: {fileID: 3481466277026033714}
   frame: {fileID: 0}
-  size: 1
   ExplosionPower: 10
   ExplosionSize: 1
   NoEnergyCooldown: 0
   mainWeapon: {fileID: 7704686149318459117}
+  Formation: []
 --- !u!135 &2747515676622489423
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16586ed256e013d46851752502678ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  A: 0.5
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +328,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1317b11cbbf58674eb496c956340014e, type: 2}
+  - {fileID: 2100000, guid: 3f23ba8a3ec0ec64ca015d5ce2500c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

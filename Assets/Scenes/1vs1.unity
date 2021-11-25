@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09064928302bc9748b6f3bde6ad4b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+  ship: {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
   team: 5
 --- !u!1 &1306716661
 GameObject:
@@ -268,13 +268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   all:
-  - count: 5
-    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
-  - count: 5
-    ship: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
-  - count: 5
-    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
-  TotalCost: 700
+  - count: 1
+    ship: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
+  TotalCost: 1
 --- !u!4 &1306716663
 Transform:
   m_ObjectHideFlags: 0

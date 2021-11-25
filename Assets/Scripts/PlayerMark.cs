@@ -94,6 +94,8 @@ public class PlayerMark : SINGLETON<PlayerMark>
             SwitchPlayer();
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (GetComponent<PlayerShip>())
+                SwitchPlayer();
             IfDie();
             Destroy(Cameroid.GetChild(0).GetChild(0).gameObject);
             Ship.PlayerMarked = false;

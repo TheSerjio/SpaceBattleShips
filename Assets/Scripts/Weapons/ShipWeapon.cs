@@ -6,9 +6,9 @@ public abstract class ShipWeapon : MonoBehaviour
 
     public abstract bool IsOutOfRange(float distance);
 
-    public abstract float MaxDPS();
+    public abstract float S_MaxDPS();
 
-    public abstract float MaxFireDist { get; }
+    public  abstract float S_EnergyConsumption { get; }
 
     public Ship Parent
     {
@@ -61,5 +61,5 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
     protected virtual void OnUpdate() { }
     protected virtual void OnStart() { }
 
-    public sealed override float MaxDPS() => Damage / ReloadTime;
+    public sealed override float S_MaxDPS() => Damage / ReloadTime;
 }

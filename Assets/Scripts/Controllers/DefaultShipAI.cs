@@ -47,7 +47,7 @@ public class DefaultShipAI : ShipAIController
         {
             Ship.Brake(false);
         }
-        Ship.Target.Fire = Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) > AccuracyShooting;
+        target.Fire = Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) > AccuracyShooting;
         Ship.LookAt(Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed));
     }
 

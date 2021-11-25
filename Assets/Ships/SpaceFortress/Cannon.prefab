@@ -144,9 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 90
   body: {fileID: 9019740523505577636}
-  target: {fileID: 0}
   weapon: {fileID: 6789131706266822063}
-  automatic: 0
   maxAngle: 0.75
 --- !u!1 &7591982150244076728
 GameObject:
@@ -191,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 6
   ReloadTime: 2
   EnergyPerShot: 10
   bulletLifeTime: 3

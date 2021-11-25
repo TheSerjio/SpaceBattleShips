@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Ship : BaseEntity,System.IComparable<Ship>
 {
+    public const float MaxEngine = 5;
+    
     public readonly struct Warning
     {
         public readonly bool showText;
@@ -100,7 +102,6 @@ public class Ship : BaseEntity,System.IComparable<Ship>
     [SerializeField] private MeshRenderer MeshForDamage;
     public TargetFrame frame;
     public Shield Shield { get; private set; }
-    public float size;
     public float ExplosionPower;
     public float ExplosionSize;
     private bool _exploded;
@@ -238,7 +239,7 @@ public class Ship : BaseEntity,System.IComparable<Ship>
 
     public void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.green;
+        Gizmos.color = new Color(0, Random.value, Random.value);
         Gizmos.DrawWireSphere(transform.position, size / 2f);
         Gizmos.color = Color.white;
         if (Formation != null)
@@ -282,8 +283,8 @@ public class Ship : BaseEntity,System.IComparable<Ship>
 
     public void ExtraForward()
     {
-        float prev = EnginePower;
-        EnginePower = 5;//5
+        var prev = EnginePower;
+        EnginePower = MaxEngine;
         Forward();
         EnginePower = prev;
     }

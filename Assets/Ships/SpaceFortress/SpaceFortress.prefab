@@ -345,22 +345,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  size: 44.444443
   rotationSpeed: 15
-  speed: 0.1
+  speed: 1
   MaxHealth: 1000
   trails: []
-  EngineConsumption: 5
-  BrakeConsumption: 5
-  BrakePower: 5
+  EngineConsumption: 1
+  BrakeConsumption: 1
+  BrakePower: 10
   MaxEnergy: 1000
-  EnergyRegeneration: 100
+  EnergyRegeneration: 40
   MeshForDamage: {fileID: 2864552740584565286}
   frame: {fileID: 0}
-  size: 34
-  ExplosionPower: 100
+  ExplosionPower: 500
   ExplosionSize: 20
-  NoEnergyCooldown: 5
+  NoEnergyCooldown: 1
   mainWeapon: {fileID: 6385380467895637082}
+  Formation: []
 --- !u!114 &3079299493328993905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,9 +374,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd610f0852ed5c94aac225f47ba89888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  MinOptimalDistance: 0
-  MaxOptimalDistance: 0
+  TargetFinding:
+    Distance: 0
+    Size: 1
+    InFrontOfMe: 1
+    SomeRandom: 0
+  MinOptimalDistance: 50
+  MaxOptimalDistance: 100
   AccuracyShooting: 0
 --- !u!114 &3477215623944422658
 MonoBehaviour:
@@ -490,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6463813544536748065, guid: 5e762f4a0460a1e4ab0549fe9f4a1452, type: 3}
       propertyPath: m_Name
-      value: Cannon (8)
+      value: CenterCannon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e762f4a0460a1e4ab0549fe9f4a1452, type: 3}

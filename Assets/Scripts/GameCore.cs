@@ -128,7 +128,7 @@ public class GameCore : SINGLETON<GameCore>
         RemoveNull();
         foreach (var q in All)
             q.GameCoreCachedValue = mode.Get(from, q);
-        All.Sort();
+        All.Sort();//TODO remove it
         foreach (var ship in All)
             if ((ship.team == team) == sameTeam)
                 if (ship.team != Team.Derelict)
@@ -141,7 +141,7 @@ public class GameCore : SINGLETON<GameCore>
         RemoveNull();
         foreach (var q in All)
             if (q.team != team)
-                q.OnDamaged(power / ((where - q.transform.position).sqrMagnitude + 1), null);
+                q.OnDamaged(q.size * power / ((where - q.transform.position).sqrMagnitude + 1), null);
     }
 
     public void Add(COLLECTOR what)

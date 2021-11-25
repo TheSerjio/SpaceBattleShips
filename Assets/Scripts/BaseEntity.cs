@@ -6,6 +6,7 @@ public abstract class BaseEntity : MonoBehaviour
 {
     public Team team;
     public Rigidbody RB { get; private set; }
+    public float size;
 
     public void Awake()
     {

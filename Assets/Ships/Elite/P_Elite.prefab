@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  size: 3
   rotationSpeed: 45
   speed: 4
   MaxHealth: 160
@@ -578,7 +579,6 @@ MonoBehaviour:
   EnergyRegeneration: 24
   MeshForDamage: {fileID: 3481466277026033714}
   frame: {fileID: 0}
-  size: 3
   ExplosionPower: 50
   ExplosionSize: 5
   NoEnergyCooldown: 3
@@ -632,7 +632,7 @@ MonoBehaviour:
     SomeRandom: 0
   MinOptimalDistance: 100
   MaxOptimalDistance: 130
-  AccuracyShooting: 0
+  AccuracyShooting: 0.8
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0

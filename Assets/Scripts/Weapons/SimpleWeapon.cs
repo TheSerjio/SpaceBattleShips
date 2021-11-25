@@ -43,7 +43,7 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
         }
     }
 
-    public override float MaxFireDist => bulletSpeed * bulletLifeTime;
+    public override float S_EnergyConsumption => EnergyPerShot / ReloadTime;
 
     protected override void Shoot()
     {

@@ -9,7 +9,7 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
 
     public override float AntiSpeed => 0;
 
-    public override float MaxFireDist => float.PositiveInfinity;
+    public override float S_EnergyConsumption => EnergyPerShot / ReloadTime;
 
     public float laserWidth;
 
