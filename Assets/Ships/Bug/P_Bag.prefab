@@ -341,20 +341,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+  size: 1.5
   rotationSpeed: 90
   speed: 4
   MaxHealth: 30
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 2058199984122287958}
-  EngineConsumption: 3
+  EngineConsumption: 2
   BrakeConsumption: 2
   BrakePower: 10
   MaxEnergy: 100
-  EnergyRegeneration: 10
+  EnergyRegeneration: 9
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
-  size: 1.5
   ExplosionPower: 12
   ExplosionSize: 2
   NoEnergyCooldown: 3
