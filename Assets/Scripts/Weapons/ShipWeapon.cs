@@ -1,7 +1,12 @@
 using UnityEngine;
 
-public abstract class ShipWeapon : MonoBehaviour
+public abstract class ShipWeapon : Script
 {
+    protected sealed override void OnAwake()
+    {
+
+    }
+
     public abstract float AntiSpeed { get; }
 
     public abstract bool IsOutOfRange(float distance);

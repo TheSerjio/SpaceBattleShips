@@ -3,7 +3,7 @@ using UnityEngine.VFX;
 
 public class Explosion : PoolableComponent
 {
-    protected float lifeLeft;
+    private float lifeLeft;
 
     public VisualEffect effect;
 
@@ -19,5 +19,10 @@ public class Explosion : PoolableComponent
         lifeLeft = 10;
         transform.rotation = Random.rotationUniform;
         effect.Reinit();
+    }
+
+    protected override void OnAwake()
+    {
+        
     }
 }

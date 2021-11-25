@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public abstract class SINGLETON<T> : MonoBehaviour where T : SINGLETON<T>
+public abstract class SINGLETON<T> : Script where T : SINGLETON<T>
 {
     public static T Self {get
         {
@@ -13,23 +13,23 @@ public abstract class SINGLETON<T> : MonoBehaviour where T : SINGLETON<T>
 
     private static T RealSelf { get; set; }
 
-    public void Awake()
+    protected sealed override void OnAwake()
     {
         if (Self)
             if (Self != this)
                 Debug.LogError($"Duplicated singleton {typeof(T).Name}! [{name}] and [{Self.name}]");
         RealSelf = (T)this;
-        OnAwake();
+        OnSingletonAwake();
     }
 
-    protected virtual void OnAwake() { }
+    protected virtual void OnSingletonAwake() { }
 }
 
-public abstract class COLLECTOR : MonoBehaviour
+public abstract class COLLECTOR : Script
 {
     public abstract void Add(BaseEntity it);
 
-    public void Awake()
+    protected sealed override void OnAwake()
     {
         GameCore.Self.Add(this);
     }
@@ -113,7 +113,7 @@ public abstract class ValidableScriptableObject : ScriptableObject
     public abstract System.Collections.Generic.IEnumerable<Warning> Validate();
 }
 
-public abstract class PoolableComponent : MonoBehaviour
+public abstract class PoolableComponent : Script
 {
     public abstract void ReInit();
 }

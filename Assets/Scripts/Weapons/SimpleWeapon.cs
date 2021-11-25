@@ -47,9 +47,8 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
 
     protected override void Shoot()
     {
-        var q = GameCore.Self.GetFromPool(Converted);
-        q.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
-        var p = q.GetComponent<Projectile>();
+        var p = GameCore.Self.GetFromPool<Projectile>(Converted);
+        p.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
         p.Team = Parent.team;
         p.Parent = Parent;
         p.LifeTime = bulletLifeTime;
@@ -57,36 +56,29 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
         p.Explosion = ProjectileExplosionPower;
         if (type == ProjectileType.Flat)
         {
-            var line = q.GetComponent<LineRenderer>();
-            if (line)
-            {
-                line.material.SetColor("MainColor", MainProjectileColor);
-                line.material.SetColor("EdgeColor", EdgeProjectileColor);
-                line.SetPositions(new Vector3[] { Vector3.back * ProjecileLentgh / 2f, Vector3.forward * ProjecileLentgh / 2f });
-                line.widthMultiplier = ProjectileSize;
-            }
+            var line = p.LR;
+            line.material.SetColor(Utils.ShaderID(ShaderName.MainColor), MainProjectileColor);
+            line.material.SetColor(Utils.ShaderID(ShaderName.EdgeColor), EdgeProjectileColor);
+            line.SetPositions(new Vector3[]
+                {Vector3.back * ProjecileLentgh / 2f, Vector3.forward * ProjecileLentgh / 2f});
+            line.widthMultiplier = ProjectileSize;
         }
         else
         {
-            var effect = q.GetComponent<UnityEngine.VFX.VisualEffect>();
+            /*var effect = q.GetComponent<UnityEngine.VFX.VisualEffect>();
             if (effect)
             {
                 //TODO Effect customization
-            }
+            }*/
         }
-        var capsule = q.GetComponent<CapsuleCollider>();
-        capsule.height = Parent.UseCheats ? ProjecileLentgh * PlayerCheat : ProjecileLentgh;
-        capsule.radius = (Parent.UseCheats ? ProjectileSize * PlayerCheat : ProjectileSize) / 2f;
-        p.Velocity = Parent.RB.velocity + ((transform.forward + (Random.insideUnitSphere * Inaccuracy)) * bulletSpeed);
-        var trail = q.GetComponent<TrailRenderer>();
-        if (trail)
-            trail.AddPosition(transform.position);
+        
+        p.Velocity = Parent.RB.velocity + (transform.forward + Random.insideUnitSphere * Inaccuracy) * bulletSpeed;
     }
 
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        float q = (ProjecileLentgh - ProjectileSize) / 2f;
+        var q = (ProjecileLentgh - ProjectileSize) / 2f;
         Gizmos.DrawWireSphere(transform.position + (transform.forward * q), ProjectileSize / 2f);
         Gizmos.DrawWireSphere(transform.position - (transform.forward * q), ProjectileSize / 2f);
         Gizmos.DrawLine(transform.position - (transform.forward * q), transform.position + (transform.forward * q));

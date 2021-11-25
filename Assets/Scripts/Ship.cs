@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ship : BaseEntity,System.IComparable<Ship>
+public class Ship : BaseEntity
 {
     public const float MaxEngine = 5;
     
@@ -112,8 +112,6 @@ public class Ship : BaseEntity,System.IComparable<Ship>
     public Transform[] Formation;
     public Ship[] Teammates { get; private set; }
 
-    public float GameCoreCachedValue { get; set; }
-
     [ContextMenu("Magic")]
     public void FindTrails()
     {
@@ -217,7 +215,7 @@ public class Ship : BaseEntity,System.IComparable<Ship>
         RB.velocity = Vector3.MoveTowards(RB.velocity, Vector3.zero, speed * Time.deltaTime);
     }
 
-    protected sealed override void OnAwake()
+    protected sealed override void OnEntityAwake()
     {
         EnginePower = 1;
         Energy = MaxEnergy;
@@ -240,7 +238,7 @@ public class Ship : BaseEntity,System.IComparable<Ship>
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0, Random.value, Random.value);
-        Gizmos.DrawWireSphere(transform.position, size / 2f);
+        Gizmos.DrawWireSphere(Ttransform.position, size / 2f);
         Gizmos.color = Color.white;
         if (Formation != null)
             foreach (var q in Formation)
@@ -292,10 +290,5 @@ public class Ship : BaseEntity,System.IComparable<Ship>
     public override void DeathDamage()
     {
         OnDamaged(MaxHealth * Time.deltaTime, null);
-    }
-
-    public int CompareTo(Ship obj)
-    {
-        return GameCoreCachedValue.CompareTo(obj.GameCoreCachedValue);
     }
 }

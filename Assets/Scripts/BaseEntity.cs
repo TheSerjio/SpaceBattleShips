@@ -2,20 +2,20 @@ using UnityEngine;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Rigidbody))]
-public abstract class BaseEntity : MonoBehaviour
+public abstract class BaseEntity : Script
 {
     public Team team;
     public Rigidbody RB { get; private set; }
     public float size;
 
-    public void Awake()
+    protected sealed override void OnAwake()
     {
         RB = GetComponent<Rigidbody>();
         GameCore.Add(this);
-        OnAwake();
+        OnEntityAwake();
     }
 
-    protected virtual void OnAwake() { }
+    protected abstract void OnEntityAwake();
 
     public abstract void OnDamaged(float dmg, BaseEntity from);
 

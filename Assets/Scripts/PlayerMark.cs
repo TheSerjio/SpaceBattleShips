@@ -80,7 +80,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         if (Self != this)
             Destroy(this);
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetKey(KeyCode.Mouse2))
         {
             var power = Vector3.Distance(transform.forward, Cameroid.forward) + 1;
             Cameroid.Rotate(FastCamera * Time.deltaTime * MouseRotation / power);

@@ -1,14 +1,14 @@
-Name            Cost   HP    S     +S+  Full_S  E     +E+  Full_E  DPS  WEC  Fire time    Shift  
-target          1      10    10    1    10      100   10   10      0    0    -10          85     
-Bug             100    30    20    3    7       100   10   10      13   10   -2147483648  4      
-Drone           10     10    X     X    X       100   4    25      10   10   17           14     
-LGBT            1200   160   120   10   12      240   24   10      96   56   8            25     
-Rocket          1000   180   100   5    20      250   22   11      144  40   14           22     
-Fighter         30     20    20    1    20      100   7    14      15   8    200          7      
-Laser Ship      300    20    30    3    10      240   15   16      14   40   10           13     
-Mother Ship     0      1000  1200  20   60      2500  100  25      0    0    -25          212    
-Battle station  1      1000  1000  10   100     1000  40   25      27+  45   200          -35    
-War Ship        10000  1000  1000  30   33      300   30   10      30   8    -13          12     
+Name            Cost   HP    S     +S+  Full_S  E     +E+  Full_E  DPS  WEC  Fire time  Shift  
+target          1      10    10    1    10      100   10   10      0    0    -10        85     
+Bug             100    30    20    3    7       100   9    11      13   10   100        7      
+Drone           10     10    X     X    X       100   4    25      10   10   17         14     
+LGBT            1200   160   120   10   12      240   24   10      96   56   8          25     
+Rocket          1000   180   100   5    20      250   22   11      144  40   14         22     
+Fighter         30     20    20    1    20      120   7    17      19   10   40         11     
+Laser Ship      300    20    30    3    10      240   15   16      14   40   10         13     
+Mother Ship     0      1000  1200  20   60      2500  100  25      0    0    -25        212    
+Battle station  1      1000  1000  10   100     1000  40   25      27+  45   200        -35    
+War Ship        10000  1000  1000  30   33      300   30   10      30   8    -13        12     
 S = Shield = Щит
 E = Energy = Энергия
 WEC = Weapon Energy Consumption = Сколько энегрии оружия тратят в секудну

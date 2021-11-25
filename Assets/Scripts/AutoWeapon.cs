@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AutoWeapon : MonoBehaviour
+public sealed class AutoWeapon : Script
 {
     public float rotationSpeed;
     public Transform body;
@@ -10,7 +10,7 @@ public class AutoWeapon : MonoBehaviour
     [Tooltip("less value -> more rotation")] [Range(-1, 1)]
     public float maxAngle;
 
-    public void Awake()
+    protected override void OnAwake()
     {
         parent = GetComponentInParent<Ship>();
     }

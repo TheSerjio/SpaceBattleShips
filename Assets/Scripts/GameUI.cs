@@ -29,7 +29,7 @@ public sealed class GameUI : SINGLETON<GameUI>
         Engines.gameObject.SetActive(showEngineSlider);
     }
 
-    protected override void OnAwake()
+    protected override void OnSingletonAwake()
     {
         canva = GetComponent<Canvas>();
     }

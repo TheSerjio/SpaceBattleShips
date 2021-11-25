@@ -40,7 +40,7 @@ public class GameCore : SINGLETON<GameCore>
         }
     }
 
-    protected override void OnAwake()
+    protected override void OnSingletonAwake()
     {
         Counts = new System.Collections.Generic.Dictionary<Team, ulong>();
         foreach (var q in System.Enum.GetValues(typeof(Team)))
@@ -126,14 +126,23 @@ public class GameCore : SINGLETON<GameCore>
     public Ship FindTargetShip(Team team, bool sameTeam, Locating mode, Transform from)
     {
         RemoveNull();
-        foreach (var q in All)
-            q.GameCoreCachedValue = mode.Get(from, q);
-        All.Sort();//TODO remove it
+        Ship q = null;
+        var min = float.MaxValue;
+        
         foreach (var ship in All)
-            if ((ship.team == team) == sameTeam)
+            if (ship.team == team == sameTeam)
                 if (ship.team != Team.Derelict)
-                    return ship;
-        return null;
+                {
+                    var f = mode.Get(from, ship);
+                    if (min > f)
+                    {
+                        min = f;
+                        q = ship;
+                    }
+
+                }
+
+        return q;
     }
 
     public void Explode(Vector3 where, float power, Team team)
@@ -163,7 +172,7 @@ public class GameCore : SINGLETON<GameCore>
         }
     }
 
-    public GameObject GetFromPool(Poolable type)
+    public T GetFromPool<T>(Poolable type) where T:PoolableComponent
     {
         var container = GetTransform(type);
         var all = container.childCount;
@@ -173,14 +182,16 @@ public class GameCore : SINGLETON<GameCore>
             if (!q.activeSelf)
             {
                 q.SetActive(true);
-                q.GetComponent<PoolableComponent>().ReInit();
-                return q;
+                var pc = q.GetComponent<T>();
+                pc.ReInit();
+                return pc;
             }
         }
-        return Create(true, type);
+
+        return Create<T>(true, type);
     }
 
-    private GameObject Create(bool active, Poolable type)
+    private T Create<T>(bool active, Poolable type) where T : PoolableComponent
     {
         GameObject prefab;
         switch (type)
@@ -202,17 +213,19 @@ public class GameCore : SINGLETON<GameCore>
                 Debug.LogError(type);
                 break;
         }
+
         var t = GetTransform(type);
 //        Debug.Log($"Created {type} - {t.childCount}");
         var obj = Instantiate(prefab, t);
-        obj.GetComponent<PoolableComponent>().ReInit();
+        var pc = obj.GetComponent<T>();
+        pc.ReInit();
         obj.SetActive(active);
-        return obj;
+        return pc;
     }
 
     public void MakeBoom(Vector3 pos, Poolable type, float size)
     {
-        var q = GetFromPool(type).transform;
+        var q = GetFromPool<Explosion>(type).transform;
         q.position = pos;
         q.localScale = Vector3.one * size;
     }

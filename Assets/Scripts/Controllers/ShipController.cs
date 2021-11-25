@@ -1,12 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Ship))]
-public abstract class ShipController : MonoBehaviour
+public abstract class ShipController : Script
 {
     public Ship Ship { get; private set; }
     protected Rigidbody RB => Ship.RB;
 
-    public void Awake()
+    protected sealed override void OnAwake()
     {
         Ship = GetComponent<Ship>();
     }

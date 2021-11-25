@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,7 +26,7 @@ public sealed class PlayerShip : ShipController
 
     public void Update()
     {
-        target.Fire = Input.GetMouseButton(0);
+        target.Fire = Input.GetKey(KeyCode.Mouse1);
         Ship.Target = target;
         
         bool autoBrake = AutoBrake;
@@ -39,20 +38,16 @@ public sealed class PlayerShip : ShipController
 
         Ship.EnginePower = Mathf.Clamp(Ship.EnginePower + (Input.mouseScrollDelta.y / 4f), 0.5f, 5);
 
-        target.Dir = transform.forward;
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             var rotation = Mark.Cameroid.rotation;
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * PlayerMark.MouseRotation, Space.Self);
             Mark.Cameroid.rotation = rotation;
         }
-        
 
-        if (Input.GetMouseButton(0))
-        {
-            target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
-                         GameCore.MainCamera.transform.position;
-        }
+        target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
+                     GameCore.MainCamera.transform.position;
+        
 
         if (Input.GetKey(KeyCode.LeftShift))
         {

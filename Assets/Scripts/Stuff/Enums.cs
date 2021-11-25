@@ -22,4 +22,6 @@ public enum ShaderName : byte
 {
     Alpha,
     Damage,
+    EdgeColor,
+    MainColor
 }

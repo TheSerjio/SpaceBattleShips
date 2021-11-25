@@ -17,6 +17,8 @@ public class Projectile : PoolableComponent
 
     public Team Team { get; set; }
 
+    public LineRenderer LR;
+    
     public void FixedUpdate()
     {
         transform.position += Velocity * Time.deltaTime;
@@ -36,4 +38,8 @@ public class Projectile : PoolableComponent
     }
 
     public override void ReInit() { }
+    protected override void OnAwake()
+    {
+        LR = GetComponent<LineRenderer>();
+    }
 }
