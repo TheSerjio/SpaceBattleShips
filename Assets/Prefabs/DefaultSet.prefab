@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce936c20847ac04a865929fa66c77ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EditorCamera: {fileID: 0}
 --- !u!1 &2936932905165658418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad482e1b1a2aa3f45aab19ce1dc6ddc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stats: {fileID: 0}
+  Stats: {fileID: 3150040056431530411}
   Engines: {fileID: 3150040055005772481}
   Shields: {fileID: 3150040056049844869}
   I_Shields: {fileID: 3150040056049844870}

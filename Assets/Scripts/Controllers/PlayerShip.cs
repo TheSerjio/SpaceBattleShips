@@ -77,6 +77,9 @@ public sealed class PlayerShip : ShipController
             Ship.LookAt(RB.position - RB.velocity);
         if (Input.GetKey(KeyCode.Alpha3))
             Ship.LookAt(Vector3.zero);
+
+        if (Input.GetKeyDown(KeyCode.T))
+            Detonate();
     }
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)

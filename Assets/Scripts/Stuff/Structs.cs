@@ -8,7 +8,7 @@ public struct Locating
     public Sorting Distance;
     public Sorting Size;
     public bool InFrontOfMe;
-    public bool SomeRandom;
+    [Range(0, 1)] public float Random;
 
     public float Get(Transform from, Ship tar)
     {
@@ -39,8 +39,7 @@ public struct Locating
         if (InFrontOfMe)
             q *= Vector3.Dot(from.forward, (from.position - targetPos).normalized) + 1;
 
-        if (SomeRandom)
-            q *= Random.value;
+        q *= 1 - (UnityEngine.Random.value * (1 - Random));
 
         return q;
     }

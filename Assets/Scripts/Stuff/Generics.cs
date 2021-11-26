@@ -115,5 +115,10 @@ public abstract class ValidableScriptableObject : ScriptableObject
 
 public abstract class PoolableComponent : Script
 {
+    protected sealed override void OnAwake()
+    {
+        
+    }
+
     public abstract void ReInit();
 }

@@ -268,9 +268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   all:
-  - count: 0
-    ship: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
-  TotalCost: 0
+  - count: 15
+    ship: {fileID: 11400000, guid: 8a7b33158d338e7418d11c331ad1d8e4, type: 2}
+  TotalCost: 150
 --- !u!4 &1306716663
 Transform:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306716661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

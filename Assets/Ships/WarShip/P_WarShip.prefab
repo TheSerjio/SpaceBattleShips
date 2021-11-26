@@ -568,7 +568,7 @@ MonoBehaviour:
     Distance: 1
     Size: 2
     InFrontOfMe: 1
-    SomeRandom: 0
+    Random: 0.1
   MinOptimalDistance: 2000
   MaxOptimalDistance: 3000
   AccuracyShooting: 0.99999

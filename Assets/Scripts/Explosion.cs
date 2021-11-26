@@ -20,9 +20,4 @@ public class Explosion : PoolableComponent
         transform.rotation = Random.rotationUniform;
         effect.Reinit();
     }
-
-    protected override void OnAwake()
-    {
-        
-    }
 }

@@ -12,6 +12,11 @@ public abstract class ShipController : Script
     }
 
     public abstract void Warn(Vector3 moveTo, Ship.Warning how);
+    
+    protected void Detonate()
+    {
+        Ship.OnDamaged(int.MaxValue, null);
+    }
 }
 
 public abstract class ShipAIController : ShipController
@@ -72,4 +77,5 @@ public abstract class ShipAIController : ShipController
     /// target is nut null
     /// </summary>
     public abstract void OnFixedUpdate();
-} 
+
+}

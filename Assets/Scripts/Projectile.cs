@@ -19,8 +19,24 @@ public class Projectile : PoolableComponent
 
     public LineRenderer LR;
     
+    public float Radius { get; set; }
+    
     public void FixedUpdate()
     {
+        var offset = Velocity * Time.deltaTime;
+
+        if (Physics.SphereCast(transform.position, Radius, Velocity, out var hit, offset.magnitude))
+        {
+            var some = hit.collider.gameObject.GetComponent<BaseEntity>();
+            if (some)
+                if (some.team != Team)
+                {
+                    some.OnDamaged(Damage, Parent);
+                    Die();
+                    return;
+                }
+        }
+
         transform.position += Velocity * Time.deltaTime;
         LifeTime -= Time.deltaTime;
         if (LifeTime < 0)
@@ -38,8 +54,4 @@ public class Projectile : PoolableComponent
     }
 
     public override void ReInit() { }
-    protected override void OnAwake()
-    {
-        LR = GetComponent<LineRenderer>();
-    }
 }

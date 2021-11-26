@@ -31,7 +31,7 @@ public sealed class Spectator : SINGLETON<Spectator>
                     Distance = Locating.Sorting.Any,
                     InFrontOfMe = true,
                     Size = Locating.Sorting.Any,
-                    SomeRandom = false
+                    Random = 0
                 };
                 var cam = GetComponent<Camera>();
                 transform.LookAt(cam.ScreenToWorldPoint(Input.mousePosition + Vector3.forward));

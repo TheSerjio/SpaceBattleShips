@@ -498,7 +498,7 @@ MonoBehaviour:
     Distance: 0
     Size: 2
     InFrontOfMe: 0
-    SomeRandom: 1
+    Random: 0.5
   MinOptimalDistance: 15
   MaxOptimalDistance: 25
   AccuracyShooting: 0

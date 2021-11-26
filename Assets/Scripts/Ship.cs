@@ -222,7 +222,7 @@ public class Ship : BaseEntity
         Health = MaxHealth;
         ImmuneUntil = Time.time + Utils.StartTime;
         Shield = GetComponent<Shield>();
-        MeshForDamage.material.SetFloat("E_Skin", Random.value);
+        MeshForDamage.material.SetFloat(Utils.ShaderID(ShaderName.E_Skin), Random.value);
         Teammates = new Ship[Formation.Length];
     }
 
@@ -266,17 +266,6 @@ public class Ship : BaseEntity
                     q.OnDamaged(dmg, this);
                     OnDamaged(dmg, q);
                 }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        var p = other.gameObject.GetComponent<Projectile>();
-        if (p)
-            if (p.Team != team)
-            {
-                OnDamaged(p.Damage, p.Parent);
-                p.Die();
-            }
     }
 
     public void ExtraForward()

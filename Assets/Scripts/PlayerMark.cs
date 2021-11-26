@@ -20,6 +20,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
 
     public void Start()
     {
+        GameUI.Self.ShowHide(true);
         Ship = GetComponent<Ship>();
         Ship.PlayerMarked = true;
         {
@@ -47,7 +48,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
             if (q.useCustomGradient)
                 trail.GetComponentInChildren<UnityEngine.VFX.VisualEffect>().SetGradient("Color", q.effectGradient);
             trail.transform.localPosition = q.transform.localPosition;
-            trail.transform.localScale = 4 * q.Line.startWidth * Vector3.one;
+            trail.transform.localScale = 2 * q.Line.startWidth * Vector3.one;
             trail.AddComponent<ShipParticleTrail>();
         }
         Ship.FindTrails();
@@ -58,11 +59,13 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship = GetComponent<Ship>();
         if (GetComponent<PlayerShip>())
         {
+            GameUI.Self.ShowHide(true);
             DestroyImmediate(GetComponent<PlayerShip>());
             GetComponent<ShipController>().enabled = true;
         }
         else
         {
+            GameUI.Self.ShowHide(true);
             GetComponent<ShipController>().enabled = false;
             Ship.Brain = gameObject.AddComponent<PlayerShip>();
         }
@@ -131,6 +134,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
 
     public void IfDie()
     {
+        GameUI.Self.ShowHide(false);
         var c = Cameroid.GetChild(0).GetChild(0);
         Spectator.Self.ComeHere(c.position, c.rotation);
     }

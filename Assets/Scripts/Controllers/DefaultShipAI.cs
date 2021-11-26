@@ -54,7 +54,7 @@ public class DefaultShipAI : ShipAIController
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, MinOptimalDistance);
-        Gizmos.DrawWireSphere(transform.position, MaxOptimalDistance);
+        Gizmos.DrawWireSphere(Ttransform.position, MinOptimalDistance);
+        Gizmos.DrawWireSphere(Ttransform.position, MaxOptimalDistance);
     }
 }

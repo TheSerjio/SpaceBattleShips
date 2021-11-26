@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,10 +24,15 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Color C_Energy;
     public Color C_Red;
 
-    public void ShowHide(bool showStats, bool showEngineSlider)
+    public void Start()
     {
-        Stats.SetActive(showStats);
-        Engines.gameObject.SetActive(showEngineSlider);
+        ShowHide(false);
+    }
+
+
+    public void ShowHide(bool show)
+    {
+        Stats.SetActive(show);
     }
 
     protected override void OnSingletonAwake()

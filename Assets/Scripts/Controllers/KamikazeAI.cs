@@ -1,20 +1,39 @@
 using UnityEngine;
-
 public class KamikazeAI : ShipAIController
 {
+    public float BoomDistance;
+    
     public override void OnFixedUpdate()
     {
-//        var a = new Vector2(Mathf.Cos(Time.time), Mathf.Sin(Time.time));
+        var dot = Vector3.Dot(transform.forward, RB.velocity.normalized);
+        if (dot < 0.5f)
+            Ship.Brake(false);
 
-        var tar = Utils.ShootTo(RB, Target.RB,
-            1f / (Vector3.Distance(transform.position, Target.transform.position) + 1));
+        Ship.EnginePower = Mathf.Clamp(5f * dot, 1, 5);
 
-        Ship.EnginePower = 1;
-        
         Ship.Forward();
 
-        Ship.LookAt(tar);
+        if (Physics.Raycast(transform.position, Target.transform.position - transform.position, out var hit, BoomDistance))
+        {
+            var q = hit.collider.GetComponentInParent<Ship>();
+            if (q == Target)
+                Detonate();
+        }
 
+        {
+            var tar = Target.transform.position;
+            tar = (tar - transform.position).normalized;
+            if (Vector3.Dot(tar, RB.velocity) < 1f)
+                Ship.LookAt(transform.position + tar);
+            else
+                Ship.LookAt(transform.position +
+                            Vector3.SlerpUnclamped(tar, (RB.velocity - Target.RB.velocity).normalized, -1f));
+        }
+    }
 
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Ttransform.position, BoomDistance);
     }
 }

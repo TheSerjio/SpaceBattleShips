@@ -4,7 +4,7 @@ using UnityEngine;
 public static class Utils
 {
 
-    public const float StartTime = 5;
+    public const float StartTime = 4;
     
     public static T[] EnumValues<T>()
     {

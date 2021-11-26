@@ -48,11 +48,12 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
     protected override void Shoot()
     {
         var p = GameCore.Self.GetFromPool<Projectile>(Converted);
-        p.transform.SetPositionAndRotation(transform.position + (transform.forward * ProjecileLentgh), transform.rotation);
+        p.transform.position = transform.position + (transform.forward * ProjecileLentgh);
+
         p.Team = Parent.team;
         p.Parent = Parent;
         p.LifeTime = bulletLifeTime;
-        p.Damage =  Damage;
+        p.Damage = Damage;
         p.Explosion = ProjectileExplosionPower;
         if (type == ProjectileType.Flat)
         {
@@ -71,21 +72,24 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
                 //TODO Effect customization
             }*/
         }
-        
+
+        p.Radius = Parent.UseCheats ? ProjectileSize * 10 : ProjectileSize * 2;
+
         p.Velocity = Parent.RB.velocity + (transform.forward + Random.insideUnitSphere * Inaccuracy) * bulletSpeed;
+        p.transform.LookAt(p.transform.position + p.Velocity);
     }
 
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         var q = (ProjecileLentgh - ProjectileSize) / 2f;
-        Gizmos.DrawWireSphere(transform.position + (transform.forward * q), ProjectileSize / 2f);
-        Gizmos.DrawWireSphere(transform.position - (transform.forward * q), ProjectileSize / 2f);
-        Gizmos.DrawLine(transform.position - (transform.forward * q), transform.position + (transform.forward * q));
+        Gizmos.DrawWireSphere(Ttransform.position + (Ttransform.forward * q), ProjectileSize / 2f);
+        Gizmos.DrawWireSphere(Ttransform.position - (Ttransform.forward * q), ProjectileSize / 2f);
+        Gizmos.DrawLine(Ttransform.position - (Ttransform.forward * q), Ttransform.position + (Ttransform.forward * q));
 
         Gizmos.color = Color.cyan;
-        foreach (var v in new Vector3[] { transform.up, transform.right, -transform.up, -transform.right })
-            Gizmos.DrawLine(transform.position, transform.position + (transform.forward + v * Inaccuracy) * ushort.MaxValue);
+        foreach (var v in new Vector3[] { Ttransform.up, Ttransform.right, -Ttransform.up, -Ttransform.right })
+            Gizmos.DrawLine(Ttransform.position, Ttransform.position + (Ttransform.forward + v * Inaccuracy) * ushort.MaxValue);
     }
 
     public override bool IsOutOfRange(float distance) => distance > bulletLifeTime * bulletSpeed;

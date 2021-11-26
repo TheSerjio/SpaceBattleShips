@@ -18,10 +18,12 @@ public enum Poolable : byte
     SmallExplosion,
     ShipExplosion
 }
+
 public enum ShaderName : byte
 {
     Alpha,
     Damage,
     EdgeColor,
-    MainColor
+    MainColor,
+    E_Skin
 }

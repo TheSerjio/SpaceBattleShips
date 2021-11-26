@@ -78,7 +78,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.15
+    widthMultiplier: 0.3
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -349,7 +349,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.07
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -629,7 +629,7 @@ MonoBehaviour:
     Distance: 0
     Size: 0
     InFrontOfMe: 1
-    SomeRandom: 0
+    Random: 0.5
   MinOptimalDistance: 100
   MaxOptimalDistance: 130
   AccuracyShooting: 0.8
@@ -808,7 +808,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.07
+    widthMultiplier: 0.15
     widthCurve:
       serializedVersion: 2
       m_Curve:

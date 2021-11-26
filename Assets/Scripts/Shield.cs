@@ -28,6 +28,7 @@ public sealed class Shield : MonoBehaviour
             else
             {
                 dmg -= Current;
+                Current = 0;
                 HasShield = false;
             }
             Alpha = (Alpha + 1) / 2;
