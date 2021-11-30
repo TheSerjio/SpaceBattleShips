@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  size: 0.7
+  size: 1
   rotationSpeed: 35
   speed: 2.4
   MaxHealth: 20

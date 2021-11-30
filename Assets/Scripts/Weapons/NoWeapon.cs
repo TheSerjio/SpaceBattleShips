@@ -7,6 +7,7 @@ public sealed class NoWeapon : ShipWeapon
 
     public override float AntiSpeed => A;
     public override float S_EnergyConsumption => 0;
+    public override float S_Bullets => 0;
 
     public override bool IsOutOfRange(float distance)
     {

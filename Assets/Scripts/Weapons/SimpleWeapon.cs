@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class SimpleWeapon : ShipWeaponWithCoolDown
 {
-    public enum ProjectileType { Flat, Effect }
+    public enum ProjectileType
+    {
+        Flat,
+        Effect
+    }
 
     public float bulletLifeTime;
 
@@ -22,9 +26,8 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
 
     public float ProjectileExplosionPower;
 
-    const float PlayerCheat = 5;
-
     [Range(0, 1)] public float Inaccuracy;
+    public override float S_Bullets => bulletLifeTime / ReloadTime;
 
     private Poolable Converted
     {
@@ -48,7 +51,7 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
     protected override void Shoot()
     {
         var p = GameCore.Self.GetFromPool<Projectile>(Converted);
-        p.transform.position = transform.position + (transform.forward * ProjecileLentgh);
+        p.transform.position = transform.position + (transform.forward * ProjecileLentgh / 2f);
 
         p.Team = Parent.team;
         p.Parent = Parent;
@@ -60,7 +63,7 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
             var line = p.LR;
             line.material.SetColor(Utils.ShaderID(ShaderName.MainColor), MainProjectileColor);
             line.material.SetColor(Utils.ShaderID(ShaderName.EdgeColor), EdgeProjectileColor);
-            line.SetPositions(new Vector3[]
+            line.SetPositions(new[]
                 {Vector3.back * ProjecileLentgh / 2f, Vector3.forward * ProjecileLentgh / 2f});
             line.widthMultiplier = ProjectileSize;
         }
@@ -73,7 +76,7 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
             }*/
         }
 
-        p.Radius = Parent.UseCheats ? ProjectileSize * 10 : ProjectileSize * 2;
+        p.Radius = Parent.UseCheats ? ProjectileSize * 2f : ProjectileSize / 2f;
 
         p.Velocity = Parent.RB.velocity + (transform.forward + Random.insideUnitSphere * Inaccuracy) * bulletSpeed;
         p.transform.LookAt(p.transform.position + p.Velocity);
@@ -83,13 +86,15 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
     {
         Gizmos.color = Color.red;
         var q = (ProjecileLentgh - ProjectileSize) / 2f;
-        Gizmos.DrawWireSphere(Ttransform.position + (Ttransform.forward * q), ProjectileSize / 2f);
-        Gizmos.DrawWireSphere(Ttransform.position - (Ttransform.forward * q), ProjectileSize / 2f);
-        Gizmos.DrawLine(Ttransform.position - (Ttransform.forward * q), Ttransform.position + (Ttransform.forward * q));
+        var myPos = Ttransform.position;
+        var forward = Ttransform.forward;
+        Gizmos.DrawWireSphere(myPos + (forward * q), ProjectileSize / 2f);
+        Gizmos.DrawWireSphere(myPos - (forward * q), ProjectileSize / 2f);
+        Gizmos.DrawLine(myPos - (forward * q), myPos + (forward * q));
 
         Gizmos.color = Color.cyan;
-        foreach (var v in new Vector3[] { Ttransform.up, Ttransform.right, -Ttransform.up, -Ttransform.right })
-            Gizmos.DrawLine(Ttransform.position, Ttransform.position + (Ttransform.forward + v * Inaccuracy) * ushort.MaxValue);
+        foreach (var v in new Vector3[] {Ttransform.up, Ttransform.right, -Ttransform.up, -Ttransform.right})
+            Gizmos.DrawLine(Ttransform.position, myPos + (Ttransform.forward + v * Inaccuracy) * ushort.MaxValue);
     }
 
     public override bool IsOutOfRange(float distance) => distance > bulletLifeTime * bulletSpeed;

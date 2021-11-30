@@ -7,6 +7,8 @@ public abstract class ShipWeapon : Script
 
     }
 
+    public abstract float S_Bullets { get; }
+
     public abstract float AntiSpeed { get; }
 
     public abstract bool IsOutOfRange(float distance);

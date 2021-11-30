@@ -154,9 +154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 3
   all:
-  - count: 5
-    ship: {fileID: 11400000, guid: 1f452880e9a17b644908766607cecfc5, type: 2}
-  TotalCost: 50000
+  - count: 100
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  - count: 100
+    ship: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
+  - count: 100
+    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
+  TotalCost: 14000
 --- !u!4 &600959439
 Transform:
   m_ObjectHideFlags: 0
@@ -328,8 +332,8 @@ MonoBehaviour:
   team: 5
   all:
   - count: 100
-    ship: {fileID: 11400000, guid: 8a7b33158d338e7418d11c331ad1d8e4, type: 2}
-  TotalCost: 1000
+    ship: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+  TotalCost: 30000
 --- !u!4 &2061695449
 Transform:
   m_ObjectHideFlags: 0

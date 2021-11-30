@@ -7,6 +7,7 @@ public class LongLaserWeapon : ShipWeapon
 
     private float q;
 
+    public override float S_Bullets => 1;
     public override float AntiSpeed => 0;
 
     public float damagePerSecond;
@@ -32,7 +33,7 @@ public class LongLaserWeapon : ShipWeapon
 
     public void Update()
     {
-        bool b = true;
+        var b = true;
         if (Parent.Target.Fire)
         {
             if (Time.time < NoShootUntil)
@@ -76,13 +77,13 @@ public class LongLaserWeapon : ShipWeapon
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, laserWidth);
-        Gizmos.DrawWireSphere(transform.position, playerLaserWidth);
+        Gizmos.DrawWireSphere(Ttransform.position, laserWidth);
+        Gizmos.DrawWireSphere(Ttransform.position, playerLaserWidth);
 
         Gizmos.color = Color.cyan;
-        float D = 100;
-        foreach (var vec in new Vector3[] { transform.up, transform.right, -transform.up, -transform.right })
-            Gizmos.DrawLine(transform.position, (transform.forward + vec / Accuracy) * D);
+        const float D = 100;
+        foreach (var vec in new[] {Ttransform.up, Ttransform.right, -Ttransform.up, -Ttransform.right})
+            Gizmos.DrawLine(Ttransform.position, (Ttransform.forward + vec / Accuracy) * D);
     }
 
     public override bool IsOutOfRange(float distance) => false;

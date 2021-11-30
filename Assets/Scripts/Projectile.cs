@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -20,18 +21,19 @@ public class Projectile : PoolableComponent
     public LineRenderer LR;
     
     public float Radius { get; set; }
-    
+
     public void FixedUpdate()
     {
         var offset = Velocity * Time.deltaTime;
 
         if (Physics.SphereCast(transform.position, Radius, Velocity, out var hit, offset.magnitude))
         {
-            var some = hit.collider.gameObject.GetComponent<BaseEntity>();
+            var some = hit.collider.gameObject.GetComponentInParent<BaseEntity>();
             if (some)
                 if (some.team != Team)
                 {
                     some.OnDamaged(Damage, Parent);
+                    transform.position = hit.point;
                     Die();
                     return;
                 }
@@ -43,7 +45,7 @@ public class Projectile : PoolableComponent
             Die();
     }
 
-    public void Die()
+    private void Die()
     {
         if (Explosion != 0)
         {

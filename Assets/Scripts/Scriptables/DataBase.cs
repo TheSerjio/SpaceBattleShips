@@ -108,7 +108,10 @@ public sealed class DataBase : ScriptableObject
     public void ShipStats()
     {
         var stats = new[]
-            {"Name", "Cost", "HP", "S", "+S+", "Full_S", "E", "+E+", "Full_E", "DPS", "WEC", "Fire time", "Shift"};
+        {
+            "Name", "Cost", "HP", "S", "+S+", "Full_S", "E", "+E+", "Full_E", "DPS", "WEC", "Bullets", "Fire time",
+            "Shift",
+        };
         var data = new string[stats.Length, Ships.Length];
         var sizes = new int[stats.Length];
         for (var x = 0; x < stats.Length; x++)
@@ -152,11 +155,13 @@ public sealed class DataBase : ScriptableObject
 
             float dps = 0;
             float wc = 0;
-            bool plus = false;
+            float bullets = 0;
+            var plus = false;
             foreach (var weapon in ship.GetComponentsInChildren<ShipWeapon>())
             {
                 dps += weapon.S_MaxDPS();
                 wc += weapon.S_EnergyConsumption;
+                bullets += weapon.S_Bullets;
                 if(weapon is SimpleWeapon sw)
                     if (sw.ProjectileExplosionPower != 0)
                         plus = true;
@@ -168,6 +173,8 @@ public sealed class DataBase : ScriptableObject
                 DoN(dps);
 
             DoN(wc);
+
+            DoN(bullets);
 
             DoN(ship.MaxEnergy / (wc - ship.EnergyRegeneration));
 

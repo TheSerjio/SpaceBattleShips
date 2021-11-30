@@ -427,9 +427,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+  size: 30
   rotationSpeed: 15
   speed: 1
-  MaxHealth: 1000
+  MaxHealth: 2000
   trails:
   - {fileID: 5863762263917115451}
   EngineConsumption: 10
@@ -439,7 +440,6 @@ MonoBehaviour:
   EnergyRegeneration: 100
   MeshForDamage: {fileID: 6474996617362020079}
   frame: {fileID: 0}
-  size: 30
   ExplosionPower: 1000
   ExplosionSize: 15
   NoEnergyCooldown: 5
@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   A: 1
+  Range: 0
 --- !u!1 &4129263872524746534
 GameObject:
   m_ObjectHideFlags: 0

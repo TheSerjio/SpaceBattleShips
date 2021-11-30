@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Ship))]
 [DisallowMultipleComponent]
 public sealed class Shield : MonoBehaviour
 {
@@ -20,6 +18,7 @@ public sealed class Shield : MonoBehaviour
     {
         if (HasShield)
         {
+            var q = dmg / (dmg + 1);
             if (Current >= dmg)
             {
                 Current -= dmg;
@@ -31,7 +30,8 @@ public sealed class Shield : MonoBehaviour
                 Current = 0;
                 HasShield = false;
             }
-            Alpha = (Alpha + 1) / 2;
+
+            Alpha = (Alpha + q) / (q + 1);
         }
     }
 

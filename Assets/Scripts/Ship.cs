@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngineInternal;
 
 public class Ship : BaseEntity
 {
+    public const float MinEngine = 0.5f;
     public const float MaxEngine = 5;
     
     public readonly struct Warning
@@ -86,10 +88,17 @@ public class Ship : BaseEntity
     public float EngineCons => EngineConsumption;
     [SerializeField] private float BrakeConsumption;
     [SerializeField] private float BrakePower;
+
     /// <summary>
     /// Mutable
     /// </summary>
-    public float EnginePower { get; set; }
+    public float EnginePower
+    {
+        get => _enignePower;
+        set => _enignePower = Mathf.Clamp(value, MinEngine, MaxEngine);
+    }
+
+    private float _enignePower;
     /// <summary>
     /// Serializable
     /// </summary>

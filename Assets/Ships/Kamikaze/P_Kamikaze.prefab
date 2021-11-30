@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 6445991215757118411}
   - component: {fileID: 7708779287307561502}
   - component: {fileID: 4895415579156066802}
+  - component: {fileID: 5661376804392960445}
   m_Layer: 0
   m_Name: P_Kamikaze
   m_TagString: Untagged
@@ -301,7 +302,7 @@ MonoBehaviour:
   frame: {fileID: 0}
   ExplosionPower: 666
   ExplosionSize: 4
-  NoEnergyCooldown: 60
+  NoEnergyCooldown: 40
   mainWeapon: {fileID: 7708779287307561502}
   Formation: []
 --- !u!114 &7708779287307561502
@@ -336,6 +337,20 @@ MonoBehaviour:
     InFrontOfMe: 0
     Random: 0.5
   BoomDistance: 5
+--- !u!136 &5661376804392960445
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865819100266150960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.2
+  m_Height: 1.5
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.05, z: -0.1}
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +362,6 @@ GameObject:
   - component: {fileID: 8317053667046953873}
   - component: {fileID: 9057092378668395887}
   - component: {fileID: 3481466277026033714}
-  - component: {fileID: 131438229120310741}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -419,20 +433,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &131438229120310741
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5898082224501375727}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6484311653345209450, guid: 8f5e2bafcbcbb22438b2572483843190, type: 3}
 --- !u!1 &7303745653781373021
 GameObject:
   m_ObjectHideFlags: 0
