@@ -52,6 +52,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
             trail.AddComponent<ShipParticleTrail>();
         }
         Ship.FindTrails();
+        Ship.frame.gameObject.SetActive(false);
     }
 
     public void SwitchPlayer()
@@ -137,5 +138,6 @@ public class PlayerMark : SINGLETON<PlayerMark>
         GameUI.Self.ShowHide(false);
         var c = Cameroid.GetChild(0).GetChild(0);
         Spectator.Self.ComeHere(c.position, c.rotation);
+        Ship.frame.gameObject.SetActive(true);
     }
 }

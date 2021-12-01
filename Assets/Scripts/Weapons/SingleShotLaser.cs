@@ -56,8 +56,8 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, laserWidth);
-        Gizmos.DrawWireSphere(transform.position, playerLaserWidth);
+        Gizmos.DrawWireSphere(Ttransform.position, laserWidth);
+        Gizmos.DrawWireSphere(Ttransform.position, playerLaserWidth);
     }
 
     public override bool IsOutOfRange(float distance) => false;

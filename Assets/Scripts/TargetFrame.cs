@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(RectTransform))]
-public class TargetFrame : MonoBehaviour
+public class TargetFrame : Script
 {
     public static float PlayerAntiBulletSpeed;
     public static Rigidbody Player;
@@ -19,7 +19,7 @@ public class TargetFrame : MonoBehaviour
     [SerializeField] RectTransform probablyPosition;
     [SerializeField] Image probabPos;
 
-    private const float maxTextDist = 200;
+    private const float maxTextDist = 300;
 
     private static void SetScale(RectTransform what, float size)
     {
@@ -67,7 +67,7 @@ public class TargetFrame : MonoBehaviour
             {
                 if (!probablyPosition.gameObject.activeSelf)
                     probablyPosition.gameObject.SetActive(true);
-                probablyPosition.position = Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed);
+                probablyPosition.position = Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed, 3);
                 SetScale(probablyPosition, 0.025f);
             }
 
@@ -96,5 +96,9 @@ public class TargetFrame : MonoBehaviour
     {
         timeLeft = 0.25f;
         onHit.gameObject.SetActive(true);
+    }
+
+    protected override void OnAwake()
+    {
     }
 }

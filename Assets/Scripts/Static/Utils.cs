@@ -1,11 +1,13 @@
+using System;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class Utils
 {
 
     public const float StartTime = 4;
-    
+
     public static T[] EnumValues<T>()
     {
         return System.Enum.GetValues(typeof(T)).Cast<T>().ToArray();
@@ -21,7 +23,7 @@ public static class Utils
     }
 
     public static int ShaderID(ShaderName name) => ids[(byte) name];
-    
+
     public static T Choice<T>(T[] ts)
     {
         if (ts == null)
@@ -29,6 +31,7 @@ public static class Utils
         else
             return ts.Length == 0 ? default : ts[Random.Range(0, ts.Length)];
     }
+
     public static T Choice<T>(System.Collections.Generic.List<T> ts)
     {
         if (ts == null)
@@ -67,12 +70,22 @@ public static class Utils
     public static float ToSadUnits(Vector3 vec) => ToSadUnits(vec.magnitude);
     public static float ToSadUnits(float value) => value * 24;
 
-    public static Vector3 ShootTo(Rigidbody me, Rigidbody target, float aBulletSpeed) => ShootTo(me.position, me.velocity, target.position, target.velocity, aBulletSpeed);
+    public static Vector3 ShootTo(Rigidbody me, Rigidbody target, float aBulletSpeed, byte quality) =>
+        ShootTo(me.position, me.velocity, target.position, target.velocity, aBulletSpeed, quality);
 
-    public static Vector3 ShootTo(Vector3 me, Vector3 mySpeed, Rigidbody target, float aBulletSpeed) => ShootTo(me, mySpeed, target.position, target.velocity, aBulletSpeed);
+    public static Vector3 ShootTo(Vector3 me, Vector3 mySpeed, Rigidbody target, float aBulletSpeed, byte quality) =>
+        ShootTo(me, mySpeed, target.position, target.velocity, aBulletSpeed, quality);
 
-    public static Vector3 ShootTo(Vector3 me,Vector3 mySpeed,Vector3 target,Vector3 targetSpeed,float aBulletSpeed)
+    public static Vector3 ShootTo(Vector3 me, Vector3 mySpeed, Vector3 target, Vector3 targetSpeed, float aBulletSpeed,
+        byte quality)
     {
-        return target + (aBulletSpeed * Vector3.Distance(target, me) * (targetSpeed - mySpeed));
+        if (aBulletSpeed == 0)
+            return target;
+        
+        var to = target;
+
+        for (var i = 0; i < quality; i++)
+            to = aBulletSpeed * Vector3.Distance(to, me) * (targetSpeed - mySpeed) + target;
+        return to;
     }
 }

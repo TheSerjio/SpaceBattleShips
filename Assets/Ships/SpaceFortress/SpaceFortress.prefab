@@ -362,6 +362,7 @@ MonoBehaviour:
   NoEnergyCooldown: 1
   mainWeapon: {fileID: 6385380467895637082}
   Formation: []
+  asset: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
 --- !u!114 &3079299493328993905
 MonoBehaviour:
   m_ObjectHideFlags: 0

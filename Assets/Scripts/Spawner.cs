@@ -25,8 +25,9 @@ public sealed class Spawner : MonoBehaviour
         StartCoroutine(Summon());
     }
 
-    public static void CreateFrame(Ship ship, ShipData asset)
+    public static void CreateFrame(Ship ship)
     {
+        var asset = ship.asset;
         var f = Instantiate(DataBase.Get().TargetFramePrefab);
         f.transform.SetParent(GameUI.Self.WorlsCanvas.transform);
         f.transform.localScale = Vector3.one;
@@ -49,7 +50,7 @@ public sealed class Spawner : MonoBehaviour
                 var ship = q.GetComponent<Ship>();
                 D += ship.size;
                 ship.team = team;
-                CreateFrame(ship, g.ship);
+                CreateFrame(ship);
                 yield return null;
             }
         Destroy(gameObject);

@@ -121,6 +121,8 @@ public class Ship : BaseEntity
     public Transform[] Formation;
     public Ship[] Teammates { get; private set; }
 
+    public ShipData asset;
+
     [ContextMenu("Magic")]
     public void FindTrails()
     {

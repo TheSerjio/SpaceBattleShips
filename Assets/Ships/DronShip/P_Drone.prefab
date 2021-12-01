@@ -415,6 +415,7 @@ MonoBehaviour:
   NoEnergyCooldown: 5
   mainWeapon: {fileID: 7851812694907981593}
   Formation: []
+  asset: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
 --- !u!135 &2747515676622489423
 SphereCollider:
   m_ObjectHideFlags: 0

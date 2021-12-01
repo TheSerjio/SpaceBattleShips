@@ -26,7 +26,7 @@ public class Targeting
         public override void OperateAutoWeapon(Ship parent, AutoWeapon what)
         {
             if (RB)
-                what.body.RotateTowards(Utils.ShootTo(parent.RB, RB, what.weapon.AntiSpeed),
+                what.body.RotateTowards(Utils.ShootTo(parent.RB, RB, what.weapon.AntiSpeed,1),
                     what.rotationSpeed * Time.deltaTime, false);
         }
 
