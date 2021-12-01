@@ -55,7 +55,7 @@ public class ShipDefenderAI : ShipAIController
         }
 
         Ship.Target.Fire = Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) > 0.99f;
-        Ship.LookAt(Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed));
+        Ship.LookAt(Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed,1));
     }
 
     public void OnDrawGizmosSelected()

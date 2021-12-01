@@ -25,9 +25,6 @@
             "m_Id": "3af38e81ee964c8a8d30714afd07ed6d"
         },
         {
-            "m_Id": "3fc8eabe64e24cc8b29490411a461677"
-        },
-        {
             "m_Id": "598b130b3eca44669c6c0b933148238a"
         },
         {
@@ -2134,31 +2131,6 @@
     },
     "m_Modifiable": true,
     "m_DefaultType": 0
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "3fc8eabe64e24cc8b29490411a461677",
-    "m_Guid": {
-        "m_GuidSerialized": "2360867b-230d-475a-b22e-14721e96a786"
-    },
-    "m_Name": "BrokenPower",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "BrokenPower",
-    "m_DefaultReferenceName": "BrokenPower",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.0,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
-    }
 }
 
 {

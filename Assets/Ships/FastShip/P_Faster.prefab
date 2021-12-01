@@ -385,7 +385,6 @@ GameObject:
   - component: {fileID: 3664832532834273340}
   - component: {fileID: 4509003813159771384}
   - component: {fileID: 7632923205945408135}
-  - component: {fileID: 1815282423459951721}
   m_Layer: 0
   m_Name: P_Faster
   m_TagString: Untagged
@@ -464,8 +463,9 @@ MonoBehaviour:
   ExplosionPower: 100
   ExplosionSize: 2
   NoEnergyCooldown: 5
-  mainWeapon: {fileID: 1815282423459951721}
+  mainWeapon: {fileID: 4084623393390096273}
   Formation: []
+  asset: {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
 --- !u!114 &4509003813159771384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,20 +502,6 @@ MonoBehaviour:
   MinOptimalDistance: 15
   MaxOptimalDistance: 25
   AccuracyShooting: 0
---- !u!114 &1815282423459951721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4129263872148043997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16586ed256e013d46851752502678ddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  A: 0
-  Range: 150
 --- !u!1 &4129263872524746534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1324,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6440600045420608262, guid: a233825a54ab889458eb69b6bcde3877, type: 3}
   m_PrefabInstance: {fileID: 593046489565301126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4084623393390096273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3500866970751952407, guid: a233825a54ab889458eb69b6bcde3877, type: 3}
+  m_PrefabInstance: {fileID: 593046489565301126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1146393381431072946
 PrefabInstance:
   m_ObjectHideFlags: 0
