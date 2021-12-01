@@ -284,9 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8caa96cf18410e4982e081cbbef5e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 50
-  ReloadTime: 2
-  EnergyPerShot: 15
+  Damage: 78
+  ReloadTime: 2.4
+  EnergyPerShot: 40
   laserWidth: 1
   playerLaserWidth: 3
 --- !u!1 &2058199985271724009
@@ -360,21 +360,21 @@ MonoBehaviour:
   team: 5
   size: 5
   rotationSpeed: 30
-  speed: 5
+  speed: 2.4
   MaxHealth: 100
   trails:
   - {fileID: 2058199985504403820}
   - {fileID: 1540210954929085174}
-  EngineConsumption: 2
-  BrakeConsumption: 2
+  EngineConsumption: 3
+  BrakeConsumption: 3
   BrakePower: 10
-  MaxEnergy: 100
-  EnergyRegeneration: 5
+  MaxEnergy: 200
+  EnergyRegeneration: 10
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
   ExplosionPower: 50
   ExplosionSize: 6
-  NoEnergyCooldown: 5
+  NoEnergyCooldown: 4
   mainWeapon: {fileID: 8587561453027499572}
   Formation: []
   asset: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
@@ -392,8 +392,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
-  MaxShield: 100
-  ShieldRegeneration: 10
+  MaxShield: 120
+  ShieldRegeneration: 5
 --- !u!114 &1687304218858846276
 MonoBehaviour:
   m_ObjectHideFlags: 0
