@@ -194,7 +194,7 @@ MonoBehaviour:
   ProjecileLentgh: 0.5
   ProjectileSize: 0.15
   type: 1
-  ProjectileExplosionPower: 30
+  ProjectileExplosionPower: 40
   Inaccuracy: 0.001
 --- !u!1 &2058199985271724009
 GameObject:
@@ -278,7 +278,7 @@ MonoBehaviour:
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
   ExplosionPower: 10
-  ExplosionSize: 2
+  ExplosionSize: 1.6
   NoEnergyCooldown: 5
   mainWeapon: {fileID: 2058199984457396272}
   Formation: []

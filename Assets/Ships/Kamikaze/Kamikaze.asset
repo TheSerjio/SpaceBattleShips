@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kamikaze
   m_EditorClassIdentifier: 
   Name: Kamikaze
-  cost: 10
+  cost: 30
   prefab: {fileID: 6445991215757118411, guid: 878d9516b37352d4d83954a65136e7cd, type: 3}
   type: 1
   Preview: {fileID: 21300000, guid: c2d81949e692bbb4195739c68881bbf4, type: 3}

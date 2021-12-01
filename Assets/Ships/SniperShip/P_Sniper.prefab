@@ -373,7 +373,7 @@ MonoBehaviour:
   MeshForDamage: {fileID: 2058199984000861961}
   frame: {fileID: 0}
   ExplosionPower: 50
-  ExplosionSize: 6
+  ExplosionSize: 4
   NoEnergyCooldown: 4
   mainWeapon: {fileID: 8587561453027499572}
   Formation: []
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
-  MaxShield: 120
+  MaxShield: 80
   ShieldRegeneration: 5
 --- !u!114 &1687304218858846276
 MonoBehaviour:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39794ff6d53d2248a4ca33f05b3b4c1, type: 3}
   m_Name: Elite
   m_EditorClassIdentifier: 
-  Name: LGBT
+  Name: Elite
   cost: 1200
   prefab: {fileID: 6445991215757118411, guid: 7d66d0fe3dbc5e649ada8301ae6a68e9, type: 3}
   type: 1
