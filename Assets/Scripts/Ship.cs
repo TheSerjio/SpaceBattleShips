@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngineInternal;
 
 public class Ship : BaseEntity
 {
@@ -16,12 +15,6 @@ public class Ship : BaseEntity
             showText = text;
             shakePower = power;
         }
-    }
-
-    public enum Type
-    {
-        Projectile,
-        Laser
     }
 
     private ShipController __brain__;
@@ -123,6 +116,8 @@ public class Ship : BaseEntity
 
     public ShipData asset;
 
+    private float RequredEngineQ;
+
     [ContextMenu("Magic")]
     public void FindTrails()
     {
@@ -143,7 +138,8 @@ public class Ship : BaseEntity
     public void Update()
     {
         Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
-        EngineQ = Mathf.MoveTowards(EngineQ, 0, EngineQ * Time.deltaTime);
+        EngineQ = Mathf.MoveTowards(EngineQ, RequredEngineQ, Time.deltaTime * (RequredEngineQ + 1));
+        RequredEngineQ = Mathf.MoveTowards(RequredEngineQ, 0, Time.deltaTime);
         foreach (var t in trails)
             t.SetTrailLent(EngineQ);
         if (EnergyCD > 0)
@@ -199,7 +195,7 @@ public class Ship : BaseEntity
         if (TakeEnergy(e))
         {
             RB.velocity += speed * EnginePower * Time.deltaTime * transform.forward;
-            EngineQ = EnginePower;
+            RequredEngineQ = EnginePower;
         }
     }
 
