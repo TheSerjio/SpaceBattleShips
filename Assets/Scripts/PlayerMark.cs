@@ -1,13 +1,25 @@
 using UnityEngine;
+using UnityEngineInternal;
 
 public class PlayerMark : SINGLETON<PlayerMark>
 {
     private Ship Ship;
     public Transform Cameroid { get; private set; }
 
+    private Transform defaultCam;
+    private Transform sniperCam;
+
+    private Camera Cam;
+
+    private float DefaultCameraAngle;
+    
     private const float SlowCamera = 180;
     private const float FastCamera = SlowCamera * 3;
+    private const float SniperAngle = 15;
 
+    private float sniperness;
+    
+    private bool isSniper;
 
     public static Vector2 MouseRotation
     {
@@ -24,19 +36,35 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship = GetComponent<Ship>();
         Ship.PlayerMarked = true;
         {
-            Transform q = null;
             foreach (var pfc in GetComponentsInChildren<PlaceForCamera>())
-                if (pfc.parent)
-                    Cameroid = pfc.transform;
-                else
-                    q = pfc.transform;
+                switch (pfc.type)
+                {
+                    case PlaceForCamera.Type.Default:
+                        defaultCam = pfc.transform;
+                        break;
+                    case PlaceForCamera.Type.Parent:
+                        Cameroid = pfc.transform;
+                        break;
+                    case PlaceForCamera.Type.Sniper:
+                        sniperCam = pfc.transform;
+                        break;
+                    default:
+                        Debug.LogError(pfc.type);
+                        break;
+                }
 
+            if (!sniperCam)
+                sniperCam = defaultCam;
+            
             GameCore.MainCamera.gameObject.SetActive(false);
-            var cam = Instantiate(DataBase.Get().CameraPrefab, q);
-            GameCore.MainCamera = cam.GetComponent<Camera>();
-            cam.transform.localPosition = Vector3.zero;
-            cam.transform.localEulerAngles = Vector3.zero;
-            cam.transform.localScale = Vector3.one;
+            var obj = Instantiate(DataBase.Get().CameraPrefab, Cameroid);
+            Cam = obj.GetComponent<Camera>();
+            DefaultCameraAngle = Cam.fieldOfView;
+            GameCore.MainCamera = Cam;
+            var t = obj.transform;
+            t.localPosition = defaultCam.localPosition;
+            t.localEulerAngles = Vector3.zero;
+            t.localScale = Vector3.one;
         }
 
         Instantiate(DataBase.Get().DustPrefab, transform).GetComponent<DustNearPlayer>().Init(this, Ship);
@@ -87,7 +115,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         if (Input.GetKey(KeyCode.Mouse2))
         {
             var power = Vector3.Distance(transform.forward, Cameroid.forward) + 1;
-            Cameroid.Rotate(FastCamera * Time.deltaTime * MouseRotation / power);
+            Cameroid.Rotate((1 - sniperness) * FastCamera * Time.deltaTime * MouseRotation / power);
         }
 
         var r = Cameroid.localRotation;
@@ -101,11 +129,17 @@ public class PlayerMark : SINGLETON<PlayerMark>
             if (GetComponent<PlayerShip>())
                 SwitchPlayer();
             IfDie();
-            Destroy(Cameroid.GetChild(0).GetChild(0).gameObject);
-            Ship.PlayerMarked = false;
             Destroy(this);
             return;
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+            isSniper = !isSniper;
+
+        sniperness = Mathf.MoveTowards(sniperness, isSniper ? 1 : 0, Time.deltaTime);
+
+        Cam.transform.localPosition = Vector3.Lerp(defaultCam.localPosition, sniperCam.localPosition, sniperness);
+        Cam.fieldOfView = Mathf.Lerp(DefaultCameraAngle, SniperAngle, sniperness);
 
         //update ui
         //yes, its here
@@ -136,8 +170,9 @@ public class PlayerMark : SINGLETON<PlayerMark>
     public void IfDie()
     {
         GameUI.Self.ShowHide(false);
-        var c = Cameroid.GetChild(0).GetChild(0);
-        Spectator.Self.ComeHere(c.position, c.rotation);
+        Spectator.Self.ComeHere(Cam.transform.position, Cam.transform.rotation);
+        Destroy(Cam.gameObject);
+        Ship.PlayerMarked = false;
         Ship.frame.gameObject.SetActive(true);
     }
 }
