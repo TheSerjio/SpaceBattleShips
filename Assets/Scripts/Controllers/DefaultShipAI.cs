@@ -7,7 +7,7 @@ public class DefaultShipAI : ShipAIController
     private float Dist;
     [Range(0, 0.99999f)] public float AccuracyShooting;
     private float LastTargetFound;
-
+    
     public override void OnStart()
     {
         Dist = Random.Range(MinOptimalDistance, MaxOptimalDistance);
@@ -47,8 +47,15 @@ public class DefaultShipAI : ShipAIController
         {
             Ship.Brake(false);
         }
-        target.Fire = Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) > AccuracyShooting;
-        Ship.LookAt(Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed,1));
+
+        var to = Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed, 3);
+
+        target.Fire =
+            (Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) >
+             AccuracyShooting) &&
+            !Ship.mainWeapon.IsOutOfRange(Vector3.Distance(transform.position, to));
+        
+        Ship.LookAt(to);
     }
 
     public void OnDrawGizmosSelected()
@@ -56,5 +63,6 @@ public class DefaultShipAI : ShipAIController
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Ttransform.position, MinOptimalDistance);
         Gizmos.DrawWireSphere(Ttransform.position, MaxOptimalDistance);
+
     }
 }

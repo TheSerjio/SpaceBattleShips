@@ -633,7 +633,8 @@ MonoBehaviour:
     Random: 0.5
   MinOptimalDistance: 100
   MaxOptimalDistance: 130
-  AccuracyShooting: 0.8
+  AccuracyShooting: 0.9
+  FireDistance: 49.2
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0
