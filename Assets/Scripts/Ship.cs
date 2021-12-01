@@ -138,8 +138,8 @@ public class Ship : BaseEntity
     public void Update()
     {
         Energy = Mathf.MoveTowards(Energy, MaxEnergy, EnergyRegeneration * Time.deltaTime);
-        EngineQ = Mathf.MoveTowards(EngineQ, RequredEngineQ, Time.deltaTime * (RequredEngineQ + 1));
-        RequredEngineQ = Mathf.MoveTowards(RequredEngineQ, 0, Time.deltaTime);
+        EngineQ = Mathf.MoveTowards(EngineQ, RequredEngineQ, Time.deltaTime * 20);
+        RequredEngineQ = Mathf.MoveTowards(RequredEngineQ, 0, Time.deltaTime * RequredEngineQ);
         foreach (var t in trails)
             t.SetTrailLent(EngineQ);
         if (EnergyCD > 0)
