@@ -28,6 +28,7 @@ public sealed class DataBase : ScriptableObject
     public Color Pirates;
 
     public ShipData[] Ships;
+    public Level[] Levels;
 
     public ValidableScriptableObject[] EveryThing;
 

@@ -14,7 +14,6 @@ public class PlayerMark : SINGLETON<PlayerMark>
     
     private const float SlowCamera = 180;
     private const float FastCamera = SlowCamera * 3;
-    private const float SniperAngle = 15;
 
     private float sniperness;
     
@@ -138,7 +137,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         sniperness = Mathf.MoveTowards(sniperness, isSniper ? 1 : 0, Time.deltaTime);
 
         Cam.transform.localPosition = Vector3.Lerp(defaultCam.localPosition, sniperCam.localPosition, sniperness);
-        Cam.fieldOfView = Mathf.Lerp(DefaultCameraAngle, SniperAngle, sniperness);
+        Cam.fieldOfView = Mathf.Lerp(DefaultCameraAngle, Ship.SniperCameraAngle, sniperness);
 
         //update ui
         //yes, its here

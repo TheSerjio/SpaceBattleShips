@@ -54,7 +54,7 @@ MonoBehaviour:
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0
+  Inaccuracy: 0.01
 --- !u!1 &1104758393831900180
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
   ProjectileSize: 0.15
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0
+  Inaccuracy: 0.01
 --- !u!1 &5756431883138927028
 GameObject:
   m_ObjectHideFlags: 0

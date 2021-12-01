@@ -118,6 +118,8 @@ public class Ship : BaseEntity
 
     private float RequredEngineQ;
 
+    [Range(3f, 150f)] public float SniperCameraAngle;
+
     [ContextMenu("Magic")]
     public void FindTrails()
     {

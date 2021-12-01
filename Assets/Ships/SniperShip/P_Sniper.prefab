@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853587170793709776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -10}
+  m_LocalPosition: {x: 0, y: 3, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2006321720439457742}
@@ -378,6 +378,7 @@ MonoBehaviour:
   mainWeapon: {fileID: 8587561453027499572}
   Formation: []
   asset: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
+  SniperCameraAngle: 15
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0
