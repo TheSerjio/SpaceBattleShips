@@ -59,7 +59,7 @@ public class Ship : BaseEntity
             {
                 EnergyCD = NoEnergyCooldown;
                 if (PlayerMarked)
-                    AudioManager.PlaySound(DataBase.Get().OnZeroEnergy);
+                    AudioManager.PlaySound(DataBase.Get().OnZeroEnergy,false);
                 return false;
             }
         }
@@ -168,7 +168,7 @@ public class Ship : BaseEntity
         if (Shield)
             Shield.TakeDamage(ref dmg);
         else if (PlayerMarked)
-            AudioManager.PlaySound(DataBase.Get().OnShieldHit);
+            AudioManager.PlaySound(DataBase.Get().OnShieldHit,true);
 
         Health -= dmg;
         MeshForDamage.material.SetFloat(Utils.ShaderID(ShaderName.Damage), 1 - (Health / MaxHealth));
@@ -181,7 +181,7 @@ public class Ship : BaseEntity
                 Do(q.transform.position);
             Do(transform.position);
             if (from is Ship {PlayerMarked: true})
-                AudioManager.PlaySound(DataBase.Get().EnemyDeath);
+                AudioManager.PlaySound(DataBase.Get().EnemyDeath, false);
             Destroy(gameObject);
         }
 

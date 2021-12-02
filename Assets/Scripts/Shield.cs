@@ -25,7 +25,7 @@ public sealed class Shield : MonoBehaviour
                 Current -= dmg;
                 dmg = 0;
                 if (ship.PlayerMarked)
-                    AudioManager.PlaySound(DataBase.Get().OnShieldHit);
+                    AudioManager.PlaySound(DataBase.Get().OnShieldHit,true);
             }
             else
             {
@@ -33,13 +33,13 @@ public sealed class Shield : MonoBehaviour
                 Current = 0;
                 HasShield = false;
                 if (ship.PlayerMarked)
-                    AudioManager.PlaySound(DataBase.Get().OnZeroShields);
+                    AudioManager.PlaySound(DataBase.Get().OnZeroShields,true);
             }
 
             Alpha = (Alpha + q) / (q + 1);
         }
         else if (ship.PlayerMarked)
-            AudioManager.PlaySound(DataBase.Get().OnTakeDamage);
+            AudioManager.PlaySound(DataBase.Get().OnTakeDamage,true);
     }
 
     public void Update()
