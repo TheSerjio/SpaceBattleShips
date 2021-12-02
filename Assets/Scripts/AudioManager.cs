@@ -14,7 +14,7 @@ public class AudioManager : SINGLETON<AudioManager>
         {
             if (Time.time > Self.dontPlayUntil)
             {
-                Self.dontPlayUntil = Time.time + 0.2f;
+                Self.dontPlayUntil = Time.time + 0.33f;
                 Self.mono.PlayOneShot(clip.clip, clip.volume);
             }
         }
