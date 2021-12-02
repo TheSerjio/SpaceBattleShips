@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8266390cc27b14c419cb0349bdc429a5, type: 3}
   m_Name: System
   m_EditorClassIdentifier: 
+  PlayerDeath: {fileID: 8300000, guid: 44fc01737a2f324468e5cdf684c72491, type: 3}
+  EnemyDeath: {fileID: 8300000, guid: d4ee5d7c889ed704c92beb4f508f6b9b, type: 3}
   TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}
   CameraPrefab: {fileID: 1869164099664931348, guid: 6e7960c65ae02e24484986d155bdeacb, type: 3}
   DustPrefab: {fileID: 8337942286436823725, guid: 14068295d4ada2641912daca50394a4f, type: 3}

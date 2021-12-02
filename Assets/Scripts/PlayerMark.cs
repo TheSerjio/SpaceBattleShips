@@ -126,7 +126,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         {
             if (GetComponent<PlayerShip>())
                 SwitchPlayer();
-            IfDie();
+            IfDie(false);
             Destroy(this);
             return;
         }
@@ -165,12 +165,14 @@ public class PlayerMark : SINGLETON<PlayerMark>
         }
     }
 
-    public void IfDie()
+    public void IfDie(bool exploded)
     {
         GameUI.Self.ShowHide(false);
         Spectator.Self.ComeHere(Cam.transform.position, Cam.transform.rotation);
         Destroy(Cam.gameObject);
         Ship.PlayerMarked = false;
         Ship.frame.gameObject.SetActive(true);
+        if (exploded)
+            GameCore.Self.PlaySound(DataBase.Get().PlayerDeath, 1f);
     }
 }

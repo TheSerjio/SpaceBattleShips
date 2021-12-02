@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,6 +11,9 @@ public sealed class DataBase : ScriptableObject
             self = Resources.Load<DataBase>("System");
         return self;
     }
+
+    public AudioClip PlayerDeath;
+    public AudioClip EnemyDeath;
 
     public GameObject TargetFramePrefab;
     public GameObject CameraPrefab;
@@ -100,7 +102,8 @@ public sealed class DataBase : ScriptableObject
                     Debug.LogError(txt);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    Debug.LogError("oh no");
+                    break;
             }
         }
     }

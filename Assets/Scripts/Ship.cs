@@ -171,11 +171,13 @@ public class Ship : BaseEntity
         if (Health <= 0)
         {
             if (TryGetComponent<PlayerMark>(out var mark))
-                mark.IfDie();
+                mark.IfDie(true);
             _exploded = true;
             foreach (var q in GetComponentsInChildren<ShipAdditionalExplosion>())
                 Do(q.transform.position);
             Do(transform.position);
+            if (from is Ship {PlayerMarked: true})
+                GameCore.Self.PlaySound(DataBase.Get().EnemyDeath, 1);
             Destroy(gameObject);
         }
 

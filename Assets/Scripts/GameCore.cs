@@ -20,6 +20,13 @@ public class GameCore : SINGLETON<GameCore>
     private System.Collections.Generic.Dictionary<Team, ulong> Counts;
 
     public Camera EditorCamera;
+
+    [SerializeField] private AudioSource audio;
+
+    public void PlaySound(AudioClip clip,float volume)
+    {
+        audio.PlayOneShot(clip, volume);
+    }
     
     private void RemoveNull()
     {
