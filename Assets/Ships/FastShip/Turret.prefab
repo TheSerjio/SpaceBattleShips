@@ -260,6 +260,9 @@ MonoBehaviour:
   Damage: 3.6
   ReloadTime: 0.1
   EnergyPerShot: 1
+  onShot:
+    clip: {fileID: 8300000, guid: ef1149a5264cf6a42a389970f42b6d93, type: 3}
+    volume: 1
   bulletLifeTime: 1
   bulletSpeed: 100
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}

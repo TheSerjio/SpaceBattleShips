@@ -187,6 +187,9 @@ MonoBehaviour:
   Damage: 1
   ReloadTime: 1
   EnergyPerShot: 8
+  onShot:
+    clip: {fileID: 8300000, guid: ddf6cef34c59fd842ab705d619e8eafc, type: 3}
+    volume: 1
   bulletLifeTime: 2
   bulletSpeed: 200
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
@@ -283,6 +286,7 @@ MonoBehaviour:
   mainWeapon: {fileID: 2058199984457396272}
   Formation: []
   asset: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+  SniperCameraAngle: 0
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0

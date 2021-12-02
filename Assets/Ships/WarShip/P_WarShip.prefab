@@ -146,6 +146,9 @@ MonoBehaviour:
   Damage: 200
   ReloadTime: 20
   EnergyPerShot: 50
+  onShot:
+    clip: {fileID: 8300000, guid: c9e77bd135ad32343a65c7166148b2ac, type: 3}
+    volume: 1
   laserWidth: 3
   playerLaserWidth: 8
 --- !u!1 &1853587170793709776
@@ -439,6 +442,9 @@ MonoBehaviour:
   Damage: 200
   ReloadTime: 20
   EnergyPerShot: 50
+  onShot:
+    clip: {fileID: 8300000, guid: c9e77bd135ad32343a65c7166148b2ac, type: 3}
+    volume: 1
   laserWidth: 3
   playerLaserWidth: 8
 --- !u!1 &2058199985271724009
@@ -537,6 +543,7 @@ MonoBehaviour:
   mainWeapon: {fileID: 4601031276826251084}
   Formation: []
   asset: {fileID: 11400000, guid: 1f452880e9a17b644908766607cecfc5, type: 2}
+  SniperCameraAngle: 0
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,6 +1235,9 @@ MonoBehaviour:
   Damage: 200
   ReloadTime: 20
   EnergyPerShot: 50
+  onShot:
+    clip: {fileID: 8300000, guid: c9e77bd135ad32343a65c7166148b2ac, type: 3}
+    volume: 1
   laserWidth: 3
   playerLaserWidth: 8
 --- !u!1 &7464524465627163721
