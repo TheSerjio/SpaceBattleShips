@@ -136,7 +136,9 @@ public class PlayerMark : SINGLETON<PlayerMark>
 
         sniperness = Mathf.MoveTowards(sniperness, isSniper ? 1 : 0, Time.deltaTime);
 
-        Cam.transform.localPosition = Vector3.Lerp(defaultCam.localPosition, sniperCam.localPosition, sniperness);
+        {
+            Cam.transform.localPosition = Vector3.Slerp(defaultCam.localPosition, sniperCam.localPosition, sniperness);
+        }
         Cam.fieldOfView = Mathf.Lerp(DefaultCameraAngle, Ship.SniperCameraAngle, sniperness);
 
         //update ui

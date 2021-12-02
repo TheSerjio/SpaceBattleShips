@@ -469,6 +469,7 @@ MonoBehaviour:
   mainWeapon: {fileID: 740774243760735205}
   Formation: []
   asset: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
+  SniperCameraAngle: 15
 --- !u!114 &3443616421799514483
 MonoBehaviour:
   m_ObjectHideFlags: 0

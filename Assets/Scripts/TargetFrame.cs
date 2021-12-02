@@ -24,7 +24,8 @@ public class TargetFrame : Script
     private static void SetScale(RectTransform what, float size)
     {
         var t = GameCore.MainCamera.transform;
-        what.sizeDelta = new Plane(t.forward, t.position).GetDistanceToPoint(what.position) * size * Vector2.one;
+        what.sizeDelta = new Plane(t.forward, t.position).GetDistanceToPoint(what.position) *
+            GameCore.MainCamera.fieldOfView / 72f * size * Vector2.one;
     }
 
     public void Update()
@@ -61,7 +62,7 @@ public class TargetFrame : Script
 
             SetScale(image, Mathf.Lerp(0.25f, 0.05f, dist / 350));
 
-            frameImage.pixelsPerUnitMultiplier = 500f / Vector3.Distance(transform.position, cam.position);
+            frameImage.pixelsPerUnitMultiplier = 40000f / GameCore.MainCamera.fieldOfView / Vector3.Distance(transform.position, cam.position);
 
             if (Player)
             {
