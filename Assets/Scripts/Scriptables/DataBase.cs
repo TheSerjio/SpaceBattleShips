@@ -14,6 +14,8 @@ public sealed class DataBase : ScriptableObject
 
     public AudioClip PlayerDeath;
     public AudioClip EnemyDeath;
+    public AudioClip OnZeroEnergy;
+    public AudioClip OnZeroShields;
 
     public GameObject TargetFramePrefab;
     public GameObject CameraPrefab;

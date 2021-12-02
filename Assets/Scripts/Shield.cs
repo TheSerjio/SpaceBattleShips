@@ -13,6 +13,7 @@ public sealed class Shield : MonoBehaviour
     public float Relative => Current / MaxShield;
     private float Alpha;
     private const float defaultA = 0.25f;
+    private Ship ship;
 
     public void TakeDamage(ref float dmg)
     {
@@ -29,6 +30,8 @@ public sealed class Shield : MonoBehaviour
                 dmg -= Current;
                 Current = 0;
                 HasShield = false;
+                if (ship.PlayerMarked)
+                    GameCore.Self.PlaySound(DataBase.Get().OnZeroShields, 1);
             }
 
             Alpha = (Alpha + q) / (q + 1);
@@ -50,5 +53,6 @@ public sealed class Shield : MonoBehaviour
     {
         HasShield = true;
         Current = MaxShield;
+        ship = GetComponent<Ship>();
     }
 }

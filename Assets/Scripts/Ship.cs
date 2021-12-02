@@ -58,6 +58,8 @@ public class Ship : BaseEntity
             else
             {
                 EnergyCD = NoEnergyCooldown;
+                if (PlayerMarked)
+                    GameCore.Self.PlaySound(DataBase.Get().OnZeroEnergy, 1);
                 return false;
             }
         }
