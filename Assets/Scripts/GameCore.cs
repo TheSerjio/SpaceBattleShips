@@ -21,13 +21,6 @@ public class GameCore : SINGLETON<GameCore>
 
     public Camera EditorCamera;
 
-    [SerializeField] private AudioSource audio;
-
-    public void PlaySound(SoundClip clip)
-    {
-        audio.PlayOneShot(clip.clip, clip.volume);
-    }
-    
     private void RemoveNull()
     {
         var yes = true;

@@ -59,7 +59,7 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
                 CoolDown += ReloadTime;
                 if (Parent.PlayerMarked)
                     if (onShot.clip)
-                        GameCore.Self.PlaySound(onShot);
+                        AudioManager.PlaySound(onShot);
                 Shoot();
             }
         }
