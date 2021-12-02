@@ -289,7 +289,7 @@ MonoBehaviour:
   EnergyPerShot: 40
   onShot:
     clip: {fileID: 8300000, guid: b9160d15fef844e4d9c0561c78347641, type: 3}
-    volume: 1
+    volume: 0.2
   laserWidth: 1
   playerLaserWidth: 3
 --- !u!1 &2058199985271724009
