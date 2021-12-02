@@ -363,7 +363,7 @@ MonoBehaviour:
   EnergyPerShot: 1.5
   onShot:
     clip: {fileID: 8300000, guid: b6d8937f59141e2488f790cbfd2b5dad, type: 3}
-    volume: 1
+    volume: 0.04
   bulletLifeTime: 1.5
   bulletSpeed: 120
   MainProjectileColor: {r: 0.4764151, g: 1, b: 0.9401792, a: 1}
