@@ -59,7 +59,7 @@ public class Ship : BaseEntity
             {
                 EnergyCD = NoEnergyCooldown;
                 if (PlayerMarked)
-                    GameCore.Self.PlaySound(DataBase.Get().OnZeroEnergy, 1);
+                    GameCore.Self.PlaySound(DataBase.Get().OnZeroEnergy);
                 return false;
             }
         }
@@ -179,7 +179,7 @@ public class Ship : BaseEntity
                 Do(q.transform.position);
             Do(transform.position);
             if (from is Ship {PlayerMarked: true})
-                GameCore.Self.PlaySound(DataBase.Get().EnemyDeath, 1);
+                GameCore.Self.PlaySound(DataBase.Get().EnemyDeath);
             Destroy(gameObject);
         }
 

@@ -44,3 +44,10 @@ public struct Locating
         return q;
     }
 }
+
+[System.Serializable]
+public struct SoundClip
+{
+    public AudioClip clip;
+    [Range(0, 2)] public float volume;
+}

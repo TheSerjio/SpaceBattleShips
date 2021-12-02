@@ -23,9 +23,9 @@ public class GameCore : SINGLETON<GameCore>
 
     [SerializeField] private AudioSource audio;
 
-    public void PlaySound(AudioClip clip,float volume)
+    public void PlaySound(SoundClip clip)
     {
-        audio.PlayOneShot(clip, volume);
+        audio.PlayOneShot(clip.clip, clip.volume);
     }
     
     private void RemoveNull()

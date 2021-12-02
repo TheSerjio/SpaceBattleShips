@@ -46,6 +46,8 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
 
     public float EnergyPerShot;
 
+    public SoundClip onShot;
+
     public void Update()
     {
         if (CoolDown > 0)
@@ -55,6 +57,9 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
             if (Parent.TakeEnergy(EnergyPerShot))
             {
                 CoolDown += ReloadTime;
+                if (Parent.PlayerMarked)
+                    if (onShot.clip)
+                        GameCore.Self.PlaySound(onShot);
                 Shoot();
             }
         }

@@ -12,10 +12,10 @@ public sealed class DataBase : ScriptableObject
         return self;
     }
 
-    public AudioClip PlayerDeath;
-    public AudioClip EnemyDeath;
-    public AudioClip OnZeroEnergy;
-    public AudioClip OnZeroShields;
+    public SoundClip PlayerDeath;
+    public SoundClip EnemyDeath;
+    public SoundClip OnZeroEnergy;
+    public SoundClip OnZeroShields;
 
     public GameObject TargetFramePrefab;
     public GameObject CameraPrefab;

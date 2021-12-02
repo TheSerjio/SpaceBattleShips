@@ -31,7 +31,7 @@ public sealed class Shield : MonoBehaviour
                 Current = 0;
                 HasShield = false;
                 if (ship.PlayerMarked)
-                    GameCore.Self.PlaySound(DataBase.Get().OnZeroShields, 1);
+                    GameCore.Self.PlaySound(DataBase.Get().OnZeroShields);
             }
 
             Alpha = (Alpha + q) / (q + 1);

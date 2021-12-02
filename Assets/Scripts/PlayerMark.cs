@@ -173,6 +173,6 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship.PlayerMarked = false;
         Ship.frame.gameObject.SetActive(true);
         if (exploded)
-            GameCore.Self.PlaySound(DataBase.Get().PlayerDeath, 1f);
+            GameCore.Self.PlaySound(DataBase.Get().PlayerDeath);
     }
 }
