@@ -19,17 +19,17 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d4ee5d7c889ed704c92beb4f508f6b9b, type: 3}
     volume: 0.6
   OnZeroEnergy:
-    clip: {fileID: 8300000, guid: 7c144e78291a9af4db4f6a99f9484848, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: c366fd85b65efc846aadc1612d070746, type: 3}
+    volume: 0.1
   OnZeroShields:
     clip: {fileID: 8300000, guid: b78f45ed75048f241b30b78f10ef14a7, type: 3}
     volume: 0.6
   OnShieldHit:
-    clip: {fileID: 8300000, guid: c366fd85b65efc846aadc1612d070746, type: 3}
-    volume: 0.01
+    clip: {fileID: 8300000, guid: 7891d7e9d31bb9d469d950b65beebb81, type: 3}
+    volume: 0.05
   OnTakeDamage:
     clip: {fileID: 8300000, guid: 4a9955ae316ecb44a8c368dc22fdde8b, type: 3}
-    volume: 0.01
+    volume: 0.05
   TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}
   CameraPrefab: {fileID: 1869164099664931348, guid: 6e7960c65ae02e24484986d155bdeacb, type: 3}
   DustPrefab: {fileID: 8337942286436823725, guid: 14068295d4ada2641912daca50394a4f, type: 3}
