@@ -632,7 +632,8 @@ MonoBehaviour:
   asset: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
   EngineSound:
     clip: {fileID: 8300000, guid: 661e94f2e8b829e44af14af683fd844a, type: 3}
-    volume: 0.03
+    volume: 0.02
+    pitch: 0.2
   SniperCameraAngle: 45
 --- !u!135 &2747515676622489423
 SphereCollider:
