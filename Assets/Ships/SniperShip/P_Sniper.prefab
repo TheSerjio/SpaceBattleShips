@@ -290,6 +290,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: b9160d15fef844e4d9c0561c78347641, type: 3}
     volume: 0.2
+    pitch: 0
+  PlayerExplosionSize: 1
   laserWidth: 1
   playerLaserWidth: 3
 --- !u!1 &2058199985271724009
@@ -384,6 +386,7 @@ MonoBehaviour:
   EngineSound:
     clip: {fileID: 8300000, guid: 294bb9846f575ae4ebef6aed8d9466fe, type: 3}
     volume: 0.02
+    pitch: 0
   SniperCameraAngle: 15
 --- !u!114 &141515290426716345
 MonoBehaviour:

@@ -149,6 +149,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: c9e77bd135ad32343a65c7166148b2ac, type: 3}
     volume: 0.1
+    pitch: 0
+  PlayerExplosionSize: 2
   laserWidth: 3
   playerLaserWidth: 8
 --- !u!1 &1853587170793709776
@@ -445,6 +447,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: c9e77bd135ad32343a65c7166148b2ac, type: 3}
     volume: 0.1
+    pitch: 0
+  PlayerExplosionSize: 2
   laserWidth: 3
   playerLaserWidth: 8
 --- !u!1 &2058199985271724009
@@ -546,6 +550,7 @@ MonoBehaviour:
   EngineSound:
     clip: {fileID: 8300000, guid: f5351aa0f56d7704f920c849aa297d39, type: 3}
     volume: 0.025
+    pitch: 0
   SniperCameraAngle: 15
 --- !u!114 &141515290426716345
 MonoBehaviour:
@@ -1092,6 +1097,10 @@ MonoBehaviour:
   playerLaserWidth: 0.5
   EnergyPerSecond: 0
   Accuracy: 100000
+  sound:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
 --- !u!1 &5881371599126332609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1250,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: c9e77bd135ad32343a65c7166148b2ac, type: 3}
     volume: 0.1
+    pitch: 0
+  PlayerExplosionSize: 2
   laserWidth: 3
   playerLaserWidth: 8
 --- !u!1 &7464524465627163721

@@ -166,7 +166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058199984457396286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2058199985271724012}
@@ -190,6 +190,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: ddf6cef34c59fd842ab705d619e8eafc, type: 3}
     volume: 0.5
+    pitch: 0
+  PlayerExplosionSize: 0.5
   bulletLifeTime: 2
   bulletSpeed: 200
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
@@ -289,6 +291,7 @@ MonoBehaviour:
   EngineSound:
     clip: {fileID: 8300000, guid: 294bb9846f575ae4ebef6aed8d9466fe, type: 3}
     volume: 0.025
+    pitch: 0
   SniperCameraAngle: 15
 --- !u!114 &141515290426716345
 MonoBehaviour:

@@ -15,21 +15,27 @@ MonoBehaviour:
   PlayerDeath:
     clip: {fileID: 8300000, guid: 44fc01737a2f324468e5cdf684c72491, type: 3}
     volume: 0.2
+    pitch: 0
   EnemyDeath:
     clip: {fileID: 8300000, guid: d4ee5d7c889ed704c92beb4f508f6b9b, type: 3}
     volume: 0.6
+    pitch: 0
   OnZeroEnergy:
     clip: {fileID: 8300000, guid: c366fd85b65efc846aadc1612d070746, type: 3}
     volume: 0.1
+    pitch: 0
   OnZeroShields:
     clip: {fileID: 8300000, guid: b78f45ed75048f241b30b78f10ef14a7, type: 3}
     volume: 0.6
+    pitch: 0
   OnShieldHit:
     clip: {fileID: 8300000, guid: 7891d7e9d31bb9d469d950b65beebb81, type: 3}
     volume: 0.05
+    pitch: 0
   OnTakeDamage:
     clip: {fileID: 8300000, guid: 4a9955ae316ecb44a8c368dc22fdde8b, type: 3}
     volume: 0.05
+    pitch: 0
   TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}
   CameraPrefab: {fileID: 1869164099664931348, guid: 6e7960c65ae02e24484986d155bdeacb, type: 3}
   DustPrefab: {fileID: 8337942286436823725, guid: 14068295d4ada2641912daca50394a4f, type: 3}
@@ -38,6 +44,7 @@ MonoBehaviour:
   FlatProjectile: {fileID: 1768093384078227406, guid: fe722489b98788f4f892c38808f79e45, type: 3}
   EffectProjectile: {fileID: 1768093384078227406, guid: f065c1c1c7dfd9e4ba11f602e6c5648c, type: 3}
   BetterTrailPrefab: {fileID: 6095212064625228426, guid: 467d73fd3e8960b4cac7f9830908d2d2, type: 3}
+  PlayerShotSmallExplosion: {fileID: 7885659135052607821, guid: eef1119877ad8cf41a8929d7371d3bec, type: 3}
   PlayerColor: {r: 0, g: 0.8492365, b: 1, a: 1}
   Defenders: {r: 0.3337404, g: 0.8773585, b: 0, a: 1}
   Attackers: {r: 0.87370133, g: 1, b: 0, a: 1}

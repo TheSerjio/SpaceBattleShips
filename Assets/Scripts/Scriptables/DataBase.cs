@@ -27,6 +27,7 @@ public sealed class DataBase : ScriptableObject
     public GameObject FlatProjectile;
     public GameObject EffectProjectile;
     public GameObject BetterTrailPrefab;
+    public GameObject PlayerShotSmallExplosion;
 
     public Color PlayerColor;
     public Color Defenders;

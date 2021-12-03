@@ -48,6 +48,8 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
 
     public SoundClip onShot;
 
+    public float PlayerExplosionSize;
+
     public void Update()
     {
         if (CoolDown > 0)
@@ -58,8 +60,17 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
             {
                 CoolDown += ReloadTime;
                 if (Parent.PlayerMarked)
-                    if (onShot.clip)
+                {
                         AudioManager.PlaySound(onShot, false);
+                        if (PlayerExplosionSize != 0)
+                        {
+                            var obj = Instantiate(DataBase.Get().PlayerShotSmallExplosion, transform);
+                            obj.transform.localPosition = Vector3.zero;
+                            obj.transform.localScale = Vector3.one * PlayerExplosionSize;
+                            Destroy(obj, 1);
+                        }
+                }
+
                 Shoot();
             }
         }
