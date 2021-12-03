@@ -330,11 +330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 7
+  damagePerSecond: 24
   laserWidth: 0.1
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
-  Accuracy: 200
+  Accuracy: 300
   sound:
     clip: {fileID: 8300000, guid: 4ee507bc49d30df4baad375ec6e80bb0, type: 3}
     volume: 2
@@ -540,7 +540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3939391292371521489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.087, y: 0.0211, z: -0.5344}
+  m_LocalPosition: {x: 0.078, y: 0.0211, z: -0.5344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3939391291606161750}
@@ -928,11 +928,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 7
+  damagePerSecond: 24
   laserWidth: 0.1
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
-  Accuracy: 200
+  Accuracy: 300
   sound:
     clip: {fileID: 8300000, guid: 4ee507bc49d30df4baad375ec6e80bb0, type: 3}
     volume: 2
@@ -963,7 +963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7724420836567980821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0844, y: 0.0211, z: -0.5344}
+  m_LocalPosition: {x: -0.081, y: 0.018, z: -0.5344}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3939391291606161750}
