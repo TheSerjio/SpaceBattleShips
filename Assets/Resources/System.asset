@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: System
   m_EditorClassIdentifier: 
   PlayerDeath:
-    clip: {fileID: 8300000, guid: 44fc01737a2f324468e5cdf684c72491, type: 3}
+    clip: {fileID: 8300000, guid: a4efa89d7ccb95941b641e53d68bd4d8, type: 3}
     volume: 0.2
     pitch: 0
   EnemyDeath:
