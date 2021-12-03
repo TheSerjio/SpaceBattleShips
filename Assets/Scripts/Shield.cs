@@ -33,7 +33,7 @@ public sealed class Shield : MonoBehaviour
                 Current = 0;
                 HasShield = false;
                 if (ship.PlayerMarked)
-                    AudioManager.PlaySound(DataBase.Get().OnZeroShields,true);
+                    AudioManager.PlaySound(DataBase.Get().OnZeroShields, false);
             }
 
             Alpha = (Alpha + q) / (q + 1);

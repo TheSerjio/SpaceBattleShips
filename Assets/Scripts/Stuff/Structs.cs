@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 
 [System.Serializable]
@@ -49,5 +50,7 @@ public struct Locating
 public struct SoundClip
 {
     public AudioClip clip;
-    [Range(0, 2)] public float volume;
+    [Range(0, 10)] public float volume;
+    [SerializeField] [Range(-1, 1)] public float pitch;
+    public float Pitch => pitch + 1;
 }

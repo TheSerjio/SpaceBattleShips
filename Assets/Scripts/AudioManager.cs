@@ -45,8 +45,16 @@ public class AudioManager : SINGLETON<AudioManager>
     public void Update()
     {
         if (Player)
-        {
             engines.volume = Player.EngineQ * Player.EngineSound.volume;
-        }
+        else
+            lasers.volume = 0;
+    }
+
+    public void SetLaserSound(AudioClip sound, float volume)
+    {
+        lasers.clip = sound;
+        lasers.volume = volume;
+        if (!lasers.isPlaying)
+            lasers.Play();
     }
 }

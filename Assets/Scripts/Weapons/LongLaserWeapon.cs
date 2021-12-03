@@ -23,6 +23,8 @@ public class LongLaserWeapon : ShipWeapon
 
     private bool wasFiring;
 
+    public SoundClip sound;
+
     public void Start()
     {
         NoShootUntil = Time.time + Utils.StartTime;
@@ -72,6 +74,7 @@ public class LongLaserWeapon : ShipWeapon
         wasFiring = Parent.Target.Fire;
         if (b)
             lr.widthMultiplier = Mathf.MoveTowards(lr.widthMultiplier, 0, Time.deltaTime);
+        AudioManager.Self.SetLaserSound(sound.clip, lr.widthMultiplier * sound.volume);
     }
 
     public void OnDrawGizmosSelected()

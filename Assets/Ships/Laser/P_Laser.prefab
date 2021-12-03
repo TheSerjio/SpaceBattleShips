@@ -335,6 +335,10 @@ MonoBehaviour:
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
   Accuracy: 200
+  sound:
+    clip: {fileID: 8300000, guid: 4ee507bc49d30df4baad375ec6e80bb0, type: 3}
+    volume: 2
+    pitch: 0
 --- !u!1 &2746703076095767380
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +476,7 @@ MonoBehaviour:
   EngineSound:
     clip: {fileID: 8300000, guid: f5351aa0f56d7704f920c849aa297d39, type: 3}
     volume: 0.016
+    pitch: 0
   SniperCameraAngle: 15
 --- !u!114 &3443616421799514483
 MonoBehaviour:
@@ -928,6 +933,10 @@ MonoBehaviour:
   playerLaserWidth: 0.5
   EnergyPerSecond: 20
   Accuracy: 200
+  sound:
+    clip: {fileID: 8300000, guid: 4ee507bc49d30df4baad375ec6e80bb0, type: 3}
+    volume: 2
+    pitch: 0
 --- !u!1 &7724420836567980821
 GameObject:
   m_ObjectHideFlags: 0
