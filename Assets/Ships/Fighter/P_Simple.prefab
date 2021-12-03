@@ -364,15 +364,17 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: b6d8937f59141e2488f790cbfd2b5dad, type: 3}
     volume: 0.04
+    pitch: 0
+  PlayerExplosionSize: 0
   bulletLifeTime: 1.5
   bulletSpeed: 120
   MainProjectileColor: {r: 0.4764151, g: 1, b: 0.9401792, a: 1}
   EdgeProjectileColor: {r: 0, g: 0.40196466, b: 1, a: 1}
   ProjecileLentgh: 0.5
-  ProjectileSize: 0.15
+  ProjectileSize: 0.12
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0.01
+  Inaccuracy: 0.014
 --- !u!1 &2058199985271724009
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +467,7 @@ MonoBehaviour:
   EngineSound:
     clip: {fileID: 8300000, guid: 661e94f2e8b829e44af14af683fd844a, type: 3}
     volume: 0.024
+    pitch: 0
   SniperCameraAngle: 60
 --- !u!114 &141515290426716345
 MonoBehaviour:
@@ -499,8 +502,8 @@ MonoBehaviour:
     Size: 1
     InFrontOfMe: 1
     Random: 0.5
-  MinOptimalDistance: 100
-  MaxOptimalDistance: 150
+  MinOptimalDistance: 60
+  MaxOptimalDistance: 100
   AccuracyShooting: 0
 --- !u!1 &2058199985504403819
 GameObject:
