@@ -102,7 +102,7 @@ public class Ship : BaseEntity
     private float Energy { get; set; }
 
     [Tooltip("Per second")] public float EnergyRegeneration;
-    private float EngineQ;
+    public float EngineQ { get; private set; }
     [SerializeField] private MeshRenderer MeshForDamage;
     public TargetFrame frame;
     public Shield Shield { get; private set; }
@@ -119,6 +119,8 @@ public class Ship : BaseEntity
     public ShipData asset;
 
     private float RequredEngineQ;
+
+    public SoundClip EngineSound;
 
     [Range(3f, 150f)] public float SniperCameraAngle;
 

@@ -381,6 +381,9 @@ MonoBehaviour:
   mainWeapon: {fileID: 8587561453027499572}
   Formation: []
   asset: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
+  EngineSound:
+    clip: {fileID: 8300000, guid: c728791d036df89429fb35c2be36682e, type: 3}
+    volume: 0.1
   SniperCameraAngle: 15
 --- !u!114 &141515290426716345
 MonoBehaviour:

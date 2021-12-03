@@ -79,6 +79,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         }
         Ship.FindTrails();
         Ship.frame.gameObject.SetActive(false);
+        AudioManager.Self.SetPlayer(Ship);
     }
 
     public void SwitchPlayer()
@@ -176,5 +177,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship.frame.gameObject.SetActive(true);
         if (exploded)
             AudioManager.PlaySound(DataBase.Get().PlayerDeath, false);
+        if (AudioManager.Self.Player == Ship)
+            AudioManager.Self.SetPlayer(null);
     }
 }
