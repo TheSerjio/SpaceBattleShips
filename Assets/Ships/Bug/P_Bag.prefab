@@ -361,7 +361,10 @@ MonoBehaviour:
   mainWeapon: {fileID: 7442075221799175898}
   Formation: []
   asset: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
-  SniperCameraAngle: 0
+  EngineSound:
+    clip: {fileID: 8300000, guid: 294bb9846f575ae4ebef6aed8d9466fe, type: 3}
+    volume: 0.016
+  SniperCameraAngle: 62
 --- !u!114 &845703886288328863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +673,7 @@ MonoBehaviour:
   MainProjectileColor: {r: 0.8860987, g: 1, b: 0.3160377, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.41667736, b: 0, a: 1}
   ProjecileLentgh: 10
-  ProjectileSize: 0.14
+  ProjectileSize: 0.5
   type: 0
   ProjectileExplosionPower: 0
   Inaccuracy: 0.01
@@ -869,7 +872,7 @@ MonoBehaviour:
   MainProjectileColor: {r: 0.8860987, g: 1, b: 0.3160377, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.41667736, b: 0, a: 1}
   ProjecileLentgh: 10
-  ProjectileSize: 0.14
+  ProjectileSize: 0.5
   type: 0
   ProjectileExplosionPower: 0
   Inaccuracy: 0.01

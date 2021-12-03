@@ -53,8 +53,8 @@ MonoBehaviour:
   bulletSpeed: 70
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.030305736, b: 0, a: 1}
-  ProjecileLentgh: 0.5
-  ProjectileSize: 0.15
+  ProjecileLentgh: 0.8
+  ProjectileSize: 0.3
   type: 0
   ProjectileExplosionPower: 0
   Inaccuracy: 0.01
@@ -136,7 +136,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.1
+    widthMultiplier: 0.07
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -285,8 +285,8 @@ MonoBehaviour:
   bulletSpeed: 70
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.030305736, b: 0, a: 1}
-  ProjecileLentgh: 0.5
-  ProjectileSize: 0.15
+  ProjecileLentgh: 0.8
+  ProjectileSize: 0.3
   type: 0
   ProjectileExplosionPower: 0
   Inaccuracy: 0.01
@@ -423,6 +423,9 @@ MonoBehaviour:
   mainWeapon: {fileID: 7851812694907981593}
   Formation: []
   asset: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  EngineSound:
+    clip: {fileID: 8300000, guid: 294bb9846f575ae4ebef6aed8d9466fe, type: 3}
+    volume: 0.008
   SniperCameraAngle: 60
 --- !u!135 &2747515676622489423
 SphereCollider:
