@@ -49,6 +49,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: e2f75a3e0f1855d47adf9d359064dd36, type: 3}
     volume: 0.01
+    pitch: 0
+  PlayerExplosionSize: 0
   bulletLifeTime: 3
   bulletSpeed: 70
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
@@ -281,6 +283,8 @@ MonoBehaviour:
   onShot:
     clip: {fileID: 8300000, guid: e2f75a3e0f1855d47adf9d359064dd36, type: 3}
     volume: 0.01
+    pitch: 0
+  PlayerExplosionSize: 0
   bulletLifeTime: 3
   bulletSpeed: 70
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
@@ -426,6 +430,7 @@ MonoBehaviour:
   EngineSound:
     clip: {fileID: 8300000, guid: 294bb9846f575ae4ebef6aed8d9466fe, type: 3}
     volume: 0.008
+    pitch: 0
   SniperCameraAngle: 60
 --- !u!135 &2747515676622489423
 SphereCollider:
@@ -460,6 +465,7 @@ MonoBehaviour:
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
   AccuracyShooting: 0
+  AimingQuality: 1
 --- !u!1 &5898082224501375727
 GameObject:
   m_ObjectHideFlags: 0

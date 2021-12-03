@@ -364,6 +364,10 @@ MonoBehaviour:
   mainWeapon: {fileID: 6385380467895637082}
   Formation: []
   asset: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
+  EngineSound:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
   SniperCameraAngle: 150
 --- !u!114 &3079299493328993905
 MonoBehaviour:
@@ -385,6 +389,7 @@ MonoBehaviour:
   MinOptimalDistance: 50
   MaxOptimalDistance: 100
   AccuracyShooting: 0
+  AimingQuality: 2
 --- !u!114 &3477215623944422658
 MonoBehaviour:
   m_ObjectHideFlags: 0

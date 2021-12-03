@@ -402,6 +402,7 @@ MonoBehaviour:
   MinOptimalDistance: 100
   MaxOptimalDistance: 150
   AccuracyShooting: 0
+  AimingQuality: 1
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0

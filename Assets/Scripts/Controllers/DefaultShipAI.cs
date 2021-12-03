@@ -7,6 +7,7 @@ public class DefaultShipAI : ShipAIController
     private float Dist;
     [Range(0, 0.99999f)] public float AccuracyShooting;
     private float LastTargetFound;
+    [Range(0, 4)] public byte AimingQuality;
     
     public override void OnStart()
     {
@@ -48,7 +49,7 @@ public class DefaultShipAI : ShipAIController
             Ship.Brake(false);
         }
 
-        var to = Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed, 3);
+        var to = Utils.ShootTo(RB, Target.RB, Ship.mainWeapon.AntiSpeed, AimingQuality);
 
         target.Fire =
             (Vector3.Dot(transform.forward, (Target.transform.position - transform.position).normalized) >
