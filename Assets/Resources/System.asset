@@ -37,11 +37,80 @@ MonoBehaviour:
     volume: 0.05
     pitch: 0
   Music:
-  - clip: {fileID: 8300000, guid: a8e0efbb86910cd42b440a651e658ad7, type: 3}
-    volume: 0.1
+  - clip: {fileID: 8300000, guid: ddf864903f91eca40a28ad4c9a54c966, type: 3}
+    volume: 0.04
     pitch: 0
-  - clip: {fileID: 0}
-    volume: 0.1
+  - clip: {fileID: 8300000, guid: a8e0efbb86910cd42b440a651e658ad7, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: d0125a86f57ebcf4185319b8d62da487, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 8a737e4d6aefa57468a1d4ae8371c8a5, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: ef927d28bdcb5c2458ce531b9212d201, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 7094ad01871a36f499657076a8b7bca5, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 01c2fa27892f26646aeb8cba83cb6b07, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: ab12dec5e8625b24e8e026cca11248ec, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 726a8bf0f245f564a8a7c16867067c67, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: d22824917e5cf0a44b2835c246112d03, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 3ef7c3510d30ccd4db539e65fb7b334d, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: b81c11f6e1d59fa4283020f359f5b3d6, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: a77ad620524989d43a2161a5757678a4, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: a77ad620524989d43a2161a5757678a4, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 5d093db39cca347449c2ebc455fbd97e, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: e8fd10607d95b414cbc6a1624486c426, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 3d0d9e766a50f8f4e87cc989de379744, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 4e653e39e09cf9e4c919614ae8b6d199, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 1acef83b04019774eb133406722ffe5d, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 2476636c452ab4946b7c1a166cc63df2, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 63af2998ab144b442b59ea0361b68f42, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 5bd700ec42bd01a49865c1cf11d7d520, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 45d6313f6ed15ed48be2bf978c257c86, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: daf19cc14a2973d49a01fa15b37abfa8, type: 3}
+    volume: 0.04
+    pitch: 0
+  - clip: {fileID: 8300000, guid: 21ac31143d978624a99e0e0b396435be, type: 3}
+    volume: 0.04
     pitch: 0
   TargetFramePrefab: {fileID: 243357964350443969, guid: 1db4d1c3a9e35584e8b012e464abaf77, type: 3}
   CameraPrefab: {fileID: 1869164099664931348, guid: 6e7960c65ae02e24484986d155bdeacb, type: 3}
