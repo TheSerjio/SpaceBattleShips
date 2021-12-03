@@ -268,9 +268,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   all:
-  - count: 40
-    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
-  TotalCost: 400
+  - count: 10
+    ship: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+  TotalCost: 5000
 --- !u!4 &1306716663
 Transform:
   m_ObjectHideFlags: 0
