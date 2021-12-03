@@ -1,6 +1,3 @@
-using System;
-using System.IO;
-using System.Xml.Schema;
 using UnityEngine;
 
 public class AudioManager : SINGLETON<AudioManager>
@@ -8,6 +5,7 @@ public class AudioManager : SINGLETON<AudioManager>
     [SerializeField] private AudioSource mono;
     [SerializeField] private AudioSource engines;
     [SerializeField] private AudioSource lasers;
+    [SerializeField] private AudioSource music;
     private float dontPlayUntil;
 
     public Ship Player { get; private set; }
@@ -48,6 +46,12 @@ public class AudioManager : SINGLETON<AudioManager>
             engines.volume = Player.EngineQ * Player.EngineSound.volume;
         else
             lasers.volume = 0;
+        if (!music.isPlaying)
+        {
+            var all = DataBase.Get().Music;
+            var obj = all[Random.Range(0, all.Length)];
+            music.PlayOneShot(obj.clip, obj.volume);
+        }
     }
 
     public void SetLaserSound(AudioClip sound, float volume)

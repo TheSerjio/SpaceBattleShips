@@ -18,6 +18,7 @@ public sealed class DataBase : ScriptableObject
     public SoundClip OnZeroShields;
     public SoundClip OnShieldHit;
     public SoundClip OnTakeDamage;
+    public SoundClip[] Music;
 
     public GameObject TargetFramePrefab;
     public GameObject CameraPrefab;
