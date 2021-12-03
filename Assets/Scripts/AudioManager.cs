@@ -31,6 +31,7 @@ public class AudioManager : SINGLETON<AudioManager>
         if (what)
         {
             engines.clip = what.EngineSound.clip;
+            engines.pitch = what.EngineSound.Pitch;
             engines.Play();
         }
         else
