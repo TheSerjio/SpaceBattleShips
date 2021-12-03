@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e512af1ba04064e85bcaab98bb7ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 30
+  rotationSpeed: 90
   body: {fileID: 4727614689082853165}
   weapon: {fileID: 3500866970751952407}
   maxAngle: 0
@@ -270,10 +270,10 @@ MonoBehaviour:
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   ProjecileLentgh: 0.25
-  ProjectileSize: 0.1
+  ProjectileSize: 0.2
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0.04
+  Inaccuracy: 0.02
 --- !u!1 &9062677248125654089
 GameObject:
   m_ObjectHideFlags: 0
