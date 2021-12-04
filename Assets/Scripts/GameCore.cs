@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -42,28 +43,43 @@ public class GameCore : SINGLETON<GameCore>
 
     protected override void OnSingletonAwake()
     {
+        
         Counts = new System.Collections.Generic.Dictionary<Team, ulong>();
         foreach (var q in System.Enum.GetValues(typeof(Team)))
             Counts[(Team)q] = 0;
-        //StartCoroutine(Initialize());
     }
 
-    /*private System.Collections.IEnumerator Initialize()
+    public void Start()
     {
-        Time.timeScale = 0;
-        foreach (var q in System.Enum.GetValues(typeof(Poolable)))
+        if (LevelManager.currentLevel)
         {
-            var p = (Poolable)q;
-            var t = GetTransform(p);
-            while(t.childCount<100)
+            switch (LevelManager.type)
             {
-                Create(false, p);
-                yield return null;
+                case LevelManager.Type.Level:
+                {
+                    var spawnAt = Vector3.zero;
+                    {
+                        var point = SpawnPlayerHere.Self;
+                        if (point)
+                            spawnAt = point.transform.position;
+                    }
+                    PlayerSpawner.Spawn(LevelManager.startedWith[0], spawnAt);
+                    break;
+                }
+                case LevelManager.Type.Campaign:
+                {
+                    Debug.LogError(LevelManager.type);
+                    break;
+                }
+                default:
+                {
+                    Debug.LogError(LevelManager.type);
+                    break;
+                }
             }
         }
-        Debug.LogWarning("Finished!");
-        Time.timeScale = 1;
-    }*/
+    }
+
 
     public static void Add(BaseEntity it)
     {

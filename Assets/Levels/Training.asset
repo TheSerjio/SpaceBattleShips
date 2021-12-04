@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
-  m_Name: obuchenie
+  m_Name: Training
   m_EditorClassIdentifier: 
   scene: {fileID: 102900000, guid: 026fc64730be92445b54a555fadfaa2c, type: 3}
   ships:
@@ -19,7 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
   - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
   - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
-  - {fileID: 11400000, guid: 8a7b33158d338e7418d11c331ad1d8e4, type: 2}
   - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
   - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}

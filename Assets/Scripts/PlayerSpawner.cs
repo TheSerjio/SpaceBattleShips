@@ -4,17 +4,20 @@ public class PlayerSpawner : MonoBehaviour
 {
     public ShipData ship;
 
-    public Team team;
+    public static void Spawn(ShipData what, Vector3 where)
+    {
+        var obj = Instantiate(what.Prefab);
+        var s = obj.GetComponent<Ship>();
+        s.team = Team.Player;
+        Spawner.CreateFrame(s);
+        obj.transform.position = where;
+        obj.AddComponent<PlayerMark>().SwitchPlayer();
+        Spectator.Self.gameObject.SetActive(false);
+    }
 
     public void Start()
     {
-        var obj = Instantiate(ship.Prefab);
-        var s = obj.GetComponent<Ship>();
-        s.team = team;
-        Spawner.CreateFrame(s);
-        obj.transform.position = transform.position;
-        obj.AddComponent<PlayerMark>().SwitchPlayer();
-        Spectator.Self.gameObject.SetActive(false);
+        Spawn(ship, transform.position);
         Destroy(gameObject);
     }
 }

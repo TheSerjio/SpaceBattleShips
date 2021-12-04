@@ -10,5 +10,5 @@ public static class LevelManager
 
     public static Type type;
     public static Level currentLevel;
-    public static MotherShip.Data[] startedWith;
+    public static ShipData[] startedWith;
 }

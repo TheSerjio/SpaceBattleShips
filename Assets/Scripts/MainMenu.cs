@@ -1,54 +1,68 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject mainPanel;
-    public GameObject campaignPanel;
-    public GameObject levelsPanel;
-    public GameObject settingsPanel;
-
     public Slider Sounds;
     public Slider Music;
 
+    public GameObject levelButtonPrefab;
+    public GameObject mainPanel;
+    public RectTransform levelPanel;
+    public GameObject[] panels;
+    private Level currentLevel;
+
+    public GameObject[] shipSelectionButtons;
 
     private void Start()
     {
-        GoToMainMenu();
+        OpenPanel(mainPanel);
+        var levels = DataBase.Get().Levels;
+        for (var i = 0; i < levels.Length; i++)
+        {
+            var level = levels[i];
+            var obj = Instantiate(levelButtonPrefab, levelPanel);
+            obj.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (i * 64 + 64);
+            obj.GetComponentInChildren<Text>().text = level.name;
+            obj.GetComponent<Button>().onClick.AddListener(() => OnLevelClick(level));
+        }
+    }
+
+    private void OnLevelClick(Level level)
+    {
+        currentLevel = level;
+        for (var i = 0; i < shipSelectionButtons.Length; i++)
+        {
+            if (level.ships.Length > i)
+            {
+                var button = shipSelectionButtons[i];
+                button.SetActive(true);
+                var ship = level.ships[i];
+                button.GetComponent<Image>().sprite = ship.Preview;
+                button.GetComponent<Button>().onClick.AddListener(() => OnShipSelectClick(ship));
+            }
+            else
+                shipSelectionButtons[i].SetActive(false);
+        }
+    }
+
+    private void OnShipSelectClick(ShipData what)
+    {
+        LevelManager.type = LevelManager.Type.Level;
+        LevelManager.currentLevel = currentLevel;
+        LevelManager.startedWith = new[] {what};
+        SceneManager.LoadScene(currentLevel.BuildingIndex);
+    }
+
+    public void OpenPanel(GameObject what)
+    {
+        foreach (var q in panels)
+            q.SetActive(q == what);
     }
     
-    
-    
-    public void GoToMainMenu()
-    {
-        mainPanel.SetActive(true);
-        settingsPanel.SetActive(false);
-        levelsPanel.SetActive(false);
-        campaignPanel.SetActive(false);
-    }
-    
-    public void OnCampaignButtonClick()
-    {
-        mainPanel.SetActive(false);
-        campaignPanel.SetActive(true);
-    }
-    public void OnLevelsButtonClick()
-    {
-        mainPanel.SetActive(false);
-        levelsPanel.SetActive(true);
-    }
-    public void OnSettingsButtonClick()
-    {
-        mainPanel.SetActive(false);
-        settingsPanel.SetActive(true);
-    }
     public void OnQuitButtonClick()
     {
         Application.Quit();
-    }
-    
-    void Update()
-    {
-        
     }
 }
