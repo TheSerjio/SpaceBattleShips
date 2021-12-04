@@ -121,10 +121,10 @@ MonoBehaviour:
   EffectProjectile: {fileID: 1768093384078227406, guid: f065c1c1c7dfd9e4ba11f602e6c5648c, type: 3}
   BetterTrailPrefab: {fileID: 6095212064625228426, guid: 467d73fd3e8960b4cac7f9830908d2d2, type: 3}
   PlayerShotSmallExplosion: {fileID: 7885659135052607821, guid: eef1119877ad8cf41a8929d7371d3bec, type: 3}
-  PlayerColor: {r: 0, g: 0.8492365, b: 1, a: 1}
-  Defenders: {r: 0.3337404, g: 0.8773585, b: 0, a: 1}
-  Attackers: {r: 0.87370133, g: 1, b: 0, a: 1}
-  Pirates: {r: 0.6260886, g: 0, b: 1, a: 1}
+  PlayerColor: {r: 0.43867922, g: 0.91635215, b: 1, a: 1}
+  Defenders: {r: 1, g: 1, b: 1, a: 1}
+  Attackers: {r: 1, g: 0.82412124, b: 0.5235849, a: 1}
+  Pirates: {r: 0.8189974, g: 0.514151, b: 1, a: 1}
   Ships:
   - {fileID: 11400000, guid: 2c34961a4246c9a4bae4e7e66fb45e9f, type: 2}
   - {fileID: 11400000, guid: c76d0cb34c0f7ce43929af4f45520921, type: 2}
