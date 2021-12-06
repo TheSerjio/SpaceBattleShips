@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1d94cdb2ab97747a5cdbfd9e35ccd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 2.8
-  ReloadTime: 0.15
+  Damage: 3
+  ReloadTime: 0.17
   EnergyPerShot: 1.5
   onShot:
     clip: {fileID: 8300000, guid: b6d8937f59141e2488f790cbfd2b5dad, type: 3}
@@ -370,11 +370,11 @@ MonoBehaviour:
   bulletSpeed: 120
   MainProjectileColor: {r: 0.4764151, g: 1, b: 0.9401792, a: 1}
   EdgeProjectileColor: {r: 0, g: 0.40196466, b: 1, a: 1}
-  ProjecileLentgh: 0.5
-  ProjectileSize: 0.12
+  ProjecileLentgh: 0.6
+  ProjectileSize: 0.2
   type: 0
   ProjectileExplosionPower: 0
-  Inaccuracy: 0.014
+  Inaccuracy: 0.008
 --- !u!1 &2058199985271724009
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ MonoBehaviour:
     Random: 0.5
   MinOptimalDistance: 60
   MaxOptimalDistance: 100
-  AccuracyShooting: 0
+  AccuracyShooting: 0.01
   AimingQuality: 1
 --- !u!1 &2058199985504403819
 GameObject:
