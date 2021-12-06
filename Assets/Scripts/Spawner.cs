@@ -7,6 +7,7 @@ public sealed class Spawner : MonoBehaviour
 {
     public Team team;
     public MotherShip.Data[] all;
+    public float waitSeconds;
 
 
     public float TotalCost;
@@ -41,6 +42,7 @@ public sealed class Spawner : MonoBehaviour
 
     private System.Collections.IEnumerator Summon()
     {
+        yield return new WaitForSeconds(waitSeconds);
         float D = 0;
         foreach (var g in all)
             for (ushort ii = 0; ii < g.count; ii++)

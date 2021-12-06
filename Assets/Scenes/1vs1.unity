@@ -273,6 +273,7 @@ MonoBehaviour:
   all:
   - count: 10
     ship: {fileID: 11400000, guid: c76d0cb34c0f7ce43929af4f45520921, type: 2}
+  waitSeconds: 10
   TotalCost: 20
 --- !u!4 &1306716663
 Transform:
