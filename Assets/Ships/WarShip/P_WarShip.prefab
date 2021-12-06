@@ -237,7 +237,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058199984000862006}
-  m_Mesh: {fileID: -7531771668147445304, guid: 9554a238a3901194ea5d9788cb388f25, type: 3}
+  m_Mesh: {fileID: -7531771668147445304, guid: 51bd30f2103218d4294c07c93a76e29c, type: 3}
 --- !u!23 &2058199984000861961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -259,10 +259,10 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ba845a90ed96837478721fbe6e26ce0f, type: 2}
-  - {fileID: -4660651839558579860, guid: 9554a238a3901194ea5d9788cb388f25, type: 3}
-  - {fileID: -4660651839558579860, guid: 9554a238a3901194ea5d9788cb388f25, type: 3}
-  - {fileID: -4660651839558579860, guid: 9554a238a3901194ea5d9788cb388f25, type: 3}
-  - {fileID: -4660651839558579860, guid: 9554a238a3901194ea5d9788cb388f25, type: 3}
+  - {fileID: -3522955778539423533, guid: 51bd30f2103218d4294c07c93a76e29c, type: 3}
+  - {fileID: 4036165759671385969, guid: 51bd30f2103218d4294c07c93a76e29c, type: 3}
+  - {fileID: -4660651839558579860, guid: 51bd30f2103218d4294c07c93a76e29c, type: 3}
+  - {fileID: -3522955778539423533, guid: 51bd30f2103218d4294c07c93a76e29c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -588,6 +588,7 @@ MonoBehaviour:
   MinOptimalDistance: 2000
   MaxOptimalDistance: 3000
   AccuracyShooting: 0.99999
+  AimingQuality: 0
 --- !u!1 &2058199985504403819
 GameObject:
   m_ObjectHideFlags: 0
