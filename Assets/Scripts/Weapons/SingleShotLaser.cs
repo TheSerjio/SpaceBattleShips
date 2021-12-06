@@ -14,7 +14,7 @@ public class SingleShotLaser : ShipWeaponWithCoolDown
     public float laserWidth;
 
     public float playerLaserWidth;
-    public override float FrameDistance => 10000;
+    public override float FrameDistance => 1000;
     public override float S_Bullets => 1f / ReloadTime;
 
     protected override void OnStart()
