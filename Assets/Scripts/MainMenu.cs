@@ -30,6 +30,8 @@ public class MainMenu : MonoBehaviour
 
         foreach (var q in shipSelectionButtons)
             q.SetActive(false);
+
+        Cursor.SetCursor(DataBase.Get().MenuCursor, Vector2.zero, CursorMode.Auto);
     }
 
     private void OnLevelClick(Level level)

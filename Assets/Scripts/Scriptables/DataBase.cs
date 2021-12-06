@@ -30,6 +30,9 @@ public sealed class DataBase : ScriptableObject
     public GameObject BetterTrailPrefab;
     public GameObject PlayerShotSmallExplosion;
 
+    public Texture2D MenuCursor;
+    public Texture2D GameCursor;
+
     public Color PlayerColor;
     public Color Defenders;
     public Color Attackers;

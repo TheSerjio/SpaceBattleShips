@@ -78,6 +78,8 @@ public class GameCore : SINGLETON<GameCore>
                 }
             }
         }
+
+        Cursor.SetCursor(DataBase.Get().GameCursor, Vector2.one * 15, CursorMode.Auto);
     }
 
 
