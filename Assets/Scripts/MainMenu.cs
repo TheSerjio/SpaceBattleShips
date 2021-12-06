@@ -24,9 +24,12 @@ public class MainMenu : MonoBehaviour
             var level = levels[i];
             var obj = Instantiate(levelButtonPrefab, levelPanel);
             obj.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (i * 64 + 64);
-            obj.GetComponentInChildren<Text>().text = level.name;
+            obj.GetComponentInChildren<Text>().text = level.Name;
             obj.GetComponent<Button>().onClick.AddListener(() => OnLevelClick(level));
         }
+
+        foreach (var q in shipSelectionButtons)
+            q.SetActive(false);
     }
 
     private void OnLevelClick(Level level)
@@ -39,7 +42,9 @@ public class MainMenu : MonoBehaviour
                 var button = shipSelectionButtons[i];
                 button.SetActive(true);
                 var ship = level.ships[i];
-                button.GetComponent<Image>().sprite = ship.Preview;
+                var it = button.GetComponent<ShipSelectButton>();
+                it.ship.sprite = ship.Preview;
+                it.star.enabled = false;
                 button.GetComponent<Button>().onClick.AddListener(() => OnShipSelectClick(ship));
             }
             else

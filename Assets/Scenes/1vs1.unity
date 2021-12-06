@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7617425869601312846, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44.399902
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
 --- !u!1 &675082123
@@ -235,8 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09064928302bc9748b6f3bde6ad4b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
-  team: 5
+  ship: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
 --- !u!1 &1306716661
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,8 +272,8 @@ MonoBehaviour:
   team: 1
   all:
   - count: 10
-    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
-  TotalCost: 100
+    ship: {fileID: 11400000, guid: c76d0cb34c0f7ce43929af4f45520921, type: 2}
+  TotalCost: 20
 --- !u!4 &1306716663
 Transform:
   m_ObjectHideFlags: 0

@@ -20,4 +20,6 @@ public class Level : ValidableScriptableObject
         if (!scene)
             yield return Warn(Level.Error, "no scene");
     }
+
+    public string Name;
 }
