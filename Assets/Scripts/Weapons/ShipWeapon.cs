@@ -6,6 +6,8 @@ public abstract class ShipWeapon : Script
     {
 
     }
+    
+    public abstract float FrameDistance { get; }
 
     public abstract float S_Bullets { get; }
 

@@ -80,6 +80,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship.FindTrails();
         Ship.frame.gameObject.SetActive(false);
         AudioManager.Self.SetPlayer(Ship);
+        TargetFrame.PlayerDistance = Ship.mainWeapon.FrameDistance;
     }
 
     public void SwitchPlayer()

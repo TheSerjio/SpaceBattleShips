@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class TargetFrame : Script
 {
     public static float PlayerAntiBulletSpeed;
+    public static float PlayerDistance = 1;
     public static Rigidbody Player;
 
     public Ship target;
@@ -18,8 +19,6 @@ public class TargetFrame : Script
     [SerializeField] RectTransform onHit;
     [SerializeField] RectTransform probablyPosition;
     [SerializeField] Image probabPos;
-
-    private const float maxTextDist = 300;
 
     private static void SetScale(RectTransform what, float size)
     {
@@ -41,11 +40,11 @@ public class TargetFrame : Script
             {
                 //this sets alpha of text and circle
                 var c = text.color;
-                c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
+                c.a = Mathf.Lerp(1, 0, dist / PlayerDistance);
                 text.color = c;
 
                 c = probabPos.color;
-                c.a = Mathf.Lerp(1, 0, dist / maxTextDist);
+                c.a = Mathf.Lerp(1, 0, dist / PlayerDistance);
                 probabPos.color = c;
             }
 

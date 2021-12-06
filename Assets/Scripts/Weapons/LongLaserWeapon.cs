@@ -7,6 +7,7 @@ public class LongLaserWeapon : ShipWeapon
 
     private float q;
 
+    public override float FrameDistance => Accuracy * 2;
     public override float S_Bullets => 1;
     public override float AntiSpeed => 0;
 

@@ -27,6 +27,7 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
     public float ProjectileExplosionPower;
 
     [Range(0, 1)] public float Inaccuracy;
+    public override float FrameDistance => bulletLifeTime * bulletSpeed;
     public override float S_Bullets => bulletLifeTime / ReloadTime;
 
     private Poolable Converted
