@@ -43,9 +43,14 @@ public class TargetFrame : Script
                 c.a = Mathf.Lerp(1, 0, dist / PlayerDistance);
                 text.color = c;
 
-                c = probabPos.color;
-                c.a = Mathf.Lerp(1, 0, dist / PlayerDistance);
-                probabPos.color = c;
+                if (dist > PlayerDistance)
+                {
+                    probabPos.color = new Color(1, 1, 1, PlayerDistance / dist);
+                }
+                else
+                {
+                    probabPos.color = new Color(0.5f, 0, 1);
+                }
             }
 
             transform.position = target.transform.position;
