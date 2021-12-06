@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
   - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
   - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
-  - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   - {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
+  - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   BuildingIndex: 7
   Name: Level 6
