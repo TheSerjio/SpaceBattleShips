@@ -8,17 +8,11 @@ public class GameCore : SINGLETON<GameCore>
     private readonly System.Collections.Generic.Dictionary<Poolable, Transform> Types = new System.Collections.Generic.Dictionary<Poolable, Transform>();
     private readonly System.Collections.Generic.List<COLLECTOR> collectors = new System.Collections.Generic.List<COLLECTOR>(8);
     private System.Collections.Generic.List<Ship> _all_;
-    private System.Collections.Generic.List<Ship> All
-    {
-        get
-        {
-            if (_all_ == null)
-                _all_ = new System.Collections.Generic.List<Ship>();
-            return _all_;
-        }
-    }
+    private System.Collections.Generic.List<Ship> All => _all_ ??= new System.Collections.Generic.List<Ship>();
 
     private System.Collections.Generic.Dictionary<Team, ulong> Counts;
+
+    private Team[] allTeams = Utils.EnumValues<Team>();
 
     public Camera EditorCamera;
 
@@ -128,8 +122,8 @@ public class GameCore : SINGLETON<GameCore>
         EditorCamera = MainCamera;
         Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
         RemoveNull();
-        foreach(var q in System.Enum.GetValues(typeof(Team)))
-            Counts[(Team)q] = 0;
+        foreach (var q in Utils.EnumValues<Team>())
+            Counts[q] = 0;
         foreach(var q in All)
             Counts[q.team]++;
         string s = "";

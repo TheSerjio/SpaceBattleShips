@@ -44,13 +44,9 @@ public class TargetFrame : Script
                 text.color = c;
 
                 if (dist > PlayerDistance)
-                {
                     probabPos.color = new Color(1, 1, 1, PlayerDistance / dist);
-                }
                 else
-                {
-                    probabPos.color = new Color(0.5f, 0, 1);
-                }
+                    probabPos.color = Color.Lerp(Color.yellow, Color.magenta, dist / PlayerDistance);
             }
 
             transform.position = target.transform.position;
@@ -62,7 +58,7 @@ public class TargetFrame : Script
 
             //text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
             text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}";
-            text.fontSize = Vector3.Distance(transform.position, cam.position) / 30f;
+            text.fontSize = Vector3.Distance(transform.position, cam.position) * GameCore.MainCamera.fieldOfView / 2000f;
 
             SetScale(image, Mathf.Lerp(0.25f, 0.05f, dist / 350));
 

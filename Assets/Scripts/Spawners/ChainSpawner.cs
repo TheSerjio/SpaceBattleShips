@@ -1,9 +1,7 @@
-using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
-[DisallowMultipleComponent]
-public sealed class Spawner : MonoBehaviour
+public class ChainSpawner : MonoBehaviour
 {
     public Team team;
     public MotherShip.Data[] all;
