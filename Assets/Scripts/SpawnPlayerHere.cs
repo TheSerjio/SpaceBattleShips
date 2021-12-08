@@ -6,6 +6,6 @@ public class SpawnPlayerHere : SINGLETON<SpawnPlayerHere>
     public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(Ttransform.position, Ttransform.forward);
+        Gizmos.DrawLine(Ttransform.position, Ttransform.position + (Ttransform.forward * 100));
     }
 }
