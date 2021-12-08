@@ -58,6 +58,7 @@ public sealed class GameUI : SINGLETON<GameUI>
 
     public void ButtonGoToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 }
