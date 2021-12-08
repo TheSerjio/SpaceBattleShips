@@ -88,9 +88,12 @@ public class PlayerMark : SINGLETON<PlayerMark>
         Ship = GetComponent<Ship>();
         if (GetComponent<PlayerShip>())
         {
-            GameUI.Self.ShowHide(true);
-            DestroyImmediate(GetComponent<PlayerShip>());
-            GetComponent<ShipController>().enabled = true;
+            if (LevelManager.CanExitFromShip)
+            {
+                GameUI.Self.ShowHide(true);
+                DestroyImmediate(GetComponent<PlayerShip>());
+                GetComponent<ShipController>().enabled = true;
+            }
         }
         else
         {
@@ -124,7 +127,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
 
         if (Input.GetKeyDown(KeyCode.Return))
             SwitchPlayer();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Tilde) && LevelManager.CanExitFromShip)
         {
             if (GetComponent<PlayerShip>())
                 SwitchPlayer();

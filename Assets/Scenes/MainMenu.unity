@@ -746,6 +746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sounds: {fileID: 415289353}
   Music: {fileID: 1044488508}
+  sound: {fileID: 646258643}
+  soundLevel: 0.1
   levelButtonPrefab: {fileID: 7257070089578942524, guid: f80c58f8867495b40a699c3fedc8d5b6, type: 3}
   mainPanel: {fileID: 320048002}
   levelPanel: {fileID: 2030606471}
@@ -1588,7 +1590,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_HandleRect: {fileID: 254581998}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999998
   m_Size: 0.6999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1615,7 +1617,7 @@ GameObject:
   - component: {fileID: 796386780}
   - component: {fileID: 796386779}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasForBackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2836,6 +2838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551698030}
+  - component: {fileID: 1551698031}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -2867,6 +2870,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1551698031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551698029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf183311e25a28f47a0bcdfdb529302f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 415289353}
+  music: {fileID: 1044488508}
 --- !u!1 &1687500833
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,6 @@ public class SpaceTextureGenerator : ScriptableObject
 {
     public Shader shader;
 
-    public Material target;
-
     private const int size = 1024 * 8;
     
     #if UNITY_EDITOR

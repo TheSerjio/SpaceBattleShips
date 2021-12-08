@@ -6,6 +6,8 @@ public class MainMenu : MonoBehaviour
 {
     public Slider Sounds;
     public Slider Music;
+    public AudioSource sound;
+    public float soundLevel;
 
     public GameObject levelButtonPrefab;
     public GameObject mainPanel;
@@ -71,5 +73,10 @@ public class MainMenu : MonoBehaviour
     public void OnQuitButtonClick()
     {
         Application.Quit();
+    }
+
+    public void Update()
+    {
+        sound.volume = soundLevel * AudioManager.MusicLevel;
     }
 }

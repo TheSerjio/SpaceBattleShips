@@ -11,4 +11,6 @@ public static class LevelManager
     public static Type type;
     public static Level currentLevel;
     public static ShipData[] startedWith;
+
+    public static bool CanExitFromShip => currentLevel == null;
 }

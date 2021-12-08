@@ -51,13 +51,17 @@ public class GameCore : SINGLETON<GameCore>
             {
                 case LevelManager.Type.Level:
                 {
+                    var rotation = Quaternion.identity;
                     var spawnAt = Vector3.zero;
                     {
                         var point = SpawnPlayerHere.Self;
                         if (point)
+                        {
                             spawnAt = point.transform.position;
+                            rotation = point.transform.rotation;
+                        }
                     }
-                    PlayerSpawner.Spawn(LevelManager.startedWith[0], spawnAt);
+                    PlayerSpawner.Spawn(LevelManager.startedWith[0], spawnAt, rotation);
                     break;
                 }
                 case LevelManager.Type.Campaign:

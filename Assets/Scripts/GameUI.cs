@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [DisallowMultipleComponent]
@@ -23,6 +24,7 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Color C_Shield;
     public Color C_Energy;
     public Color C_Red;
+    public GameObject Menu;
 
     public void Start()
     {
@@ -46,5 +48,16 @@ public sealed class GameUI : SINGLETON<GameUI>
             canva.worldCamera = GameCore.MainCamera;
         SliderValue.text = Engines.value.ToString();
         WorlsCanvas.worldCamera = GameCore.MainCamera;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Menu.SetActive(!Menu.activeSelf);
+            Time.timeScale = Menu.activeSelf ? 0 : 1;
+        }
+    }
+
+    public void ButtonGoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
