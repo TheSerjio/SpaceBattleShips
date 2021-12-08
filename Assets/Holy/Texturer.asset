@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e258383705dc7b646b142d795c0f82c1, type: 3}
   m_Name: Texturer
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 251987eb1988c5f4f84d88a4e23ee7cc, type: 2}
+  shader: {fileID: -6465566751694194690, guid: 091e590af9b205e488895095b073ea7e, type: 3}
+  target: {fileID: 2100000, guid: 16962ba7fb78ce44cbc8ed4f29259cd3, type: 2}

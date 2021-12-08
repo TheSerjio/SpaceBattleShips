@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 193173799357895811, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 33448cc776285634b96557ecd4a62376, type: 2}
     - target: {fileID: 2936932905165658418, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
       propertyPath: m_Name
       value: DefaultSet
@@ -239,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09064928302bc9748b6f3bde6ad4b763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ship: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+  ship: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
 --- !u!1 &1306716661
 GameObject:
   m_ObjectHideFlags: 0

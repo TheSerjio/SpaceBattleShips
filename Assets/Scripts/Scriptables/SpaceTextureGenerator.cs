@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SpaceTextureGenerator : ScriptableObject
 {
-    public Material material;
+    public Shader shader;
+
+    public Material target;
 
     private const int size = 1024 * 8;
     
@@ -15,14 +17,15 @@ public class SpaceTextureGenerator : ScriptableObject
 
         var buffer = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.sRGB);
 
-        Graphics.Blit(null, buffer, material);
+        Graphics.Blit(null, buffer, new Material(shader));
 
         text.ReadPixels(new Rect(0, 0, size, size), 0, 0, false);
 
-        System.IO.File.WriteAllBytes(
-            $"{UnityEditor.AssetDatabase.GetAssetPath(this).Replace(name + ".", "")}{System.Environment.TickCount}.png",
-            text.EncodeToPNG());
-    }
+        var path = $"{UnityEditor.AssetDatabase.GetAssetPath(this).Replace(name + ".", "")}{System.Environment.TickCount}.png";
 
+        System.IO.File.WriteAllBytes(path, text.EncodeToPNG());
+        UnityEditor.AssetDatabase.Refresh();
+
+    }
 #endif
 }
