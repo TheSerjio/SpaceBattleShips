@@ -11,10 +11,11 @@ public sealed class Spectator : SINGLETON<Spectator>
     public float mouseSpeed;
     public Team team;
     private float Velocity;
+    private float MaxVelocity;
 
     public void Update()
     {
-        transform.position -= transform.forward * Velocity * Time.deltaTime;
+        transform.position -= transform.forward * MaxVelocity * Velocity * Time.deltaTime;
         Velocity = Mathf.MoveTowards(Velocity, 0, Time.deltaTime);
 
         var d = Time.deltaTime;
@@ -51,7 +52,8 @@ public sealed class Spectator : SINGLETON<Spectator>
 
     public void ComeHere(Vector3 pos, Quaternion rot, float back)
     {
-        Velocity = back;
+        MaxVelocity = back * 20;
+        Velocity = 1;
         transform.SetPositionAndRotation(pos, rot);
     }
 }

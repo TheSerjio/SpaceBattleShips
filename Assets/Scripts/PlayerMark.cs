@@ -175,7 +175,7 @@ public class PlayerMark : SINGLETON<PlayerMark>
     public void IfDie(bool exploded)
     {
         GameUI.Self.ShowHide(false);
-        Spectator.Self.ComeHere(Cam.transform.position, Cam.transform.rotation, Ship.ExplosionSize * 10f);
+        Spectator.Self.ComeHere(Cam.transform.position, Cam.transform.rotation, Ship.ExplosionSize);
         Destroy(Cam.gameObject);
         Ship.PlayerMarked = false;
         Ship.frame.gameObject.SetActive(true);

@@ -297,7 +297,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7531771668147445304, guid: 9554a238a3901194ea5d9788cb388f25, type: 3}
+  m_Mesh: {fileID: -7531771668147445304, guid: 51bd30f2103218d4294c07c93a76e29c, type: 3}
 --- !u!1 &2058199984457396286
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +552,7 @@ MonoBehaviour:
     volume: 0.025
     pitch: 0
   SniperCameraAngle: 15
+  ShieldRegenCost: 50
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0

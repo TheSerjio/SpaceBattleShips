@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngineInternal;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(Canvas))]
@@ -25,6 +26,7 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Color C_Energy;
     public Color C_Red;
     public GameObject Menu;
+    public Text FPS;
 
     public void Start()
     {
@@ -54,8 +56,10 @@ public sealed class GameUI : SINGLETON<GameUI>
             Menu.SetActive(!Menu.activeSelf);
             Time.timeScale = Menu.activeSelf ? 0 : 1;
         }
-    }
 
+        FPS.text = Mathf.RoundToInt(1f / Time.smoothDeltaTime).ToString();
+    }
+    
     public void ButtonGoToMainMenu()
     {
         Time.timeScale = 1;
