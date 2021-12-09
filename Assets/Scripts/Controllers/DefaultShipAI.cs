@@ -17,7 +17,7 @@ public class DefaultShipAI : ShipAIController
     public override void OnFixedUpdate()
     {
         var dist = Vector3.Distance(transform.position, Target.transform.position);
-        if (dist > Dist)
+        if (dist > Dist + Target.size)
         {
             if (Vector3.Dot(transform.forward, RB.velocity) < 0)
             {

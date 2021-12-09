@@ -49,9 +49,9 @@ public sealed class Spectator : SINGLETON<Spectator>
             }
     }
 
-    public void ComeHere(Vector3 pos, Quaternion rot)
+    public void ComeHere(Vector3 pos, Quaternion rot, float back)
     {
-        Velocity = 10;
+        Velocity = back;
         transform.SetPositionAndRotation(pos, rot);
     }
 }
