@@ -59,4 +59,10 @@ public sealed class Shield : MonoBehaviour
         Current = MaxShield;
         ship = GetComponent<Ship>();
     }
+
+    public void InstantRegen()
+    {
+        Current += MaxShield / 2f;
+        HasShield = true;
+    }
 }

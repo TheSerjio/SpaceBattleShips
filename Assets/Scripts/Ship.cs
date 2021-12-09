@@ -55,16 +55,15 @@ public class Ship : BaseEntity
                 Energy -= value;
                 return true;
             }
-            else
-            {
-                EnergyCD = NoEnergyCooldown;
-                if (PlayerMarked)
-                    AudioManager.PlaySound(DataBase.Get().OnZeroEnergy,false);
-                return false;
-            }
+
+            Energy = 0;
+            EnergyCD = NoEnergyCooldown;
+            if (PlayerMarked)
+                AudioManager.PlaySound(DataBase.Get().OnZeroEnergy, false);
+            return true;
         }
-        else
-            return false;
+
+        return false;
     }
 
     public Targeting Target = new Targeting();
@@ -123,6 +122,8 @@ public class Ship : BaseEntity
     public SoundClip EngineSound;
 
     [Range(3f, 150f)] public float SniperCameraAngle;
+
+    [SerializeField] private float ShieldRegenCost = 50;
 
     [ContextMenu("Magic")]
     public void FindTrails()
@@ -243,13 +244,12 @@ public class Ship : BaseEntity
         Teammates = new Ship[Formation.Length];
     }
 
-    public void OnDrawGizmos()
+    public void RegenShieldFromEnergy()
     {
-        if (RB)
-        {
-            Gizmos.color = Color.white;
-            Gizmos.DrawLine(RB.position, RB.position + RB.velocity);
-        }
+        if (Shield)
+            if (!Shield.HasShield)
+                if (TakeEnergy(ShieldRegenCost))
+                    Shield.InstantRegen();
     }
 
     public void OnDrawGizmosSelected()

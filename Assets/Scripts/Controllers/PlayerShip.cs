@@ -70,7 +70,7 @@ public sealed class PlayerShip : ShipController
 
         if (Input.GetKeyDown(KeyCode.Tab))
             AutoBrake = !AutoBrake;
-
+        
         if (Input.GetKey(KeyCode.Alpha1))
             Ship.LookAt(RB.position + RB.velocity);
         if (Input.GetKey(KeyCode.Alpha2))
@@ -80,6 +80,9 @@ public sealed class PlayerShip : ShipController
 
         if (Input.GetKeyDown(KeyCode.T))
             Detonate();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            Ship.RegenShieldFromEnergy();
     }
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)
