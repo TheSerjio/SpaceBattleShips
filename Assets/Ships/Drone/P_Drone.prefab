@@ -432,6 +432,7 @@ MonoBehaviour:
     volume: 0.008
     pitch: 0
   SniperCameraAngle: 60
+  ShieldRegenCost: 0
 --- !u!135 &2747515676622489423
 SphereCollider:
   m_ObjectHideFlags: 0

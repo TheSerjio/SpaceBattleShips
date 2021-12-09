@@ -451,7 +451,12 @@ MonoBehaviour:
   - {fileID: 2783599288047155677}
   - {fileID: 4215955654701448114}
   asset: {fileID: 11400000, guid: 14f10ac604518e64597d422e7f22ff1c, type: 2}
+  EngineSound:
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
   SniperCameraAngle: 60
+  ShieldRegenCost: 2500
   spawners:
   - {fileID: 4129263872524746533}
   - {fileID: 8952300620821174894}
