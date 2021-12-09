@@ -293,8 +293,12 @@ public class Ship : BaseEntity
         EnginePower = prev;
     }
 
-    public override void DeathDamage()
+    public void SomeDamage(float power)
     {
-        OnDamaged(MaxHealth * Time.deltaTime, null);
+        OnDamaged(MaxHealth * Time.deltaTime * power, null);
+    }
+    public void DeathDamage()
+    {
+        OnDamaged(MaxHealth * MaxHealth * Time.deltaTime, null);
     }
 }

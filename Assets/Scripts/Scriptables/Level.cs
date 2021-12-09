@@ -21,5 +21,9 @@ public class Level : ValidableScriptableObject
             yield return Warn(Level.Error, "no scene");
     }
 
+    public SunData sun;
+
     public string Name;
+
+    public Texture SpaceTexture;
 }

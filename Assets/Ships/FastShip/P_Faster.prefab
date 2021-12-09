@@ -515,7 +515,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 661e94f2e8b829e44af14af683fd844a, type: 3}
     volume: 0.024
     pitch: 0.12
-  SniperCameraAngle: 60
+  SniperCameraAngle: 90
 --- !u!114 &4509003813159771384
 MonoBehaviour:
   m_ObjectHideFlags: 0

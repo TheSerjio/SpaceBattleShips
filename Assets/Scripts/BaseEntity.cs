@@ -18,6 +18,4 @@ public abstract class BaseEntity : Script
     protected abstract void OnEntityAwake();
 
     public abstract void OnDamaged(float dmg, BaseEntity from);
-
-    public abstract void DeathDamage();
 }

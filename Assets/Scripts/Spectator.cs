@@ -10,15 +10,22 @@ public sealed class Spectator : SINGLETON<Spectator>
     public float zRotationSpeed;
     public float mouseSpeed;
     public Team team;
+    private float Velocity;
 
     public void Update()
     {
+        transform.position -= transform.forward * Velocity * Time.deltaTime;
+        Velocity = Mathf.MoveTowards(Velocity, 0, Time.deltaTime);
+
         var d = Time.deltaTime;
-        transform.Translate(Input.GetAxis("Horizontal") * speed * d, Input.GetAxis("Vertical") * speed * d, Input.GetAxis("Mouse ScrollWheel") * scrollSpeed, Space.Self);
+        transform.Translate(Input.GetAxis("Horizontal") * speed * d, Input.GetAxis("Vertical") * speed * d,
+            Input.GetAxis("Mouse ScrollWheel") * scrollSpeed, Space.Self);
         if (Input.GetMouseButton(0))
-            transform.Rotate(Input.GetAxis("Mouse Y") * rotationSpeed, -Input.GetAxis("Mouse X") * rotationSpeed, 0, Space.Self);
+            transform.Rotate(Input.GetAxis("Mouse Y") * rotationSpeed, -Input.GetAxis("Mouse X") * rotationSpeed, 0,
+                Space.Self);
         if (Input.GetMouseButton(1))
-            transform.Translate(-Input.GetAxis("Mouse X") * mouseSpeed, -Input.GetAxis("Mouse Y") * mouseSpeed, 0, Space.Self);
+            transform.Translate(-Input.GetAxis("Mouse X") * mouseSpeed, -Input.GetAxis("Mouse Y") * mouseSpeed, 0,
+                Space.Self);
         if (Input.GetKey(KeyCode.Q))
             transform.Rotate(0, 0, d * zRotationSpeed, Space.Self);
         if (Input.GetKey(KeyCode.E))
@@ -42,5 +49,9 @@ public sealed class Spectator : SINGLETON<Spectator>
             }
     }
 
-    public void ComeHere(Vector3 pos, Quaternion rot) => transform.SetPositionAndRotation(pos, rot);
+    public void ComeHere(Vector3 pos, Quaternion rot)
+    {
+        Velocity = 10;
+        transform.SetPositionAndRotation(pos, rot);
+    }
 }

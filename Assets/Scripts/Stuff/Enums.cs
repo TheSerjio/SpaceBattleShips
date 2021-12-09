@@ -25,5 +25,6 @@ public enum ShaderName : byte
     Damage,
     EdgeColor,
     MainColor,
-    E_Skin
+    E_Skin,
+    Colorio
 }

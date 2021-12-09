@@ -19,4 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
   - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
   BuildingIndex: 2
+  sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
   Name: Level 1
+  SpaceTexture: {fileID: 2800000, guid: 27181dfb6eb1100429d5c7f3158de9d7, type: 3}

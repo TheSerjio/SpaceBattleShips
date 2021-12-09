@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: TotalCost
-      value: 30000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -149,14 +149,14 @@ PrefabInstance:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].ship
       value: 
-      objectReference: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
+      objectReference: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[1].ship
       value: 
       objectReference: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].count
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[1].count
@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: TotalCost
-      value: 50000
+      value: 6000
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.size
@@ -267,10 +267,10 @@ PrefabInstance:
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].ship
       value: 
-      objectReference: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+      objectReference: {fileID: 11400000, guid: 8a7b33158d338e7418d11c331ad1d8e4, type: 2}
     - target: {fileID: 4129263872148043987, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: all.Array.data[0].count
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4129263872148043996, guid: caf41776378c30f42af61f7c55845e68, type: 3}
       propertyPath: m_RootOrder

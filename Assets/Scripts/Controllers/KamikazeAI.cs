@@ -1,8 +1,9 @@
 using UnityEngine;
+
 public class KamikazeAI : ShipAIController
 {
     public float BoomDistance;
-    
+
     public override void OnFixedUpdate()
     {
         var dot = Vector3.Dot(transform.forward, RB.velocity);
@@ -11,7 +12,8 @@ public class KamikazeAI : ShipAIController
         else
             Ship.Forward();
 
-        if (Physics.Raycast(transform.position, Target.transform.position - transform.position, out var hit, BoomDistance))
+        if (Physics.Raycast(transform.position, Target.transform.position - transform.position, out var hit,
+            BoomDistance))
         {
             var q = hit.collider.GetComponentInParent<Ship>();
             if (q == Target)
@@ -31,8 +33,9 @@ public class KamikazeAI : ShipAIController
             else
             {
                 Ship.EnginePower = Vector3.Dot(tar, RB.velocity.normalized) * Ship.MaxEngine;
-                Ship.LookAt(transform.position +
-                            Vector3.SlerpUnclamped(tar, (RB.velocity - Target.RB.velocity).normalized, -1f));
+                var velocity = (RB.velocity - Target.RB.velocity).normalized;
+                var q = -1f / Vector3.Distance(tar, velocity);
+                Ship.LookAt(transform.position + Vector3.SlerpUnclamped(tar, velocity, q));
             }
         }
     }

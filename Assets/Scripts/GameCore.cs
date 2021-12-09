@@ -16,6 +16,8 @@ public class GameCore : SINGLETON<GameCore>
 
     public Camera EditorCamera;
 
+    public SunContainer sun;
+
     private void RemoveNull()
     {
         var yes = true;
@@ -75,6 +77,9 @@ public class GameCore : SINGLETON<GameCore>
                     break;
                 }
             }
+
+            if (LevelManager.currentLevel.sun)
+                sun.Do(LevelManager.currentLevel.sun);
         }
 
         Cursor.SetCursor(DataBase.Get().GameCursor, Vector2.one * 15, CursorMode.Auto);

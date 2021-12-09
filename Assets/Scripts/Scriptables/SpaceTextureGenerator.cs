@@ -4,7 +4,7 @@ public class SpaceTextureGenerator : ScriptableObject
 {
     public Shader shader;
 
-    private const int size = 1024 * 8;
+    private const int size = 8182;
     
     #if UNITY_EDITOR
 
@@ -23,7 +23,10 @@ public class SpaceTextureGenerator : ScriptableObject
 
         System.IO.File.WriteAllBytes(path, text.EncodeToPNG());
         UnityEditor.AssetDatabase.Refresh();
-
+        
+        DestroyImmediate(buffer);
+        
+        DestroyImmediate(text);
     }
 #endif
 }
