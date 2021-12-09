@@ -20,4 +20,4 @@ MonoBehaviour:
   BuildingIndex: 8
   sun: {fileID: 11400000, guid: 09c7f3e7297a7ed40b3e722459ad286c, type: 2}
   Name: Level 7
-  SpaceTexture: {fileID: 2800000, guid: 27181dfb6eb1100429d5c7f3158de9d7, type: 3}
+  SpaceTexture: {fileID: 2800000, guid: 452eeee90cb5b9d43bc75aca7caf6ac7, type: 3}

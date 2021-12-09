@@ -26,4 +26,4 @@ MonoBehaviour:
   BuildingIndex: 1
   sun: {fileID: 11400000, guid: 0824abbd211e725438aac4fef2445651, type: 2}
   Name: Training
-  SpaceTexture: {fileID: 2800000, guid: 27181dfb6eb1100429d5c7f3158de9d7, type: 3}
+  SpaceTexture: {fileID: 2800000, guid: 452eeee90cb5b9d43bc75aca7caf6ac7, type: 3}

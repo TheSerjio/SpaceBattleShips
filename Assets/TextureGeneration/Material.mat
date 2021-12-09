@@ -33,16 +33,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - NoSmokeScale: 1
-    - Seed: 0
-    - SmokeDelta: 4.2
-    - SmokeInline: 5.7
-    - SmokePower: 38.14
-    - SmokeScale: 6.9
+    - NoSmokeScale: 5.5
+    - Seed: 10.82
+    - SmokeDelta: 1.28
+    - SmokeInline: 1
+    - SmokeLine: 78.63
+    - SmokePower: 2.48
+    - SmokeScale: 4.6
     - SomeBool1: 0
     - SomeBool2: 0
     - StarMode: 1
-    - Stars: 100
+    - Stars: 153.48
     m_Colors:
     - Smoke1: {r: 1, g: 0, b: 0, a: 0.4980392}
     - Smoke2: {r: 0, g: 0, b: 1, a: 1}
