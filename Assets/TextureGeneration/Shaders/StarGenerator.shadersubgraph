@@ -11,6 +11,9 @@
         },
         {
             "m_Id": "d6d7443693dc4b35887298520ef63c3b"
+        },
+        {
+            "m_Id": "46e9bc2e682247098ad9c8ef8a441ed0"
         }
     ],
     "m_Keywords": [],
@@ -938,6 +941,31 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "46e9bc2e682247098ad9c8ef8a441ed0",
+    "m_Guid": {
+        "m_GuidSerialized": "ab612629-d668-467d-80d5-21dcbfa5fda2"
+    },
+    "m_Name": "Seed",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Seed",
+    "m_DefaultReferenceName": "Seed",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
@@ -2210,10 +2238,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1698.5501708984375,
-            "y": -134.5500030517578,
-            "width": 0.0,
-            "height": 0.0
+            "x": -1935.9998779296875,
+            "y": -98.99999237060547,
+            "width": 207.99998474121095,
+            "height": 278.0
         }
     },
     "m_Slots": [

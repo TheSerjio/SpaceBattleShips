@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpaceTextureGenerator : ScriptableObject
 {
-    public Shader shader;
+    public Material material;
 
     private int size => superLarge ? (1024 * 16) : (1024 * 8);
 
@@ -17,7 +17,7 @@ public class SpaceTextureGenerator : ScriptableObject
 
         var buffer = new RenderTexture(size, size, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.sRGB);
 
-        Graphics.Blit(null, buffer, new Material(shader));
+        Graphics.Blit(null, buffer, material);
 
         text.ReadPixels(new Rect(0, 0, size, size), 0, 0, false);
 

@@ -42,6 +42,7 @@ Material:
     - SomeBool1: 0
     - SomeBool2: 0
     - StarMode: 1
+    - Stars: 100
     m_Colors:
     - Smoke1: {r: 1, g: 0, b: 0, a: 0.4980392}
     - Smoke2: {r: 0, g: 0, b: 1, a: 1}
