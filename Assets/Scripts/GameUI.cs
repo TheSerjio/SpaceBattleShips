@@ -27,6 +27,7 @@ public sealed class GameUI : SINGLETON<GameUI>
     public Color C_Red;
     public GameObject Menu;
     public Text FPS;
+    private float fps;
 
     public void Start()
     {
@@ -57,7 +58,13 @@ public sealed class GameUI : SINGLETON<GameUI>
             Time.timeScale = Menu.activeSelf ? 0 : 1;
         }
 
-        FPS.text = Mathf.RoundToInt(1f / Time.smoothDeltaTime).ToString();
+        var realFPS = 1f / Time.deltaTime;
+
+        float q = Time.deltaTime;
+
+        fps = (fps + realFPS * q) / (1 + q);
+
+        FPS.text = Mathf.RoundToInt(fps).ToString();
     }
     
     public void ButtonGoToMainMenu()
