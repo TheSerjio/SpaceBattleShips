@@ -26,12 +26,15 @@ public class LongLaserWeapon : ShipWeapon
 
     public SoundClip sound;
 
+    private float seed;
+    
     public void Start()
     {
         NoShootUntil = Time.time + Utils.StartTime;
         lr = GetComponent<LineRenderer>();
         lr.useWorldSpace = false;
         q = lr.widthMultiplier;
+        seed = Random.value * 9 * 11 * 13;
     }
 
     public void Update()
@@ -45,8 +48,8 @@ public class LongLaserWeapon : ShipWeapon
             {
                 lr.widthMultiplier = q;
                 lr.positionCount = 2;
-                var randy = transform.forward + (Random.insideUnitSphere / Accuracy);
-                var kek = true;
+                var randy = transform.forward + (Utils.TimeRandomSphere(seed) / Accuracy);
+                var hitpoint = transform.position + randy * ushort.MaxValue;
                 lr.SetPosition(0,Vector3.zero);
                 
                 foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, randy))
@@ -56,13 +59,12 @@ public class LongLaserWeapon : ShipWeapon
                     if (tar && tar.team != Parent.team)
                     {
                         tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
-                        lr.SetPosition(1, Vector3.forward * Vector3.Distance(hit.point, transform.position));
-                        kek = false;
+                        hitpoint = hit.point;
                         break;
                     }
                 }
-                if (kek)
-                    lr.SetPosition(1, Vector3.forward * ushort.MaxValue);
+
+                lr.SetPosition(1, transform.InverseTransformPoint(hitpoint));
                 b = false;
             }
         }

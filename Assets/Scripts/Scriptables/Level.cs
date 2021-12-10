@@ -19,6 +19,8 @@ public class Level : ValidableScriptableObject
 #endif
         if (!scene)
             yield return Warn(Level.Error, "no scene");
+        if (BuildingIndex < 1)
+            yield return Warn(Level.Error, "add scene to build");
     }
 
     public SunData sun;

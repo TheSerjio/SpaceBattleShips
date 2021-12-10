@@ -12,11 +12,7 @@ public sealed class Spawner : MonoBehaviour
 
     public void OnValidate()
     {
-        TotalCost = 0;
-        foreach (var q in all)
-        {
-            TotalCost += q.count * q.ship.cost;
-        }
+        TotalCost = Utils.GetCost(all);
     }
 
     public void Start()

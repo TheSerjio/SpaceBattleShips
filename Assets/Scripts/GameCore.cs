@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -20,29 +19,15 @@ public class GameCore : SINGLETON<GameCore>
 
     private void RemoveNull()
     {
-        var yes = true;
-        while (yes)
-        {
-            yes = false;
-
-            for (int i = 0; i < All.Count; i++)
-            {
-                if (!All[i])
-                {
-                    All.RemoveAt(i);
-                    yes = true;
-                    break;
-                }
-            }
-        }
+        Utils.RemoveNull(All);
     }
 
     protected override void OnSingletonAwake()
     {
         
         Counts = new System.Collections.Generic.Dictionary<Team, ulong>();
-        foreach (var q in System.Enum.GetValues(typeof(Team)))
-            Counts[(Team)q] = 0;
+        foreach (var q in allTeams)
+            Counts[q] = 0;
     }
 
     public void Start()
@@ -96,8 +81,8 @@ public class GameCore : SINGLETON<GameCore>
         me.RemoveNull();
         if (it is Ship s)
             me.All.Add(s);
-        for (var i = 0; i < me.collectors.Count; i++)
-            me.collectors[i].Add(it);
+        foreach (var t in me.collectors)
+            t.Add(it);
     }
 
     public static Camera MainCamera
@@ -131,7 +116,7 @@ public class GameCore : SINGLETON<GameCore>
         EditorCamera = MainCamera;
         Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
         RemoveNull();
-        foreach (var q in Utils.EnumValues<Team>())
+        foreach (var q in allTeams)
             Counts[q] = 0;
         foreach(var q in All)
             Counts[q.team]++;

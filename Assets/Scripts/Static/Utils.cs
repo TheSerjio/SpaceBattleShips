@@ -1,10 +1,44 @@
-using System;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public static class Utils
 {
+    public static Vector3 TimeRandomSphere(float offset)
+    {
+        var time = Time.time + offset;
+
+        return Vector3.ClampMagnitude(new Vector3(Mathf.Sin(time * 9), Mathf.Sin(time * 11), Mathf.Sin(time * 13)), 1);
+    }
+    
+    public static float GetCost(MotherShip.Data[] all)
+    {
+        float total = 0;
+        if(all!=null)
+            foreach (var q in all)
+                if (q!=null)
+                    if(q.ship)
+                        total += q.count * q.ship.cost;
+        return total;
+    }
+    
+    public static void RemoveNull<T>(System.Collections.Generic.List<T> All) where T : Object
+    {
+        var yes = true;
+        while (yes)
+        {
+            yes = false;
+
+            for (var i = 0; i < All.Count; i++)
+            {
+                if (!All[i])
+                {
+                    All.RemoveAt(i);
+                    yes = true;
+                    break;
+                }
+            }
+        }
+    }
 
     public const float StartTime = 4;
 

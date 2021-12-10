@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngineInternal;
 
 public class Ship : BaseEntity
 {
@@ -295,7 +296,7 @@ public class Ship : BaseEntity
 
     public void SomeDamage(float power)
     {
-        OnDamaged(MaxHealth * Time.deltaTime * power, null);
+        OnDamaged(((Shield ? Shield.Current : 1) + Health) * Time.deltaTime * power, null);
     }
     public void DeathDamage()
     {

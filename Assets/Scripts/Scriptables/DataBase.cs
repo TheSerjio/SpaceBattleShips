@@ -123,7 +123,7 @@ public sealed class DataBase : ScriptableObject
         var stats = new[]
         {
             "Name", "Cost", "HP", "S", "+S+", "Full_S", "E", "+E+", "Full_E", "DPS", "WEC", "Bullets", "Fire time",
-            "Shift",
+            "Shift", "FireDist"
         };
         var data = new string[stats.Length, Ships.Length];
         var sizes = new int[stats.Length];
@@ -192,6 +192,8 @@ public sealed class DataBase : ScriptableObject
             DoN(ship.MaxEnergy / (wc - ship.EnergyRegeneration));
 
             DoN(ship.MaxEnergy / (Utils.EnergyConsumption(Ship.MaxEngine) * ship.EngineCons - ship.EnergyRegeneration));
+
+            DoN(ship.mainWeapon.FrameDistance);
         }
 
         var path = $"{System.IO.Directory.GetCurrentDirectory()}\\{UnityEditor.AssetDatabase.GetAssetPath(file)}";

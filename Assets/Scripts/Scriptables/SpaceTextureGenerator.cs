@@ -6,8 +6,6 @@ public class SpaceTextureGenerator : ScriptableObject
 
     private const int size = 1024 * 8;
 
-    public bool superLarge;
-    
     #if UNITY_EDITOR
 
     [ContextMenu("Do it")]

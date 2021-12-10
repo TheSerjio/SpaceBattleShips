@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: Texturer
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 33448cc776285634b96557ecd4a62376, type: 2}
-  superLarge: 1
