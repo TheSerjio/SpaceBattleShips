@@ -205,4 +205,4 @@ MonoBehaviour:
   ProjectileSize: 0.5
   type: 1
   ProjectileExplosionPower: 50
-  Inaccuracy: 0
+  Inaccuracy: 0.05
