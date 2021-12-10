@@ -51,7 +51,7 @@ MonoBehaviour:
     volume: 0.01
     pitch: 0
   PlayerExplosionSize: 0
-  bulletLifeTime: 3
+  bulletLifeTime: 2
   bulletSpeed: 70
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.030305736, b: 0, a: 1}
@@ -285,7 +285,7 @@ MonoBehaviour:
     volume: 0.01
     pitch: 0
   PlayerExplosionSize: 0
-  bulletLifeTime: 3
+  bulletLifeTime: 2
   bulletSpeed: 70
   MainProjectileColor: {r: 1, g: 1, b: 1, a: 1}
   EdgeProjectileColor: {r: 1, g: 0.030305736, b: 0, a: 1}
