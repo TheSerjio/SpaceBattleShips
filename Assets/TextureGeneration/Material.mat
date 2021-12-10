@@ -35,7 +35,7 @@ Material:
     m_Floats:
     - NoSmokeScale: 5.5
     - Seed: 10.82
-    - SmokeDelta: 1.28
+    - SmokeDelta: 7.36
     - SmokeInline: 1
     - SmokeLine: 78.63
     - SmokePower: 2.48
