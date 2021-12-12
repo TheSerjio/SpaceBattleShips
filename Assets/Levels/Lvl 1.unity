@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6b971b9046301614bb5d90542f344246, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -156,6 +156,7 @@ MonoBehaviour:
   all:
   - count: 1
     ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  waitSeconds: 0
   TotalCost: 10
 --- !u!4 &761489328
 Transform:
