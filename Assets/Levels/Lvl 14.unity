@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6b971b9046301614bb5d90542f344246, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &600959437
+--- !u!1 &761489326
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,48 +131,105 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 600959439}
-  - component: {fileID: 600959438}
+  - component: {fileID: 761489328}
+  - component: {fileID: 761489327}
+  - component: {fileID: 761489331}
+  - component: {fileID: 761489330}
+  - component: {fileID: 761489329}
   m_Layer: 0
-  m_Name: Pirates
+  m_Name: spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &600959438
+--- !u!114 &761489327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600959437}
+  m_GameObject: {fileID: 761489326}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 3
+  team: 1
   all:
-  - count: 200
+  - count: 20
     ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
   waitSeconds: 0
-  TotalCost: 2000
---- !u!4 &600959439
+  TotalCost: 200
+--- !u!4 &761489328
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600959437}
+  m_GameObject: {fileID: 761489326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &653312006
+--- !u!114 &761489329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761489326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+  all:
+  - count: 20
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  waitSeconds: 45
+  TotalCost: 200
+--- !u!114 &761489330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761489326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+  all:
+  - count: 20
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  waitSeconds: 30
+  TotalCost: 200
+--- !u!114 &761489331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761489326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 1
+  all:
+  - count: 20
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  waitSeconds: 15
+  TotalCost: 200
+--- !u!1 &1184879257
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,48 +237,129 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 653312008}
-  - component: {fileID: 653312007}
+  - component: {fileID: 1184879259}
+  - component: {fileID: 1184879258}
+  - component: {fileID: 1184879260}
+  - component: {fileID: 1184879261}
   m_Layer: 0
-  m_Name: Defender
+  m_Name: spawner (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &653312007
+  m_IsActive: 1
+--- !u!114 &1184879258
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653312006}
+  m_GameObject: {fileID: 1184879257}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 5
   all:
-  - count: 20
-    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  - count: 2
+    ship: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   waitSeconds: 0
-  TotalCost: 200
---- !u!4 &653312008
+  TotalCost: 1000
+--- !u!4 &1184879259
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653312006}
+  m_GameObject: {fileID: 1184879257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalPosition: {x: 0, y: -300, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1168576529
+--- !u!114 &1184879260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184879257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 5
+  all:
+  - count: 2
+    ship: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+  waitSeconds: 10
+  TotalCost: 1000
+--- !u!114 &1184879261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184879257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 5
+  all:
+  - count: 2
+    ship: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+  waitSeconds: 20
+  TotalCost: 1000
+--- !u!1 &1206869811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206869813}
+  - component: {fileID: 1206869812}
+  m_Layer: 0
+  m_Name: Pl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1206869812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206869811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa347a372a4a53f499039c90f54c3eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1206869813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206869811}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1001 &1275971929
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -234,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2936932905165658419, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2936932905165658419, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -276,14 +414,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3150040055732466531, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3150040055732466531, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3150040056808204994, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -298,52 +428,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85a0ec91c52cd6147aa5e030851b2ed9, type: 3}
---- !u!1 &2061695447
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2061695449}
-  - component: {fileID: 2061695448}
-  m_Layer: 0
-  m_Name: Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2061695448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061695447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fe43d2f95724554bb2225d2e3a92b31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 5
-  all:
-  - count: 10
-    ship: {fileID: 11400000, guid: c2b1e65be10392b42bca4bc173c1b14a, type: 2}
-  waitSeconds: 0
-  TotalCost: 10
---- !u!4 &2061695449
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2061695447}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -200, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

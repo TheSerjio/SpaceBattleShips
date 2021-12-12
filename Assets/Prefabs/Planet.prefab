@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37ca0e1b73a6aaa428d860f2ba242852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Warn: 6000
-  Death: 5000
+  Warn: 5500
+  Death: 4800
   CameraShake: 0.1
 --- !u!114 &7479450931424051618
 MonoBehaviour:
@@ -102,9 +102,9 @@ SphereCollider:
   m_GameObject: {fileID: 7479450931424051548}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4700
+  m_Radius: 5500
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7479450932251688376
 GameObject:

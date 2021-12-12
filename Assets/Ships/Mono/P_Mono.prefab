@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  size: 1
+  size: 2
   rotationSpeed: 30
   speed: 2
   MaxHealth: 20
@@ -309,7 +309,7 @@ MonoBehaviour:
   ShieldRender: {fileID: 4095155870148727928}
   ShieldCollider: {fileID: 7999770157014059747}
   MaxShield: 20
-  ShieldRegeneration: 5
+  ShieldRegeneration: 4
 --- !u!114 &8216538019185489247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,8 +327,6 @@ MonoBehaviour:
     Size: 1
     InFrontOfMe: 1
     Random: 0.5
-  MinOptimalDistance: 100
-  MaxOptimalDistance: 200
   AccuracyShooting: 0.5
   AimingQuality: 4
 --- !u!1 &2058199985504403819

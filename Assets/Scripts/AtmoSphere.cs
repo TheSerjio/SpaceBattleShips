@@ -16,7 +16,7 @@ public class AtmoSphere : COLLECTOR<Ship>
             var power = (d - Warn) / (Death - Warn);
             q.Warn(q.transform.position * 2 - transform.position,
                 new Ship.Warning(false, CameraShake * power));
-            q.SomeDamage(power);
+            q.SomeDamage(power * power);
         }
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
+  m_Name: Lvl 13
+  m_EditorClassIdentifier: 
+  scene: {fileID: 102900000, guid: 4ad9c83530eb816419d574fba1477a0e, type: 3}
+  ships:
+  - {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
+  - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
+  - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
+  - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
+  - {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
+  BuildingIndex: 14
+  sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
+  Name: Level 13
+  SpaceTexture: {fileID: 2800000, guid: df758bf8e6df24b4f9d8d37c47e4f3c2, type: 3}

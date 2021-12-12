@@ -254,8 +254,11 @@ public class Ship : BaseEntity
 
     public void OnDrawGizmosSelected()
     {
+        var myPos = Ttransform.position;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(myPos, mainWeapon.FrameDistance);
         Gizmos.color = new Color(0, Random.value, Random.value);
-        Gizmos.DrawWireSphere(Ttransform.position, size / 2f);
+        Gizmos.DrawWireSphere(myPos, size / 2f);
         Gizmos.color = Color.white;
         if (Formation != null)
             foreach (var q in Formation)
@@ -295,7 +298,7 @@ public class Ship : BaseEntity
 
     public void SomeDamage(float power)
     {
-        OnDamaged(((Shield ? Shield.Current : 1) + Health) * Time.deltaTime * power, null);
+        OnDamaged(((Shield ? Shield.Current : 1) + MaxHealth) * Time.deltaTime * power, null);
     }
     public void DeathDamage()
     {

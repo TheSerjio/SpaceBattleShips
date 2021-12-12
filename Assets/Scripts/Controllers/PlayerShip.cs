@@ -38,11 +38,7 @@ public sealed class PlayerShip : ShipController
         Ship.EnginePower += Input.mouseScrollDelta.y / 4f;
 
         if (Input.GetKey(KeyCode.Mouse0))
-        {
-            var rotation = Mark.Cameroid.rotation;
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * PlayerMark.MouseRotation, Space.Self);
-            Mark.Cameroid.rotation = rotation;
-        }
 
         target.Dir = GameCore.MainCamera.ScreenToWorldPoint(Input.mousePosition + Vector3.forward) -
                      GameCore.MainCamera.transform.position;
@@ -86,7 +82,7 @@ public sealed class PlayerShip : ShipController
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)
     {
-        Mark.Cameroid.localPosition = Random.insideUnitSphere * how.shakePower * Mark.sniperness;
+        Mark.Cameroid.localPosition = Random.insideUnitSphere * how.shakePower * (1 - Mark.sniperness);
         if (how.showText)
             if (Warner.Self)
                 Warner.Self.Show();

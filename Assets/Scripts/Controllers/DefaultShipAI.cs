@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class DefaultShipAI : ShipAIController
 {
-    public float MinOptimalDistance;
-    public float MaxOptimalDistance;
     private float Dist;
     [Range(0, 0.99999f)] public float AccuracyShooting;
     private float LastTargetFound;
@@ -11,7 +9,7 @@ public class DefaultShipAI : ShipAIController
     
     public override void OnStart()
     {
-        Dist = Random.Range(MinOptimalDistance, MaxOptimalDistance);
+        Dist = Ship.mainWeapon.FrameDistance * ((Random.value + 1) / 2f);
     }
 
     public override void OnFixedUpdate()
@@ -57,13 +55,5 @@ public class DefaultShipAI : ShipAIController
             !Ship.mainWeapon.IsOutOfRange(Vector3.Distance(transform.position, to));
         
         Ship.LookAt(to);
-    }
-
-    public void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(Ttransform.position, MinOptimalDistance);
-        Gizmos.DrawWireSphere(Ttransform.position, MaxOptimalDistance);
-
     }
 }

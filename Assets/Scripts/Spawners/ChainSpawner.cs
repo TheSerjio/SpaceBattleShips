@@ -48,6 +48,6 @@ public class ChainSpawner : MonoBehaviour
             yield return new WaitForSeconds(TimeBetweenGroups);
         }
 
-        Destroy(gameObject);
+        Destroy(this);
     }
 }

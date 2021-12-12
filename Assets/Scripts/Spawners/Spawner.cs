@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[DisallowMultipleComponent]
 public sealed class Spawner : MonoBehaviour
 {
     public Team team;
@@ -49,6 +48,7 @@ public sealed class Spawner : MonoBehaviour
                 CreateFrame(ship);
                 yield return null;
             }
-        Destroy(gameObject);
+
+        Destroy(this);
     }
 }

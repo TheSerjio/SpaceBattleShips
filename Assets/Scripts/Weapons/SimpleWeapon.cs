@@ -96,8 +96,8 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
         Gizmos.DrawLine(myPos - (forward * q), myPos + (forward * q));
 
         Gizmos.color = Color.cyan;
-        foreach (var v in new Vector3[] {Ttransform.up, Ttransform.right, -Ttransform.up, -Ttransform.right})
-            Gizmos.DrawLine(Ttransform.position, myPos + (Ttransform.forward + v * Inaccuracy) * ushort.MaxValue);
+        foreach (var v in new[] {Ttransform.up, Ttransform.right, -Ttransform.up, -Ttransform.right})
+            Gizmos.DrawLine(Ttransform.position, myPos + (Ttransform.forward + v * Inaccuracy) * FrameDistance * 2f);
     }
 
     public override bool IsOutOfRange(float distance) => distance > bulletLifeTime * bulletSpeed;
