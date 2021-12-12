@@ -60,7 +60,7 @@ public sealed class GameUI : SINGLETON<GameUI>
 
         var realFPS = 1f / Time.deltaTime;
 
-        float q = Time.deltaTime;
+        var q = Time.unscaledDeltaTime;
 
         fps = (fps + realFPS * q) / (1 + q);
 
