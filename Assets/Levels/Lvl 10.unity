@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cdceba78882f3947bb52d547487736a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeBeforeFirstGroup: 3
+  TimeBetweenGroups: 3
   team: 0
   all:
   - count: 1
@@ -160,9 +162,9 @@ MonoBehaviour:
     ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - count: 3
     ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
-  - count: 4
-    ship: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
-  TotalCost: 1000
+  - count: 10
+    ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+  TotalCost: 700
 --- !u!4 &761489328
 Transform:
   m_ObjectHideFlags: 0
