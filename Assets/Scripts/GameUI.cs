@@ -58,10 +58,10 @@ public sealed class GameUI : SINGLETON<GameUI>
             Time.timeScale = Menu.activeSelf ? 0 : 1;
         }
 
-        var realFPS = 1f / Time.deltaTime;
-
         var q = Time.unscaledDeltaTime;
 
+        var realFPS = 1f / q;
+        
         fps = (fps + realFPS * q) / (1 + q);
 
         FPS.text = Mathf.RoundToInt(fps).ToString();
