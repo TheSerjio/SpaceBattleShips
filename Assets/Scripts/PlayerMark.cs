@@ -15,8 +15,8 @@ public class PlayerMark : SINGLETON<PlayerMark>
     private const float SlowCamera = 180;
     private const float FastCamera = SlowCamera * 3;
 
-    private float sniperness;
-    
+    public float sniperness { get; private set; }
+
     private bool isSniper;
 
     public static Vector2 MouseRotation

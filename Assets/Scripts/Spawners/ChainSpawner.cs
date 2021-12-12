@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ChainSpawner : MonoBehaviour
 {
+    public float TimeBeforeFirstGroup;
+    public float TimeBetweenGroups;
     public Team team;
     public MotherShip.Data[] all;
 
@@ -20,6 +22,7 @@ public class ChainSpawner : MonoBehaviour
     {
         float D = 0;
         var prev = new System.Collections.Generic.List<Ship>();
+        yield return new WaitForSeconds(TimeBeforeFirstGroup);
         foreach (var g in all)
         {
             prev.Clear();
@@ -39,8 +42,10 @@ public class ChainSpawner : MonoBehaviour
             while (prev.Count > 0)
             {
                 Utils.RemoveNull(prev);
-                yield return new WaitForSeconds(Random.value);
+                yield return null;
             }
+
+            yield return new WaitForSeconds(TimeBetweenGroups);
         }
 
         Destroy(gameObject);

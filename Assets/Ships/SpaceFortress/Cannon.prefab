@@ -145,7 +145,7 @@ MonoBehaviour:
   rotationSpeed: 90
   body: {fileID: 9019740523505577636}
   weapon: {fileID: 6789131706266822063}
-  maxAngle: 0.75
+  maxAngle: 0.5
 --- !u!1 &7591982150244076728
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,4 +205,4 @@ MonoBehaviour:
   ProjectileSize: 0.5
   type: 1
   ProjectileExplosionPower: 50
-  Inaccuracy: 0.05
+  Inaccuracy: 0.025

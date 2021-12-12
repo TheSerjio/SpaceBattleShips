@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        SoundSettingHandler.CheckInit();
         OpenPanel(mainPanel);
         var levels = DataBase.Get().Levels;
         for (var i = 0; i < levels.Length; i++)

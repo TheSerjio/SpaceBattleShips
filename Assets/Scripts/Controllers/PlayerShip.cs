@@ -1,5 +1,4 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public sealed class PlayerShip : ShipController
 {
@@ -15,7 +14,7 @@ public sealed class PlayerShip : ShipController
         }
     }
 
-    PlayerMark __mark__;
+    private PlayerMark __mark__;
 
     private Targeting.TargetDirection target;
     
@@ -29,7 +28,7 @@ public sealed class PlayerShip : ShipController
         target.Fire = Input.GetKey(KeyCode.Mouse1);
         Ship.Target = target;
         
-        bool autoBrake = AutoBrake;
+        var autoBrake = AutoBrake;
 
         if (Input.GetKey(KeyCode.A))
             transform.Rotate(Ship.RotationSpeed * Time.deltaTime * Vector3.forward, Space.Self);
@@ -87,7 +86,7 @@ public sealed class PlayerShip : ShipController
 
     public override void Warn(Vector3 moveTo, Ship.Warning how)
     {
-        Mark.Cameroid.localPosition = Random.insideUnitSphere * how.shakePower;
+        Mark.Cameroid.localPosition = Random.insideUnitSphere * how.shakePower * Mark.sniperness;
         if (how.showText)
             if (Warner.Self)
                 Warner.Self.Show();
