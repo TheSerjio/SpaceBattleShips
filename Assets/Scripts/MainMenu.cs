@@ -40,6 +40,7 @@ public class MainMenu : MonoBehaviour
     private void OnLevelClick(Level level)
     {
         currentLevel = level;
+        var stars = FileSystem.Get(level);
         for (var i = 0; i < shipSelectionButtons.Length; i++)
         {
             if (level.ships.Length > i)
@@ -49,7 +50,7 @@ public class MainMenu : MonoBehaviour
                 var ship = level.ships[i];
                 var it = button.GetComponent<ShipSelectButton>();
                 it.ship.sprite = ship.Preview;
-                it.star.enabled = false;
+                it.star.sprite = DataBase.Get().StarColor(stars.Length > i ? stars[i] : StarType.No);
                 button.GetComponent<Button>().onClick.AddListener(() => OnShipSelectClick(ship));
             }
             else

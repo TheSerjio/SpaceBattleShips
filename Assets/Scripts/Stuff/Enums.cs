@@ -28,3 +28,11 @@ public enum ShaderName : byte
     E_Skin,
     Colorio
 }
+
+public enum StarType : byte
+{
+    No,
+    Bad,
+    Good,
+    Best
+}

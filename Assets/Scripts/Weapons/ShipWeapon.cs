@@ -30,6 +30,11 @@ public abstract class ShipWeapon : Script
     }
 
     private Ship _parent_;
+
+    protected bool PreShot()
+    {
+        
+    }
 }
 
 public abstract class ShipWeaponWithCoolDown : ShipWeapon

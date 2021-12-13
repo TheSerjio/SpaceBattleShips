@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -38,12 +39,30 @@ public sealed class DataBase : ScriptableObject
     public Color Attackers;
     public Color Pirates;
 
+    public Sprite Transparent;
+
     public ShipData[] Ships;
     public Level[] Levels;
 
     public ValidableScriptableObject[] EveryThing;
 
     public AnimationCurve EngineSizeFromPower;
+
+    public Sprite BadStar;
+    public Sprite GoodStar;
+    public Sprite BestStar;
+
+    public Sprite StarColor(StarType type)
+    {
+        switch (type)
+        {
+          case StarType.Bad: return BadStar;
+          case StarType.No: return Transparent;
+          case StarType.Good: return GoodStar;
+          case StarType.Best: return BestStar;
+          default: return Transparent;
+        }
+    }
 
 #if UNITY_EDITOR
 
