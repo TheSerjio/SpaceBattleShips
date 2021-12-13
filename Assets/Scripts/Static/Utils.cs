@@ -40,7 +40,7 @@ public static class Utils
         }
     }
 
-    public const float StartTime = 4;
+    public const float StartTime = 1;
 
     public static T[] EnumValues<T>()
     {
