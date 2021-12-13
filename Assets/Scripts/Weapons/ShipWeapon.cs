@@ -6,7 +6,7 @@ public abstract class ShipWeapon : Script
     {
 
     }
-    
+
     public abstract float FrameDistance { get; }
 
     public abstract float S_Bullets { get; }
@@ -17,7 +17,7 @@ public abstract class ShipWeapon : Script
 
     public abstract float S_MaxDPS();
 
-    public  abstract float S_EnergyConsumption { get; }
+    public abstract float S_EnergyConsumption { get; }
 
     public Ship Parent
     {
@@ -31,10 +31,21 @@ public abstract class ShipWeapon : Script
 
     private Ship _parent_;
 
-    /*protected bool PreShot()
+    protected bool TooClose(float dmg)
     {
-        
-    }*/
+        foreach (var hit in Physics.RaycastAll(transform.position - transform.forward, transform.forward, 2))
+        {
+            var obj = hit.collider.gameObject;
+            var tar = obj.GetComponentInParent<BaseEntity>();
+            if (tar && tar.team != Parent.team)
+            {
+                tar.OnDamaged(dmg, Parent);
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
 
 public abstract class ShipWeaponWithCoolDown : ShipWeapon
@@ -68,17 +79,18 @@ public abstract class ShipWeaponWithCoolDown : ShipWeapon
                 CoolDown += ReloadTime;
                 if (Parent.PlayerMarked)
                 {
-                        AudioManager.PlaySound(onShot, false);
-                        if (PlayerExplosionSize != 0)
-                        {
-                            var obj = Instantiate(DataBase.Get().PlayerShotSmallExplosion, transform);
-                            obj.transform.localPosition = Vector3.zero;
-                            obj.transform.localScale = Vector3.one * PlayerExplosionSize;
-                            Destroy(obj, 1);
-                        }
+                    AudioManager.PlaySound(onShot, false);
+                    if (PlayerExplosionSize != 0)
+                    {
+                        var obj = Instantiate(DataBase.Get().PlayerShotSmallExplosion, transform);
+                        obj.transform.localPosition = Vector3.zero;
+                        obj.transform.localScale = Vector3.one * PlayerExplosionSize;
+                        Destroy(obj, 1);
+                    }
                 }
 
-                Shoot();
+                if (!TooClose(Damage))
+                    Shoot();
             }
         }
         else

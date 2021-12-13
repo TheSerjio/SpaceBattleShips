@@ -45,28 +45,30 @@ public class LongLaserWeapon : ShipWeapon
             if (Time.time < NoShootUntil)
                 goto end;
             if (Parent.TakeEnergy(Time.deltaTime * EnergyPerSecond))
-            {
-                lr.widthMultiplier = q;
-                lr.positionCount = 2;
-                var randy = transform.forward + (Utils.TimeRandomSphere(seed) / Accuracy);
-                var hitpoint = transform.position + randy * ushort.MaxValue;
-                lr.SetPosition(0,Vector3.zero);
-                
-                foreach (var hit in Physics.SphereCastAll(transform.position, Parent.UseCheats ? playerLaserWidth : laserWidth, randy))
+                if (!TooClose(damagePerSecond * Time.deltaTime))
                 {
-                    var obj = hit.collider.gameObject;
-                    var tar = obj.GetComponentInParent<BaseEntity>();
-                    if (tar && tar.team != Parent.team)
-                    {
-                        tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
-                        hitpoint = hit.point;
-                        break;
-                    }
-                }
+                    lr.widthMultiplier = q;
+                    lr.positionCount = 2;
+                    var randy = transform.forward + (Utils.TimeRandomSphere(seed) / Accuracy);
+                    var hitpoint = transform.position + randy * ushort.MaxValue;
+                    lr.SetPosition(0, Vector3.zero);
 
-                lr.SetPosition(1, transform.InverseTransformPoint(hitpoint));
-                b = false;
-            }
+                    foreach (var hit in Physics.SphereCastAll(transform.position,
+                        Parent.UseCheats ? playerLaserWidth : laserWidth, randy))
+                    {
+                        var obj = hit.collider.gameObject;
+                        var tar = obj.GetComponentInParent<BaseEntity>();
+                        if (tar && tar.team != Parent.team)
+                        {
+                            tar.OnDamaged(damagePerSecond * Time.deltaTime, Parent);
+                            hitpoint = hit.point;
+                            break;
+                        }
+                    }
+
+                    lr.SetPosition(1, transform.InverseTransformPoint(hitpoint));
+                    b = false;
+                }
         }
         else if (wasFiring)
         {

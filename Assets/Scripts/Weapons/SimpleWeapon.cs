@@ -79,9 +79,7 @@ public class SimpleWeapon : ShipWeaponWithCoolDown
         p.Radius = Parent.UseCheats ? ProjectileSize * 2.5f : ProjectileSize / 2f;
 
         p.Velocity = Parent.RB.velocity + (transform.forward + Random.insideUnitSphere * Inaccuracy) * bulletSpeed;
-        p.transform.position = transform.position;
         p.transform.LookAt(p.transform.position + p.Velocity);
-        p.FixedUpdate();//because bullets dont hit close target
         p.transform.position = transform.position + (transform.forward * ProjecileLentgh / 2f);
     }
 
