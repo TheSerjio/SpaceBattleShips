@@ -16,9 +16,9 @@ public class Level : ValidableScriptableObject
 #if UNITY_EDITOR
         BuildingIndex = SceneUtility.GetBuildIndexByScenePath(UnityEditor.AssetDatabase.GetAssetPath(scene));
         UnityEditor.EditorUtility.SetDirty(this);
-#endif
         if (!scene)
             yield return Warn(Level.Error, "no scene");
+#endif
         if (BuildingIndex < 1)
             yield return Warn(Level.Error, "add scene to build");
     }
