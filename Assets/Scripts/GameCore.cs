@@ -13,13 +13,20 @@ public class GameCore : SINGLETON<GameCore>
 
     private Team[] allTeams = Utils.EnumValues<Team>();
 
-    public Camera EditorCamera;
-
     public SunContainer sun;
 
     private void RemoveNull()
     {
         Utils.RemoveNull(All);
+    }
+
+    private State state = State.Nothing;
+
+    private enum State : byte
+    {
+        Nothing,
+        PlayerWin,
+        PlayerFail
     }
 
     protected override void OnSingletonAwake()
@@ -68,6 +75,8 @@ public class GameCore : SINGLETON<GameCore>
         }
 
         Cursor.SetCursor(DataBase.Get().GameCursor, Vector2.one * 15, CursorMode.Auto);
+
+        StartCoroutine(CoreCoroutine());
     }
 
 
@@ -111,22 +120,50 @@ public class GameCore : SINGLETON<GameCore>
 
     private static Camera _cam;
 
-    public void FixedUpdate()
+    private System.Collections.IEnumerator CoreCoroutine()
     {
-        EditorCamera = MainCamera;
-        Time.timeScale = Mathf.Clamp01(1f / Time.deltaTime);
-        RemoveNull();
-        foreach (var q in allTeams)
-            Counts[q] = 0;
-        foreach(var q in All)
-            Counts[q.team]++;
-        string s = "";
-        foreach(var q in Counts)
+        while (this)
         {
-            if (q.Value != 0)
-                s += $"{q.Key}:{q.Value}\n";
+            foreach (var q in allTeams)
+                Counts[q] = 0;
+
+            var anyPlayers = false;
+            var anyEnemyes = false;
+            
+            foreach (var q in All)
+            {
+                if (q)
+                {
+                    Counts[q.team]++;
+                    if (q.team == Team.Player)
+                        anyPlayers = true;
+                    else
+                        anyEnemyes = true;
+                }
+
+                yield return null;
+            }
+
+            if (state == State.Nothing)
+            {
+                if (!anyPlayers)
+                    state = State.PlayerFail;
+                if (!anyEnemyes)
+                    state = State.PlayerWin;
+            }
+
+            var s = "";
+            foreach (var q in Counts)
+            {
+                if (q.Value != 0)
+                    s += $"{q.Key}:{q.Value}\n";
+                yield return null;
+            }
+
+            GameUI.Self.ShipCount.text = s;
+
+            yield return null;
         }
-        GameUI.Self.ShipCount.text = s;
     }
 
     public Ship FindTargetShip(Team team, bool sameTeam, Locating mode, Transform from)
