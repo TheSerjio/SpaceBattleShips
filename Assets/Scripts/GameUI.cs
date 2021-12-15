@@ -8,7 +8,7 @@ using UnityEngineInternal;
 [RequireComponent(typeof(Canvas))]
 public sealed class GameUI : SINGLETON<GameUI>
 {
-    [SerializeField] private GameObject Stats;
+    [SerializeField] private GameObject[] Stats;
     public Slider Engines;
     public RectTransform Shields;
     public Image I_Shields;
@@ -28,6 +28,12 @@ public sealed class GameUI : SINGLETON<GameUI>
     public GameObject Menu;
     public Text FPS;
     private float fps;
+    
+    public bool LockPause { get; set; }
+
+    public GameObject WinText;
+    public GameObject FailText;
+    public GameObject LargeGoToMainMenuButton;
 
     public void Start()
     {
@@ -37,7 +43,8 @@ public sealed class GameUI : SINGLETON<GameUI>
 
     public void ShowHide(bool show)
     {
-        Stats.SetActive(show);
+        foreach (var q in Stats)
+            q.SetActive(show);
     }
 
     protected override void OnSingletonAwake()
@@ -52,11 +59,12 @@ public sealed class GameUI : SINGLETON<GameUI>
         SliderValue.text = Engines.value.ToString();
         WorlsCanvas.worldCamera = GameCore.MainCamera;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Menu.SetActive(!Menu.activeSelf);
-            Time.timeScale = Menu.activeSelf ? 0 : 1;
-        }
+        if(!LockPause)
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Menu.SetActive(!Menu.activeSelf);
+                Time.timeScale = Menu.activeSelf ? 0 : 1;
+            }
 
         var q = Time.unscaledDeltaTime;
 

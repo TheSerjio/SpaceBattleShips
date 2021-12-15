@@ -131,7 +131,6 @@ public class GameCore : SINGLETON<GameCore>
             var anyEnemyes = false;
             
             foreach (var q in All)
-            {
                 if (q)
                 {
                     Counts[q.team]++;
@@ -141,15 +140,23 @@ public class GameCore : SINGLETON<GameCore>
                         anyEnemyes = true;
                 }
 
-                yield return null;
-            }
-
             if (state == State.Nothing)
             {
                 if (!anyPlayers)
+                {
                     state = State.PlayerFail;
+                    GameUI.Self.FailText.SetActive(true);
+                    GameUI.Self.LargeGoToMainMenuButton.SetActive(true);
+                }
+
                 if (!anyEnemyes)
-                    state = State.PlayerWin;
+                    if (!FindObjectOfType<Spawner>())
+                        if (!FindObjectOfType<ChainSpawner>())
+                        {
+                            state = State.PlayerWin;
+                            GameUI.Self.WinText.SetActive(true);
+                            GameUI.Self.LargeGoToMainMenuButton.SetActive(true);
+                        }
             }
 
             var s = "";
