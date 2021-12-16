@@ -28,7 +28,8 @@ public sealed class Spawner : MonoBehaviour
         var ff = f.GetComponent<TargetFrame>();
         ff.frameImage.color = DataBase.Get().TeamColor(ship.team);
         ff.target = ship;
-        ff.Name = $"{asset.Name}";//-{(ushort)Random.Range(0, ushort.MaxValue)}";
+        ff.Name = $"{asset.Name}";
+        ff.text.color = DataBase.Get().TeamColor(ship.team);
         ship.frame = ff;
         ff.Update();
     }

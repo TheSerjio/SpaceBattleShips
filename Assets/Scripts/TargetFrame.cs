@@ -56,9 +56,8 @@ public class TargetFrame : Script
             e.z = cam.eulerAngles.z;
             transform.eulerAngles = e;
 
-            //text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}:{Mathf.Round(Utils.ToSadUnits(dist))}";
-            text.text = $"{Name}:{Mathf.RoundToInt(target.RelativeEnergy * 100)}";
-            text.fontSize = Vector3.Distance(transform.position, cam.position) * GameCore.MainCamera.fieldOfView / 2000f;
+            text.text = $"{Name}:{Mathf.Round(Utils.ToSadUnits(dist))}";
+            text.fontSize = Vector3.Distance(transform.position, cam.position) * GameCore.MainCamera.fieldOfView / 2500f;
 
             SetScale(image, Mathf.Lerp(0.25f, 0.05f, dist / 350));
 
