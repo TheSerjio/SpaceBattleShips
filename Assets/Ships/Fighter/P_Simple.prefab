@@ -469,7 +469,7 @@ MonoBehaviour:
     volume: 0.024
     pitch: 0
   SniperCameraAngle: 60
-  ShieldRegenCost: 10
+  ShieldRegenCost: 50
 --- !u!114 &141515290426716345
 MonoBehaviour:
   m_ObjectHideFlags: 0

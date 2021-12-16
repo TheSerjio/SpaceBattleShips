@@ -478,7 +478,7 @@ MonoBehaviour:
     volume: 0.016
     pitch: 0
   SniperCameraAngle: 15
-  ShieldRegenCost: 15
+  ShieldRegenCost: 100
 --- !u!114 &3443616421799514483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,8 +512,6 @@ MonoBehaviour:
     Size: 0
     InFrontOfMe: 1
     Random: 0.5
-  MinOptimalDistance: 100
-  MaxOptimalDistance: 150
   AccuracyShooting: 0.9
   AimingQuality: 0
 --- !u!1 &3939391292371521489
