@@ -74,7 +74,7 @@ public static class FileSystem
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"{e.GetType().FullName}\n\n\n{e.Message}\n\n\n{e.StackTrace}");
+            Debug.LogException(e);
             //if (File.Exists(FilePath))
               //  File.Delete(FilePath);
             result.Clear();
@@ -86,6 +86,18 @@ public static class FileSystem
     private static void Set(Dictionary<int, StarType[]> data)
     {
         CheckFile();
-        Debug.LogError("...");
+        using var file = new StreamWriter(File.OpenWrite(FilePath));
+        
+        foreach (var pair in data)
+        {
+            file.Write(pair.Key.ToString());
+            foreach (var star in pair.Value)
+            {
+                file.Write(" ");
+                file.Write(((byte) star).ToString());
+            }
+
+            file.Write("\n");
+        }
     }
 }

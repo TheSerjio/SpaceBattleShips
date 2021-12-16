@@ -142,21 +142,33 @@ public class GameCore : SINGLETON<GameCore>
 
             if (state == State.Nothing)
             {
-                if (!anyPlayers)
-                {
-                    state = State.PlayerFail;
-                    GameUI.Self.FailText.SetActive(true);
-                    GameUI.Self.LargeGoToMainMenuButton.SetActive(true);
-                }
-
                 if (!anyEnemyes)
+                {
                     if (!FindObjectOfType<Spawner>())
                         if (!FindObjectOfType<ChainSpawner>())
                         {
                             state = State.PlayerWin;
-                            GameUI.Self.WinText.SetActive(true);
-                            GameUI.Self.LargeGoToMainMenuButton.SetActive(true);
+                            GameUI.Self.Operate(GameUI.Self.WinText);
+
+                            StarType star;
+
+                            var player = PlayerMark.Self;
+                            if (player)
+                                if (player.Ship.RelativeHealth > 0.99f)
+                                    star = StarType.Best;
+                                else
+                                    star = StarType.Good;
+                            else
+                                star = StarType.Bad;
+
+                            LevelManager.Complete(star);
                         }
+                }
+                else if (!anyPlayers)
+                {
+                    state = State.PlayerFail;
+                    GameUI.Self.Operate(GameUI.Self.FailText);
+                }
             }
 
             var s = "";

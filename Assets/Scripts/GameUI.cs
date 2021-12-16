@@ -33,11 +33,18 @@ public sealed class GameUI : SINGLETON<GameUI>
 
     public GameObject WinText;
     public GameObject FailText;
-    public GameObject LargeGoToMainMenuButton;
+    [SerializeField] private GameObject LargeGoToMainMenuButton;
 
     public void Start()
     {
         ShowHide(false);
+    }
+
+    public void Operate(GameObject text)
+    {
+        text.SetActive(true);
+        LargeGoToMainMenuButton.SetActive(true);
+        text.GetComponent<AudioSource>().volume *= AudioManager.SoundLevel;
     }
 
 

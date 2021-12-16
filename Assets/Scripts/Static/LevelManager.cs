@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public static class LevelManager
 {
     public enum Type
@@ -13,4 +11,19 @@ public static class LevelManager
     public static ShipData[] startedWith;
 
     public static bool CanExitFromShip => currentLevel == null;
+
+    public static void Complete(StarType star)
+    {
+        if (!currentLevel)
+            return;
+
+        var a = FileSystem.Get(currentLevel);
+        if (a.Length < currentLevel.ships.Length)
+            a = new StarType[currentLevel.ships.Length];
+        for (var i = 0; i < a.Length; i++)
+            if (currentLevel.ships[i] == startedWith[0])
+                a[i] = star;
+
+        FileSystem.Set(currentLevel, a);
+    }
 }

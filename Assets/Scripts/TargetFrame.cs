@@ -64,12 +64,15 @@ public class TargetFrame : Script
 
             frameImage.pixelsPerUnitMultiplier = 40000f / GameCore.MainCamera.fieldOfView / Vector3.Distance(transform.position, cam.position);
 
-            if (Player)
+            if (target.team != Team.Player && Player)
             {
-                if (!probablyPosition.gameObject.activeSelf)
+                if (probablyPosition.gameObject.activeSelf)
+                {
+                    probablyPosition.position = Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed, 3);
+                    SetScale(probablyPosition, 0.025f);
+                }
+                else if (target.team != Team.Player)
                     probablyPosition.gameObject.SetActive(true);
-                probablyPosition.position = Utils.ShootTo(Player, target.RB, PlayerAntiBulletSpeed, 3);
-                SetScale(probablyPosition, 0.025f);
             }
 
             else if (probablyPosition.gameObject.activeSelf)

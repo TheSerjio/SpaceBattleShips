@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerMark : SINGLETON<PlayerMark>
 {
-    private Ship Ship;
+    public Ship Ship { get; private set; }
+
     public Transform Cameroid { get; private set; }
 
     private Transform defaultCam;
