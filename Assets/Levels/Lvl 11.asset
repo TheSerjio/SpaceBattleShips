@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: {fileID: 102900000, guid: 8c35a9a3043a01f4dbc4004856f7749c, type: 3}
   ships:
-  - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
+  - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
   BuildingIndex: 12
