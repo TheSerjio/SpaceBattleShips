@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene: {fileID: 102900000, guid: 6a1f33c62ae87b8459684351ec0e9f6e, type: 3}
   ships:
-  - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
-  - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
+  - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
+  - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   BuildingIndex: 8
   sun: {fileID: 11400000, guid: 09c7f3e7297a7ed40b3e722459ad286c, type: 2}
   Name: Level 7
