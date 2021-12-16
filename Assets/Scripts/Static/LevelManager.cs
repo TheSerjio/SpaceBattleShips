@@ -18,7 +18,7 @@ public static class LevelManager
             return;
 
         var a = FileSystem.Get(currentLevel);
-        if (a.Length < currentLevel.ships.Length)
+        if (a.Length != currentLevel.ships.Length)
             a = new StarType[currentLevel.ships.Length];
         for (var i = 0; i < a.Length; i++)
             if (currentLevel.ships[i] == startedWith[0])
