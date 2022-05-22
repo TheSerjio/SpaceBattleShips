@@ -9,7 +9,12 @@ public class Level : ValidableScriptableObject
     public UnityEditor.SceneAsset scene;
 #endif
     public ShipData[] ships;
+
+    public bool IsCampaignLevel;
+
     public int BuildingIndex;
+
+    public int ResourcesIfWin;
 
     public override IEnumerable<Warning> Validate()
     {

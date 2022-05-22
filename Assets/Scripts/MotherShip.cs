@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public sealed class MotherShip : Ship
@@ -24,6 +23,10 @@ public sealed class MotherShip : Ship
     {
         TotalCost = Utils.GetCost(all);
     }
+
+    public bool SpawnRandomShips;
+
+    public float CoolDown;
 
     public void FixedUpdate()
     {

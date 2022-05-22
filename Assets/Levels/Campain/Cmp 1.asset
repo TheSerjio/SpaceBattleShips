@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
-  m_Name: Lvl 12
+  m_Name: Cmp 1
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 86c450374a4c78b41b8bb48b5e0f0604, type: 3}
-  ships:
-  - {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
-  - {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
-  IsCampaignLevel: 0
-  BuildingIndex: 13
-  ResourcesIfWin: 0
+  scene: {fileID: 102900000, guid: ecc5d139ad04eaf459e0ca59bc8db7bd, type: 3}
+  ships: []
+  IsCampaignLevel: 1
+  BuildingIndex: 17
+  ResourcesIfWin: 100
   sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
-  Name: Level 12
-  SpaceTexture: {fileID: 2800000, guid: df758bf8e6df24b4f9d8d37c47e4f3c2, type: 3}
+  Name: Campaign 1
+  SpaceTexture: {fileID: 2800000, guid: a52e8994fd91a634a833e967a886a2f0, type: 3}

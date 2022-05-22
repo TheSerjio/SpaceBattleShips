@@ -11,26 +11,33 @@ public class MainMenu : MonoBehaviour
 
     public GameObject levelButtonPrefab;
     public GameObject mainPanel;
-    public RectTransform levelPanel;
+    public RectTransform levelPanel, campaignPanel;
     public GameObject[] panels;
     private Level currentLevel;
 
     public GameObject[] shipSelectionButtons;
 
+    private void CreateLevels(RectTransform panel,bool campaign)
+    {
+        var levels = DataBase.Get().Levels;
+        int y = 0;
+        foreach(var level in levels)
+        {
+            if (level.IsCampaignLevel != campaign)
+                continue;
+            var obj = Instantiate(levelButtonPrefab, panel);
+            obj.GetComponent<RectTransform>().anchoredPosition = Vector2.down * ((y++) * 64 + 64);
+            obj.GetComponentInChildren<Text>().text = level.Name;
+            obj.GetComponent<Button>().onClick.AddListener(() => OnLevelClick(level));
+        }
+    }
+
     private void Start()
     {
         SoundSettingHandler.CheckInit();
         OpenPanel(mainPanel);
-        var levels = DataBase.Get().Levels;
-        for (var i = 0; i < levels.Length; i++)
-        {
-            var level = levels[i];
-            var obj = Instantiate(levelButtonPrefab, levelPanel);
-            obj.GetComponent<RectTransform>().anchoredPosition = Vector2.down * (i * 64 + 64);
-            obj.GetComponentInChildren<Text>().text = level.Name;
-            obj.GetComponent<Button>().onClick.AddListener(() => OnLevelClick(level));
-        }
-
+        CreateLevels(levelPanel, false);
+        CreateLevels(campaignPanel, true);
         foreach (var q in shipSelectionButtons)
             q.SetActive(false);
 
@@ -40,7 +47,7 @@ public class MainMenu : MonoBehaviour
     private void OnLevelClick(Level level)
     {
         currentLevel = level;
-        var stars = FileSystem.Get(level);
+        var stars = FileSystem.GetLevels().TryGetValue(level.BuildingIndex, out var some) ? some : System.Array.Empty<StarType>();
         for (var i = 0; i < shipSelectionButtons.Length; i++)
         {
             if (level.ships.Length > i)
@@ -56,6 +63,11 @@ public class MainMenu : MonoBehaviour
             else
                 shipSelectionButtons[i].SetActive(false);
         }
+    }
+
+    public void OpenCampaignScene()
+    {
+        SceneManager.LoadScene(16);
     }
 
     private void OnShipSelectClick(ShipData what)

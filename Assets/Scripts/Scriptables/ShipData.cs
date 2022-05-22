@@ -29,4 +29,18 @@ public class ShipData : ValidableScriptableObject
         if (!prefab.mainWeapon)
             yield return Warn(Level.Warning, "no weapon");
     }
+
+    public int Index
+    {
+        get
+        {
+            for (int i = 0; i < DataBase.Get().Ships.Length; i++)
+            {
+                ShipData q = DataBase.Get().Ships[i];
+                if (q == this)
+                    return i;
+            }
+            return 0;
+        }
+    }
 }
