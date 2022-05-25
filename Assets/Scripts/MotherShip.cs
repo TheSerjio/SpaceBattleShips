@@ -3,7 +3,7 @@ using UnityEngine;
 public sealed class MotherShip : Ship
 {
     [System.Serializable]
-    public class Data
+    public sealed class Data
     {
         public ushort count;
         public ShipData ship;

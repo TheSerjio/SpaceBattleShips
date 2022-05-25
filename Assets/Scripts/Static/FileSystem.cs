@@ -73,11 +73,11 @@ public static class FileSystem
         return result;
     }
 
-    public static Dictionary<int, (Dictionary<ShipData, int>, int)> GetCampaign()
+    public static Dictionary<int, (List<MotherShip.Data>, int)> GetCampaign()
     {
-        var result = new Dictionary<int, (Dictionary<ShipData, int>, int)>();
+        var result = new Dictionary<int, (List<MotherShip.Data>, int)>();
         if (!File.Exists(CampaignPath))
-            return new Dictionary<int, (Dictionary<ShipData, int>, int)>();
+            return new Dictionary<int, (List<MotherShip.Data>, int)>();
 
         try
         {
@@ -122,6 +122,7 @@ public static class FileSystem
                 result[index] = default;
             }
         }
+
         catch (System.Exception e)
         {
             Debug.LogException(e);
@@ -149,7 +150,7 @@ public static class FileSystem
         }
     }
 
-    public static void Set(Dictionary<int, (Dictionary<ShipData, int>, int)> data)
+    public static void Set(Dictionary<int, (List<MotherShip.Data>, int)> data)
     {
         using var file = new StreamWriter(File.OpenWrite(LevelsPath));
 
@@ -160,12 +161,12 @@ public static class FileSystem
             file.Write(pair.Value.Item2);
             file.Write(" ");
             file.Write(pair.Value.Item1.Count);
-            foreach (var line in pair.Value.Item1)
+            foreach (var q in pair.Value.Item1)
             {
                 file.Write(" ");
-                file.Write(line.Key.Index.ToString());
+                file.Write(q.count.ToString());
                 file.Write(" ");
-                file.Write(line.Value.ToString());
+                file.Write(q.ship.Index.ToString());
             }
 
             file.Write("\n");

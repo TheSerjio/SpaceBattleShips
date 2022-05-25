@@ -13,9 +13,22 @@ public class MainMenu : MonoBehaviour
     public GameObject mainPanel;
     public RectTransform levelPanel, campaignPanel;
     public GameObject[] panels;
+    public Text PlayerCampaignMoneyText;
     private Level currentLevel;
+    private int PlayerMoney_C;
+    private System.Collections.Generic.List<MotherShip.Data> PlayerShips_C;
 
     public GameObject[] shipSelectionButtons;
+
+    public GameObject PlayerCampaignIconsParent, EnemyCampaignIconsParent;
+    
+    public ShipWithCountButton[] PlayerCampaignIcons, EnemyCampaignIcons;
+
+    public void OnValidate()
+    {
+        PlayerCampaignIcons = PlayerCampaignIconsParent.GetComponentsInChildren<ShipWithCountButton>();
+        EnemyCampaignIcons = EnemyCampaignIconsParent.GetComponentsInChildren<ShipWithCountButton>();
+    }
 
     private void CreateLevels(RectTransform panel,bool campaign)
     {
@@ -32,7 +45,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Start()
     {
         SoundSettingHandler.CheckInit();
         OpenPanel(mainPanel);
@@ -47,21 +60,48 @@ public class MainMenu : MonoBehaviour
     private void OnLevelClick(Level level)
     {
         currentLevel = level;
-        var stars = FileSystem.GetLevels().TryGetValue(level.BuildingIndex, out var some) ? some : System.Array.Empty<StarType>();
-        for (var i = 0; i < shipSelectionButtons.Length; i++)
+
+        if (level.IsCampaignLevel)
         {
-            if (level.ships.Length > i)
+            var file = FileSystem.GetCampaign();
+            PlayerShips_C = new System.Collections.Generic.List<MotherShip.Data>();
+            if (level.previous == null)
             {
-                var button = shipSelectionButtons[i];
-                button.SetActive(true);
-                var ship = level.ships[i];
-                var it = button.GetComponent<ShipSelectButton>();
-                it.ship.sprite = ship.Preview;
-                it.star.sprite = DataBase.Get().StarColor(stars.Length > i ? stars[i] : StarType.No);
-                button.GetComponent<Button>().onClick.AddListener(() => OnShipSelectClick(ship));
+                PlayerMoney_C = 1000;
             }
             else
-                shipSelectionButtons[i].SetActive(false);
+            {
+                var q = file[level.previous.BuildingIndex];
+                PlayerShips_C = q.Item1;
+                PlayerMoney_C = q.Item2;
+            }
+            for (int i = 0; i < PlayerCampaignIcons.Length; i++)
+            {
+                var icon = PlayerCampaignIcons[i];
+                if (i < PlayerShips_C.Count)
+                    icon.data = PlayerShips_C[i];
+                else
+                    icon.data = null;
+            }
+        }
+        else
+        {
+            var stars = FileSystem.GetLevels().TryGetValue(level.BuildingIndex, out var some) ? some : System.Array.Empty<StarType>();
+            for (var i = 0; i < shipSelectionButtons.Length; i++)
+            {
+                if (level.ships.Length > i)
+                {
+                    var button = shipSelectionButtons[i];
+                    button.SetActive(true);
+                    var ship = level.ships[i];
+                    var it = button.GetComponent<ShipSelectButton>();
+                    it.ship.sprite = ship.Preview;
+                    it.star.sprite = DataBase.Get().StarColor(stars.Length > i ? stars[i] : StarType.No);
+                    button.GetComponent<Button>().onClick.AddListener(() => OnShipSelectClick(ship));
+                }
+                else
+                    shipSelectionButtons[i].SetActive(false);
+            }
         }
     }
 
@@ -92,5 +132,6 @@ public class MainMenu : MonoBehaviour
     public void Update()
     {
         sound.volume = soundLevel * AudioManager.MusicLevel;
+        PlayerCampaignMoneyText.text = PlayerMoney_C.ToString();
     }
 }

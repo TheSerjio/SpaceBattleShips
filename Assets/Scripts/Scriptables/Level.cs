@@ -8,7 +8,9 @@ public class Level : ValidableScriptableObject
 #if UNITY_EDITOR
     public UnityEditor.SceneAsset scene;
 #endif
+    public global::Level previous;
     public ShipData[] ships;
+    public MotherShip.Data[] enemyes;
 
     public bool IsCampaignLevel;
 
