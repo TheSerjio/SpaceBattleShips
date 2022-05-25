@@ -12,16 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
   m_Name: Cmp 7
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 8c7840b65016e7548b46d201bf1e4ec2, type: 3}
+  scene: {fileID: 102900000, guid: e7fe2e2c90d930a41b76148c7033ccc0, type: 3}
   previous: {fileID: 0}
   ships: []
   enemyes:
-  - count: 0
-    ship: {fileID: 0}
-  - count: 0
-    ship: {fileID: 0}
-  - count: 0
-    ship: {fileID: 0}
+  - count: 4
+    ship: {fileID: 11400000, guid: 1f452880e9a17b644908766607cecfc5, type: 2}
+  - count: 500
+    ship: {fileID: 11400000, guid: 8a7b33158d338e7418d11c331ad1d8e4, type: 2}
   IsCampaignLevel: 1
   BuildingIndex: 17
   ResourcesIfWin: 100
