@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
+  m_Name: Cmp 5
+  m_EditorClassIdentifier: 
+  scene: {fileID: 102900000, guid: 8c7840b65016e7548b46d201bf1e4ec2, type: 3}
+  previous: {fileID: 0}
+  ships: []
+  enemyes:
+  - count: 0
+    ship: {fileID: 0}
+  - count: 0
+    ship: {fileID: 0}
+  - count: 0
+    ship: {fileID: 0}
+  IsCampaignLevel: 1
+  BuildingIndex: 17
+  ResourcesIfWin: 100
+  sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
+  Name: Campaign 1
+  SpaceTexture: {fileID: 2800000, guid: a52e8994fd91a634a833e967a886a2f0, type: 3}
