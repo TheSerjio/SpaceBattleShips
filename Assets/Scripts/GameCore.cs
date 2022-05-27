@@ -15,6 +15,8 @@ public class GameCore : SINGLETON<GameCore>
 
     public SunContainer sun;
 
+    public MotherShip PlayerMotherShip, EnemyMotherShip;
+
     private void RemoveNull()
     {
         Utils.RemoveNull(All);
@@ -31,7 +33,6 @@ public class GameCore : SINGLETON<GameCore>
 
     protected override void OnSingletonAwake()
     {
-        
         Counts = new System.Collections.Generic.Dictionary<Team, ulong>();
         foreach (var q in allTeams)
             Counts[q] = 0;
@@ -39,39 +40,31 @@ public class GameCore : SINGLETON<GameCore>
 
     public void Start()
     {
-        if (LevelManager.currentLevel)
+        var level = LevelManager.currentLevel;
+        if (level)
         {
-            switch (LevelManager.type)
+            print(level.Name);
+            if (level.IsCampaignLevel)
             {
-                case LevelManager.Type.Level:
+                EnemyMotherShip.all = level.enemyes;
+            }
+            else
+            {
+                var rotation = Quaternion.identity;
+                var spawnAt = Vector3.zero;
                 {
-                    var rotation = Quaternion.identity;
-                    var spawnAt = Vector3.zero;
+                    var point = SpawnPlayerHere.Self;
+                    if (point)
                     {
-                        var point = SpawnPlayerHere.Self;
-                        if (point)
-                        {
-                            spawnAt = point.transform.position;
-                            rotation = point.transform.rotation;
-                        }
+                        spawnAt = point.transform.position;
+                        rotation = point.transform.rotation;
                     }
-                    PlayerSpawner.Spawn(LevelManager.startedWith[0], spawnAt, rotation);
-                    break;
                 }
-                case LevelManager.Type.Campaign:
-                {
-                    Debug.LogError(LevelManager.type);
-                    break;
-                }
-                default:
-                {
-                    Debug.LogError(LevelManager.type);
-                    break;
-                }
+                PlayerSpawner.Spawn(LevelManager.startedWith[0], spawnAt, rotation);
             }
 
-            if (LevelManager.currentLevel.sun)
-                sun.Do(LevelManager.currentLevel.sun);
+            if (level.sun)
+                sun.Do(level.sun);
         }
 
         Cursor.SetCursor(DataBase.Get().GameCursor, Vector2.one * 15, CursorMode.Auto);

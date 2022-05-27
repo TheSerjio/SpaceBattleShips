@@ -1,16 +1,9 @@
 public static class LevelManager
 {
-    public enum Type
-    {
-        Level,
-        Campaign
-    }
-
-    public static Type type;
     public static Level currentLevel;
     public static ShipData[] startedWith;
 
-    public static bool CanExitFromShip => currentLevel == null;
+    public static bool CanExitFromShip => currentLevel == null || currentLevel.IsCampaignLevel;
 
     public static void Complete(StarType star)
     {

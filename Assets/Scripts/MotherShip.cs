@@ -11,7 +11,7 @@ public sealed class MotherShip : Ship
 
     [SerializeField] private Transform[] spawners;
 
-    [SerializeField] private Data[] all;
+    public Data[] all;
 
     [SerializeField] private int MaxAlive;
 

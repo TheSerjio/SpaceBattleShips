@@ -54,9 +54,6 @@ EditorBuildSettings:
     path: Assets/Levels/Levels/Lvl 14.unity
     guid: 46719ff4180df00449ccd9c3a024ba9f
   - enabled: 1
-    path: Assets/Scenes/EpicBattle.unity
+    path: Assets/Scenes/CampaignScene.unity
     guid: 540bf1f2147aaa145bd564e91ba00a57
-  - enabled: 1
-    path: Assets/Levels/Campain/Cmp 1.unity
-    guid: ecc5d139ad04eaf459e0ca59bc8db7bd
   m_configObjects: {}

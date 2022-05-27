@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lvl 5
   m_EditorClassIdentifier: 
   scene: {fileID: 102900000, guid: b4f017372d794c74ab78f20fa814cec1, type: 3}
+  previous: {fileID: 0}
   ships:
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
   - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
@@ -21,6 +22,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
   - {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
   - {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
+  enemyes: []
   IsCampaignLevel: 0
   BuildingIndex: 6
   ResourcesIfWin: 0

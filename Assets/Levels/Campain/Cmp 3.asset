@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
   m_Name: Cmp 3
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 49b196368b7000748b9c45c1f14015cc, type: 3}
-  previous: {fileID: 0}
+  scene: {fileID: 102900000, guid: 540bf1f2147aaa145bd564e91ba00a57, type: 3}
+  previous: {fileID: 11400000, guid: 062b52ddae50ba5418a9298e3a7c8ed1, type: 2}
   ships: []
   enemyes:
   - count: 100
@@ -31,8 +31,8 @@ MonoBehaviour:
   - count: 5
     ship: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
   IsCampaignLevel: 1
-  BuildingIndex: 17
+  BuildingIndex: 16
   ResourcesIfWin: 100
   sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
-  Name: Campaign 1
+  Name: Campaign 3
   SpaceTexture: {fileID: 2800000, guid: a52e8994fd91a634a833e967a886a2f0, type: 3}

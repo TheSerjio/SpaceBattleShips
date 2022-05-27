@@ -30,13 +30,16 @@ public class MainMenu : MonoBehaviour
         EnemyCampaignIcons = EnemyCampaignIconsParent.GetComponentsInChildren<ShipWithCountButton>();
     }
 
-    private void CreateLevels(RectTransform panel,bool campaign)
+    private void CreateLevels(RectTransform panel, bool campaign, int count)
     {
         var levels = DataBase.Get().Levels;
         int y = 0;
-        foreach(var level in levels)
+        int i = 0;
+        foreach (var level in levels)
         {
             if (level.IsCampaignLevel != campaign)
+                continue;
+            if (i++ > count)
                 continue;
             var obj = Instantiate(levelButtonPrefab, panel);
             obj.GetComponent<RectTransform>().anchoredPosition = Vector2.down * ((y++) * 64 + 64);
@@ -49,8 +52,8 @@ public class MainMenu : MonoBehaviour
     {
         SoundSettingHandler.CheckInit();
         OpenPanel(mainPanel);
-        CreateLevels(levelPanel, false);
-        CreateLevels(campaignPanel, true);
+        CreateLevels(levelPanel, false, int.MaxValue);
+        CreateLevels(campaignPanel, true, FileSystem.GetCampaign().Count);
         foreach (var q in shipSelectionButtons)
             q.SetActive(false);
 
@@ -105,17 +108,19 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void OpenCampaignScene()
-    {
-        SceneManager.LoadScene(16);
-    }
-
     private void OnShipSelectClick(ShipData what)
     {
-        LevelManager.type = LevelManager.Type.Level;
-        LevelManager.currentLevel = currentLevel;
-        LevelManager.startedWith = new[] {what};
-        SceneManager.LoadScene(currentLevel.BuildingIndex);
+        LevelManager.startedWith = new[] { what };
+        LoadLevel();
+    }
+
+    public void LoadLevel()
+    {
+        if (currentLevel)
+        {
+            LevelManager.currentLevel = currentLevel;
+            SceneManager.LoadScene(currentLevel.BuildingIndex);
+        }
     }
 
     public void OpenPanel(GameObject what)
