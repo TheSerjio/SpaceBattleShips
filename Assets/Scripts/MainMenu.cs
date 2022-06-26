@@ -86,6 +86,15 @@ public class MainMenu : MonoBehaviour
                 else
                     icon.data = null;
             }
+            var enemyes = level.enemyes;
+            for(int i = 0; i < EnemyCampaignIcons.Length; i++)
+            {
+                var icon = EnemyCampaignIcons[i];
+                if (i < enemyes.Length)
+                    icon.data = enemyes[i];
+                else
+                    icon.data = null;
+            }
         }
         else
         {

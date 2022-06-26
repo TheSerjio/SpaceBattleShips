@@ -32,5 +32,7 @@ public class BuyShipPanel : Script
             text.text = $"{ship.Name} x{slider.value}\n{slider.value * ship.cost}$";
         else
             text.text = "Select ship";
+        if (Input.GetKeyDown(KeyCode.Escape))
+            gameObject.SetActive(false);
     }
 }
