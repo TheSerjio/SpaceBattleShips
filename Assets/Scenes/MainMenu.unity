@@ -416,7 +416,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3201e3eb5b6ee0c4492007dda8f90f65, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -682,7 +682,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5263f1af036aef4cb5ff83524591303, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2440,7 +2440,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 149310733}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.70000005
+  m_Size: 0.7
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3629,7 +3629,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 1f452880e9a17b644908766607cecfc5, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3656,7 +3656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb2dc9950492a94479d08297c2832931, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4155,7 +4155,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: f2a9d5ba2ca53ad46bea695e4f9bd4c6, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f27f8244e976a344aae46354b97bea96, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4622,7 +4622,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4649,7 +4649,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6bb6249eb144b9949ab048206cc170b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5634,7 +5634,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 8a7b33158d338e7418d11c331ad1d8e4, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5661,7 +5661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2d81949e692bbb4195739c68881bbf4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5897,7 +5897,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5924,7 +5924,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f9278c0b3b935e44aeb2eebdc6dae81, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6764,7 +6764,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: b5c8c35b405026f499708353419a6ecb, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -6791,7 +6791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53c9d6bdecd75b245a36fa24f87af1d0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7025,7 +7025,7 @@ MonoBehaviour:
         m_MethodName: ShipSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
           m_ObjectArgumentAssemblyTypeName: ShipData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -7052,7 +7052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84411f3a2467adf4b82f817baca3aad6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bf332062250f61469451767a2a636e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
