@@ -5,7 +5,7 @@ public sealed class MotherShip : Ship
     [System.Serializable]
     public sealed class Data
     {
-        public ushort count;
+        public int count;
         public ShipData ship;
     }
 

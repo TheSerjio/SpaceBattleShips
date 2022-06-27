@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : SINGLETON<MainMenu>
 {
     public Slider Sounds;
     public Slider Music;
@@ -15,8 +15,8 @@ public class MainMenu : MonoBehaviour
     public GameObject[] panels;
     public Text PlayerCampaignMoneyText;
     private Level currentLevel;
-    private int PlayerMoney_C;
-    private System.Collections.Generic.List<MotherShip.Data> PlayerShips_C;
+    public static int PlayerMoney_C;
+    public static System.Collections.Generic.List<MotherShip.Data> PlayerShips_C;
 
     public GameObject[] shipSelectionButtons;
 
@@ -78,14 +78,7 @@ public class MainMenu : MonoBehaviour
                 PlayerShips_C = q.Item1;
                 PlayerMoney_C = q.Item2;
             }
-            for (int i = 0; i < PlayerCampaignIcons.Length; i++)
-            {
-                var icon = PlayerCampaignIcons[i];
-                if (i < PlayerShips_C.Count)
-                    icon.data = PlayerShips_C[i];
-                else
-                    icon.data = null;
-            }
+            UpdatePlayerShipIcons();
             var enemyes = level.enemyes;
             for(int i = 0; i < EnemyCampaignIcons.Length; i++)
             {
@@ -114,6 +107,18 @@ public class MainMenu : MonoBehaviour
                 else
                     shipSelectionButtons[i].SetActive(false);
             }
+        }
+    }
+
+    public void UpdatePlayerShipIcons()
+    {
+        for (int i = 0; i < PlayerCampaignIcons.Length; i++)
+        {
+            var icon = PlayerCampaignIcons[i];
+            if (i < PlayerShips_C.Count)
+                icon.data = PlayerShips_C[i];
+            else
+                icon.data = null;
         }
     }
 

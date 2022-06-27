@@ -10,7 +10,7 @@ public class ShipData : ValidableScriptableObject
     }
 
     public string Name;
-    public ulong cost;
+    public int cost;
     public GameObject Prefab => prefab.gameObject;
     public Ship prefab;
     public Type type;
