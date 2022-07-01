@@ -47,6 +47,7 @@ public class GameCore : SINGLETON<GameCore>
             if (level.IsCampaignLevel)
             {
                 EnemyMotherShip.all = level.enemyes;
+                PlayerMotherShip.all = MainMenu.PlayerShips_C.ToArray();
             }
             else
             {
