@@ -16,7 +16,7 @@ MonoBehaviour:
   previous: {fileID: 0}
   ships: []
   enemyes:
-  - count: 39
+  - count: 100
     ship: {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
   - count: 50
     ship: {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}

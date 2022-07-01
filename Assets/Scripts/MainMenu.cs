@@ -70,7 +70,7 @@ public class MainMenu : SINGLETON<MainMenu>
             PlayerShips_C = new System.Collections.Generic.List<MotherShip.Data>();
             if (level.previous == null)
             {
-                PlayerMoney_C = 1000;
+                PlayerMoney_C = 5000;
             }
             else
             {
@@ -84,7 +84,7 @@ public class MainMenu : SINGLETON<MainMenu>
             {
                 var icon = EnemyCampaignIcons[i];
                 if (i < enemyes.Length)
-                    icon.data = enemyes[i];
+                    icon.data = new MotherShip.Data() { ship = enemyes[i].ship, count = enemyes[i].count };
                 else
                     icon.data = null;
             }

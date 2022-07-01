@@ -46,7 +46,10 @@ public class GameCore : SINGLETON<GameCore>
             print(level.Name);
             if (level.IsCampaignLevel)
             {
-                EnemyMotherShip.all = level.enemyes;
+                var e = new MotherShip.Data[level.enemyes.Length];
+                for (int i = 0; i < e.Length; i++)
+                    e[i] = new MotherShip.Data() { ship = level.enemyes[i].ship, count = level.enemyes[i].count };
+                EnemyMotherShip.all = e;
                 PlayerMotherShip.all = MainMenu.PlayerShips_C.ToArray();
             }
             else
