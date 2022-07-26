@@ -14,6 +14,22 @@ public class BuyShipPanel : Script
     {
         ship = data;
         icon.sprite = data ? data.Preview : null;
+        if (data)
+        {
+            var c = MainMenu.PlayerMoney_C / data.cost;
+            if (c == 0)
+            {
+                slider.maxValue = 1;
+            }
+            else
+            {
+                slider.maxValue = c;
+            }
+        }
+        else
+        {
+            slider.maxValue = 1;
+        }
     }
 
     public void OnEnable()
