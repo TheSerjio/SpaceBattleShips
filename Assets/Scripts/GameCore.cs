@@ -124,6 +124,8 @@ public class GameCore : SINGLETON<GameCore>
             foreach (var q in allTeams)
                 Counts[q] = 0;
 
+            yield return null;
+
             var anyPlayers = false;
             var anyEnemyes = false;
             
@@ -136,6 +138,8 @@ public class GameCore : SINGLETON<GameCore>
                     else
                         anyEnemyes = true;
                 }
+
+            yield return null;
 
             if (state == State.Nothing)
             {
@@ -168,13 +172,12 @@ public class GameCore : SINGLETON<GameCore>
                 }
             }
 
+            yield return null;
+
             var s = "";
             foreach (var q in Counts)
-            {
                 if (q.Value != 0)
                     s += $"{q.Key}:{q.Value}\n";
-                yield return null;
-            }
 
             GameUI.Self.ShipCount.text = s;
 
