@@ -32,7 +32,7 @@ MonoBehaviour:
     ship: {fileID: 11400000, guid: dfa7f41bb85214d4eac524edb0e3d551, type: 2}
   IsCampaignLevel: 1
   BuildingIndex: 16
-  StartingMoney: 5000
+  StartingMoney: 4000
   sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
   Name: Campaign 3
   SpaceTexture: {fileID: 2800000, guid: a52e8994fd91a634a833e967a886a2f0, type: 3}
