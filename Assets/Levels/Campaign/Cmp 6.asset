@@ -31,6 +31,6 @@ MonoBehaviour:
   IsCampaignLevel: 1
   BuildingIndex: 16
   StartingMoney: 7000
-  sun: {fileID: 11400000, guid: cee64c2b9a8e1e34ba6dd9eec7e4ced1, type: 2}
+  sun: {fileID: 11400000, guid: 362aca53c85e7c644aadafe490499023, type: 2}
   Name: Campaign 6
-  SpaceTexture: {fileID: 2800000, guid: a52e8994fd91a634a833e967a886a2f0, type: 3}
+  SpaceTexture: {fileID: 2800000, guid: 8c2ea8f7ee1dbb64fbefc88eb9d4f629, type: 3}
