@@ -465,6 +465,8 @@ MonoBehaviour:
   all: []
   MaxAlive: 244
   TotalCost: 0
+  SpawnRandomShips: 1
+  CoolDown: 0
 --- !u!114 &2557810732042206474
 MonoBehaviour:
   m_ObjectHideFlags: 0

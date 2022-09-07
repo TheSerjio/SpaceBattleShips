@@ -28,32 +28,34 @@ public sealed class MotherShip : Ship
 
     public float CoolDown;
 
+    public ShipData SpawningType;
+
     public void FixedUpdate()
     {
         alive ??= new Ship[MaxAlive];
-        if (all != null)
+        if (all == null)
+            return;
+
+        foreach (var spawner in spawners)
         {
-            foreach (var spawner in spawners)
-            {
-                for (var i = 0; i < MaxAlive; i++)
-                    if (!alive[i])
-                        foreach (var q in all)
-                            if (q.count != 0)
-                                if (q.ship)
-                                {
-                                    q.count--;
-                                    var ship = Instantiate(q.ship.Prefab, spawner.position, spawner.rotation).GetComponent<Ship>();
-                                    ship.team = team;
-                                    var point = spawner.position + (spawner.forward * 100);
-                                    ship.Warn(point, new Warning(false, 0));
-                                    ship.transform.LookAt(point);
-                                    alive[i] = ship;
-                                    Spawner.CreateFrame(ship);
-                                    ship.ImmuneUntil = Time.time + Utils.StartTime;
-                                    goto End;//because i cant use "return" or "break"
-                                }
-                End:;
-            }
+            for (var i = 0; i < MaxAlive; i++)
+                if (!alive[i])
+                    foreach (var q in all)
+                        if (q.count != 0)
+                            if (SpawnRandomShips || (q.ship == SpawningType))
+                            {
+                                q.count--;
+                                var ship = Instantiate(q.ship.Prefab, spawner.position, spawner.rotation).GetComponent<Ship>();
+                                ship.team = team;
+                                var point = spawner.position + (spawner.forward * 100);
+                                ship.Warn(point, new Warning(false, 0));
+                                ship.transform.LookAt(point);
+                                alive[i] = ship;
+                                Spawner.CreateFrame(ship);
+                                ship.ImmuneUntil = Time.time + Utils.StartTime;
+                                goto End;
+                            }
+             End:;
         }
     }
 
