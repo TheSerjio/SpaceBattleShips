@@ -33,22 +33,21 @@ public sealed class Spectator : SINGLETON<Spectator>
             transform.Rotate(0, 0, d * -zRotationSpeed, Space.Self);
         if (Input.GetMouseButtonDown(0))
             if (Input.GetKey(KeyCode.Space))
-                if (LevelManager.CanExitFromShip)
+            {
+                var mode = new Locating
                 {
-                    var mode = new Locating
-                    {
-                        Distance = Locating.Sorting.Any,
-                        InFrontOfMe = true,
-                        Size = Locating.Sorting.Any,
-                        Random = 0
-                    };
-                    var cam = GetComponent<Camera>();
-                    transform.LookAt(cam.ScreenToWorldPoint(Input.mousePosition + Vector3.forward));
-                    var tar = GameCore.Self.FindTargetShip(team, true, mode, transform);
-                    if (tar)
-                        if (!PlayerMark.Self)
-                            tar.gameObject.AddComponent<PlayerMark>();
-                }
+                    Distance = Locating.Sorting.Any,
+                    InFrontOfMe = true,
+                    Size = Locating.Sorting.Any,
+                    Random = 0
+                };
+                var cam = GetComponent<Camera>();
+                transform.LookAt(cam.ScreenToWorldPoint(Input.mousePosition + Vector3.forward));
+                var tar = GameCore.Self.FindTargetShip(team, true, mode, transform);
+                if (tar)
+                    if (!PlayerMark.Self)
+                        tar.gameObject.AddComponent<PlayerMark>();
+            }
     }
 
     public void ComeHere(Vector3 pos, Quaternion rot, float back)
