@@ -124,8 +124,8 @@ MonoBehaviour:
   MenuCursor: {fileID: 2800000, guid: 39600680565b67740aac5350166041c9, type: 3}
   GameCursor: {fileID: 2800000, guid: 54a35b163c808f24287ee11a135b1ef0, type: 3}
   PlayerColor: {r: 0.43867922, g: 0.91635215, b: 1, a: 1}
-  Defenders: {r: 1, g: 1, b: 1, a: 1}
-  Attackers: {r: 1, g: 0.82412124, b: 0.5235849, a: 1}
+  Defenders: {r: 0.15207744, g: 1, b: 0.10849059, a: 1}
+  Attackers: {r: 1, g: 0.31408858, b: 0.023584902, a: 1}
   Pirates: {r: 0.8189974, g: 0.514151, b: 1, a: 1}
   Transparent: {fileID: 7966619702581107187, guid: 0dba9d44be4c08b4196e4fe93a4e5f04, type: 3}
   Ships:

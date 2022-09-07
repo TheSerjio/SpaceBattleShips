@@ -19,7 +19,7 @@ public class MotherShipControlPanel : UnityEngine.UI.ToggleGroup
         else while (buttons.Count < player.all.Length)
             {
                 var b = Instantiate(prefab, transform);
-                b.GetComponent<RectTransform>().position += Vector3.right * 128 * buttons.Count;
+                b.GetComponent<RectTransform>().position += Vector3.right * 160 * buttons.Count;
                 var m = b.GetComponent<MSCPB>();
                 m.data = player.all[buttons.Count];
                 buttons.Add(m);
