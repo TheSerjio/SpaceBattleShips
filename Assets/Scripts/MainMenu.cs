@@ -39,8 +39,8 @@ public class MainMenu : SINGLETON<MainMenu>
         {
             if (level.IsCampaignLevel != campaign)
                 continue;
-            if (i++ > count)
-                continue;
+            //if (i++ > count) all campaign levels
+              //  continue;
             var obj = Instantiate(levelButtonPrefab, panel);
             obj.GetComponent<RectTransform>().anchoredPosition = Vector2.down * ((y++) * 64 + 64);
             obj.GetComponentInChildren<Text>().text = level.Name;
@@ -66,9 +66,10 @@ public class MainMenu : SINGLETON<MainMenu>
 
         if (level.IsCampaignLevel)
         {
-            var file = FileSystem.GetCampaign();
+            //var file = FileSystem.GetCampaign();
             PlayerShips_C = new System.Collections.Generic.List<MotherShip.Data>();
-            if (level.previous == null)
+            PlayerMoney_C = level.StartingMoney;
+            /*if (level.previous == null)
             {
                 PlayerMoney_C = 5000;
             }
@@ -77,7 +78,7 @@ public class MainMenu : SINGLETON<MainMenu>
                 var q = file[level.previous.BuildingIndex];
                 PlayerShips_C = q.Item1;
                 PlayerMoney_C = q.Item2;
-            }
+            }*/
             UpdatePlayerShipIcons();
             var enemyes = level.enemyes;
             for(int i = 0; i < EnemyCampaignIcons.Length; i++)

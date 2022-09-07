@@ -16,7 +16,7 @@ public class Level : ValidableScriptableObject
 
     public int BuildingIndex;
 
-    public int ResourcesIfWin;
+    public int StartingMoney;
 
     public override IEnumerable<Warning> Validate()
     {
