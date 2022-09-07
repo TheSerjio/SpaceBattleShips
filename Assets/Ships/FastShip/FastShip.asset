@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FastShip
   m_EditorClassIdentifier: 
   Name: Rocket
-  cost: 1000
+  cost: 120
   prefab: {fileID: 3664832532834273340, guid: c5f112100ea846e4db48075473acb3c3, type: 3}
   type: 0
   Preview: {fileID: 21300000, guid: f27f8244e976a344aae46354b97bea96, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SniperShip
   m_EditorClassIdentifier: 
   Name: Spipert
-  cost: 2000
+  cost: 200
   prefab: {fileID: 4094231551408845624, guid: 2c850e95a17208743a82e9fd47ede26b, type: 3}
   type: 0
   Preview: {fileID: 21300000, guid: 9bf332062250f61469451767a2a636e8, type: 3}
