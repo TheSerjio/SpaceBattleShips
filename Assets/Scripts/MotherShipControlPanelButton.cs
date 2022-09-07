@@ -13,5 +13,7 @@ public class MotherShipControlPanelButton : MonoBehaviour
     {
         icon.sprite = data.ship.Preview; 
         text.text = data.count.ToString();
+        if (data.count == 0)
+            Destroy(gameObject);
     }
 }
