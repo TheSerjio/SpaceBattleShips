@@ -188,23 +188,23 @@ public class GameCore : SINGLETON<GameCore>
     public Ship FindTargetShip(Team team, bool sameTeam, Locating mode, Transform from)
     {
         RemoveNull();
-        Ship q = null;
+        Ship result = null;
         var min = float.MaxValue;
         
         foreach (var ship in All)
             if (ship.team == team == sameTeam)
                 if (ship.team != Team.Derelict)
                 {
-                    var f = mode.Get(from, ship);
-                    if (min > f)
+                    var i = mode.Get(from, ship);
+                    if (min > i)
                     {
-                        min = f;
-                        q = ship;
+                        min = i;
+                        result = ship;
                     }
 
                 }
 
-        return q;
+        return result;
     }
 
     public void Explode(Vector3 where, float power, Team team)

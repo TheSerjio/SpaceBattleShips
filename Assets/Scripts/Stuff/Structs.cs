@@ -13,8 +13,7 @@ public struct Locating
 
     public float Get(Transform from, Ship tar)
     {
-        //small = first
-        float q = 1;
+        float q = 1;//smaller values mean target is more suitable
 
         var targetPos = tar.transform.position;
         switch (Distance)
