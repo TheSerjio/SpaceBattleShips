@@ -62,7 +62,7 @@ public class BuyShipPanel : Script
     public void Update()
     {
         if (ship)
-            text.text = $"{ship.Name} x{Number}\n{Number * ship.cost}$";
+            text.text = $"{ship.Name} x{Number}\n{Number * ship.cost}";
         else
             text.text = "Select ship";
         if (Input.GetKeyDown(KeyCode.Escape))
