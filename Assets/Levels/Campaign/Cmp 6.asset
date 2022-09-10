@@ -29,7 +29,7 @@ MonoBehaviour:
   - count: 50
     ship: {fileID: 11400000, guid: f36dbdfbb237c2041b04c3c7c89cc02e, type: 2}
   IsCampaignLevel: 1
-  BuildingIndex: 17
+  BuildingIndex: 16
   StartingMoney: 7000
   sun: {fileID: 11400000, guid: 362aca53c85e7c644aadafe490499023, type: 2}
   Name: Campaign 6

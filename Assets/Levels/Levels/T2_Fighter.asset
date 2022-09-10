@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
   enemyes: []
   IsCampaignLevel: 0
-  BuildingIndex: 2
+  BuildingIndex: 18
   StartingMoney: 0
   sun: {fileID: 11400000, guid: 0824abbd211e725438aac4fef2445651, type: 2}
   Name: Drone tutorial

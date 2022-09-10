@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   enemyes: []
   IsCampaignLevel: 0
-  BuildingIndex: 4
+  BuildingIndex: 3
   StartingMoney: 0
   sun: {fileID: 11400000, guid: 0824abbd211e725438aac4fef2445651, type: 2}
   Name: Level 2
