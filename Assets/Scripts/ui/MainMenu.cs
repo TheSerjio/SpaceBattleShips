@@ -93,6 +93,8 @@ public class MainMenu : SINGLETON<MainMenu>
         else
         {
             var stars = FileSystem.GetLevels().TryGetValue(level.BuildingIndex, out var some) ? some : System.Array.Empty<StarType>();
+            if (level.ships.Length == 1)
+                OnShipSelectClick(level.ships[0]);
             for (var i = 0; i < shipSelectionButtons.Length; i++)
             {
                 if (level.ships.Length > i)

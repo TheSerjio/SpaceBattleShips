@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
-  m_Name: Lvl 2
+  m_Name: T2_Fighter
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 40b56ea2baac66b488d0f33fbaf78cbc, type: 3}
+  scene: {fileID: 102900000, guid: ec47b15729f80b645a1b03b2acb7ab0b, type: 3}
   previous: {fileID: 0}
   ships:
-  - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
   - {fileID: 11400000, guid: 096fa054cf308ba41a8dee42c2867d5e, type: 2}
-  - {fileID: 11400000, guid: 544726e97160d614189cf0fd3bae48cd, type: 2}
-  - {fileID: 11400000, guid: a48443f1fdc53e1418cbe1a15009693b, type: 2}
   enemyes: []
   IsCampaignLevel: 0
-  BuildingIndex: 4
+  BuildingIndex: 2
   StartingMoney: 0
   sun: {fileID: 11400000, guid: 0824abbd211e725438aac4fef2445651, type: 2}
-  Name: Level 2
+  Name: Drone tutorial
   SpaceTexture: {fileID: 2800000, guid: 1acfd901a8a25404aad447d77387595b, type: 3}

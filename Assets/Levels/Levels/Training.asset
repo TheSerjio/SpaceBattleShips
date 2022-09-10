@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd7d218ea0d7a98498fe52c4b439dec3, type: 3}
-  m_Name: Training 2
+  m_Name: Training
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 026fc64730be92445b54a555fadfaa2c, type: 3}
+  scene: {fileID: 102900000, guid: ba941f136fd2e654b8fde665a1af5e72, type: 3}
   previous: {fileID: 0}
   ships:
   - {fileID: 11400000, guid: b20248d010d1d26429ade528cf71fccd, type: 2}
@@ -29,4 +29,4 @@ MonoBehaviour:
   StartingMoney: 0
   sun: {fileID: 11400000, guid: 0824abbd211e725438aac4fef2445651, type: 2}
   Name: Training
-  SpaceTexture: {fileID: 2800000, guid: a52e8994fd91a634a833e967a886a2f0, type: 3}
+  SpaceTexture: {fileID: 2800000, guid: 158e7cc720ff9d0469c28adb2e11fe27, type: 3}
