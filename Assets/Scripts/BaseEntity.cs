@@ -4,6 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class BaseEntity : Script
 {
+    /// <summary>
+    /// from mothership
+    /// </summary>
+    internal float ImmuneUntil;
     public Team team;
     public Rigidbody RB { get; private set; }
     public float size;

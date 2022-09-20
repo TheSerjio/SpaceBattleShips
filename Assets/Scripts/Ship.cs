@@ -68,7 +68,6 @@ public class Ship : BaseEntity
 
     public Targeting Target = new Targeting();
 
-    internal float ImmuneUntil;
     [Tooltip("Degrees per second")] [SerializeField]
     private float rotationSpeed;
     public float RotationSpeed => rotationSpeed;
@@ -277,7 +276,7 @@ public class Ship : BaseEntity
 
     public void OnCollisionEnter(Collision collision)
     {
-        var q = collision.collider.gameObject.GetComponentInParent<Ship>();
+        var q = collision.collider.gameObject.GetComponentInParent<BaseEntity>();
         if (q)
             if (Time.time > ImmuneUntil)
                 if (Time.time > q.ImmuneUntil)

@@ -121,6 +121,10 @@ MonoBehaviour:
   EffectProjectile: {fileID: 1768093384078227406, guid: f065c1c1c7dfd9e4ba11f602e6c5648c, type: 3}
   BetterTrailPrefab: {fileID: 6095212064625228426, guid: 467d73fd3e8960b4cac7f9830908d2d2, type: 3}
   PlayerShotSmallExplosion: {fileID: 7885659135052607821, guid: eef1119877ad8cf41a8929d7371d3bec, type: 3}
+  asteroids:
+  - {fileID: 6335824121850244088, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
+  - {fileID: 4490479438572314480, guid: 8735603ead1174b40882d3e68c844086, type: 3}
+  - {fileID: 4136236296034621090, guid: 6525698ce22990344ac630a860fa841e, type: 3}
   MenuCursor: {fileID: 2800000, guid: 39600680565b67740aac5350166041c9, type: 3}
   GameCursor: {fileID: 2800000, guid: 54a35b163c808f24287ee11a135b1ef0, type: 3}
   PlayerColor: {r: 0.43867922, g: 0.91635215, b: 1, a: 1}
