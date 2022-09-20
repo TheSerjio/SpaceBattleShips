@@ -586,8 +586,6 @@ MonoBehaviour:
     Size: 2
     InFrontOfMe: 1
     Random: 0.1
-  MinOptimalDistance: 2000
-  MaxOptimalDistance: 3000
   AccuracyShooting: 0.99999
   AimingQuality: 0
 --- !u!1 &2058199985504403819
@@ -1094,7 +1092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d51ec8186041b44dbf6b7df662c1c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 0
+  damagePerSecond: 0.1
   laserWidth: 0.25
   playerLaserWidth: 0.5
   EnergyPerSecond: 0

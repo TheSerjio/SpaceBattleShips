@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6335824121850244036}
   - component: {fileID: 6335824121850244039}
   - component: {fileID: 6335824121850244038}
-  - component: {fileID: 6335824121850244089}
+  - component: {fileID: 2327222489509460748}
   m_Layer: 0
   m_Name: A1
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6335824121850244088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 390.64694, y: 237.29742, z: -10.464936}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -117,8 +117,8 @@ MonoBehaviour:
   size: 2.75
   HP: 10
   Lifetime: 30
---- !u!135 &6335824121850244089
-SphereCollider:
+--- !u!64 &2327222489509460748
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,6 +127,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.2717011
-  m_Center: {x: -0.075160265, y: -0.0021466017, z: 0.07935554}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7937210088227896163, guid: c1a9a85473d586f46a064c4a1d56883a, type: 3}

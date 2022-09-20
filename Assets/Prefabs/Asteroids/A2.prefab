@@ -7,9 +7,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2327222489509460748, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -799132660160502541, guid: c1a9a85473d586f46a064c4a1d56883a, type: 3}
+    - target: {fileID: 2327222489509460748, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6335824121850244034, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335824121850244034, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335824121850244034, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6335824121850244034, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6335824121850244034, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,5 +91,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: A2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}

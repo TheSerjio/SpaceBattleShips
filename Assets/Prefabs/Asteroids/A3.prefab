@@ -63,9 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: A3
       objectReference: {fileID: 0}
-    - target: {fileID: 4490479438572314481, guid: 8735603ead1174b40882d3e68c844086, type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5329950508506582916, guid: 8735603ead1174b40882d3e68c844086, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -8124920646906388119, guid: c1a9a85473d586f46a064c4a1d56883a, type: 3}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8735603ead1174b40882d3e68c844086, type: 3}
