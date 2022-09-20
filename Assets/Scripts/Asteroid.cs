@@ -8,7 +8,10 @@ public class Asteroid : BaseEntity
     {
         HP -= dmg;
         if (HP <= 0)
+        {
+            Destroy(Instantiate(DataBase.Get().AsteroidExplosion, transform.position, Quaternion.identity), 10);
             Destroy(gameObject);
+        }
     }
 
     protected override void OnEntityAwake()

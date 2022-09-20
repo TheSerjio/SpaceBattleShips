@@ -121,6 +121,7 @@ MonoBehaviour:
   EffectProjectile: {fileID: 1768093384078227406, guid: f065c1c1c7dfd9e4ba11f602e6c5648c, type: 3}
   BetterTrailPrefab: {fileID: 6095212064625228426, guid: 467d73fd3e8960b4cac7f9830908d2d2, type: 3}
   PlayerShotSmallExplosion: {fileID: 7885659135052607821, guid: eef1119877ad8cf41a8929d7371d3bec, type: 3}
+  AsteroidExplosion: {fileID: 6220865246766937617, guid: d05d69d5c2ab2a14c9e85b0b85d726c3, type: 3}
   asteroids:
   - {fileID: 6335824121850244088, guid: 2b950a332278dff42abe33809dd3fb50, type: 3}
   - {fileID: 4490479438572314480, guid: 8735603ead1174b40882d3e68c844086, type: 3}

@@ -30,6 +30,7 @@ public sealed class DataBase : ScriptableObject
     public GameObject EffectProjectile;
     public GameObject BetterTrailPrefab;
     public GameObject PlayerShotSmallExplosion;
+    public GameObject AsteroidExplosion;
     public GameObject[] asteroids;
 
     public Texture2D MenuCursor;
